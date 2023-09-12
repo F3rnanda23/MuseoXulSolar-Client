@@ -52,6 +52,7 @@
     margin-top: 33px;
     margin-right: 30px;
     transition: transform 0.3s ease, background-color 0.3s ease; 
+}    
 .botonNav:hover {
     transform: scale(1.1); 
     background-image: linear-gradient(#e46008, #fad5d5); 
