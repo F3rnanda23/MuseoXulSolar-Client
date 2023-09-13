@@ -7,8 +7,14 @@ export default {
             gray: {
               100: 'rgb(235, 232, 231)',
               200:'#E5E5E5',
+            },
+            orange: {
+              200: 'rgb(240, 126, 45)', 
             }
-          }
+          }, 
+          // fontFamily: {
+          //   custom: ['Futura light bt'], // Reemplaza 'MiFuentePersonalizada'
+          // },
     },
   },
   plugins: [],
