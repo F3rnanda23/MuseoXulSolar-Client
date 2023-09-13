@@ -12,9 +12,10 @@ export default {
               200: 'rgb(240, 126, 45)', 
             }
           }, 
-          // fontFamily: {
-          //   custom: ['Futura light bt'], // Reemplaza 'MiFuentePersonalizada'
-          // },
+          fontFamily: {
+            futura: ['"Futura Book font"', 'sans'],
+            sans: ['"Futura Book font"', 'sans'],
+          },
     },
   },
   plugins: [],
