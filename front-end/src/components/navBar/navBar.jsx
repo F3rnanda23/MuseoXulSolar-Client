@@ -1,12 +1,12 @@
-import { Link, useNavigate } from  'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import museoLogo from '../../imagenes/navbar/museo-logo.png';
 import style from './navBar.module.css';
 
-const NavBar = () =>{
+const NavBar = () => {
     const navigate = useNavigate();
-  
-  
-      return(
+
+
+    return (
         <nav className={style.containerNav}>
             <div className={style.logoDelMuseo}>
                 <img src={museoLogo} alt="Logo del museo" />
@@ -35,11 +35,11 @@ const NavBar = () =>{
             </ul>
 
             <button className={style.botonNav} onClick={() => navigate('/login')}>Iniciar Sesión</button>
-   
-              
+
+
         </nav>
-      )
-  
-  }
-  
-  export default NavBar;
+    )
+
+}
+
+export default NavBar;
