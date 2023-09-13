@@ -13,9 +13,8 @@ export default {
             }
           }, 
           fontFamily: {
-            futura: ['Futura', 'sans'],
-            // light: ['Futura Light font', 'sans'],
-            sans: ['Futura', 'sans'],
+            futura: ['"Futura Book font"', 'sans'],
+            sans: ['"Futura Book font"', 'sans'],
           },
     },
   },
