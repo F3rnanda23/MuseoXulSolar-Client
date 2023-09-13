@@ -9,10 +9,12 @@ export default {
               200:'#E5E5E5',
             },
             orange: {
-              200: 'rgb(240, 126, 45)',
-              
+              200: 'rgb(240, 126, 45)', 
             }
-          }
+          }, 
+          // fontFamily: {
+          //   custom: ['Futura light bt'], // Reemplaza 'MiFuentePersonalizada'
+          // },
     },
   },
   plugins: [],
