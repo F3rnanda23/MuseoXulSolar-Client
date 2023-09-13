@@ -1,13 +1,15 @@
 import NavBar from '../../components/navBar/NavBar';
+import Footer from '../../components/footer/footer';
 
 const Home = () =>{
 
     return (
-        <div>
+        <div className="h-screen w-screen">
 
 
 
             <NavBar />
+            <Footer/>
 
         </div>
     )
