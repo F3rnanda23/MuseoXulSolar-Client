@@ -13,8 +13,8 @@ export default {
             }
           }, 
           fontFamily: {
-            futura: ['"Futura Book font"', 'sans'],
-            sans: ['"Futura Book font"', 'sans'],
+            futura: ['"Futura Bk BT"', 'sans'],
+            sans: ['"Futura Bk BT"', 'sans'],
           },
     },
   },
