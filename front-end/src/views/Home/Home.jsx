@@ -5,7 +5,7 @@ import Destacados from '../../components/destacados/Destacados';
 const Home = () =>{
 
     return (
-        <div className="h-screen w-screen">
+        <div className="h-screen ">
 
             <NavBar />
             <Destacados />

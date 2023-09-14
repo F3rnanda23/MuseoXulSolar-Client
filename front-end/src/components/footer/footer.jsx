@@ -3,7 +3,7 @@ import logofooter from '../../imagenes/footer/logosfooter.png';
 const Footer = () => {
     return (
 
-        <footer className="bg-gray-100 h-1/2 w-screen mt-20">
+        <footer className="bg-gray-100 h-1/2  mt-20">
             <div className="h-1/3 flex flex-row items-center justify-center">
 
                 <img src={logofooter} alt="Xul Solar" className="h-full w-1/8 mx-2" />
