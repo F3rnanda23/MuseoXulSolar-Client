@@ -1,24 +1,30 @@
 export function LoginForm() {
-    return(
-        <div className="bg-white border p-8">
-                <h2 className="text-center">Iniciar sesión</h2>
-            <div className="flex flex-col items-center justify-center m-5">
-                <div className="m-5">
-                    <input className='border p-1'
-                    type="text" placeholder="email" />
+    return (
+        <div className="border-4 border-black rounded p-8">
+            <h2 className="mt-5 text-center text-2xl font-semibold">Iniciar sesión</h2>
+            <div className="flex flex-col items-center justify-center p-8" >
+                <div className="w-full m-5">
+                    <input className='w-full border p-2 border-gray-400 rounded'
+                        type="text" placeholder="correo electronico" />
                 </div>
-                <div className="m-5">
-                    <input className='border p-1'
-                    type="text" placeholder="password" />
+                <div className="w-full m-5">
+                    <input className='w-full border p-2 border-gray-400 rounded'
+                        type="text" placeholder="contraseña" />
+                </div>
+                <div className="mb-5">
+                    <button>¿olvidaste tu contraseña?</button>
+                </div>
+                <div className="w-full">
+                    <button className="w-full border border-black rounded p-2 text-xl">iniciar sesion</button>
+                </div>
+                <div className="mt-3 ">
+                    <p className="font-semibold">O</p>
                 </div>
                 <div>
-                    <p>or</p>
-                </div>
-                <div className="w-1/6 " >
-                    <button className="flex items-center justify-center m-5">
-                        <img className="w-1/5" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
+                    <button className="flex items-center border border-black rounded p-2 mt-5 h-100 space-x-4">
+                        <img className="w-12" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
+                        <span className="text-center">iniciar sesion con Google</span>
                     </button>
-                    <p className="text-center">Sign in with Google</p>
                 </div>
             </div>
         </div>
