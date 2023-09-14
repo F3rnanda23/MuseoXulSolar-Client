@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Routes, Route  } from "react-router-dom";
+import { Cloudinary } from '@cloudinary/url-gen';
 
 import Home from './views/Home/Home';
 import Visits from './views/Visits/Visits';
@@ -19,12 +20,19 @@ import './App.css'
 
 function App() {
   
+  const [cloudinaryInstance, setCloudinaryInstance] = useState(null);
+
+  useEffect(() => {
+    const cld = new Cloudinary({ cloud: { cloudName: 'dtsmy1ksn' } });
+    setCloudinaryInstance(cld);
+  }, []);
+
 
   return (
       <div>
         <Routes>
 
-          <Route path="/" element={<Home />}  />
+          <Route path="/" element={<Home cloudinary={cloudinaryInstance}/>}  />
           <Route path="/login" element={<Login />}  />
           <Route path="/visits" element={<Visits />}  />
           <Route path="/Biography" element={<Biography/>}  />
