@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Image } from 'cloudinary-react';
-import React from 'react';
+
 
 const Gallery = ({ cloudinary }) => {
 
