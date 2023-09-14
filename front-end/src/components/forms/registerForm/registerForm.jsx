@@ -42,3 +42,9 @@ export function registerForm (){
     )
 
 }
+
+// "name": "Genaro",
+//             "birthday":"12-09-18",
+//             "phone": "0810-999-8888",
+//             "password": "pepito123",
+//             "admin": true

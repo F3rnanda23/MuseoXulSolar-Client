@@ -15,6 +15,7 @@ import Activities from './views/Activities/Activities';
 import Events from './views/Events/Events'
 import Donations from './views/Donations/Donations'
 import Faqs from './views/FAQS/FAQS';
+import { Register } from './views/Register/Register';
 
 import './App.css'
 
@@ -34,6 +35,7 @@ function App() {
 
           <Route path="/" element={<Home cloudinary={cloudinaryInstance}/>}  />
           <Route path="/login" element={<Login />}  />
+          <Route path="/register" element={<Register />}  />
           <Route path="/visits" element={<Visits />}  />
           <Route path="/Biography" element={<Biography/>}  />
           <Route path="/Store" element={<Store />}  />
