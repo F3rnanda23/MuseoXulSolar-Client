@@ -1,9 +1,11 @@
 import { useState } from "react"
+import { useNavigate } from "react-router"
 
 
 export function LoginForm() {
 
     const [visible, setVisible] = useState(false)
+    const navigate = useNavigate();
 
     const showPassword = () => {
         !visible ? setVisible(true) 
@@ -44,7 +46,7 @@ export function LoginForm() {
                 </div>
                 <div>
                     <span className="text-white mr-2">¿No es un miembro?</span>
-                    <button className="text-orange-400 hover:text-orange-500" onClick={()=>{}}>Registrate</button>
+                    <button className="text-orange-400 hover:text-orange-500" onClick={()=> useNavigate('/register')}>Registrate</button>
                 </div>
             </div>
         </div>
