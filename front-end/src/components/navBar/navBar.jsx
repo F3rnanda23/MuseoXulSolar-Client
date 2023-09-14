@@ -14,19 +14,19 @@ const NavBar = () => {
 
             <ul className={style.containerSecciones}>
                 <li className={style.secciones}>
-                    <Link to="/visitas">Visitas</Link>
+                    <Link to="/Visits">Visitas</Link>
                 </li>
 
                 <li className={style.secciones}>
-                    <Link to="/actividades">Actividades</Link>
+                    <Link to="/Activities">Actividades</Link>
                 </li>
 
                 <li className={style.secciones}>
-                    <Link to="/eventos">Eventos</Link>
+                    <Link to="/Events">Eventos</Link>
                 </li>
 
                 <li className={style.secciones}>
-                    <Link to="/patrocinios">Patrocinios</Link>
+                    <Link to="/Donations">Patrocinios</Link>
                 </li>
 
                 <li className={style.secciones}>
