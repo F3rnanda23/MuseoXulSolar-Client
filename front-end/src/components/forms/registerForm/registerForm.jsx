@@ -1,8 +1,9 @@
 import axios from 'axios';
 import { useState } from "react";
+import { useNavigate } from "react-router"
 
 export function RegisterForm (){
-
+    // const navigate = useNavigate();
     const [visible, setVisible] = useState(false)
 
     const [form, setForm] = useState({
@@ -33,6 +34,16 @@ export function RegisterForm (){
             alert(error.response.data)
         }
         
+    }
+
+    const googleHandler = async () => {
+        try {
+            const endpoint = 'http://localhost:3001/auth/google'
+            await axios.get(endpoint)
+            
+        } catch (error) {
+            alert(error)
+        }
     }
     
     return (
@@ -101,7 +112,9 @@ export function RegisterForm (){
                     <hr className="border-gray-400" />
                 </div>
                 <div className="w-full">
-                    <button  className="w-full flex items-center justify-center bg-white border border-gray-400 rounded p-2 mt-2  space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
+                    <button
+                        onClick={googleHandler}
+                        className="w-full flex items-center justify-center bg-white border border-gray-400 rounded p-2 mt-2  space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
                         <img className="w-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
                         <span className="text-center">registrarse con Google</span>
                     </button>
