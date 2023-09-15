@@ -16,9 +16,9 @@ import  escafandraXul from '../../imagenes/destacados/escafandraXul.png';
 
 const Destacados = () =>{
     return(
-        <div class=" h-[800px]" >
+        <div className=" h-[800px] bg-gray-100" >
 
-            <span class="flex items-center justify-center mt-[20px]">DESTACADO</span>
+            {/* <span class="flex items-center justify-center mt-[20px]"></span> */}
           
              <div class="ml-[30px] mr-[50px] mt-[10px] h-[800px] border-solid border-2 border-white-500 bg-gray-100 ">
                 <div class="grid grid-cols-4 grid-rows-4 gap-4 mr-[30px] ml-[30px] mt-[20px] mb-[20px]" >
