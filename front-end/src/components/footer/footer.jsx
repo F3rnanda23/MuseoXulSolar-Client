@@ -11,7 +11,7 @@ const Footer = () => {
 
   return (
 
-    <footer className="bg-gray-100 h-2/3 w-screen mt-20">
+    <footer className="bg-gray-100 h-2/3 w-full mt-20">
 
       <div className="flex flex-row ml-20">
 
