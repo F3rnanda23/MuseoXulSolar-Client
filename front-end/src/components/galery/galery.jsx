@@ -28,7 +28,7 @@ const Gallery = () => {
   }
 
   return (
-    <div className="relative flex flex-col bg-gray-100 mt-10">
+    <div className="relative flex flex-col bg-gray-100">
       <div className="relative flex items-center">
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100"

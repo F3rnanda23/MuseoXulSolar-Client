@@ -20,7 +20,7 @@
     list-style: none; 
     margin-bottom: 20px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
     font-family: sans-serif;
 }
 .secciones:hover {
@@ -29,6 +29,7 @@
 
 
 .secciones a {
+    font-family: "Futura Bk BT";
     text-decoration: none;
     color: rgb(219, 109, 6);
 }

@@ -8,7 +8,7 @@ import Video from '../../components/video/Video';
 const Home = () =>{
 
     return (
-        <div className="h-screen">
+        <div className="h-screen bg-gray-100">
 
             <NavBar />
             <Video/>
