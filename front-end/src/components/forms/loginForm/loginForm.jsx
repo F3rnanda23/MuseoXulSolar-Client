@@ -46,7 +46,7 @@ export function LoginForm() {
                 </div>
                 <div>
                     <span className="text-white mr-2">¿No es un miembro?</span>
-                    <button className="text-orange-400 hover:text-orange-500" onClick={()=> useNavigate('/register')}>Registrate</button>
+                    <button className="text-orange-400 hover:text-orange-500" onClick={()=> navigate('/register')}>Registrate</button>
                 </div>
             </div>
         </div>
