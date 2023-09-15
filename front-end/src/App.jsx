@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Routes, Route  } from "react-router-dom";
 import { Cloudinary } from '@cloudinary/url-gen';
 
