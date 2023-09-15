@@ -24,8 +24,9 @@ export function RegisterForm (){
 
     const handleSubmit = async () => {
         try {
-            const endpoint = ''
-            const response = await axios.post(endpoint , form)
+            const endpoint = 'http://localhost:3001/usuario/crear'
+            const response = await axios.post(endpoint, form)
+            console.log(response.data)
             if(response.data) alert('Usuario Creado')
         } catch (error) {
             alert(error.response.data)
@@ -36,7 +37,8 @@ export function RegisterForm (){
     return (
         <div className="rounded p-8 py-2 bg-gray-700 ">
             <h2 className="mt-2 text-center text-2xl font-semibold text-white">REGISTRATE</h2>
-            <div className="flex flex-col items-center justify-center " >
+            <form onSubmit={handleSubmit}
+                className="flex flex-col items-center justify-center " >
                 <div className=" w-full m-2">
                     <label className="text-white text-sm">Nombre:</label>
                     <input 
@@ -90,7 +92,7 @@ export function RegisterForm (){
                 </div>
 
                 <div className="w-full">
-                    <button className="w-full mt-3 rounded p-2 text-white bg-gray-900 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">REGISTRARSE</button>
+                    <button type='submit' className="w-full mt-3 rounded p-2 text-white bg-gray-900 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">REGISTRARSE</button>
                 </div>
                 <div className="mt-2 grid grid-cols-3 items-center text-gray-400 gap-1 w-full">
                     <hr className="border-gray-400"/>
@@ -98,12 +100,12 @@ export function RegisterForm (){
                     <hr className="border-gray-400" />
                 </div>
                 <div className="w-full">
-                    <button onClick={handleSubmit} className="w-full flex items-center justify-center bg-white border border-gray-400 rounded p-2 mt-2  space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
+                    <button  className="w-full flex items-center justify-center bg-white border border-gray-400 rounded p-2 mt-2  space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
                         <img className="w-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
                         <span className="text-center">registrarse con Google</span>
                     </button>
                 </div>
-            </div>
+            </form>
         </div>
     )
 
