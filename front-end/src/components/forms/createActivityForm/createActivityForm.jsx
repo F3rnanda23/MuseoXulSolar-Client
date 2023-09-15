@@ -1,11 +1,8 @@
 import React from "react";
 import { useState } from 'react';
 import { Link  } from 'react-router-dom';
-import {  createActivities } from '../../../redux/actions/actions';
 import { useDispatch } from 'react-redux';
-
-
-
+import {  createActivities } from '../../../redux/actions/actions';
 
 
 
@@ -37,7 +34,7 @@ const CreateActivityForm= () =>{
         
         dispatch(createActivities(activitiesData));
 
-        setActivitiesData({ // Limpia los inputs
+        setActivitiesData({ 
             image: '',
             name:'',
             date: '',
@@ -54,24 +51,31 @@ const CreateActivityForm= () =>{
                     <h2 >Crear actividad </h2>
 
                     <div class="">
-                        <label htmlFor="nombre" class="">Nombre de la actividad: </label>
+                        <label htmlFor="image" className="">Imagen</label>
                         <br />
-                        <input type="nombre" name="nombre" id="nombre" class="border-solid border-2 border-orange-500" value={activitiesData.name} onChange={handlerChange} />
+                        <input type="text" name="image" id="image" class="border-solid border-2 border-orange-500" value={activitiesData.image} onChange={handlerChange} />
+
+                        <br/>
+                        <br/>
+
+                        <label htmlFor="name" class="">Nombre de la actividad: </label>
+                        <br />
+                        <input type="text" name="name" id="name" class="border-solid border-2 border-orange-500" value={activitiesData.name} onChange={handlerChange} />
                         
 
                         <br/>
                         <br/>
                         
-                        <label htmlFor="fecha" class="" >Fecha: </label>
+                        <label htmlFor="date" class="" >Fecha: </label>
                         <br />
-                        <input type="fecha"  name="fecha" id="fecha"  class="border-solid border-2 border-orange-500" value={activitiesData.date} onChange={handlerChange} />
+                        <input type="date"  name="date" id="date"  class="border-solid border-2 border-orange-500" value={activitiesData.date} onChange={handlerChange} />
                         
                         <br/>
                         <br/>
                         
-                        <label htmlFor="descripcion" class="">Descripción: </label>
+                        <label htmlFor="description" class="">Descripción: </label>
                         <br />
-                        <input type="descripcion"  name="descripcion"  id="descripcion"   class="border-solid border-2 border-orange-500" value={activitiesData.description} onChange={handlerChange} />
+                        <input type="text"  name="description"  id="description"   class="border-solid border-2 border-orange-500" value={activitiesData.description} onChange={handlerChange} />
                         
                         <br/>
                         <br/>
@@ -88,9 +92,6 @@ const CreateActivityForm= () =>{
                     </div>
 
                 
-            
-            
-
             {/* //componente modal */}
                 {/* <TourismModal isOpen={modalOfState} onClose={() => dispatch({type: MODAL_TOURISM, payload: false}) } /> */}
 

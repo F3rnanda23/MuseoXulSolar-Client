@@ -3,7 +3,7 @@ import { GET_ALL_ACTIVITIES, CREATE_ACTIVITY } from '../actions/actions';
 
 const initialState = {
 
-    activities: {},
+    activities: []
     
  };
 
