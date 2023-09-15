@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
-
+import Gallery from '../../components/galery/galery';
 import NavBar from '../../components/navBar/NavBar';
 import Footer from '../../components/footer/footer';
-import Gallery from '../../components/galery/galery';
 import Destacados from '../../components/destacados/Destacados';
 
 const Home = () =>{
