@@ -142,10 +142,10 @@ export default Destacados;
 
 // const Destacados = () =>{
 //     return(
-//         <div class="grid grid-cols-4 gap-4" >
+//         <div className="grid grid-cols-4 gap-4" >
 
 //             <a  href="https://www.xulsolar.org.ar/bibliografia.html" >
-//                 <img src={bibliografia} alt="Descripción de la imagen" class="h-96" />
+//                 <img src={bibliografia} alt="Descripción de la imagen" className="h-96" />
 //                 <p>BIBLIOGRAFÍA</p>
 //             </a>
 
@@ -156,7 +156,7 @@ export default Destacados;
 
 
 //             <a href="https://www.xulsolar.org.ar/catalogo.html">
-//                 <img src={catalogoRazonado} alt="Descripción de la imagen" class="h-60" />
+//                 <img src={catalogoRazonado} alt="Descripción de la imagen" className="h-60" />
 //                 <p>CATÁLOGO RAZONADO</p>
 //             </a>
 
@@ -168,7 +168,7 @@ export default Destacados;
 
 
 //             <a href="https://www.xulsolar.org.ar/educacion.html">
-//                 <img src={educacion} alt="Descripción de la imagen" class="h-72" />
+//                 <img src={educacion} alt="Descripción de la imagen" className="h-72" />
 //                 <p>EDUCACIÓN</p>
 //             </a>
 
