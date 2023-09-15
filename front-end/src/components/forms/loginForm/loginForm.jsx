@@ -1,5 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import Cookies from "universal-cookie";
+import axios from "axios";
+
 
 
 export function LoginForm() {
@@ -11,6 +14,7 @@ export function LoginForm() {
         email: '',
         password: ''
     })
+    const cookies = new Cookies();
 
     const showPassword = () => {
         !visible ? setVisible(true)
@@ -25,9 +29,18 @@ export function LoginForm() {
             const endpoint = 'http://localhost:3001/usuario/login'
             const response = await axios.post(endpoint, form)
             console.log(response.data)
-            if(response.data) alert('Usuario Creado')
+            const {data} = response
+            if(data.success){
+                cookies.set('id', data.id, {path: '/'})
+                cookies.set('name', data.name, {path: '/'})
+                cookies.set('email', data.email, {path: '/'})
+                alert('Usuario Creado')
+                navigate('/')  
+            }else{
+                alert('El usuario o la contraseña son incorrectos')
+            } 
         } catch (error) {
-            alert(error.response.data)
+            alert(error);
         }
         
     }
@@ -61,7 +74,7 @@ export function LoginForm() {
                 </div>
                 <div className="w-full">
                     <button 
-                        onClick={() => handleSubmit}
+                        onClick={handleSubmit}
                         className="w-full border border-black rounded p-2 text-white bg-gray-900 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">INICIAR SESIÓN</button>
                 </div>
                 <div className="mt-5 grid grid-cols-3 items-center text-gray-400 gap-1 w-full">
