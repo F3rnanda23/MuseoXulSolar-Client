@@ -11,9 +11,9 @@ const Footer = () => {
 
   return (
 
-    <footer className="bg-gray-100 h-2/3 w-full mt-20">
+    <footer className="bg-gray-100 h-2/3 w-full">
 
-      <div className="flex flex-row ml-20">
+      <div className="flex flex-row ml-20 bg-gray-100">
 
         <div className="flex flex-col w-1/4">
           <h5 className="text-orange-200 font-bold mt-5">El Museo</h5>
