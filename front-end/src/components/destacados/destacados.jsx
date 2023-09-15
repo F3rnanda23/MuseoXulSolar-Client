@@ -13,26 +13,25 @@ import  serpienteXul from '../../imagenes/destacados/serpienteXUl.png';
 
 const Destacados = () =>{
     return(
-        <div class="overflow-x-hidden" >
+        <div class=" h-[800px]" >
 
             <span class="flex items-center justify-center mt-[20px]">DESTACADO</span>
-
-            
-            <div class="ml-[30px] mr-[50px] mt-[10px] border-solid border-2 border-white-500 bg-gray-100">
-                <div class="grid grid-cols-4 grid-rows-3 gap-4 mr-[30px] ml-[30px] mt-[20px] mb-[20px] " >
+          
+             <div class="ml-[30px] mr-[50px] mt-[10px] h-[800px] border-solid border-2 border-white-500 bg-gray-100">
+                <div class="grid grid-cols-4 grid-rows-4 gap-4 mr-[30px] ml-[30px] mt-[20px] mb-[20px] " >
                   
                     <div>
-                        <img src={firmaXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[65px]" />
+                        <img src={firmaXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[0px]" />
                     </div>
 
-                    <div>
+                    <div class="relative  h-[300px] mt-[65px]">
                         <a href="https://www.xulsolar.org.ar/bibliografia.html" class="relative group">
-                            <img src={bibliografia} alt="Descripción de la imagen" class="w-full h-[300px] mt-[65px] object-cover transition-transform transform group-hover:scale-105" />
+                            <img src={bibliografia} alt="Descripción de la imagen" class="w-full h-[300px] mt-[0px] object-cover transition-transform transform group-hover:scale-105" />
                             <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">BIBLIOGRAFÍA</p>
                         </a>
                     </div>
                     
-                    <div>
+                    <div class="relative   h-[200px] mt-[30px]">
                         <a href="https://www.xulsolar.org.ar/biografia.html" class="relative group">
                             <img src={biografiaXulSolar} alt="Descripción de la imagen" class="w-full h-[200px] object-cover transition-transform transform group-hover:scale-105"/>
                             <p class="absolute bottom-0 left-0 right-0 px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 text-center">BIBLIOGRAFÍA XUL SOLAR</p>
@@ -43,60 +42,80 @@ const Destacados = () =>{
                         <img src={carasXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[65px]" />
                     </div>
                     
-                    <div>
+                    <div class="relative h-[150px] mt-[-270px]">
                         <a href="https://www.xulsolar.org.ar/catalogo.html" class="relative group">
-                            <img src={catalogoRazonado} alt="Descripción de la imagen"  class="w-full h-[150px] mt-[0px] object-cover transition-transform transform group-hover:scale-105" />
-                            <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">CATÁLOGO RAZONADO</p>
+                            <img src={catalogoRazonado} alt="Descripción de la imagen"  class="w-full h-[250px] mt-[0px] object-cover transition-transform transform group-hover:scale-105" />
+                            <p class="absolute  w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100  mt-[-35px]">CATÁLOGO RAZONADO</p>
                         </a>
                     </div>
                 
-                    <div>
-                        <img src={carasXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[65px]" />
+                     <div class="mt-[-3px]">
+                        <img src={carasXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[0px]" />
                     </div>
+                    
 
-                    <div>
+                    <div class="relative h-[200px] mt-[-135px] ">
                         <a href="https://www.xulsolar.org.ar/coleccion.html" class="relative group">
-                            <img src={coleccionPermanente} alt="Descripción de la imagen"   class="w-full h-[200px] mt-[50px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <img src={coleccionPermanente} alt="Descripción de la imagen"   class="w-full h-[200px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
                             <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">COLECCIÓN PERMANENTE</p>
                         </a>
                     </div>
 
-                
-                    <div>
-                        <a href="https://www.xulsolar.org.ar/educacion.html" class="relative group">
-                            <img src={educacion} alt="Descripción de la imagen"  class="w-full h-[180px] mt-[-1px] object-cover transition-transform transform group-hover:scale-105" />
-                            <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EDUCACIÓN</p>
-                        </a>
-                    </div>
-
-                    
-                    <div>
-                        <a href="https://www.xulsolar.org.ar/museo.html" class="relative group">
-                            <img src={elMuseo} alt="Descripción de la imagen"   class="w-full h-[300px] mt-[-228px] object-cover transition-transform transform group-hover:scale-105"/>
-                            <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EL MUSEO</p>
-                        </a>
-                    </div>
-                    
-                    <div>
+                    <div class="relative   h-[300px] mt-[-205px]">
                         <a href="https://www.xulsolar.org.ar/exposiciones.html" class="relative group">
-                            <img src={exposiciones} alt="Descripción de la imagen"   class="w-full h-[300px] mt-[-215px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <img src={exposiciones} alt="Descripción de la imagen"   class="w-full h-[300px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
                             <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EXPOSICIONES</p>
                         </a>
                     </div>
 
+                   
                 
-                    <div>
+                    <div class="relative  h-[180px]  mt-[-470px]">
+                        <a href="https://www.xulsolar.org.ar/educacion.html" class="relative group">
+                            <img src={educacion} alt="Descripción de la imagen"  class="w-full h-[180px] mt-[85px] object-cover transition-transform transform group-hover:scale-105" />
+                            <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 ">EDUCACIÓN</p>
+                        </a>
+                    </div>
+
+                    
+                    <div class="relative  h-[300px] mt-[-270px] ">
+                        <a href="https://www.xulsolar.org.ar/museo.html" class="relative group">
+                            <img src={elMuseo} alt="Descripción de la imagen"   class="w-full h-[250px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EL MUSEO</p>
+                        </a>
+                    </div>
+
+                    
+                    
+                    <div class="relative  h-[100px] mt-[-300px]">
+                        <img src={serpienteXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[0px]" />
+                    </div>
+
+                
+                    <div class="relative h-[200px] mt-[-270px]" >
                         <a href="https://www.xulsolar.org.ar/testimonios.html" class="relative group">
-                            <img src={testimonio} alt="Descripción de la imagen"   class="w-full h-[200px] mt-[-120px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <img src={testimonio} alt="Descripción de la imagen"   class="w-full h-[200px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
                             <p class="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">TESTIMONIO</p>
                         </a>    
                     </div>
 
-                   
+                    <div class="relative  h-[100px] mt-[-570px]">
+                        <img src={firmaXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[0px]" />
+                    </div>
+
+                    <div >
+                        {/* div vacio solo se necesita para ocupar este espacio */}
+                    </div>
+
+
+                    <div class="relative  h-[100px] mt-[-570px]">
+                        <img src={firmaXul} alt="Descripción de la imagen" class="w-full h-[100px] mt-[0px]" />
+                    </div>
+
                 
 
                 </div>
-            </div>
+            </div> 
 
         </div>
        
