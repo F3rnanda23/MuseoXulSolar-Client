@@ -12,6 +12,7 @@ import { Login } from './views/Login/Login';
 import Exhibitions from './views/Exhibitions/Exhibitions';
 import Education from './views/Education/Education';
 import Activities from './views/Activities/Activities';
+import CreateActivityForm from './components/forms/createActivityForm/CreateActivityForm';
 import Events from './views/Events/Events'
 import Donations from './views/Donations/Donations'
 import Faqs from './views/FAQS/FAQS';
@@ -43,7 +44,8 @@ function App() {
           <Route path="/Collection" element={<Collection />}  />
           <Route path="/Exhibitions" element={<Exhibitions />}  />
           <Route path="/Education" element={<Education />}  />
-          <Route path="/Activities" element={<Activities />}  />
+          <Route path="/activities" element={<Activities />}  />
+          <Route path="/createActivities" element={<CreateActivityForm />}  />
           <Route path="/Events" element={<Events />}  />
           <Route path="/Donations" element={<Donations />}  />
           <Route path="/Faqs" element={<Faqs />}  />
