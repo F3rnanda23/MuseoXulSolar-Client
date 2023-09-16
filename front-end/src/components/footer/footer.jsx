@@ -90,10 +90,6 @@ const Footer = () => {
           Laprida 1212, CABA (011) 4824-3302/4821-5378</p>
       </div>
 
-      <div className='w-full h-24 mb-2 flex items-center justify-center'>
-        <img className='h-full w-1/4 mx-auto' src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694825621/gl/03_h9knt5.png" alt="Dr" />
-      </div>
-
     </footer>
 
   )
