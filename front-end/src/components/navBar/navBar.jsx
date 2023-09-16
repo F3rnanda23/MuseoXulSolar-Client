@@ -1,10 +1,10 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import museoLogo from '../../imagenes/navbar/museo-logo.png';
 import glass from '../../imagenes/navbar/lupa.png'
 import style from './navBar.module.css';
 
-const NavBar = ({searchActive, setSearchActive, setSearch}) => {
+const NavBar = ({ searchActive, setSearchActive }) => {
     const navigate = useNavigate();
 
 
