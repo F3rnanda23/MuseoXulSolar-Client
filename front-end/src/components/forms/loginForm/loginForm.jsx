@@ -1,11 +1,14 @@
 import { useState } from "react"
 import { useNavigate } from "react-router"
+import { useDispatch } from "react-redux";
 import Cookies from "universal-cookie";
 import axios from "axios";
+import { logIn } from "../../../redux/actions/actions";
 
 
 
 export function LoginForm() {
+    const dispatch = useDispatch();
 
     const [visible, setVisible] = useState(false)
     const navigate = useNavigate();
@@ -34,6 +37,7 @@ export function LoginForm() {
                 cookies.set('id', data.id, {path: '/'})
                 cookies.set('name', data.name, {path: '/'})
                 cookies.set('email', data.email, {path: '/'})
+                dispatch(logIn(true))
                 alert('Usuario Loggeado')
                 navigate('/')  
             }else{
