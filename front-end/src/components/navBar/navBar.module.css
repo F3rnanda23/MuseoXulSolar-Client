@@ -1,10 +1,4 @@
 
-.containerNav{
-    display: flex;
-    background-color: rgb(235, 232, 231);
-    
-}
-
 .containerSecciones {
     display: flex;
     flex-direction: row;
@@ -42,21 +36,4 @@
     margin-left: 10px;
     margin-right: 50px;
 }
-
-
-.botonNav{
-    width: 130px;
-    height: 40px;
-    border-radius: 5px;
-    background-image: linear-gradient(#e9ab72,#e46008 );
-    cursor: pointer;
-    color: white;
-    font-weight: bold;
-    margin-top: 33px;
-    margin-right: 100px;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
-}    
-.botonNav:hover {
-    transform: scale(1.1); 
-    background-image: linear-gradient(#e46008, #e9ab72); 
-}
+ 
