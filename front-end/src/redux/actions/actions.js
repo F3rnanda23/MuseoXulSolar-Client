@@ -5,6 +5,7 @@ import axios from 'axios';
 
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 
 export const getAllActivities = () => {
     return async function(dispatch){
@@ -18,5 +19,15 @@ export const createActivities = (activitiesData) => {
         const response = await axios.post('http://localhost:3001/actividades', activitiesData)    
           return dispatch({type: CREATE_ACTIVITY, payload: response.data})
      }
+};
+
+
+export const deteleActivities = (actividadesId) => {
+  return async function(dispatch){
+      const response = await axios.delete(`http://localhost:3001/actividades/${actividadesId}`, )    
+      return dispatch(getAllActivities());
+   }
+
+   
 };
 
