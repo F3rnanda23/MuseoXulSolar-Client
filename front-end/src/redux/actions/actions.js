@@ -25,7 +25,7 @@ export const createActivities = (activitiesData) => {
 export const deteleActivities = (actividadesId) => {
   return async function(dispatch){
       const response = await axios.delete(`http://localhost:3001/actividades/${actividadesId}`, )    
-        return dispatch({type: DELETE_ACTIVITY, payload: response.data})
+      return dispatch(getAllActivities());
    }
 
    

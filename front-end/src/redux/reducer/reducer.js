@@ -3,7 +3,7 @@ import { GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY  } from '../action
 
 const initialState = {
 
-    activities: []
+    activities: [],
     
  };
 
@@ -11,6 +11,7 @@ const reducer = (state = initialState, action)=>{
     switch (action.type) {
 
         case GET_ALL_ACTIVITIES :
+            console.log('cualquier cosa', action.payload)
             return {
                 ...state,
                 activities: action.payload,

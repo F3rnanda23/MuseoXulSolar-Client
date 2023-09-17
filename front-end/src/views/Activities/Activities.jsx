@@ -8,21 +8,21 @@ const Activities = () => {
 
     const activities = useSelector(state => state.activities);
     const dispatch = useDispatch();
-
+    console.log(activities)
 
     useEffect(() => {
           dispatch(getAllActivities());
         
-        }, []);
+        }, [dispatch]);
 
-        const handleDelete = (activityId) => {
-           
-            dispatch(deteleActivities(activityId));
-        };
+    const handleDelete = (activityId) => {
+        
+        dispatch(deteleActivities(activityId));
+    };
 
     return(
 
-        <form class=""  >
+        <div class=""  >
 
             <h2>Actividades </h2>
 
@@ -30,7 +30,7 @@ const Activities = () => {
                 
                 <div class="grid grid-cols-3 gap-4">
 
-                        {activities.map(activity => (
+                        {activities && activities.map(activity => (
                             <div key={activity.id} class="border-double border-4 border-orange-500">
 
                                 <div>
@@ -47,7 +47,7 @@ const Activities = () => {
                
             </div>
 
-        </form>
+        </div>
         
     )
 };
