@@ -18,7 +18,7 @@ const Gallery = () => {
     slider.scrollLeft = slider.scrollLeft + 500;
   }
 
- 
+
   function handleImageClick(image) {
     setSelectedImage(image);
   }
@@ -28,7 +28,8 @@ const Gallery = () => {
   }
 
   return (
-    <div className="relative flex flex-col bg-gray-100">
+    <div className="relative flex flex-col bg-gray-200">
+
       <div className="relative flex items-center">
         <MdChevronLeft
           className="opacity-50 cursor-pointer hover:opacity-100"
@@ -58,18 +59,18 @@ const Gallery = () => {
         />
       </div>
       <div>
-     <img src={fir1} alt="xul" className='w-9 h-9 mb-5 ml-auto sm:mr-[250px]'/>
+        <img src={fir1} alt="xul" className='w-9 h-9 mb-5 ml-auto sm:mr-[250px]' />
       </div>
 
- 
+
       {selectedImage && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
           <div className="max-w-3xl p-4 bg-gray-500 rounded-lg shadow-lg">
             <img
               src={selectedImage.img}
               alt={selectedImage.name}
-              className="w-full  max-h-[600px]" 
-          
+              className="w-full  max-h-[600px]"
+
             />
             <button
               className="mt-4 p-2 bg-orange-200 text-gray-100 rounded hover:bg-gray-100 hover:text-orange-200"

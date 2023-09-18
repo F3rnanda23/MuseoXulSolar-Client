@@ -10,10 +10,10 @@ import phoneIcon from '../../imagenes/footer/llamada-telefonica.png'
 const Footer = () => {
 
   return (
-    <footer className="bg-gray-200 h-2/3 w-full">
+    <footer className="bg-gray-300 h-2/3 w-full">
 
 
-      <div className="flex flex-row ml-20 bg-gray-100">
+      <div className="flex flex-row ml-20 bg-gray-300">
 
         <div className="flex flex-col w-1/4">
           <h5 className="text-orange-200 font-bold mt-5">El Museo</h5>

@@ -1,10 +1,15 @@
 
+
+
+
 const Visits = () => {
+
 
     return(
 
         <div>
             Visits!!
+            
         </div>
     )
 
