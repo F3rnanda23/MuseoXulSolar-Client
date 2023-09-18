@@ -11,7 +11,7 @@ const Video = () => {
     return (
         <div className="relative h-[620px] overflow-hidden">
             <div className="absolute inset-0 bg-black bg-opacity-40"></div>
-            <video className="w-full h-auto object-cover" src={URL} autoPlay loop muted ></video>
+            <video className="w-full h-auto " src={URL} autoPlay loop muted ></video>
             <div className="absolute inset-0 flex items-center justify-center">
                 <button
                 onClick={handleClick}
