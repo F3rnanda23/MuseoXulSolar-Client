@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useState } from 'react';
 import { Link  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -46,46 +46,46 @@ const CreateActivityForm= () =>{
     return(
         <div>
 
-            <form class="" onSubmit={handleSubmit}>
+            <form className="" onSubmit={handleSubmit}>
                 <div>
                     <h2 >Crear actividad </h2>
 
-                    <div class="">
+                    <div className="">
                         <label htmlFor="image" className="">Imagen</label>
                         <br />
-                        <input type="text" name="image" id="image" class="border-solid border-2 border-orange-500" value={activitiesData.image} onChange={handlerChange} />
+                        <input type="text" name="image" id="image" className="border-solid border-2 border-orange-500" value={activitiesData.image} onChange={handlerChange} />
 
                         <br/>
                         <br/>
 
-                        <label htmlFor="name" class="">Nombre de la actividad: </label>
+                        <label htmlFor="name" className="">Nombre de la actividad: </label>
                         <br />
-                        <input type="text" name="name" id="name" class="border-solid border-2 border-orange-500" value={activitiesData.name} onChange={handlerChange} />
+                        <input type="text" name="name" id="name" className="border-solid border-2 border-orange-500" value={activitiesData.name} onChange={handlerChange} />
                         
 
                         <br/>
                         <br/>
                         
-                        <label htmlFor="date" class="" >Fecha: </label>
+                        <label htmlFor="date" className="" >Fecha: </label>
                         <br />
-                        <input type="date"  name="date" id="date"  class="border-solid border-2 border-orange-500" value={activitiesData.date} onChange={handlerChange} />
+                        <input type="date"  name="date" id="date"  className="border-solid border-2 border-orange-500" value={activitiesData.date} onChange={handlerChange} />
                         
                         <br/>
                         <br/>
                         
-                        <label htmlFor="description" class="">Descripción: </label>
+                        <label htmlFor="description" className="">Descripción: </label>
                         <br />
-                        <input type="text"  name="description"  id="description"   class="border-solid border-2 border-orange-500" value={activitiesData.description} onChange={handlerChange} />
+                        <input type="text"  name="description"  id="description"   className="border-solid border-2 border-orange-500" value={activitiesData.description} onChange={handlerChange} />
                         
                         <br/>
                         <br/>
 
 
                         <div>
-                            <button class="border-solid border-2 border-gray-500" >Crear actividad</button>
+                            <button className="border-solid border-2 border-gray-500" >Crear actividad</button>
 
-                            <Link to="/" class="" >
-                                <button class="border-solid border-2 border-gray-500">Volver a Home</button>
+                            <Link to="/" className="" >
+                                <button className="border-solid border-2 border-gray-500">Volver a Home</button>
                             </Link>
                         </div>
 
