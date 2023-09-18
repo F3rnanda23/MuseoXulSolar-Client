@@ -6,7 +6,6 @@ import NavBar from '../../components/navBar/navBar';
 import Footer from '../../components/footer/footer';
 import Destacados from '../../components/destacados/Destacados';
 import Video from '../../components/video/Video';
-import Cookies from 'universal-cookie';
 import SearchBar from '../../components/searchBar/searchBar';
 import allResults from './allResults';
 import SearchResultsBanner from '../../searchResultsBanner/searchResultsBanner';
