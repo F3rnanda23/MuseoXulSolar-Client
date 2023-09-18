@@ -44,48 +44,48 @@ const CreateActivityForm= () =>{
     }; 
 
     return(
-        <div>
+        <div className="flex w-full h-screen bg-gray-600 flex items-center justify-center">
 
-            <form class="" onSubmit={handleSubmit}>
+            <form className="bg-gray-700 w-1/2 flex justify-center items-center p-5 rounded" onSubmit={handleSubmit}>
                 <div>
-                    <h2 >Crear actividad </h2>
+                    <h2 className="text-center text-white text-2xl">Crear actividad </h2>
 
-                    <div class="">
-                        <label htmlFor="image" className="">Imagen</label>
+                    <div className="mt-5">
+                        <label htmlFor="image" className="text-white">Imagen:</label>
                         <br />
-                        <input type="text" name="image" id="image" class="border-solid border-2 border-orange-500" value={activitiesData.image} onChange={handlerChange} />
+                        <input type="text" name="image" id="image" className=" w-full px-2 rounded" value={activitiesData.image} onChange={handlerChange} />
 
                         <br/>
                         <br/>
 
-                        <label htmlFor="name" class="">Nombre de la actividad: </label>
+                        <label htmlFor="name" className="text-white ">Nombre de la actividad: </label>
                         <br />
-                        <input type="text" name="name" id="name" class="border-solid border-2 border-orange-500" value={activitiesData.name} onChange={handlerChange} />
+                        <input type="text" name="name" id="name" className="w-full px-2 rounded " value={activitiesData.name} onChange={handlerChange} />
                         
 
                         <br/>
                         <br/>
                         
-                        <label htmlFor="date" class="" >Fecha: </label>
+                        <label htmlFor="date" className="text-white" >Fecha: </label>
                         <br />
-                        <input type="date"  name="date" id="date"  class="border-solid border-2 border-orange-500" value={activitiesData.date} onChange={handlerChange} />
+                        <input type="date"  name="date" id="date"  className="w-full px-2 rounded" value={activitiesData.date} onChange={handlerChange} />
                         
                         <br/>
                         <br/>
                         
-                        <label htmlFor="description" class="">Descripción: </label>
+                        <label htmlFor="description" className="text-white">Descripción: </label>
                         <br />
-                        <input type="text"  name="description"  id="description"   class="border-solid border-2 border-orange-500" value={activitiesData.description} onChange={handlerChange} />
+                        <input type="text"  name="description"  id="description"   className="w-full px-2 rounded" value={activitiesData.description} onChange={handlerChange} />
                         
                         <br/>
                         <br/>
 
 
-                        <div>
-                            <button class="border-solid border-2 border-gray-500" >Crear actividad</button>
+                        <div className="grid grid-cols-2 gap-2">
+                            <button className="border-solid border-2 border-gray-500 text-white p-2" >Crear actividad</button>
 
-                            <Link to="/" class="" >
-                                <button class="border-solid border-2 border-gray-500">Volver a Home</button>
+                            <Link to="/" className="" >
+                                <button className="border-solid border-2 border-gray-500 text-white p-2">Volver a Home</button>
                             </Link>
                         </div>
 
