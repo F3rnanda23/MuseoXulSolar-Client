@@ -8,12 +8,6 @@ import ImageHome from '../../ImagesHome/image1';
 
 const Home = ({ searchActive }) => {
 
-    const cookies = new Cookies();
-    console.log('id' + cookies.get('id'))
-    console.log('name' + cookies.get('name'))
-    console.log('email' + cookies.get('email'))
-
-
     return (
         <div className="h-screen bg-gray-100">
 

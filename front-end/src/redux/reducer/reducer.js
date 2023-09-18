@@ -1,12 +1,14 @@
-import { GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL } from '../actions/actions';
+import { GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN,LOG_OUT  } from '../actions/actions';
 
 
 const initialState = {
 
     activities: [],
     activityDetail: {},
+    active: false
+ };
 
-};
+
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -35,7 +37,16 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 activityDetail: action.payload
             };
-
+        
+        case LOG_IN:
+        return{
+            ...state, active: action.payload
+        }
+        case LOG_OUT:
+        return{
+            ...state, active: action.payload
+        }
+    
         default:
             return {
                 ...state
