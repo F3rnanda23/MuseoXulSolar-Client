@@ -57,12 +57,12 @@ export function LoginForm() {
     
 
     return (
-        <div className="rounded p-8 py-2 bg-gray-600  ">
+        <div className="rounded p-8 py-2 bg-gray-600 ">
             <h2 className="mt-5 text-center text-2xl font-semibold text-white">Iniciar sesión</h2>
 
             <form   onSubmit={handleSubmit(onSubmit)}
                     className="flex flex-col items-center justify-center py-8" >
-                <div className="w-full m-5">
+                <div className="flex flex-col w-full m-5 relative">
                     <input
                         className='w-full p-2 rounded'
                         type="text"
@@ -70,10 +70,10 @@ export function LoginForm() {
                         {...register("email",
                         {required:true})}/>
                         {errors.email?.type==="required" && (
-                            <span>*Ingrese su correo electronico</span>
+                            <span className="absolute text-white text-sm mt-10">*Ingrese su correo electronico</span>
                         )}
                 </div>
-                <div className="w-full m-5 relative ">
+                <div className="flex flex-col w-full m-5 relative ">
                     <input
                         className='w-full p-2 rounded '
                         type={visible ? "text" : "password"}
@@ -85,10 +85,10 @@ export function LoginForm() {
                         {visible ? (<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR4nO2UPQ4BURSFv0I0hkItsRTDdixAiN5Yhh0IVkBlA7qpGBagUJKXnEhw3/OmmSh8yW3euefe9w9/fp02MAQ2wBG4KY4aGyqnNDVgDFyB+5e4Ktd5ougA+4jC97fYyxukC+SGeQn0gIYiBVZGXq4aJglwMEyjwIQmRv5BtT5YeGbuqANz4AwUQKYxx9rwuVovpJ597UnPDM2NOfoer6v5ZOdJSqSfDe0irenxbss0KAztJK0V0yD9sszM0GbSBjFb5DvklbS6mhTGIW9iDjl0TSf4mZa5pqGHttZtSRQDz8yDD62Sr6KSz66S7/pPdTwA4jXIWC41knQAAAAASUVORK5CYII="></img>) : (<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVR4nN2Vu0oDQRSGvyJewA2IYlAI5Al8A8EIYq1vIeQJtNHSZ7AQUlmbWIuYysLG9VKpkJDSQoIKgq6s/MgwzNlNhEX0wLAwc875Zs9t4D/KVJHOd4FbYKGom8dAom9F+2XgEHgAnoFXoAccAw1gZhRIxYCsA2/a99cA2AJKw0IWgfcRIQlwDlTznM8DN55h7EAmFMo60ApA7oCa5Tw1vDZuFzsQV7YDuukFoxBgP6B8auTElXbArukrLRk3X5XTbgZkxbBNw/gtJ4bSrM4fM8JVNmw7LqBjKEU672fkZNKorjMXUM/5zb2cxG94kA9g2c9DM+CkpbNxQfoKVzcHchAohq9w+D2QqBR9SZ1eGc14kTUwa2oWH9JWtURK/JpKOBSuMXKkqrZPRlxWnwSlpAE2GMLxE3D/EwgaxQ2N5p5G9YuSfARsAtOBKVzIozUHXAI7/NXnll+RT3SJxryK+e+1AAAAAElFTkSuQmCC"></img>)}</button>
 
                         {errors.password?.type==="required" && (
-                            <span>*Ingrese su contraseña</span>)}
+                            <span className="absolute text-white text-sm mt-10">*Ingrese su contraseña</span>)}
                 </div>
                 <div className="mb-5">
-                    <button className="text-white text-sm">¿Has olvidado tu contraseña?</button>
+                    <button className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button>
                 </div>
                 <div className="w-full">
                     <button 

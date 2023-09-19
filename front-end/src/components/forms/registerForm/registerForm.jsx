@@ -57,13 +57,13 @@ export function RegisterForm (){
                         {required:true, minLength:2, 
                         pattern:/^[^0-9]*$/})}/>
                         {errors.name?.type==="required" && (
-                            <span className='text-red-600'>*Ingrese su nombre</span>
+                            <span className='text-white text-sm'>*Ingrese su nombre</span>
                         )}
                         {errors.name?.type==="minLength" && (
-                            <span className='text-red-600'>*Ingrese al menos 2 caracteres</span>
+                            <span className='text-white text-sm'>*Ingrese al menos 2 caracteres</span>
                         )}
                         {errors.name?.type==="pattern" && (
-                            <span className='text-red-600'>*ingrese solo letras del alfabeto</span>
+                            <span className='text-white text-sm'>*ingrese solo letras del alfabeto</span>
                         )}
                 </div>
                 <div className="w-full m-2">
@@ -75,9 +75,9 @@ export function RegisterForm (){
                         {...register("email",
                         { required:true, pattern:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/} )}/>
                         {errors.email?.type==="required" && (
-                            <span className='text-red-600'>*Ingrese su correo electronico</span>)}
+                            <span className='text-white text-sm'>*Ingrese su correo electronico</span>)}
                         {errors.email?.type==="pattern" && (
-                            <span className='text-red-600'>*Ingrese una direccion válida</span>)}
+                            <span className='text-white text-sm'>*Ingrese una direccion válida</span>)}
                 </div>
                 <div className="grid grid-cols-2 items-center gap-2 w-full m-2">
                     <div className="flex flex-col">
@@ -88,7 +88,7 @@ export function RegisterForm (){
                                 {...register("birthday",
                                 { required:true})}/>
                                 {errors.birthday?.type==="required" && (
-                            <span className='text-red-600'>*Ingrese su fecha de nacimiento</span>)}
+                            <span className='text-white text-sm'>*Ingrese su fecha de nacimiento</span>)}
                     </div>
                     <div className="flex flex-col">
                         <label className="text-white text-sm">Celular:</label>
@@ -99,9 +99,9 @@ export function RegisterForm (){
                                 {...register("phone",
                                 { required:true, pattern:/^[0-9]+$/})}/>
                                 {errors.phone?.type==="required" && (
-                            <span className='text-red-600'>*Ingrese su número de celular</span>)}
+                            <span className='text-white text-sm'>*Ingrese su número de celular</span>)}
                                 {errors.phone?.type==="pattern" && (
-                            <span className='text-red-600'>*Ingrese solo números</span>)}
+                            <span className='text-white text-sm'>*Ingrese solo números</span>)}
                     </div>
                 </div>
                 <div className="w-full m-2 relative ">
@@ -115,7 +115,7 @@ export function RegisterForm (){
                             onClick={(e) => showPassword(e)}> 
                             {visible ? (<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR4nO2UPQ4BURSFv0I0hkItsRTDdixAiN5Yhh0IVkBlA7qpGBagUJKXnEhw3/OmmSh8yW3euefe9w9/fp02MAQ2wBG4KY4aGyqnNDVgDFyB+5e4Ktd5ougA+4jC97fYyxukC+SGeQn0gIYiBVZGXq4aJglwMEyjwIQmRv5BtT5YeGbuqANz4AwUQKYxx9rwuVovpJ597UnPDM2NOfoer6v5ZOdJSqSfDe0irenxbss0KAztJK0V0yD9sszM0GbSBjFb5DvklbS6mhTGIW9iDjl0TSf4mZa5pqGHttZtSRQDz8yDD62Sr6KSz66S7/pPdTwA4jXIWC41knQAAAAASUVORK5CYII="></img>) : (<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVR4nN2Vu0oDQRSGvyJewA2IYlAI5Al8A8EIYq1vIeQJtNHSZ7AQUlmbWIuYysLG9VKpkJDSQoIKgq6s/MgwzNlNhEX0wLAwc875Zs9t4D/KVJHOd4FbYKGom8dAom9F+2XgEHgAnoFXoAccAw1gZhRIxYCsA2/a99cA2AJKw0IWgfcRIQlwDlTznM8DN55h7EAmFMo60ApA7oCa5Tw1vDZuFzsQV7YDuukFoxBgP6B8auTElXbArukrLRk3X5XTbgZkxbBNw/gtJ4bSrM4fM8JVNmw7LqBjKEU672fkZNKorjMXUM/5zb2cxG94kA9g2c9DM+CkpbNxQfoKVzcHchAohq9w+D2QqBR9SZ1eGc14kTUwa2oWH9JWtURK/JpKOBSuMXKkqrZPRlxWnwSlpAE2GMLxE3D/EwgaxQ2N5p5G9YuSfARsAtOBKVzIozUHXAI7/NXnll+RT3SJxryK+e+1AAAAAElFTkSuQmCC"></img>)}</button>
                         {errors.password?.type==="required" && (
-                            <span className='text-red-600'>*Debe crear una contraseña</span>)}
+                            <span className='text-white text-sm'>*Debe crear una contraseña</span>)}
                 </div>
 
                 <div className="w-full">
