@@ -33,7 +33,6 @@ export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
       const response = await axios(`http://localhost:3001/actividades/${actividadesId}`)
-console.log('actions res', id);
     return dispatch({
       type: GET_ACTIVITY_DETAIL,
       payload: response.data
