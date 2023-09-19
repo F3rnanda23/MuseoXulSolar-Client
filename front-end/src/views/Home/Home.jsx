@@ -3,7 +3,6 @@ import Gallery from '../../components/galery/galery';
 import Footer from '../../components/footer/footer';
 import Destacados from '../../components/destacados/Destacados';
 import Video from '../../components/video/Video';
-import Cookies from 'universal-cookie';
 import ImageHome from '../../ImagesHome/image1';
 
 const Home = ({ searchActive }) => {
