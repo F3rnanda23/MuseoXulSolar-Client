@@ -1,16 +1,10 @@
 
-.containerNav{
-    display: flex;
-    background-color: rgb(235, 232, 231);
-    
-}
-
 .containerSecciones {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
     margin-right: 150px;
-    height: 70px;
+    height: 100px;
    
 }
 
@@ -20,7 +14,7 @@
     list-style: none; 
     margin-bottom: 20px;
     font-weight: bold;
-    font-size: 15px;
+    font-size: 20px;
     font-family: sans-serif;
 }
 .secciones:hover {
@@ -29,6 +23,7 @@
 
 
 .secciones a {
+    font-family: "Futura Bk BT";
     text-decoration: none;
     color: rgb(219, 109, 6);
 }
@@ -38,22 +33,10 @@
     height: 100px;
     margin-bottom: -87px;
     margin-top: 0px;
+    margin-left: 10px;
+    margin-right: 50px;
 }
-
-
-.botonNav{
-    width: 130px;
-    height: 40px;
-    border-radius: 5px;
-    background-image: linear-gradient(#fad5d5,#e46008 );
+ 
+.logoDelMuseo img:hover {
     cursor: pointer;
-    color: white;
-    font-weight: bold;
-    margin-top: 33px;
-    margin-right: 30px;
-    transition: transform 0.3s ease, background-color 0.3s ease; 
-}    
-.botonNav:hover {
-    transform: scale(1.1); 
-    background-image: linear-gradient(#e46008, #fad5d5); 
 }

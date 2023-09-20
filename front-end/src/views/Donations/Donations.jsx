@@ -1,12 +1,15 @@
 
 
 const Donations = () => {
+<div>
+    <div>
+    <h1 className="donate-title">Donate</h1>|
+    <p><strong>$50.00</strong></p>
+    <button>Pagar</button>
+    </div>
 
-    return(
-        <div>
-            Donaciones
-        </div>
-    )
-}; 
+</div>
+
+};
 
 export default Donations;

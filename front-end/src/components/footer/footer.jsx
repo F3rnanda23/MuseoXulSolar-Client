@@ -10,10 +10,10 @@ import phoneIcon from '../../imagenes/footer/llamada-telefonica.png'
 const Footer = () => {
 
   return (
+    <footer className="bg-gray-300 h-2/3 w-full">
 
-    <footer className="bg-gray-100 h-2/3 w-screen mt-20">
 
-      <div className="flex flex-row ml-20">
+      <div className="flex flex-row ml-20 bg-gray-300">
 
         <div className="flex flex-col w-1/4">
           <h5 className="text-orange-200 font-bold mt-5">El Museo</h5>
@@ -39,7 +39,7 @@ const Footer = () => {
             <img className="w-4 h-4 mr-2" aria-hidden="true" src={envelopeIcon} alt="Envelope Icon" />
             <h5>Correo</h5>
           </div>
-            <h5 className='mb-2 italic'>info@xulsolar.org.ar</h5>
+          <h5 className='mb-2 italic'>info@xulsolar.org.ar</h5>
           <div className="flex mt-2">
             <img className="w-4 h-4 mr-2" aria-hidden="true" src={phoneIcon} alt="Phone Icon" />
             <h5 >Telefono</h5>
@@ -88,9 +88,7 @@ const Footer = () => {
           advierte que es la única que puede autorizar su reproducción por cualquier medio o
           soporte y otorgar certificados de autenticidad sobre la misma.Para informes, dirigirse a:
           Laprida 1212, CABA (011) 4824-3302/4821-5378</p>
-
       </div>
-
 
     </footer>
 
