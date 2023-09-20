@@ -1,4 +1,4 @@
-export function Subscription(){
+export const Subscription=() => {
     return(
         <div>
         
