@@ -16,7 +16,7 @@ export const getAllActivities = () => {
 
 export const createActivities = (activitiesData) => {
   return async function (dispatch) {
-    const response = await axios.post('http://localhost:3001/create', activitiesData)
+    const response = await axios.post('http://localhost:3001/actividades/create', activitiesData)
     return dispatch({ type: CREATE_ACTIVITY, payload: response.data })
   }
 };
