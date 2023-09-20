@@ -21,6 +21,8 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const [search, setSearch] = useState('')
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [showMenu, setShowMenu] = useState(false)
+
 
     const removeAccents = (str) => {
         return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -52,6 +54,11 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
     function handleClickLogIn() {
         navigate('/login');
+    }
+
+    function handleDropdownMenu(){
+        showMenu ? setShowMenu(false)
+        : setShowMenu(true)
     }
 
     function signOff() {
@@ -88,8 +95,24 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         <Link to="/Events">Eventos</Link>
                     </li>
 
-                    <li className={style.secciones}>
-                        <Link to="/Donations">Patrocinios</Link>
+                    <li className={`relative ${style.secciones}`}>
+                        <button className=" bg-gray-300 text-orange-600 hover:bg-gray-200 rounded"
+                        onClick={handleDropdownMenu}>
+                            Patrocinios
+                        </button>
+                        <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${ !showMenu ? "hidden" : "bg-white"}`}
+                        >
+                            <ul className='space-y-2'>
+                                <li className='hover:bg-gray-200 px-1'
+                                    onClick={handleDropdownMenu}>
+                                    <Link to="/Donations">Donaciones</Link></li>
+                                <li className='hover:bg-gray-200'
+                                    onClick={handleDropdownMenu}>
+                                    <Link to="/subscription">Membresía</Link></li>
+                                <li className='hover:bg-gray-200'
+                                    onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li className={style.secciones}>
