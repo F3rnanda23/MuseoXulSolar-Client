@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Cloudinary } from '@cloudinary/url-gen';
-
 import Home from './views/Home/Home';
 import Visits from './views/Visits/Visits';
 import Biography from './views/Biography/Biography';
@@ -15,8 +14,8 @@ import Education from './views/Education/Education';
 import Activities from './views/Activities/Activities';
 import ActivityDetail from './views/ActivityDetail/ActivityDetail';
 import CreateActivityForm from './components/forms/createActivityForm/createActivityForm';
-import Events from './views/Events/Events'
-import Donations from './views/Donations/Donations'
+import Events from './views/Events/Events';
+import Donations from './views/Donations/Donations';
 import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
 

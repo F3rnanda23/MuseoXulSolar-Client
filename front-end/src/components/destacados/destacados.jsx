@@ -1,12 +1,12 @@
 
-import  bibliografia from '../../imagenes/destacados/bibliografia.png';
-import  biografiaXulSolar from '../../imagenes/destacados/biografiaXulSolar.png';
-import  catalogoRazonado from '../../imagenes/destacados/catalogoRazonado.png';
-import  coleccionPermanente from '../../imagenes/destacados/coleccionPermanente.png';
-import  educacion from '../../imagenes/destacados/educacion.png';
-import  elMuseo from '../../imagenes/destacados/elMuseo.png';
-import  exposiciones from '../../imagenes/destacados/exposiciones.png';
-import  testimonio from '../../imagenes/destacados/testimonio.png';
+import  bibliografiaXul from '../../imagenes/destacados/bibliografiaXul.jpg';
+import  biografiaXul from '../../imagenes/destacados/biografiaXul.jpg';
+import  catalogoRazonado from '../../imagenes/destacados/catalogoRazonado.jpg';
+import  coleccionPermanente from '../../imagenes/destacados/coleccionPermanente.jpg';
+import  educacion from '../../imagenes/destacados/educacion.jpg';
+import  elMuseo from '../../imagenes/destacados/elMuseo.jpg';
+import  exposiciones from '../../imagenes/destacados/exposiciones.jpg';
+import  testimonio from '../../imagenes/destacados/testimonio.jpg';
 import  firma6Xul from '../../imagenes/destacados/firma6Xul.png';
 import  personasXul from '../../imagenes/destacados/personasXul.png';
 import  firma8Xul from '../../imagenes/destacados/firma8Xul.png';
@@ -16,33 +16,33 @@ import  escafandraXul from '../../imagenes/destacados/escafandraXul.png';
 
 const Destacados = () =>{
     return(
-        <div className=" h-[800px] bg-gray-200" >
+        <div className=" h-[700px] bg-gray-200" >
 
             {/* <span className="flex items-center justify-center mt-[20px]"></span> */}
           
-             <div className="ml-[30px] mr-[50px] h-[800px] border-solid border-2 border-gray-200 bg-gray-200 ">
+             <div className=" mt-[-40px] ml-[30px] mr-[50px] h-[800px] border-solid border-2 border-gray-200 bg-gray-200 ">
                 <div className="grid grid-cols-4 grid-rows-4 gap-4 mr-[30px] ml-[30px] mt-[20px] mb-[20px]" >
                   
                     <div className="bg-gray-200" >
-                        <img src={firma6Xul} alt="Descripción de la imagen" className=" w-[140px] h-[80px] mt-[10px] ml-[50px]  " />
+                        <img src={firma6Xul} alt="Descripción de la imagen" className=" w-[100px] h-[60px] mt-[10px] ml-[50px]  " />
                     </div>
 
                     <div className="relative  h-[300px] mt-[65px]  ">
                         <a href="https://www.xulsolar.org.ar/bibliografia.html" className="relative group">
-                            <img src={bibliografia} alt="Descripción de la imagen" className="  w-full h-[300px] mt-[0px]  object-cover transition-transform transform group-hover:scale-105   " />
+                            <img src={bibliografiaXul} alt="Descripción de la imagen" className="  w-full h-[300px] mt-[0px]  object-cover transition-transform transform group-hover:scale-105   " />
                             <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">BIBLIOGRAFÍA</p>
                         </a>
                     </div>
                     
-                    <div className="relative   h-[200px] mt-[30px]">
+                    <div className="relative h-[200px] mt-[-15px]">
                         <a href="https://www.xulsolar.org.ar/biografia.html" className="relative group">
-                            <img src={biografiaXulSolar} alt="Descripción de la imagen" className="w-full h-[200px]  object-cover transition-transform transform group-hover:scale-105"/>
+                            <img src={biografiaXul} alt="Descripción de la imagen" className="w-full h-[250px]  object-cover transition-transform transform group-hover:scale-105"/>
                             <p className="absolute bottom-0 left-0 right-0 px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 text-center">BIBLIOGRAFÍA XUL SOLAR</p>
                         </a>
                     </div>
 
-                    <div className="mt-[20px]">
-                        <img src={personasXul} alt="Descripción de la imagen" className=" w-[200px] h-[120px] mt-[0px] ml-[30px]" />
+                    <div className="mt-[20px]  ml-[60px]">
+                        <img src={personasXul} alt="Descripción de la imagen" className=" w-[180px] h-[100px] mt-[0px] ml-[30px]" />
                     </div>
                     
                     <div className="relative h-[150px] mt-[-270px]">
@@ -52,8 +52,8 @@ const Destacados = () =>{
                         </a>
                     </div>
                 
-                     <div className="mt-[-3px]">
-                        <img src={carasXul} alt="Descripción de la imagen" className="w-full h-[100px] mt-[0px]" />
+                     <div className="mt-[5px] ml-[60px]">
+                        <img src={carasXul} alt="Descripción de la imagen" className="w-[120px] h-[80px] mt-[0px]" />
                     </div>
                     
 
@@ -90,8 +90,8 @@ const Destacados = () =>{
 
                     
                     
-                    <div className="relative  h-[100px] mt-[-300px]">
-                        <img src={serpienteXul} alt="Descripción de la imagen" className="w-full h-[100px] mt-[0px]" />
+                    <div className="relative  h-[100px] mt-[-270px] ml-[90px]">
+                        <img src={serpienteXul} alt="Descripción de la imagen" className="w-[150px] h-[70px] mt-[0px]" />
                     </div>
 
                 
@@ -102,8 +102,8 @@ const Destacados = () =>{
                         </a>    
                     </div>
 
-                    <div className="relative  h-[80px] mt-[-580px] ">
-                        <img src={escafandraXul} alt="Descripción de la imagen" className="w-[150px] h-[200px] mt-[0px] ml-[45px]" />
+                    <div className="relative  h-[80px] mt-[-550px] ml-[-30px]">
+                        <img src={escafandraXul} alt="Descripción de la imagen" className="w-[100px] h-[150px] mt-[0px] ml-[45px]" />
                     </div>
 
                     <div >
@@ -111,8 +111,8 @@ const Destacados = () =>{
                     </div>
 
 
-                    <div className="relative  h-[100px] mt-[-570px]">
-                        <img src={firma8Xul} alt="Descripción de la imagen" className="w-full h-[100px] mt-[0px]" />
+                    <div className="relative  h-[100px] mt-[-550px]">
+                        <img src={firma8Xul} alt="Descripción de la imagen" className="w-[110px] h-[70px] mt-[0px]" />
                     </div>
 
                 
