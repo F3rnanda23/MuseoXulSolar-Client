@@ -96,7 +96,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </li>
 
                     <li className={`relative ${style.secciones}`}>
-                        <button className=" bg-gray-300 text-orange-600 hover:bg-gray-200 rounded"
+                        <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded"
                         onClick={handleDropdownMenu}>
                             Patrocinios
                         </button>
@@ -110,7 +110,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     onClick={handleDropdownMenu}>
                                     <Link to="/subscription">Membresía</Link></li>
                                 <li className='hover:bg-gray-200'
-                                    onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
+                                onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
                             </ul>
                         </div>
                     </li>
