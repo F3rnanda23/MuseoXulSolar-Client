@@ -16,7 +16,7 @@ export const getAllActivities = () => {
 
 export const createActivities = (activitiesData) => {
   return async function (dispatch) {
-    const response = await axios.post('http://localhost:3001/actividades', activitiesData)
+    const response = await axios.post('http://localhost:3001/create', activitiesData)
     return dispatch({ type: CREATE_ACTIVITY, payload: response.data })
   }
 };
@@ -24,16 +24,15 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/${actividadesId}`,)
+    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`,)
     return dispatch(getAllActivities());
   }
 };
 
-export const getActivityDetail = (activitiesId) => {
+export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/actividades/${activitiesId}`)
-
+      const response = await axios(`http://localhost:3001/actividades/${actividadesId}`)
     return dispatch({
       type: GET_ACTIVITY_DETAIL,
       payload: response.data
