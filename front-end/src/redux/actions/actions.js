@@ -29,11 +29,11 @@ export const deteleActivities = (actividadesId) => {
   }
 };
 
-export const getActivityDetail = (id) => {
+export const getActivityDetail = (activitiesId) => {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/actividades/${id}`)
-console.log('actions res', id);
+      const response = await axios(`http://localhost:3001/actividades/${activitiesId}`)
+
     return dispatch({
       type: GET_ACTIVITY_DETAIL,
       payload: response.data
