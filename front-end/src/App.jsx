@@ -16,7 +16,8 @@ import Activities from './views/Activities/Activities';
 import ActivityDetail from './views/ActivityDetail/ActivityDetail';
 import CreateActivityForm from './components/forms/createActivityForm/createActivityForm';
 import Events from './views/Events/Events'
-import Donations from './views/Donations/Donations'
+import Donations from './views/Donations/Donations';
+import Sponsorship from './views/Donations/Sponsorship';
 import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
 
@@ -56,8 +57,8 @@ function App() {
         <Route path="/activities" element={<Activities />} />
         <Route exact path='/detail/:id' element={<ActivityDetail/>}/>
         <Route path="/createActivities" element={<CreateActivityForm />} />
-        <Route path="/Events" element={<Events />} />
         <Route path="/Donations" element={<Donations />} />
+        <Route path="/Events" element={<Events />} />
         <Route path="/Faqs" element={<Faqs />} />
 
       </Routes>
