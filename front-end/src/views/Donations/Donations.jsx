@@ -8,7 +8,7 @@ const Donations = () => {
     const [initPoint, setInitPoint] = useState(false);
     // const [price, setPrice] = useState(0);
 
-    initMercadoPago('TEST-e0166f16-2634-4d27-b335-dd9345dc638f');
+    // initMercadoPago('TEST-e0166f16-2634-4d27-b335-dd9345dc638f');
 
     const createPreference = async () => {
 
@@ -16,9 +16,7 @@ const Donations = () => {
             const response = await axios.post('http://localhost:3001/pagar', {
                 description: 'Donativos',
                 price: 100,
-                quantity: 1,
-                // currency: 'COP'
-               
+                quantity: 1, 
             }, 
             {
                 headers:{
@@ -27,9 +25,8 @@ const Donations = () => {
             });
 
 
-            const init_point = response.data;
+            const {init_point} = response.data;
             setInitPoint(init_point);
-            // console.log('Preference ID:', id); 
         } catch (error) {
 
             throw new Error(error.message)
