@@ -1,4 +1,4 @@
-import { GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN,LOG_OUT  } from '../actions/actions';
+import { GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN,LOG_OUT,UPDATE_ACTIVITIES_FILTER  } from '../actions/actions';
 
 
 const initialState = {
@@ -46,6 +46,12 @@ const reducer = (state = initialState, action) => {
         return{
             ...state, active: action.payload
         }
+
+        case UPDATE_ACTIVITIES_FILTER:
+            return{
+                ...state, activities: action.payload
+            }
+        
     
         default:
             return {
