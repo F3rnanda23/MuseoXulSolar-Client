@@ -17,7 +17,7 @@ export const Subscription = () => {
         try {
             const response = await axios.post('http://localhost:3001/pagar', {
                 description: 'Membresia anual del Pan Klub',
-                price: 50,
+                price: price,
                 quantity: 1, 
             }, 
             {
