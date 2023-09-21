@@ -58,8 +58,8 @@ function App() {
         <Route path="/activities" element={<Activities />} />
         <Route exact path='/detail/:id' element={<ActivityDetail/>}/>
         <Route path="/createActivities" element={<CreateActivityForm />} />
-        <Route path="/Events" element={<Events />} />
         <Route path="/Donations" element={<Donations />} />
+        <Route path="/Events" element={<Events />} />
         <Route path="/Faqs" element={<Faqs />} />
         <Route path="/subscription" element={<Subscription/>} />
         <Route path="/sponsorship" element={<Sponsorship/>} />
