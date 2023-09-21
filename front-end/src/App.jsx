@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Cloudinary } from '@cloudinary/url-gen';
-
 import Home from './views/Home/Home';
 import Visits from './views/Visits/Visits';
 import Biography from './views/Biography/Biography';
@@ -15,11 +14,13 @@ import Education from './views/Education/Education';
 import Activities from './views/Activities/Activities';
 import ActivityDetail from './views/ActivityDetail/ActivityDetail';
 import CreateActivityForm from './components/forms/createActivityForm/createActivityForm';
-import Events from './views/Events/Events'
+import Events from './views/Events/Events';
 import Donations from './views/Donations/Donations';
-import Sponsorship from './views/Donations/Sponsorship';
 import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
+import { Subscription } from './views/Donations/Subscription';
+import { Sponsorship } from './views/Donations/Sponsorship';
+
 
 
 import './App.css'
@@ -60,6 +61,8 @@ function App() {
         <Route path="/Donations" element={<Donations />} />
         <Route path="/Events" element={<Events />} />
         <Route path="/Faqs" element={<Faqs />} />
+        <Route path="/subscription" element={<Subscription/>} />
+        <Route path="/sponsorship" element={<Sponsorship/>} />
 
       </Routes>
 

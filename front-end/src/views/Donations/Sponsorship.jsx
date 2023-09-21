@@ -1,9 +1,7 @@
-const Sponsorship = () => {
-    return ( 
+export const Sponsorship= () => {
+    return(
         <div>
-            Patrocinios
+            
         </div>
-     );
+    )
 }
- 
-export default Sponsorship;

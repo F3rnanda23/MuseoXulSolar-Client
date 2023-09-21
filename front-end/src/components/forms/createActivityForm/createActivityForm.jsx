@@ -44,7 +44,7 @@ const CreateActivityForm= () =>{
     }; 
 
     return(
-        <div className="flex w-full h-screen bg-gray-600 flex items-center justify-center">
+        <div className="flex w-full h-screen bg-gray-600 items-center justify-center">
 
             <form className="bg-gray-700 w-1/2 flex justify-center items-center p-5 rounded" onSubmit={handleSubmit}>
                 <div>

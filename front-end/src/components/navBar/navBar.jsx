@@ -11,6 +11,8 @@ import museoLogo from '../../imagenes/navbar/museo-logo.png';
 import glass from '../../imagenes/navbar/lupa.png'
 import style from './navBar.module.css';
 import { logOut } from '../../redux/actions/actions';
+import { auth } from '../forms/loginForm/config';
+import { signOut } from 'firebase/auth';
 
 
 const NavBar = ({ searchActive, setSearchActive }) => {
@@ -19,6 +21,8 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const [search, setSearch] = useState('')
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
+    const [showMenu, setShowMenu] = useState(false)
+
 
     const removeAccents = (str) => {
         return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -35,12 +39,12 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     }
 
 
-   
+
     const dispatch = useDispatch();
     const cookies = new Cookies();
     const active = useSelector((state) => state.active)
-    
-    function handleSearchClick(){
+
+    function handleSearchClick() {
         setSearchActive(!searchActive);
     }
 
@@ -52,14 +56,24 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         navigate('/login');
     }
 
-    function signOff(){
-        cookies.remove('id', {path: '/'})
-        cookies.remove('name', {path: '/'})
-        cookies.remove('email',{path: '/'})
+    function handleDropdownMenu(){
+        showMenu ? setShowMenu(false)
+        : setShowMenu(true)
+    }
+
+    function signOff() {
+        cookies.remove('id', { path: '/' });
+        cookies.remove('name', { path: '/' });
+        cookies.remove('email', { path: '/' });
+        signOut(auth).then(val => {
+            console.log(val, "val");
+            navigate("/")
+        })
         navigate('/')
         alert('Sesión Cerrada')
         dispatch(logOut(false))
     }
+
     return (
 
         <div>
@@ -81,8 +95,24 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         <Link to="/Events">Eventos</Link>
                     </li>
 
-                    <li className={style.secciones}>
-                        <Link to="/Donations">Patrocinios</Link>
+                    <li className={`relative ${style.secciones}`}>
+                        <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
+                        onClick={handleDropdownMenu}>
+                            Patrocinios
+                        </button>
+                        <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${ !showMenu ? "hidden" : "bg-white"}`}
+                        >
+                            <ul className='space-y-2'>
+                                <li className='hover:bg-gray-200 px-1'
+                                    onClick={handleDropdownMenu}>
+                                    <Link to="/Donations">Donaciones</Link></li>
+                                <li className='hover:bg-gray-200'
+                                    onClick={handleDropdownMenu}>
+                                    <Link to="/subscription">Membresía</Link></li>
+                                <li className='hover:bg-gray-200'
+                                onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
+                            </ul>
+                        </div>
                     </li>
 
                     <li className={style.secciones}>
@@ -97,17 +127,17 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
                     <button className='text-orange-200 text-lg font-bold mt-auto mb-5 mr-4'>English</button>
 
-                    {active ? (   <button
-                onClick={signOff}
-                type="button"
-                className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                Cerrar Sesión
-            </button>) : (<button
-                onClick={handleClickLogIn}
-                type="button"
-                className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                Iniciar Sesión
-            </button>)}
+                    {active ? (<button
+                        onClick={signOff}
+                        type="button"
+                        className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                        Cerrar Sesión
+                    </button>) : (<button
+                        onClick={handleClickLogIn}
+                        type="button"
+                        className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                        Iniciar Sesión
+                    </button>)}
 
                 </div>
 
