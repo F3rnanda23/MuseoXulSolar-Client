@@ -1,38 +1,42 @@
-import { initMercadoPago, Wallet } from '@mercadopago/sdk-react'
-import { useState } from 'react';
+
+import { initMercadoPago } from '@mercadopago/sdk-react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Donations = () => {
+    const [initPoint, setInitPoint] = useState(null);
+    const [redirecting, setRedirecting] = useState(false);
 
-    // const [preferenceId, setPreferenceId] = useState(null);
-    const [initPoint, setInitPoint] = useState(false);
-    // const [price, setPrice] = useState(0);
-
-    // initMercadoPago('TEST-e0166f16-2634-4d27-b335-dd9345dc638f');
+    useEffect(() => {
+        initMercadoPago('TEST-e0166f16-2634-4d27-b335-dd9345dc638f');
+    }, []);
 
     const createPreference = async () => {
-
         try {
             const response = await axios.post('http://localhost:3001/pagar', {
                 description: 'Donativos',
                 price: 100,
-                quantity: 1, 
-            }, 
-            {
-                headers:{
-                    "Content-Type": "application/json",
+                quantity: 1,
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
                 }
             });
 
-
-            const {init_point} = response.data;
+            const { init_point } = response.data;
             setInitPoint(init_point);
         } catch (error) {
-
-            throw new Error(error.message)
+            throw new Error(error.message);
         }
-    }
+    };
 
+    const handlePaymentClick = () => {
+        createPreference();
+        if (initPoint) {
+            setRedirecting(true);
+            window.location.href = initPoint;
+        }
+    };
 
     return (
         <div>
@@ -41,28 +45,15 @@ const Donations = () => {
                     <div className='h-full'>
                         <h2 className="text-orange-200 text-2xl font-bold">Gracias por donar al museo</h2>
                         <div className='grid place-items-center bg-gray-100'>
-                            <label htmlFor="amount">Ingresá el monto de la donación:</label>
-                            {/* <input
-                                type="number"
-                                value={price}
-                                onChange={(e) => setPrice(parseFloat(e.target.value))}
-                                placeholder="Ingrese el monto"
-                                min="1"
-                                step="any"
-                                required
-                            /> */}
-                            <h3>Donacion</h3>
-                            <p>100 $</p>
-                            <button onClick={createPreference}className="rounded bg-orange-200 hover:scale-105 focus:outline-none transition text-white uppercase px-8 py-3">Donar</button>
-                            {/* {initPoint && <Wallet initialization={{ preferenceId, redirectMode: 'modal'}} />} */}
-                            {initPoint &&( window.location.href = initPoint)}
+                            <button onClick={handlePaymentClick}>Pagar $100</button>
+                           
                         </div>
+                        {redirecting && <span className='bg-orange-200'>Redirigiendo a Mercado Pago...</span>}
                     </div>
-
                 </section>
             </main>
         </div>
     );
-}
+};
 
 export default Donations;
