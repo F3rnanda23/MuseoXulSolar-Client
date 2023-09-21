@@ -19,7 +19,7 @@ import Donations from './views/Donations/Donations';
 import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
 import { Subscription } from './views/Donations/Subscription';
-import { Sponsorship } from './views/Donations/Sponsorship';
+import  Sponsorship  from './views/Donations/Sponsorship';
 
 
 
