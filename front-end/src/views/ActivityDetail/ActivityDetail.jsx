@@ -54,6 +54,7 @@ const ActivityDetail = () => {
                         <small className="uppercase">Museo Xul Solar</small>
                         <h3 className="uppercase text-black text-2xl font-medium">{detail.name}</h3>
                         <h3 className="text-2xl font-semibold mb-7">{formatDate(detail.date)}</h3>
+                        <h3 className='font-semibold'>{detail.hora} hrs.</h3>
                         <small className="text-black">{detail.description}</small>
 
                         <div className="flex gap-0.5 mt-4">

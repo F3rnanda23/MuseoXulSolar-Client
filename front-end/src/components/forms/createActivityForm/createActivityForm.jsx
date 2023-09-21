@@ -16,6 +16,7 @@ const CreateActivityForm= () =>{
         name:'',
         date: '',
         description:'',
+        hora:'',
     });
 
    
@@ -39,6 +40,7 @@ const CreateActivityForm= () =>{
             name:'',
             date: '',
             description:'',
+            hora:'',
           });
 
     }; 
@@ -69,6 +71,13 @@ const CreateActivityForm= () =>{
                         <label htmlFor="date" className="text-white" >Fecha: </label>
                         <br />
                         <input type="date"  name="date" id="date"  className="w-full px-2 rounded" value={activitiesData.date} onChange={handlerChange} />
+                        
+                        <br/>
+                        <br/>
+
+                        <label htmlFor="hora" className="text-white" >Hora: </label>
+                        <br />
+                        <input type="time"  name="hora" id="hora"  className="w-full px-2 rounded" value={activitiesData.hora} onChange={handlerChange} />
                         
                         <br/>
                         <br/>

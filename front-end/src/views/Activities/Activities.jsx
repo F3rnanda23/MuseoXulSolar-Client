@@ -32,7 +32,7 @@ const Activities = () => {
         const date = new Date(dateString);
         return date.toISOString().split('T')[0];
     };
-
+    
     const currentDate = new Date();
     const currentMonth = currentDate.getMonth();
 
@@ -48,10 +48,10 @@ const Activities = () => {
         const añoFecha2 = fechaUTC.getUTCFullYear();
         const mesFecha2 = fechaUTC.getUTCMonth() + 1;
         const diaFecha2 = fechaUTC.getUTCDate();
-        console.log(añoFecha2 + "" + mesFecha2 + "" + diaFecha2);
+       
 
         const activitiesFilter = activities.filter((activity) => {
-            console.log("aqui");
+          
             const fechaActivity = new Date(activity.date);
             const añoFecha1 = fechaActivity.getUTCFullYear();
             const mesFecha1 = fechaActivity.getUTCMonth() + 1; // Los meses en JavaScript comienzan en 0
@@ -59,7 +59,7 @@ const Activities = () => {
             return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
 
         });
-        console.log("pase",activitiesFilter);
+       
         dispatch(filtrarActividades(activitiesFilter));
 
     }
@@ -109,6 +109,7 @@ const Activities = () => {
                             <div className="flex flex-col items-start justify-center gap-4 p-4">
                                 <h2 className="text-2xl font-semibold">{activity.name}</h2>
                                 <h2 className='font-semibold'>{formatDate(activity.date)}</h2>
+                                <h2 className='font-semibold'>{activity.hora} hrs.</h2>
                                 <div>
                                     <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105">Conocer Más</button>
                                     <button onClick={() => handleDelete(activity.id)} className="rounded  bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105">Eliminar</button>
