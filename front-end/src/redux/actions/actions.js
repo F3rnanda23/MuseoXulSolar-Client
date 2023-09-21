@@ -6,6 +6,7 @@ export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
 export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
+export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -55,5 +56,12 @@ export const logOut=(sesion) => {
   return{
     type: LOG_OUT,
     payload: sesion
+  }
+}
+
+export const filtrarActividades = (activities) => {
+  return{
+    type: UPDATE_ACTIVITIES_FILTER,
+    payload: activities
   }
 }
