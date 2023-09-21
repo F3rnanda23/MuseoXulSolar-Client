@@ -1,3 +1,15 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+.react-calendar .react-calendar__tile {
+    background-color: rgba(253, 124, 4, 0.658);
+    height: 50px;
+    border-radius: 30px;
+    color: white;
+    margin-top: 10px;
+}
+.react-calendar .react-calendar__navigation__label {
+    background-color: orange;
+   
+    color: white;
+  }

@@ -8,6 +8,7 @@ import { FaBeer } from 'react-icons/fa';
 
 
 
+
 const Activities = () => {
 
     const activities = useSelector(state => state.activities);
@@ -65,43 +66,52 @@ const Activities = () => {
     }
     return (
 
-        <div className="bg-gray-200 h-screen"  >
+        <div className="bg-gray-200  "  >
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
-            <div>
+
+
+            <div className= " relative w-1/2 h-[300px] bg-gray-200 ml-auto mr-[-120px] mt-[70px]">
                 <h1>calendario</h1>
-                <Calendar 
-                    onChange={onChange} 
-                    value={value} 
-                    tileContent={({ date }) => {
-                        const activity = activities.find((activity) => {
-                            const fechaGMT = new Date(date);
-                            const fechaUTC = new Date(fechaGMT.toISOString())
-                            const añoFecha2 = fechaUTC.getUTCFullYear();
-                            const mesFecha2 = fechaUTC.getUTCMonth() + 1;
-                            const diaFecha2 = fechaUTC.getUTCDate();
-
-                            const fechaActivity = new Date(activity.date);
-                            const añoFecha1 = fechaActivity.getUTCFullYear();
-                            const mesFecha1 = fechaActivity.getUTCMonth() + 1; // Los meses en JavaScript comienzan en 0
-                            const diaFecha1 = fechaActivity.getUTCDate();
-
-                            return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
-
-                        });
+                <div class=" bg-gray-300 border-2  p-4 rounded-lg shadow-2xl bg-cover  w-[400px] h-[450px] " >
                     
-                        if (activity) {
-                            return (<h3 id={activity.id} name={date} onClick={onClick}>Evento</h3>)
+                    <Calendar 
+                        onChange={onChange} 
+                        value={value} 
+
+                        tileContent={({ date, view }) => {
+                            const activity = activities.find((activity) => {
+                                const fechaGMT = new Date(date);
+                                const fechaUTC = new Date(fechaGMT.toISOString())
+                                const añoFecha2 = fechaUTC.getUTCFullYear();
+                                const mesFecha2 = fechaUTC.getUTCMonth() + 1;
+                                const diaFecha2 = fechaUTC.getUTCDate();
+
+                                const fechaActivity = new Date(activity.date);
+                                const añoFecha1 = fechaActivity.getUTCFullYear();
+                                const mesFecha1 = fechaActivity.getUTCMonth() + 1; // Los meses en JavaScript comienzan en 0
+                                const diaFecha1 = fechaActivity.getUTCDate();
+
+                                return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
+
+                            });
+                        
+                            
+                            if (activity) {
+                                
+                                return (<h3 id={activity.id} name={date} class="bg-gray-500" onClick={onClick}>evento</h3>)
+                            }
+
                         }
 
-                    }
-
-                    }
-                />
+                        }
+                    />
+                </div>
 
             </div>
-            <div className='bg-gray-300 w-2/3' >
+            
+            <div className='relative bg-gray-300  w-[600px] mt-[-270px]' >
 
-                <div className="bg-gray-200 grid grid-cols-1 gap-4">
+                <div className="bg-gray-200 grid grid-cols-1 gap-4  w-[600px]">  
 
                     {activities && activities.map(activity => (
                         <div key={activity.name} className=" ml-5 relative flex h-[220px] max-w-3xl items-start gap-2 overflow-hidden rounded-lg shadow-lg bg-orange-100">
