@@ -96,7 +96,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </li>
 
                     <li className={`relative ${style.secciones}`}>
-                        <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded"
+                        <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
                         onClick={handleDropdownMenu}>
                             Patrocinios
                         </button>
