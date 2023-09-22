@@ -53,39 +53,64 @@ export function LoginForm() {
         try {
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
-
+    
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-
-            const response = await fetch('http://localhost:3001/usuario/crear', {
+    
+            const createUserResponse = await fetch('http://localhost:3001/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     name: data.displayName?.split(' ')[0],
-                    image: data.photoURL,
                     email: data.email,
                     telephone: data.phoneNumber,
                     password: data.uid,
                 }),
             });
-
-            localStorage.setItem("googleAccessToken", token);
-
-            setValue(data.email);
-            localStorage.setItem("email", data.email);
-
-            dispatch(logIn(true));
-            alert('inicio sesión con google');
-            navigate("/");
-
-            return response;
+    
+            if (createUserResponse.ok || createUserResponse.status === 404) {
+                // Usuario creado exitosamente, ahora inicia sesión automáticamente
+                const loginResponse = await fetch('http://localhost:3001/usuario/loginGoogle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        email: data.email,
+                        password: data.uid,
+                    }),
+                });
+    
+                if (loginResponse.ok ) {
+                    // Inicio de sesión exitoso
+                    const serverResponse = await loginResponse.json();
+                    console.log(serverResponse);
+    
+                    localStorage.setItem("googleAccessToken", token);
+    
+                    setValue(data.email);
+                    localStorage.setItem("email", data.email);
+    
+                    dispatch(logIn(true));
+                    alert('Inicio de sesión con Google exitoso');
+                    navigate("/");
+                } else {
+                    // Manejar errores de inicio de sesión
+                    console.error('Error al iniciar sesión después de crear el usuario:', loginResponse.status);
+                }
+            } else {
+                // Manejar errores de creación de usuario
+                console.error('Error al crear el usuario en el servidor:', createUserResponse.status);
+            }
         } catch (error) {
             // Manejar errores aquí
             console.error("Error al iniciar sesión con Google:", error);
         }
     }
+    
+    
 
     useEffect(() => {
         setValue(localStorage.getItem("email"))

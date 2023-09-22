@@ -16,6 +16,7 @@ const CreateActivityForm= () =>{
         name:'',
         date: '',
         description:'',
+        // hora: 1
     });
 
    
@@ -39,6 +40,7 @@ const CreateActivityForm= () =>{
             name:'',
             date: '',
             description:'',
+            // hora:1
           });
 
     }; 
