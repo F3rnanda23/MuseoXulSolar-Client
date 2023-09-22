@@ -28,6 +28,7 @@ export const Subscription = () => {
 
             const {init_point} = response.data;
             setInitPoint(init_point);
+            window.location.href = init_point;
         } catch (error) {
             throw new Error(error.message)
         }
@@ -45,10 +46,10 @@ export const Subscription = () => {
                         </div>
                         <h5 className='text-2xl md:text-3xl font-medium mt-3'>Miembro($30/año)</h5>
                         <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
-                        <button onClick={() => {createPreference()
-                            handlePrice(30)}}
+                        <button onClick={() => {handlePrice(30)
+                        createPreference()
+                            }}
                         className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
-                        {initPoint &&( window.location.href = initPoint)}
                     </div>
                 </div>
                 <div className="rounded shadow-lg">
@@ -58,10 +59,9 @@ export const Subscription = () => {
                         </div>
                         <h5 className='text-2xl md:text-3xl font-medium mt-3'>Socio($50/año)</h5>
                         <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
-                        <button onClick={() => {createPreference()
-                            handlePrice(50)}}
+                        <button onClick={() => {handlePrice(50)
+                        createPreference()}}
                         className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
-                        {initPoint &&( window.location.href = initPoint)}
                     </div>
                 </div>
             </div>
