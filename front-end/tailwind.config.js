@@ -15,10 +15,10 @@ export default {
               200: 'rgb(240, 126, 45)', 
             }
           }, 
-          fontFamily: {
-            futura: ['"Futura Bk BT"', 'sans'],
-            sans: ['"Futura Bk BT"', 'sans'],
-          },
+          // fontFamily: {
+          //   futura: ['"Futura Bk BT"', 'sans'],
+          //   sans: ['"Futura Bk BT"', 'sans'],
+          // },
     },
   },
   plugins: [scrollbarHide],
