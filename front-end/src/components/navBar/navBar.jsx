@@ -98,7 +98,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     <li className={`relative ${style.secciones}`}>
                         <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
                         onClick={handleDropdownMenu}>
-                            Patrocinios
+                            Apoya al museo
                         </button>
                         <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${ !showMenu ? "hidden" : "bg-white"}`}
                         >
