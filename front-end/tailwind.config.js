@@ -16,10 +16,10 @@ export default {
             }
           }, 
           // fontFamily: {
-    //         futura: ['"Futura Bk BT"', 'sans'],
-    //         sans: ['"Futura Bk BT"', 'sans'],
-    //       },
-     },
+          //   futura: ['"Futura Bk BT"', 'sans'],
+          //   sans: ['"Futura Bk BT"', 'sans'],
+          // },
+    },
   },
   plugins: [scrollbarHide],
 }
