@@ -8,14 +8,14 @@ import img2 from '../../imagenes/patrocinios/pic2.png'
 const Donations = () => {
     const [initPoint, setInitPoint] = useState(null);
     const [redirecting, setRedirecting] = useState(false);
-    const [donationAmount, setDonationAmount] = useState(''); // Default donation amount
+    const [donationAmount, setDonationAmount] = useState('');
 
     useEffect(() => {
         initMercadoPago('TEST-e0166f16-2634-4d27-b335-dd9345dc638f');
     }, []);
 
     const handlePaymentClick = async () => {
-        const price = donationAmount;  // Use the selected donation amount
+        const price = donationAmount; 
 
         try {
             const response = await axios.post('http://localhost:3001/pagar', {
@@ -40,8 +40,8 @@ const Donations = () => {
     return (
         <div>
 
-            <main className="flex flex-row items-center h-screen bg-gray-200">
-                <div className='h-3/4'>
+            <main className="flex flex-row justify-center items-center h-screen bg-gray-200">
+                <div className='h-3/4 flex flex-col justify-center'>
                     <img src={img2} alt="picture" className='mx-10 h-2/4'/>
                 </div>
                 <div className='w-3/5 flex flex-col items-center h-screen'>
@@ -78,8 +78,8 @@ const Donations = () => {
                     </div>
                 </section>
                 </div>
-                <div className='h-3/4'>
-                    <img src={img2} alt="picture" className='mx-10'/>
+                <div className='h-3/4 flex flex-col justify-center'>
+                    <img src={img2} alt="picture" className='h-2/4'/>
                 </div>
             </main>
         </div>
