@@ -65,8 +65,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         cookies.remove('id', { path: '/' });
         cookies.remove('name', { path: '/' });
         cookies.remove('email', { path: '/' });
-        signOut(auth).then(val => {
-            console.log(val, "val");
+        signOut(auth).then(() => {
             navigate("/")
         })
         navigate('/')
