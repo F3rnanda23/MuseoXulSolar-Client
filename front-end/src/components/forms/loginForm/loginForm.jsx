@@ -7,7 +7,7 @@ import axios from "axios";
 import { logIn } from "../../../redux/actions/actions";
 
 import { auth, provider } from "./config";
-import { signInWithPopup } from "firebase/auth";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 
 
@@ -15,7 +15,6 @@ export function LoginForm() {
     const dispatch = useDispatch();
 
     const [value, setValue] = useState("");
-    const [isGoogleLogin, setIsGoogleLogin] = useState(false);
     const [visible, setVisible] = useState(false)
     const navigate = useNavigate();
 
@@ -54,15 +53,34 @@ export function LoginForm() {
         try {
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
-            console.log(data);
+
+            const credential = GoogleAuthProvider.credentialFromResult(result);
+            const token = credential.accessToken;
+
+            const response = await fetch('http://localhost:3001/usuario/crear', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: data.displayName?.split(' ')[0],
+                    image: data.photoURL,
+                    email: data.email,
+                    telephone: data.phoneNumber,
+                    password: data.uid,
+                }),
+            });
+
+            localStorage.setItem("googleAccessToken", token);
 
             setValue(data.email);
-            console.log(setValue);
             localStorage.setItem("email", data.email);
 
             dispatch(logIn(true));
             alert('inicio sesión con google');
-            navigate("/")
+            navigate("/");
+
+            return response;
         } catch (error) {
             // Manejar errores aquí
             console.error("Error al iniciar sesión con Google:", error);
