@@ -11,7 +11,7 @@ import  firma6Xul from '../../imagenes/destacados/firma6Xul.png';
 import  personasXul from '../../imagenes/destacados/personasXul.png';
 import  firma8Xul from '../../imagenes/destacados/firma8Xul.png';
 import  carasXul from '../../imagenes/destacados/carasXul.png';
-import  serpienteXul from '../../imagenes/destacados/serpienteXUl.png';
+import  serpienteXul from '../../imagenes/destacados/serpienteXul.png';
 import  escafandraXul from '../../imagenes/destacados/escafandraXul.png';
 
 const Destacados = () =>{
