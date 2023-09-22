@@ -119,20 +119,7 @@ export function RegisterForm (){
                 </div>
 
                 <div className="w-full">
-                    <button type='submit' className="w-full mt-3 rounded p-2 text-white bg-gray-900 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">REGISTRARSE</button>
-                </div>
-                <div className="mt-2 grid grid-cols-3 items-center text-gray-400 gap-1 w-full">
-                    <hr className="border-gray-400"/>
-                    <p className="text-center">O</p>
-                    <hr className="border-gray-400" />
-                </div>
-                <div className="w-full">
-                    <button
-                        onClick={googleHandler}
-                        className="w-full flex items-center justify-center bg-white border border-gray-400 rounded p-2 mt-2  space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
-                        <img className="w-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
-                        <span className="text-center">registrarse con Google</span>
-                    </button>
+                    <button type='submit' className="w-full mt-3 rounded p-2 text-white bg-gray-900  active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">REGISTRARSE</button>
                 </div>
             </form>
         </div>

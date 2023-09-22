@@ -1,8 +1,10 @@
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getAllActivities, deteleActivities } from '../../redux/actions/actions';
+import { getAllActivities, deteleActivities, filtrarActividades } from '../../redux/actions/actions';
+import Calendar from 'react-calendar';
+import { FaBeer } from 'react-icons/fa';
 
 
 
@@ -11,8 +13,11 @@ const Activities = () => {
     const activities = useSelector(state => state.activities);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [value, onChange] = useState(new Date());
+    const ValuePiece = Date | null;
 
-    console.log(activities);
+    const Value = ValuePiece | [ValuePiece, ValuePiece];
+
 
     useEffect(() => {
         dispatch(getAllActivities());
@@ -37,13 +42,63 @@ const Activities = () => {
     ];
 
     const currentMonthName = months[currentMonth];
+    const onClick = (event) => {
+        const fechaGMT = new Date(event.target.getAttribute('name'));
+        const fechaUTC = new Date(fechaGMT.toISOString())
+        const añoFecha2 = fechaUTC.getUTCFullYear();
+        const mesFecha2 = fechaUTC.getUTCMonth() + 1;
+        const diaFecha2 = fechaUTC.getUTCDate();
+        console.log(añoFecha2 + "" + mesFecha2 + "" + diaFecha2);
 
+        const activitiesFilter = activities.filter((activity) => {
+            console.log("aqui");
+            const fechaActivity = new Date(activity.date);
+            const añoFecha1 = fechaActivity.getUTCFullYear();
+            const mesFecha1 = fechaActivity.getUTCMonth() + 1; // Los meses en JavaScript comienzan en 0
+            const diaFecha1 = fechaActivity.getUTCDate();
+            return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
+
+        });
+        console.log("pase",activitiesFilter);
+        dispatch(filtrarActividades(activitiesFilter));
+
+    }
     return (
 
         <div className="bg-gray-200 h-screen"  >
-
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
+            <div>
+                <h1>calendario</h1>
+                <Calendar 
+                    onChange={onChange} 
+                    value={value} 
+                    tileContent={({ date }) => {
+                        const activity = activities.find((activity) => {
+                            const fechaGMT = new Date(date);
+                            const fechaUTC = new Date(fechaGMT.toISOString())
+                            const añoFecha2 = fechaUTC.getUTCFullYear();
+                            const mesFecha2 = fechaUTC.getUTCMonth() + 1;
+                            const diaFecha2 = fechaUTC.getUTCDate();
 
+                            const fechaActivity = new Date(activity.date);
+                            const añoFecha1 = fechaActivity.getUTCFullYear();
+                            const mesFecha1 = fechaActivity.getUTCMonth() + 1; // Los meses en JavaScript comienzan en 0
+                            const diaFecha1 = fechaActivity.getUTCDate();
+
+                            return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
+
+                        });
+                    
+                        if (activity) {
+                            return (<h3 id={activity.id} name={date} onClick={onClick}>Evento</h3>)
+                        }
+
+                    }
+
+                    }
+                />
+
+            </div>
             <div className='bg-gray-300 w-2/3' >
 
                 <div className="bg-gray-200 grid grid-cols-1 gap-4">
