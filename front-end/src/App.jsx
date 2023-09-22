@@ -21,8 +21,6 @@ import NavBar from './components/navBar/navBar';
 import { Subscription } from './views/Donations/Subscription';
 import  Sponsorship  from './views/Donations/Sponsorship';
 
-
-
 import './App.css'
 
 
