@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getAllActivities, deteleActivities, filtrarActividades } from '../../redux/actions/actions';
 import Calendar from 'react-calendar';
-import { FaBeer } from 'react-icons/fa';
+import { BsCalendarCheckFill } from 'react-icons/bs';
 
 
 
@@ -43,12 +43,11 @@ const Activities = () => {
     ];
 
     const currentMonthName = months[currentMonth];
-    const onClick = (event) => {
-        const fechaGMT = new Date(event.target.getAttribute('name'));
-        const fechaUTC = new Date(fechaGMT.toISOString())
-        const añoFecha2 = fechaUTC.getUTCFullYear();
-        const mesFecha2 = fechaUTC.getUTCMonth() + 1;
-        const diaFecha2 = fechaUTC.getUTCDate();
+    const onClick = (date) => {
+        const fecha = new Date(date);
+        const añoFecha2 = fecha.getUTCFullYear();
+        const mesFecha2 = fecha.getUTCMonth() + 1;
+        const diaFecha2 = fecha.getUTCDate();
        
 
         const activitiesFilter = activities.filter((activity) => {
@@ -64,20 +63,21 @@ const Activities = () => {
         dispatch(filtrarActividades(activitiesFilter));
 
     }
+
     return (
 
         <div className="bg-gray-200  "  >
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 
 
-            <div className= " relative w-1/2 h-[300px] bg-gray-200 ml-auto mr-[-120px] mt-[70px]">
+            <div className= " relative w-[400px] h-[300px] bg-gray-300 ml-auto mr-[80px] mt-[70px]">
                 <h1>calendario</h1>
                 <div class=" bg-gray-300 border-2  p-4 rounded-lg shadow-2xl bg-cover  w-[400px] h-[450px] " >
                     
                     <Calendar 
                         onChange={onChange} 
                         value={value} 
-
+                        onClickDay={onClick}
                         tileContent={({ date, view }) => {
                             const activity = activities.find((activity) => {
                                 const fechaGMT = new Date(date);
@@ -98,7 +98,7 @@ const Activities = () => {
                             
                             if (activity) {
                                 
-                                return (<h3 id={activity.id} name={date} class="bg-gray-500" onClick={onClick}>evento</h3>)
+                                return (<span id={activity.id} name={date} class=" hover:text-gray-500" onClick={onClick}><BsCalendarCheckFill class="ml-[18px] " /></span>)
                             }
 
                         }
