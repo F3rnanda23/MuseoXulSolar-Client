@@ -1,0 +1,77 @@
+
+.containerDestadado{
+    display: flex;
+    margin-top: 0px;
+    margin-left: 30px;
+    margin-right: 50px;
+    height: 600px;
+    border: 2px solid #ccc;
+    background-color: #888888;
+    position: relative;
+}
+
+
+.bibliografia {
+    width: 700px;
+}
+
+
+
+.biografiaXul {
+    width: 600px;
+   margin-top: 50px;
+   margin-left: -200px;
+
+
+}
+
+.catalogo{
+  margin-left: -300px;
+  margin-top: 150px;
+  
+}
+
+.coleccion{
+    margin-top: 70px;
+    margin-left: -200px;
+    
+}
+
+.exposiciones{
+    margin-top: 20px;
+}
+
+.educacion{
+    margin-top: 350px;
+    margin-left: -280px;
+    position: relative;
+}
+
+.elMuseo{
+    margin-left: -200px;
+}
+
+.testimonio{
+    width: 600px;
+   margin-top: 250px;
+   margin-left: -200px;
+   border-radius: 50px;
+}
+
+.img {
+    z-index: 1; /* Imágenes en la capa 1 por defecto */
+}
+
+.overlay {
+    z-index: 2; /* Superposición en la capa 2 por defecto */
+}
+
+.containerImagen {
+    position: relative;
+    display: inline-block;
+}
+
+.containerImagen:hover {
+    z-index: 1;
+    transform: scale(1.1);
+}

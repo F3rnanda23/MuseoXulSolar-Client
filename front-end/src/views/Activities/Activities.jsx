@@ -131,7 +131,7 @@ const Activities = () => {
                                 <h2 className='font-semibold'>{formatDate(activity.date)}</h2>
                                 <h2 className='font-semibold'>{activity.hora} hrs.</h2>
                                 <div>
-                                    <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Conocer Más</button>
+                                    <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Conocer más</button>
                                     <button onClick={() => handleDelete(activity.id)} className="rounded  bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Eliminar</button>
                                     <button  className="rounded  bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px]">Reservar entrada</button>
                                     <button  className="rounded  bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Comprar entrada</button>
