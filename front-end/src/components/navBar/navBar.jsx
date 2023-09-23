@@ -21,7 +21,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const [search, setSearch] = useState('')
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
-    const [showMenu, setShowMenu] = useState(false)
+    const [showMenu, setShowMenu] = useState(false);
 
 
     const removeAccents = (str) => {
@@ -42,7 +42,9 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
     const dispatch = useDispatch();
     const cookies = new Cookies();
+    console.log(cookies);
     const active = useSelector((state) => state.active)
+    
 
     function handleSearchClick() {
         setSearchActive(!searchActive);
