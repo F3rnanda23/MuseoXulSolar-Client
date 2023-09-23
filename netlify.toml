@@ -1,4 +1,4 @@
 [build]
-  base = "Client-Xul-Solar/front-end" 
-  publish = "Client-Xul-Solar/front-end/dist"  
+  base = "Client-XulSolar/front-end" 
+  publish = "Client-XulSolar/front-end/dist"  
   command = "npm run build"
