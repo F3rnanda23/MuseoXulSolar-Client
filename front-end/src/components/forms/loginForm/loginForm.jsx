@@ -49,6 +49,8 @@ export function LoginForm() {
         }
     }
 
+    
+
     const googleHandler = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
