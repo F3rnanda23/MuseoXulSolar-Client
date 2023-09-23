@@ -5,11 +5,12 @@
     background-color: rgba(253, 124, 4, 0.623);
     height: 50px;
     border-radius: 30px;
-    color: rgb(240, 240, 240);
+    color: rgb(247, 244, 244);
     margin-top: 10px;
+    margin-left: 0px;
 }
 .react-calendar .react-calendar__navigation__label {
-    background-color: rgba(121, 118, 115, 0.144);
+    background-color: rgba(223, 150, 14, 0.144);
     font-size: x-large;
     padding: 2px;
     padding-left: 5px;
@@ -26,6 +27,16 @@
     background-color: rgba(226, 91, 13, 0.144);
     color: rgb(85, 81, 77);
   }
+
+.react-calendar__month-view__weekdays__weekday{
+    font-size: 18px;
+    padding-left:10px;
+    /* text-decoration: none !important;              no esta tomando  este estilo*/
+    /* border-bottom-style: none !important; */
+    color: rgb(7, 7, 7);
+}
+
+
 
 .react-calendar__navigation__prev-button {
     color: rgb(8, 8, 8);
