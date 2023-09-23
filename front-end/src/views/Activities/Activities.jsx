@@ -64,7 +64,11 @@ const Activities = () => {
        
         dispatch(filtrarActividades(activitiesFilter));
 
-    }
+    };
+
+    const handleRefresh = () => {
+        window.location.reload(); 
+    };
 
     return (
 
@@ -72,8 +76,11 @@ const Activities = () => {
             
             <h1 class='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 
-
-            <div className= " relative w-[400px] h-[300px] bg-gray-200 ml-auto mr-[80px] mt-[70px]">
+            <div class="flex justify-end items-end mr-[180px] mt-[30px] ">
+                <button onClick={handleRefresh} class=" flex justify-end  rounded  bg-orange-200  h-[35px] px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Mostrar todas la actividades</button>
+            </div>
+            
+            <div className= " relative w-[400px] h-[300px] bg-gray-200 ml-auto mr-[80px] mt-[50px] rounded-lg">
                 <h1 className="text-2xl font-bold  text-center font-sans text-gray-700 "><BsSun  class="mb-[-20px]" /> Calendario <BsSun  class="ml-[370px] mt-[-20px]"/></h1>
                 <div class=" bg-gray-300 border-2  p-4 rounded-lg shadow-2xl bg-cover  w-[400px] h-[460px] " >
                     
@@ -112,7 +119,7 @@ const Activities = () => {
 
             </div>
 
-            <div className='relative   w-[600px] mt-[-270px]' >
+            <div className='relative   w-[600px] mt-[-300px] mb-[30px]' >
 
                 <div className=" grid grid-cols-1 gap-4  w-[600px]">  
 
@@ -124,8 +131,10 @@ const Activities = () => {
                                 <h2 className='font-semibold'>{formatDate(activity.date)}</h2>
                                 <h2 className='font-semibold'>{activity.hora} hrs.</h2>
                                 <div>
-                                    <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105">Conocer Más</button>
-                                    <button onClick={() => handleDelete(activity.id)} className="rounded  bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105">Eliminar</button>
+                                    <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Conocer Más</button>
+                                    <button onClick={() => handleDelete(activity.id)} className="rounded  bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Eliminar</button>
+                                    <button  className="rounded  bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px]">Reservar entrada</button>
+                                    <button  className="rounded  bg-orange-400 bg-opacity-50  px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105">Comprar entrada</button>
                                 </div>
 
                             </div>
