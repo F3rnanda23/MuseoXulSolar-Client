@@ -9,7 +9,7 @@ const initialState = {
     activities: [],
     activityDetail: {},
     active: false,
-    loggedUserID: {},
+    loggedUserInfo: {},
 };
 
 
