@@ -21,7 +21,7 @@ export const Subscription = () => {
     const createPreference = async () => {
 
         try {
-            const response = await axios.post('http://localhost:3001/pagar', {
+            const response = await axios.post('https://server-xul-solar.vercel.app/pagar', {
                 description: `Membresia de ${price}`,
                 price: price,
                 quantity: 1,
