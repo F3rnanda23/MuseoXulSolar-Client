@@ -17,102 +17,100 @@ import style from './destacados.module.css'
 
 const Destacados = () =>{
     return(
-        <div className=" " >
+        <div className={style.containerPrincipal} >
 
             {/* <span className="flex items-center justify-center mt-[20px]"></span> */}
           
              <div className={style.containerDestadado}>
                 
                   
-                    {/* <div className="bg-gray-200" >
-                        <img src={firma6Xul} alt="Descripción de la imagen" className=" w-[100px] h-[60px] mt-[10px] ml-[50px]  " />
-                    </div> */}
+                    <figure className={style.firma6Xul} >
+                        <img src={firma6Xul} alt="Descripción de la imagen" className=" w-[70px] h-[50px]    " />
+                    </figure>
 
-                    <div className={`${style.containerImagen} ${style.bibliografia}`}>
+                    <figure className={`${style.containerImagen} ${style.bibliografia}`}>
                         <a href="https://www.xulsolar.org.ar/bibliografia.html" className="relative group">
-                            <img src={bibliografiaXul} alt="Descripción de la imagen" className="  w-[500px] h-[300px] mt-[0px]  object-cover transition-transform transform group-hover:scale-105   " />
-                            <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">BIBLIOGRAFÍA</p>
+                            <img src={bibliografiaXul} alt="Descripción de la imagen" className="  w-[250px] h-[300px]   object-cover transition-transform transform group-hover:scale-105   " />
+                            <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">BIBLIOGRAFÍA</p>
                         </a>
-                    </div>
+                    </figure>
                     
-                    <div className={`${style.containerImagen} ${style.biografiaXul}`}>
-                        <a href="https://www.xulsolar.org.ar/biografia.html" className="relative group">
-                            <img src={biografiaXul} alt="Descripción de la imagen" className=" relative  h-[250px] rounded-[80px] object-cover transition-transform transform group-hover:scale-105"/>
-                            <p className="absolute bottom-0 left-0 right-0 px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 text-center">BIBLIOGRAFÍA XUL SOLAR</p>
-                        </a>
-                    </div>
-
-                    {/* <div className="mt-[20px]  ml-[60px]">
-                        <img src={personasXul} alt="Descripción de la imagen" className=" w-[180px] h-[100px] mt-[0px] ml-[30px]" />
-                    </div> */}
-                    
-                    <div className={`${style.containerImagen} ${style.catalogo}`}>
-                        <a href="https://www.xulsolar.org.ar/catalogo.html" className="relative group">
-                            <img src={catalogoRazonado} alt="Descripción de la imagen"  className="w-[700px] h-[400px]  object-cover transition-transform transform group-hover:scale-105" />
-                            <p className="absolute  w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100  mt-[-35px]">CATÁLOGO RAZONADO</p>
-                        </a>
-                    </div>
-                
-                     {/* <div className="mt-[5px] ml-[60px]">
-                        <img src={carasXul} alt="Descripción de la imagen" className="w-[120px] h-[80px] mt-[0px]" />
-                    </div> */}
-                    
-
-                    <div className={`${style.containerImagen} ${style.coleccion}`}>
+                    <figure className={`${style.containerImagen} ${style.coleccion}`}>
                         <a href="https://www.xulsolar.org.ar/coleccion.html" className="relative group">
-                            <img src={coleccionPermanente} alt="Descripción de la imagen"   className="w-[600px] h-[400px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
-                            <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">COLECCIÓN PERMANENTE</p>
+                            <img src={coleccionPermanente} alt="Descripción de la imagen"   className="w-[0px] h-[50px]  rounded-[50px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">COLECCIÓN PERMANENTE</p>
                         </a>
-                    </div>
+                    </figure>
 
-                    <div className={`${style.containerImagen} ${style.exposiciones}`}>
+
+                    
+                    <figure className={`${style.containerImagen} ${style.catalogo}`}>
+                        <a href="https://www.xulsolar.org.ar/catalogo.html" className="relative group">
+                            <img src={catalogoRazonado} alt="Descripción de la imagen"  className="w-[250px] h-[230px]   object-cover transition-transform transform group-hover:scale-105" />
+                            <p className="absolute  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100  mt-[-35px]">CATÁLOGO RAZONADO</p>
+                        </a>
+                    </figure>
+
+                
+                     <figure className={style.carasXul}>
+                        <img src={carasXul} alt="Descripción de la imagen" className="w-[100px] h-[100px] " />
+                    </figure>
+
+                    
+                    <figure className={`${style.containerImagen} ${style.biografiaXul}`}>
+                        <a href="https://www.xulsolar.org.ar/biografia.html" className="relative group">
+                            <img src={biografiaXul} alt="Descripción de la imagen" className=" relative w-[200px] h-[250px] rounded-[80px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <p className="absolute bottom-0 left-0 right-0 px-2 py-1 w-[200px]  text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 text-center">BIBLIOGRAFÍA XUL SOLAR</p>
+                        </a>
+                    </figure>
+                   
+                    <figure className={`${style.containerImagen} ${style.exposiciones}`}>
                         <a href="https://www.xulsolar.org.ar/exposiciones.html" className="relative group">
-                            <img src={exposiciones} alt="Descripción de la imagen"   className="w-[400px] h-[300px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
-                            <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EXPOSICIONES</p>
+                            <img src={exposiciones} alt="Descripción de la imagen"   className="w-[300px] h-[400px] rounded-[30px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EXPOSICIONES</p>
                         </a>
-                    </div>
+                    </figure>
 
                    
                 
-                    <div className={`${style.containerImagen} ${style.educacion}`}>
+                    <figure className={`${style.containerImagen} ${style.educacion}`}>
                         <a href="https://www.xulsolar.org.ar/educacion.html" className="relative group">
-                            <img src={educacion} alt="Descripción de la imagen"  className="w-[900px] h-[130px] mt-[85px] object-cover transition-transform transform group-hover:scale-105" />
-                            <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 ">EDUCACIÓN</p>
+                            <img src={educacion} alt="Descripción de la imagen"  className=" w-[700px] h-[150px]   object-cover transition-transform transform group-hover:scale-105" />
+                            <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 ">EDUCACIÓN</p>
                         </a>
-                    </div>
+                    </figure>
 
                     
-                    <div className={`${style.containerImagen} ${style.elMuseo}`}>
+                    <figure className={`${style.containerImagen} ${style.elMuseo}`}>
                         <a href="https://www.xulsolar.org.ar/museo.html" className="relative group">
-                            <img src={elMuseo} alt="Descripción de la imagen"   className="w-[700px] h-[590px] mt-[0px] object-cover transition-transform transform group-hover:scale-105"/>
-                            <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EL MUSEO</p>
+                            <img src={elMuseo} alt="Descripción de la imagen"   className="w-[300px] h-[500px]  object-cover transition-transform transform group-hover:scale-105"/>
+                            <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EL MUSEO</p>
                         </a>
-                    </div>
+                    </figure>
 
                     
                     
-                    {/* <div className="relative  h-[100px] mt-[-270px] ml-[90px]">
-                        <img src={serpienteXul} alt="Descripción de la imagen" className="w-[150px] h-[70px] mt-[0px]" />
-                    </div> */}
+                    <figure className={style.serpienteXul}>
+                        <img src={serpienteXul} alt="Descripción de la imagen" className="w-[150px] h-[80px]  " />
+                    </figure>
 
                 
-                    <div className={`${style.containerImagen} ${style.testimonio}`} >
+                    <figure className={`${style.containerImagen} ${style.testimonio}`} >
                         <a href="https://www.xulsolar.org.ar/testimonios.html" className="relative group">
-                            <img src={testimonio} alt="Descripción de la imagen"   className="w-[700px] h-[200px] rounded-[80px] object-cover transition-transform transform group-hover:scale-105"/>
-                            <p className="absolute bottom-0 left-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">TESTIMONIO</p>
+                            <img src={testimonio} alt="Descripción de la imagen"   className="w-[300px] h-[250px]  rounded-[10px] object-cover transition-transform transform group-hover:scale-105"/>
+                            <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">TESTIMONIO</p>
                         </a>    
-                    </div>
-
-                    {/* <div className="relative  h-[80px] mt-[-550px] ml-[-30px]">
-                        <img src={escafandraXul} alt="Descripción de la imagen" className="w-[100px] h-[150px] mt-[0px] ml-[45px]" />
-                    </div> */}
-
-                   
+                    </figure>
 
 
-                    {/* <div className="relative  h-[100px] mt-[-550px]">
-                        <img src={firma8Xul} alt="Descripción de la imagen" className="w-[110px] h-[70px] mt-[0px]" />
-                    </div> */}
+        
+                    <figure  className={style.firma8Xul}>
+                        <img src={firma8Xul} alt="Descripción de la imagen" className="w-[90px] h-[50px] " />
+                    </figure>
+
+                    <figure  className={style.escafandraXul}>
+                        <img src={escafandraXul} alt="Descripción de la imagen" className="w-[150px] h-[200px] " />
+                    </figure>
 
                 
 
