@@ -11,7 +11,7 @@ export const GUARDAR_USER_INFO = "GUARDAR_USER_INFO"
 
 export const getAllActivities = () => {
   return async function (dispatch) {
-    const response = await axios('http://localhost:3001/actividades')
+    const response = await axios('https://server-xul-solar.vercel.app/actividades')
     return dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data })
   }
 };
