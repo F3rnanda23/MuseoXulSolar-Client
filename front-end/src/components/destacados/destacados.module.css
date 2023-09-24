@@ -1,4 +1,26 @@
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
 .containerPrincipal{
     height: 600px;
     width: 100%;
@@ -115,11 +137,11 @@
 
 .img {
     z-index: 1; /* Imágenes en la capa 1 por defecto */
-}
+/* }*/
 
-.overlay {
+/* .overlay {
     z-index: 2; /* Superposición en la capa 2 por defecto */
-}
+/* }
 
 .containerImagen {
     position: relative;
@@ -130,4 +152,5 @@
 .containerImagen:hover {
     z-index: 1;
     transform: scale(1.1);
-}
+} */
+  
