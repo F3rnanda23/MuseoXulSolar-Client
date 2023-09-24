@@ -4,5 +4,11 @@
             "src": "vite.config.js",
             "use": "@vercel/node"
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/"
+        }
     ]
 }
