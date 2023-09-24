@@ -1,3 +1,92 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+.react-calendar .react-calendar__tile {
+    background-color: rgba(253, 124, 4, 0.623);
+    height: 50px;
+    border-radius: 30px;
+    color: rgb(247, 244, 244);
+    margin-top: 10px;
+    margin-left: 0px;
+}
+.react-calendar .react-calendar__navigation__label {
+    background-color: rgba(223, 150, 14, 0.144);
+    font-size: x-large;
+    padding: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-left: 30px;
+    margin-right: 30px;
+    color: rgb(224, 110, 17);
+    border-radius: 10px;
+  }
+  .react-calendar .react-calendar__navigation__label:hover{
+    background-color: rgba(226, 91, 13, 0.144);
+    color: rgb(85, 81, 77);
+  }
+
+.react-calendar__month-view__weekdays__weekday{
+    font-size: 18px;
+    padding-left:10px;
+    /* text-decoration: none !important;              no esta tomando  este estilo*/
+    /* border-bottom-style: none !important; */
+    color: rgb(7, 7, 7);
+}
+
+
+
+.react-calendar__navigation__prev-button {
+    color: rgb(8, 8, 8);
+    font-size: 25px;
+    margin-left: 10px;
+    padding: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    transition: color 0.3s;
+  }
+
+  .react-calendar__navigation__prev-button:hover{
+    color: rgb(255, 145, 0); 
+  }
+
+  .react-calendar__navigation__next-button {
+    color: rgb(8, 8, 8);
+    font-size: 25px;
+    margin-right: 10px;
+    padding: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    transition: color 0.3s;
+  }
+  .react-calendar__navigation__next-button:hover {
+    color: rgb(255, 145, 0); 
+  }
+
+  .react-calendar__navigation__next2-button{
+    font-size: 25px;
+    padding: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    transition: color 0.3s;
+  }
+  .react-calendar__navigation__next2-button:hover{
+    color: rgb(255, 145, 0); 
+  }
+
+  .react-calendar__navigation__prev2-button{
+    font-size: 25px;
+    padding: 5px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    border-radius: 10px;
+    transition: color 0.3s;
+  }
+  .react-calendar__navigation__prev2-button:hover{
+    color: rgb(255, 145, 0); 
+  }
