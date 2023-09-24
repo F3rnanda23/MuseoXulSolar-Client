@@ -17,7 +17,7 @@ export function LoginForm() {
     const [value, setValue] = useState("");
     const [visible, setVisible] = useState(false)
     const navigate = useNavigate();
-    
+
     const {
         register,
         formState: { errors },
@@ -32,7 +32,7 @@ export function LoginForm() {
 
     const onSubmit = async (data) => {
         try {
-            const endpoint = 'http://localhost:3001/usuario/login';
+            const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
             const response = await axios.post(endpoint, data);
             if (response.data.success) {
                 cookies.set('id', response.data.id, { path: '/' });
@@ -40,7 +40,7 @@ export function LoginForm() {
                 cookies.set('email', response.data.email, { path: '/' });
                 dispatch(logIn(true));
                 const { id, name, email } = response.data;
-                dispatch(guardarUserInfo({id, name, email}));
+                dispatch(guardarUserInfo({ id, name, email }));
                 alert(response.data.name + ' inicio sesión');
                 navigate('/');
             } else {
@@ -57,8 +57,8 @@ export function LoginForm() {
             const data = result.user;
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
-    
-            const createUserResponse = await fetch('http://localhost:3001/usuario/crear', {
+
+            const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -68,13 +68,13 @@ export function LoginForm() {
                     email: data.email,
                     telephone: data.phoneNumber,
                     password: data.uid,
-    
+
                 }),
             });
-            
+
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
-                const loginResponse = await fetch('http://localhost:3001/usuario/loginGoogle', {
+                const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -85,22 +85,22 @@ export function LoginForm() {
                         password: data.uid,
                     }),
                 });
-                
-                if (loginResponse.ok ) {
+
+                if (loginResponse.ok) {
                     // Inicio de sesión exitoso
                     const serverResponse = await loginResponse.json();
                     console.log(serverResponse);
 
                     localStorage.setItem("googleAccessToken", token);
-    
+
                     setValue(data.email);
                     localStorage.setItem("email", data.email);
                     setValue(data.id);
-                   
-                 
+
+
                     dispatch(logIn(true));
                     const { id, name, email } = serverResponse.responseWithUserInfo;
-                    dispatch(guardarUserInfo({id, name, email}))
+                    dispatch(guardarUserInfo({ id, name, email }))
                     alert('Inicio de sesión con Google exitoso');
                     navigate("/");
                 } else {
@@ -116,8 +116,8 @@ export function LoginForm() {
             console.error("Error al iniciar sesión con Google:", error);
         }
     }
-    
-    
+
+
 
     useEffect(() => {
         setValue(localStorage.getItem("email"))
