@@ -59,9 +59,9 @@ export const Subscription = () => {
     return (
         <div className="bg-gray-200">
             <h2 className="text-center text-3xl pt-5">HACETE MIEMBRO DEL PAN KLUB</h2>
-            <div className=" flex items-center justify-center min-h-screen mx-auto container">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    <div className="rounded shadow-lg">
+            <div className=" flex items-center justify-center min-h-full mx-auto container">
+                <div className="grid grid-cols-1 gap-7 md:grid-cols-2 max-w-2xl  ">
+                    <div className="rounded shadow-2xl my-3 hover:scale">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
                                 <img src={card1} alt="" />
@@ -76,7 +76,7 @@ export const Subscription = () => {
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
                         </div>
                     </div>
-                    <div className="rounded shadow-lg">
+                    <div className="rounded my-3 shadow-2xl">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
                                 <img src={card1} alt="" />
