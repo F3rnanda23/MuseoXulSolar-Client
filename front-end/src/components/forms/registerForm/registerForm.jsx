@@ -21,7 +21,7 @@ export function RegisterForm (){
 
     const onSubmit = async (data) => {
         try {
-            const endpoint = 'http://localhost:3001/usuario/crear'
+            const endpoint = 'https://server-xul-solar.vercel.app/usuario/crear'
             const response = await axios.post(endpoint, data)
             if(response.data) alert('Usuario Creado')
             navigate('/login')
@@ -33,7 +33,7 @@ export function RegisterForm (){
 
     const googleHandler = async () => {
         try {
-            const endpoint = 'http://localhost:3001/auth/google'
+            const endpoint = 'https://server-xul-solar.vercel.app/auth/google'
             await axios.get(endpoint)
             
         } catch (error) {
