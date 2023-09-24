@@ -1,0 +1,156 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 
+
+.containerPrincipal{
+    height: 600px;
+    width: 100%;
+}
+
+.containerDestadado{
+    display:inline-block;
+    margin-top: 0px;
+    height: 600px;
+    width: 100%;
+    border: 2px solid #ccc;
+    background-color: #b8b5b5;
+    position: relative;
+}
+
+
+
+
+.bibliografia {
+    left: 20px;
+    top: 20px;
+    width: 250px;
+    height: 300px;
+   
+}
+
+
+.biografiaXul {
+    left: 150px;
+    bottom: 480px;
+    width: 200px;
+    height: 250px;
+}
+
+.catalogo{
+   right: 100px;
+   width: 250px;
+   height: 230px;
+   top: 230px;
+}
+
+.coleccion{
+   left: 500px;
+}
+
+.exposiciones{
+  left: 120px;
+  bottom: 420px;
+  width: 300px;
+  height: 400px;
+}
+
+.educacion{
+    width: 700px;
+    height: 150px;
+    bottom: 360px;
+    right: 80px;
+}
+
+.elMuseo{
+    width: 300px;
+    height: 500px;
+    left: 770px;
+    bottom: 820px;
+}
+
+.testimonio{
+    width: 300px;
+    height: 250px; 
+   bottom: 1380px;
+   left: 930px;
+}
+
+.firma6Xul{
+    width: 90px;
+    height: 50px; 
+    position: relative;
+
+}
+
+.carasXul{
+   width: 100px;
+   height: 100px;
+   top: 70px;
+   left: 10px;
+   position: relative;
+}
+
+.serpienteXul{
+    width: 150px;
+    height: 80px;
+    bottom: 850px;
+    left: 450px;
+    position: relative;
+}
+
+.firma8Xul{
+    width: 90px;
+    height: 50px;
+    bottom: 1500px;
+    left: 650px;
+    position: relative;
+}
+
+.escafandraXul{
+    width: 150px;
+    height: 200px;
+    bottom: 1380px;
+    left: 1110px;
+    position: relative;
+    
+}
+
+
+.img {
+    z-index: 1; /* Imágenes en la capa 1 por defecto */
+/* }*/
+
+/* .overlay {
+    z-index: 2; /* Superposición en la capa 2 por defecto */
+/* }
+
+.containerImagen {
+    position: relative;
+    display: inline-block;
+   
+}
+
+.containerImagen:hover {
+    z-index: 1;
+    transform: scale(1.1);
+} */
+  
