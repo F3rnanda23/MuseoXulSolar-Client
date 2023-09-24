@@ -26,7 +26,7 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`,)
+    const response = await axios.delete(`https://server-xul-solar.vercel.app/actividades/delete/${actividadesId}`,)
     return dispatch(getAllActivities());
   }
 };
@@ -34,7 +34,7 @@ export const deteleActivities = (actividadesId) => {
 export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/actividades/${actividadesId}`)
+      const response = await axios(`https://server-xul-solar.vercel.app/actividades/${actividadesId}`)
     return dispatch({
       type: GET_ACTIVITY_DETAIL,
       payload: response.data
