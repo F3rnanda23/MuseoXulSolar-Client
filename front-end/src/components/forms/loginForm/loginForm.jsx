@@ -103,7 +103,7 @@ export function LoginForm() {
                     dispatch(logIn(true));
                     const { id, name, email } = serverResponse.responseWithUserInfo;
                     dispatch(guardarUserInfo({id, name, email}))
-                    alert('Inicio de sesión con Google exitoso');
+                    alert(serverResponse.responseWithUserInfo.name +" "+'Inicio de sesión con Google exitoso');
                     navigate("/");
                 } else {
                     // Manejar errores de inicio de sesión
