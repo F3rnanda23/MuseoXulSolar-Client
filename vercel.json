@@ -8,7 +8,7 @@
     "rewrites": [
         {
             "source": "/(.*)",
-            "destination": "/"
+            "destination": "https://client-xul-solar.vercel.app/$1"
         }
     ]
 }
