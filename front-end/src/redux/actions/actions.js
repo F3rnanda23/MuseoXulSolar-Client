@@ -7,6 +7,7 @@ export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
+export const GUARDAR_USER_INFO = "GUARDAR_USER_INFO"
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -64,4 +65,17 @@ export const filtrarActividades = (activities) => {
     type: UPDATE_ACTIVITIES_FILTER,
     payload: activities
   }
+}
+
+export const guardarUserInfo = (info) => {
+  try {
+    return{
+      type: GUARDAR_USER_INFO,
+      payload : info, 
+    }
+    
+  } catch (error) {
+    console.log('error al obtener la información del usuario', error);
+  }
+  
 }
