@@ -7,17 +7,18 @@ export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
+export const GUARDAR_USER_INFO = "GUARDAR_USER_INFO"
 
 export const getAllActivities = () => {
   return async function (dispatch) {
-    const response = await axios('http://localhost:3001/actividades')
+    const response = await axios('https://server-xul-solar.vercel.app/actividades')
     return dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data })
   }
 };
 
 export const createActivities = (activitiesData) => {
   return async function (dispatch) {
-    const response = await axios.post('http://localhost:3001/actividades/create', activitiesData)
+    const response = await axios.post('https://server-xul-solar.vercel.app/actividades/create', activitiesData)
     return dispatch({ type: CREATE_ACTIVITY, payload: response.data })
   }
 };
@@ -25,7 +26,7 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`,)
+    const response = await axios.delete(`https://server-xul-solar.vercel.app/actividades/delete/${actividadesId}`,)
     return dispatch(getAllActivities());
   }
 };
@@ -33,7 +34,7 @@ export const deteleActivities = (actividadesId) => {
 export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/actividades/${actividadesId}`)
+      const response = await axios(`https://server-xul-solar.vercel.app/actividades/${actividadesId}`)
     return dispatch({
       type: GET_ACTIVITY_DETAIL,
       payload: response.data
@@ -64,4 +65,17 @@ export const filtrarActividades = (activities) => {
     type: UPDATE_ACTIVITIES_FILTER,
     payload: activities
   }
+}
+
+export const guardarUserInfo = (info) => {
+  try {
+    return{
+      type: GUARDAR_USER_INFO,
+      payload : info, 
+    }
+    
+  } catch (error) {
+    console.log('error al obtener la información del usuario', error);
+  }
+  
 }

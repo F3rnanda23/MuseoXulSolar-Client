@@ -8,7 +8,7 @@ const SearchBar = ({ setSearch, search, setShowResults, onSearch }) => {
     return (
         <div>
             <div className='flex items-center justify-center bg-orange-200 h-16'>
-                <img className='w-14 h-14 mr-10' src='https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694823262/gl/buso_s6shhg.png' alt="Bs" />
+
                 <input placeholder="Busca tu actividad, evento o visita..." onChange={(e) => setSearch(e.target.value)}
                     className='w-3/4 h-4/5 bg-orange-100 border-gray-300 rounded'
                     type="text" />

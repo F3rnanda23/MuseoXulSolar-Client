@@ -18,7 +18,8 @@ import Events from './views/Events/Events';
 import Donations from './views/Donations/Donations';
 import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
-
+import { Subscription } from './views/Donations/Subscription';
+import  Sponsorship  from './views/Donations/Sponsorship';
 
 import './App.css'
 
@@ -55,9 +56,11 @@ function App() {
         <Route path="/activities" element={<Activities />} />
         <Route exact path='/detail/:id' element={<ActivityDetail/>}/>
         <Route path="/createActivities" element={<CreateActivityForm />} />
-        <Route path="/Events" element={<Events />} />
         <Route path="/Donations" element={<Donations />} />
+        <Route path="/Events" element={<Events />} />
         <Route path="/Faqs" element={<Faqs />} />
+        <Route path="/subscription" element={<Subscription/>} />
+        <Route path="/sponsorship" element={<Sponsorship/>} />
 
       </Routes>
 
