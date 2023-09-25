@@ -74,15 +74,15 @@ const Activities = () => {
 
         <div className={style.activitiesContainer}>  
             
-            <h1 class='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
+            <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 
-            <div class="flex justify-end items-end mr-[180px] mt-[30px] ">
-                <button onClick={handleRefresh} class=" flex justify-end  rounded  bg-orange-200  h-[35px] px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Mostrar todas la actividades</button>
+            <div className="flex justify-end items-end mr-[180px] mt-[30px] ">
+                <button onClick={handleRefresh} className=" flex justify-end  rounded  bg-orange-200  h-[35px] px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Mostrar todas la actividades</button>
             </div>
             
             <div className= " relative w-[400px] h-[300px] bg-gray-200 ml-auto mr-[80px] mt-[50px] rounded-lg">
                 <h1 className="text-2xl font-bold  text-center font-sans text-gray-700 "><BsSun  class="mb-[-20px]" /> Calendario <BsSun  class="ml-[370px] mt-[-20px]"/></h1>
-                <div class=" bg-gray-300 border-2  p-4 rounded-lg shadow-2xl bg-cover  w-[400px] h-[460px] " >
+                <div className=" bg-gray-300 border-2  p-4 rounded-lg shadow-2xl bg-cover  w-[400px] h-[460px] " >
                     
                     <Calendar 
                         onChange={onChange} 
@@ -108,7 +108,7 @@ const Activities = () => {
                             
                             if (activity) {
                                 
-                                return (<span id={activity.id} name={date} class=" hover:bg-red-500" onClick={onClick}> <img src={firma6Xul}   class="ml-[10px] w-8 o h-5 bg-rgba(253, 124, 4, 0.623) rounded-[10px]  " /></span>)
+                                return (<span id={activity.id} name={date} className=" hover:bg-red-500" onClick={onClick}> <img src={firma6Xul}   className="ml-[10px] w-8 o h-5 bg-rgba(253, 124, 4, 0.623) rounded-[10px]  " /></span>)
                             }
 
                         }
