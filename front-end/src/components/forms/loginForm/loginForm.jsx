@@ -41,7 +41,7 @@ export function LoginForm() {
                 alert("Este correo electrónico ya se ha utilizado para iniciar sesión con Google.");
             } else {
                 // Procede con el inicio de sesión manual normal
-                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                const endpoint = 'http://localhost:3001/usuario/login';
                 const response = await axios.post(endpoint, data);
     
                 if (response.data.success) {
@@ -60,10 +60,17 @@ export function LoginForm() {
             }
         } catch (error) {
             // Mostrar una alerta de error genérica en caso de otros errores
-            alert('Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.');
             console.error(error); // Puedes registrar el error en la consola para fines de depuración.
+            if (error.response && error.response.status === 401) {
+                // Manejar la respuesta 401 aquí (inicio de sesión fallido)
+                alert('El usuario o la contraseña son incorrectos');
+            } else {
+                // Mostrar una alerta de error genérica en otros casos
+                alert('Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.');
+            }
         }
     }
+    
     
 
 
