@@ -51,6 +51,8 @@ export function LoginForm() {
         }
     }
 
+    
+
     const googleHandler = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
@@ -100,8 +102,8 @@ export function LoginForm() {
 
                     dispatch(logIn(true));
                     const { id, name, email } = serverResponse.responseWithUserInfo;
-                    dispatch(guardarUserInfo({ id, name, email }))
-                    alert('Inicio de sesión con Google exitoso');
+                    dispatch(guardarUserInfo({id, name, email}))
+                    alert(serverResponse.responseWithUserInfo.name +" "+'Inicio de sesión con Google exitoso');
                     navigate("/");
                 } else {
                     // Manejar errores de inicio de sesión
@@ -116,9 +118,7 @@ export function LoginForm() {
             console.error("Error al iniciar sesión con Google:", error);
         }
     }
-
-
-
+    
     useEffect(() => {
         setValue(localStorage.getItem("email"))
     }, [])
