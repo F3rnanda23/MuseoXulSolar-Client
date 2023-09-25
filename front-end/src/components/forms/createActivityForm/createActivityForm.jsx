@@ -99,7 +99,7 @@ const CreateActivityForm= () =>{
                         <br/>
                         <br/>
 
-                        <label htmlFor="hora" className="text-white" >Hora: </label>
+                        <label htmlFor="hora" step="3600" className="text-white" >Hora: </label>
                         <br />
                         <input type="time"  name="hora" id="hora"  className="w-full px-2 rounded" value={activitiesData.hora} onChange={handlerChange} />
                         
