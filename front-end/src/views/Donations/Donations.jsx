@@ -18,7 +18,7 @@ const Donations = () => {
         const price = donationAmount; 
 
         try {
-            const response = await axios.post('https://client-xul-solar.vercel.app/pagar', {
+            const response = await axios.post('https://server-xul-solar.vercel.app/pagar', { 
                 description: `Donativos - $${donationAmount}`,
                 price: price,
                 quantity: 1,
@@ -38,13 +38,13 @@ const Donations = () => {
     };
 
     return (
-        <div>
+        <div className='bg-gray-200 min-h-screen'>
 
-            <main className="flex flex-row justify-center items-center h-screen bg-gray-200">
+            <main className="flex flex-row justify-center items-center h-full">
                 <div className='h-3/4 flex flex-col justify-center'>
                     <img src={img2} alt="picture" className='mx-10 h-2/4'/>
                 </div>
-                <div className='w-3/5 flex flex-col items-center h-screen'>
+                <div className='w-3/5 flex flex-col items-center h-full'>
                     
             <h2 className="text-black text-2xl font-bold mt-5 md:mt-8 lg:mt-10 mb-5 md:mb-8 lg:mb-10">Gracias por tu apoyo al museo</h2>
             <p className='w-2/3 mb-5 md:mb-8 lg:mb-10 text-lg'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ac pretium magna, vitae feugiat massa. Aenean arcu tortor, aliquet vel pretium sed, auctor ac metus. Morbi pharetra, quam at eleifend lobortis, urna mauris lacinia nunc, in fringilla nulla leo sit amet felis. Morbi ut convallis tellus. Etiam feugiat magna nec lacinia fermentum. In dui neque, facilisis sed mauris non, accumsan viverra nisl. Morbi viverra mauris id mauris malesuada, quis tempus lacus ullamcorper. Vestibulum mollis porta porttitor. </p>
