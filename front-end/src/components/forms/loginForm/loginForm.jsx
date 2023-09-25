@@ -39,7 +39,7 @@ export function LoginForm() {
     
             if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
                 // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
-                alert("Este correo electrónico ya se ha utilizado para iniciar sesión con Google.");
+                swal("error","Este correo electrónico ya se ha utilizado para iniciar sesión con Google.","error");
             } else {
                 // Procede con el inicio de sesión manual normal
                 const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
@@ -129,7 +129,7 @@ export function LoginForm() {
                     dispatch(logIn(true));
                     const { id, name, email } = serverResponse.responseWithUserInfo;
                     dispatch(guardarUserInfo({ id, name, email }))
-                    alert(serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso');
+                    swal("correct",serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso',"success");
                     navigate("/");
                 } else {
                     // Manejar errores de inicio de sesión
