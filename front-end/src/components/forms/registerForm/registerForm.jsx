@@ -21,7 +21,7 @@ export function RegisterForm (){
 
     const onSubmit = async (data) => {
         try {
-            const endpoint = 'https://server-xul-solar.vercel.app/usuario/crear'
+            const endpoint = 'https://localhost:3001/usuario/crear'
             const response = await axios.post(endpoint, data)
             if(response.data) alert('Usuario Creado')
             navigate('/login')
