@@ -8,6 +8,7 @@ import { logIn, guardarUserInfo } from "../../../redux/actions/actions";
 
 import { auth, provider } from "./config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import swal from 'sweetalert';
 
 
 
@@ -51,11 +52,11 @@ export function LoginForm() {
                     dispatch(logIn(true));
                     const { id, name, email } = response.data;
                     dispatch(guardarUserInfo({ id, name, email }));
-                    alert(response.data.name + ' inicio sesión');
+                    swal("success",response.data.name + ' inicio sesión',"success");
                     navigate('/');
                 } else {
                     // Mostrar una alerta de error cuando el inicio de sesión falla
-                    alert('El usuario o la contraseña son incorrectos');
+                    swal("error",'El usuario o la contraseña son incorrectos',"error");
                 }
             }
         } catch (error) {
@@ -63,10 +64,10 @@ export function LoginForm() {
             console.error(error); // Puedes registrar el error en la consola para fines de depuración.
             if (error.response && error.response.status === 401) {
                 // Manejar la respuesta 401 aquí (inicio de sesión fallido)
-                alert('El usuario o la contraseña son incorrectos');
+                swal("error",'El usuario o la contraseña son incorrectos',"error");
             } else {
                 // Mostrar una alerta de error genérica en otros casos
-                alert('Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.');
+                swal("Oops",'Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.',"error");
             }
         }
     }
