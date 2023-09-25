@@ -82,6 +82,7 @@ const CreateActivityForm= () =>{
                     <label htmlFor="image" className="text-white">Cargar una imagen: </label>
                          <br />
                           <button type="button" onClick={openCloudinaryWidget} className="border-solid border-2 border-gray-500 text-white p-2" id="btn-foto" value={activitiesData.image} onChange={handlerChange}>Subir foto</button>
+                         <br />
 
                         <label htmlFor="name" className="text-white ">Nombre de la actividad: </label>
                         <br />
