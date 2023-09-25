@@ -58,7 +58,6 @@ const CreateActivityForm= () =>{
                         <input type="text" name="image" id="image" className=" w-full px-2 rounded" value={activitiesData.image} onChange={handlerChange} />
 
                         <br/>
-                        <br/>
 
                         <label htmlFor="name" className="text-white ">Nombre de la actividad: </label>
                         <br />
