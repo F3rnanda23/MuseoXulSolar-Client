@@ -41,7 +41,7 @@ export function LoginForm() {
                 alert("Este correo electrónico ya se ha utilizado para iniciar sesión con Google.");
             } else {
                 // Procede con el inicio de sesión manual normal
-                const endpoint = 'http://localhost:3001/usuario/login';
+                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
                 const response = await axios.post(endpoint, data);
     
                 if (response.data.success) {
