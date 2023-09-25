@@ -35,7 +35,7 @@ export function LoginForm() {
             // Verificar si el usuario ya ha iniciado sesión con Google
             const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
             const googleEmail = localStorage.getItem("googleEmail");
-
+    
             if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
                 // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
                 alert("Este correo electrónico ya se ha utilizado para iniciar sesión con Google.");
@@ -43,7 +43,7 @@ export function LoginForm() {
                 // Procede con el inicio de sesión manual normal
                 const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
                 const response = await axios.post(endpoint, data);
-
+    
                 if (response.data.success) {
                     cookies.set('id', response.data.id, { path: '/' });
                     cookies.set('name', response.data.name, { path: '/' });
@@ -54,13 +54,17 @@ export function LoginForm() {
                     alert(response.data.name + ' inicio sesión');
                     navigate('/');
                 } else {
+                    // Mostrar una alerta de error cuando el inicio de sesión falla
                     alert('El usuario o la contraseña son incorrectos');
                 }
             }
         } catch (error) {
-            alert(error);
+            // Mostrar una alerta de error genérica en caso de otros errores
+            alert('Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.');
+            console.error(error); // Puedes registrar el error en la consola para fines de depuración.
         }
     }
+    
 
 
 
