@@ -126,8 +126,7 @@ export function LoginForm() {
 
 
                     dispatch(logIn(true));
-                    const { id, name, email } = serverResponse.responseWithUserInfo;
-                    dispatch(guardarUserInfo({ id, name, email }))
+                
                     swal("correct",serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso',"success");
                     navigate("/");
                 } else {
