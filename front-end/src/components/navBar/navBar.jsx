@@ -13,6 +13,8 @@ import style from './navBar.module.css';
 import { logOut } from '../../redux/actions/actions';
 import { auth } from '../forms/loginForm/config';
 import { signOut } from 'firebase/auth';
+import swal from 'sweetalert';
+
 
 
 const NavBar = ({ searchActive, setSearchActive }) => {
@@ -71,7 +73,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
             navigate("/")
         })
         navigate('/')
-        alert('Sesión Cerrada')
+        swal('Sesión Cerrada')
         dispatch(logOut(false))
     }
 
