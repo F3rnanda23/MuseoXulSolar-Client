@@ -13,6 +13,8 @@ import style from './navBar.module.css';
 import { logOut } from '../../redux/actions/actions';
 import { auth } from '../forms/loginForm/config';
 import { signOut } from 'firebase/auth';
+import swal from 'sweetalert';
+
 
 
 const NavBar = ({ searchActive, setSearchActive }) => {
@@ -67,12 +69,11 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         cookies.remove('id', { path: '/' });
         cookies.remove('name', { path: '/' });
         cookies.remove('email', { path: '/' });
-        signOut(auth).then(val => {
-            console.log(val, "val");
+        signOut(auth).then(() => {
             navigate("/")
         })
         navigate('/')
-        alert('Sesión Cerrada')
+        swal('Sesión Cerrada')
         dispatch(logOut(false))
     }
 

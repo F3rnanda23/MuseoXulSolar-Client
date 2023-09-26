@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {  createActivities } from '../../../redux/actions/actions';
+import { Image, Transformation } from 'cloudinary-react'; // Importa el componente Image
 
 
 
@@ -45,6 +46,31 @@ const CreateActivityForm= () =>{
 
     }; 
 
+    const openCloudinaryWidget = () => {
+        // Abre el widget de Cloudinary al hacer clic en el botón
+        cloudinary.openUploadWidget(
+          {
+            cloudName: 'dtsmy1ksn',
+            uploadPreset: 'primero',
+            sources: ['local', 'url', 'camera', 'facebook', 'dropbox', 'instagram'],
+            multiple: false,
+            cropping: 'server',
+            croppingAspectRatio: 1,
+            folder: 'uploads', // Carpeta de destino en Cloudinary
+          },
+          (error, result) => {
+            if (!error && result && result.event === 'success') {
+              // La imagen se ha subido con éxito, puedes manejarla aquí
+              setActivitiesData({
+                ...activitiesData,
+                image: result.info.secure_url // Actualiza la URL de la imagen en el estado
+          
+              });
+            }
+          }
+        );
+      };
+
     return(
         <div className="flex w-full h-screen bg-gray-600 items-center justify-center">
 
@@ -53,13 +79,11 @@ const CreateActivityForm= () =>{
                     <h2 className="text-center text-white text-2xl">Crear actividad </h2>
 
                     <div className="mt-5">
-                        <label htmlFor="image" className="text-white">Imagen:</label>
-                        <br />
-                        <input type="text" name="image" id="image" className=" w-full px-2 rounded" value={activitiesData.image} onChange={handlerChange} />
-
-                        <br/>
-                        <br/>
-
+                    <label htmlFor="image" className="text-white">Cargar una imagen: </label>
+                         <br />
+                          <button type="button" onClick={openCloudinaryWidget} className="border-solid border-2 border-gray-500 text-white p-2" id="btn-foto" value={activitiesData.image} onChange={handlerChange}>Subir foto</button>
+                         <br />
+                         <br />
                         <label htmlFor="name" className="text-white ">Nombre de la actividad: </label>
                         <br />
                         <input type="text" name="name" id="name" className="w-full px-2 rounded " value={activitiesData.name} onChange={handlerChange} />
@@ -75,7 +99,7 @@ const CreateActivityForm= () =>{
                         <br/>
                         <br/>
 
-                        <label htmlFor="hora" className="text-white" >Hora: </label>
+                        <label htmlFor="hora" step="3600" className="text-white" >Hora: </label>
                         <br />
                         <input type="time"  name="hora" id="hora"  className="w-full px-2 rounded" value={activitiesData.hora} onChange={handlerChange} />
                         

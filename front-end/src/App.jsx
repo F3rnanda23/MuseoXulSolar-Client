@@ -20,6 +20,7 @@ import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
 import { Subscription } from './views/Donations/Subscription';
 import  Sponsorship  from './views/Donations/Sponsorship';
+import Comments from './views/Comments/Comments';
 
 import './App.css'
 
@@ -61,7 +62,7 @@ function App() {
         <Route path="/Faqs" element={<Faqs />} />
         <Route path="/subscription" element={<Subscription/>} />
         <Route path="/sponsorship" element={<Sponsorship/>} />
-
+        <Route path="/Comments" element={<Comments/>} />
       </Routes>
 
     </div>

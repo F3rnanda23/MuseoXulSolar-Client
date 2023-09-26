@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router"
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useForm } from 'react-hook-form'
 import Cookies from "universal-cookie";
 import axios from "axios";
-import { logIn, guardarUserInfo } from "../../../redux/actions/actions";
+import { logIn } from "../../../redux/actions/actions";
 
 import { auth, provider } from "./config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import swal from 'sweetalert';
 
 
 
@@ -32,24 +33,48 @@ export function LoginForm() {
 
     const onSubmit = async (data) => {
         try {
-            const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
-            const response = await axios.post(endpoint, data);
-            if (response.data.success) {
-                cookies.set('id', response.data.id, { path: '/' });
-                cookies.set('name', response.data.name, { path: '/' });
-                cookies.set('email', response.data.email, { path: '/' });
-                dispatch(logIn(true));
-                const { id, name, email } = response.data;
-                dispatch(guardarUserInfo({ id, name, email }));
-                alert(response.data.name + ' inicio sesión');
-                navigate('/');
+            // Verificar si el usuario ya ha iniciado sesión con Google
+            const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
+            const googleEmail = localStorage.getItem("googleEmail");
+
+            if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
+                // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
+                swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
             } else {
-                alert('El usuario o la contraseña son incorrectos');
+                // Procede con el inicio de sesión manual normal
+                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                const response = await axios.post(endpoint, data);
+
+                if (response.data.success) {
+                    cookies.set('id', response.data.id, { path: '/' });
+                    cookies.set('name', response.data.name, { path: '/' });
+                    cookies.set('email', response.data.email, { path: '/' });
+                    dispatch(logIn(true));
+
+                    swal("success", response.data.name + ' inicio sesión', "success");
+                    navigate('/');
+                } else {
+                    // Mostrar una alerta de error cuando el inicio de sesión falla
+                    swal("error", 'El usuario o la contraseña son incorrectos', "error");
+                }
             }
         } catch (error) {
-            alert(error);
+            // Mostrar una alerta de error genérica en caso de otros errores
+            console.error(error); // Puedes registrar el error en la consola para fines de depuración.
+            if (error.response && error.response.status === 401) {
+                // Manejar la respuesta 401 aquí (inicio de sesión fallido)
+                swal("error", 'El usuario o la contraseña son incorrectos', "error");
+            } else {
+                // Mostrar una alerta de error genérica en otros casos
+                swal("Oops", 'Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.', "error");
+            }
         }
     }
+
+
+
+
+
 
     const googleHandler = async () => {
         try {
@@ -58,6 +83,8 @@ export function LoginForm() {
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
 
+            localStorage.setItem("googleLoggedIn", "true");
+            localStorage.setItem("googleEmail", data.email);
             const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
                 method: 'POST',
                 headers: {
@@ -91,6 +118,10 @@ export function LoginForm() {
                     const serverResponse = await loginResponse.json();
                     console.log(serverResponse);
 
+                    cookies.set('id', serverResponse.responseWithUserInfo.id, { path: '/' });
+                    cookies.set('name', serverResponse.responseWithUserInfo.name, { path: '/' });
+                    cookies.set('email', serverResponse.responseWithUserInfo.email, { path: '/' });
+
                     localStorage.setItem("googleAccessToken", token);
 
                     setValue(data.email);
@@ -99,9 +130,9 @@ export function LoginForm() {
 
 
                     dispatch(logIn(true));
-                    const { id, name, email } = serverResponse.responseWithUserInfo;
-                    dispatch(guardarUserInfo({ id, name, email }))
-                    alert('Inicio de sesión con Google exitoso');
+                    // const { id, name, email } = serverResponse.responseWithUserInfo;
+                    // dispatch(guardarUserInfo({ id, name, email }))
+                    swal("correct", serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso', "success");
                     navigate("/");
                 } else {
                     // Manejar errores de inicio de sesión
@@ -116,8 +147,6 @@ export function LoginForm() {
             console.error("Error al iniciar sesión con Google:", error);
         }
     }
-
-
 
     useEffect(() => {
         setValue(localStorage.getItem("email"))
