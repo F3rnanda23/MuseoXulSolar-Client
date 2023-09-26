@@ -8,6 +8,7 @@ export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
 export const GUARDAR_USER_INFO = "GUARDAR_USER_INFO"
+export const CREATE_REVIEW = 'CREATE_REVIEW'
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -35,47 +36,68 @@ export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
       const response = await axios(`https://server-xul-solar.vercel.app/actividades/${actividadesId}`)
-    return dispatch({
-      type: GET_ACTIVITY_DETAIL,
-      payload: response.data
-    })
-       
+      return dispatch({
+        type: GET_ACTIVITY_DETAIL,
+        payload: response.data
+      })
+
     } catch (error) {
       console.error('Error en la solicitud:', error);
     }
   }
-}
-    
+};
+
 export const logIn = (sesion) => {
-  return{
+  return {
     type: LOG_IN,
     payload: sesion
   }
-}
+};
 
-export const logOut=(sesion) => { 
-  return{
+export const logOut = (sesion) => {
+  return {
     type: LOG_OUT,
     payload: sesion
   }
-}
+};
 
 export const filtrarActividades = (activities) => {
-  return{
+  return {
     type: UPDATE_ACTIVITIES_FILTER,
     payload: activities
   }
-}
+};
 
 export const guardarUserInfo = (info) => {
   try {
-    return{
+    return {
       type: GUARDAR_USER_INFO,
-      payload : info, 
+      payload: info,
     }
-    
+
   } catch (error) {
     console.log('error al obtener la información del usuario', error);
   }
-  
-}
+
+};
+
+export const createReview = (comment) => {
+  // const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear' 
+  const endpoint = 'http://localhost:3001/comentarios/crear'
+
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.post(endpoint, comment)
+      return dispatch({
+        type: CREATE_REVIEW,
+        payload: data,
+
+      })
+    } catch (error) {
+      throw new Error('Algo salió mal: ', error.message)
+    }
+  }
+};
+
+
+
