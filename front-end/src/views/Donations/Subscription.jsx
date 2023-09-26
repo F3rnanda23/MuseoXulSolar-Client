@@ -43,20 +43,20 @@ export const Subscription = () => {
         }
     }
 
-    // const sendSubsInfo = async () => {
-    //     try {
-    //         const subscriptionInfo = await axios.post('http://localhost:3001/suscribe', {
-    //             UsuarioId: userId,
-    //             email: userEmail,
-    //             name: userName,
-    //             Subscription: price,
-    //             date: currentDate,
-    //         })
+    const sendSubsInfo = async () => {
+        try {
+            const subscriptionInfo = await axios.post('http://localhost:3001/suscribe', {
+                UsuarioId: userId,
+                email: userEmail,
+                name: userName,
+                Subscription: price,
+                date: currentDate,
+            })
 
-    //     } catch (error) {
-    //         throw new Error(error.message);
-    //     }
-    // }
+        } catch (error) {
+            throw new Error(error.message);
+        }
+    }
 
     return (
         <div className="bg-gray-200 min-h-screen w-full bg-cover"
@@ -74,7 +74,7 @@ export const Subscription = () => {
                             <button onClick={() => {
                                 setPrice(30)
                                 createPreference(30)
-                                // sendSubsInfo()
+                                sendSubsInfo()
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
                         </div>
@@ -89,7 +89,7 @@ export const Subscription = () => {
                             <button onClick={() => {
                                 setPrice(50)
                                 createPreference(50)
-                                // sendSubsInfo()
+                                sendSubsInfo()
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
                         </div>

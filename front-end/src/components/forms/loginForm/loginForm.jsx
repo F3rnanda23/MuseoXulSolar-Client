@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useForm } from 'react-hook-form'
 import Cookies from "universal-cookie";
 import axios from "axios";
-import { logIn, guardarUserInfo } from "../../../redux/actions/actions";
+import { logIn } from "../../../redux/actions/actions";
 
 import { auth, provider } from "./config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
@@ -50,11 +50,7 @@ export function LoginForm() {
                     cookies.set('name', response.data.name, { path: '/' });
                     cookies.set('email', response.data.email, { path: '/' });
                     dispatch(logIn(true));
-                    const { id, name, email } = response.data;
-                    console.log('usando id',id);
-                    // console.log('usando name',name);
 
-                    dispatch(guardarUserInfo({ id, name, email }));
                     swal("success",response.data.name + ' inicio sesión',"success");
                     navigate('/');
                 } else {
