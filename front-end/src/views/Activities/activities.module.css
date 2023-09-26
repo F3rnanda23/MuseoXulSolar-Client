@@ -1,13 +1,14 @@
 body, html {
-
-    height: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
 }
 
 .activitiesContainer {
     background-image: url('../../imagenes//actividades//firmasXulFondo.png');
     background-attachment: fixed;
     background-size: cover;
-    height: 100%;
+    height: 100vh;
     
 }
 
@@ -17,7 +18,7 @@ body, html {
     display: flex;
     margin-left: 1.25rem;
     height: 250px;
-    max-width: 48rem;
+    width: 39rem;
     align-items: flex-start;
     gap: 0.5rem;
     border-radius: 0.5rem;

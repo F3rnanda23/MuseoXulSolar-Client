@@ -19,6 +19,7 @@ export default {
           //   futura: ['"Futura Bk BT"', 'sans'],
           //   sans: ['"Futura Bk BT"', 'sans'],
           // },
+        
     },
   },
   plugins: [scrollbarHide],

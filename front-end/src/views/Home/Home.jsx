@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import Gallery from '../../components/galery/galery';
 import Footer from '../../components/footer/footer';
-import Destacados from '../../components/destacados/destacados';
+import Destacados from '../../components/destacados/Destacados';
 import Video from '../../components/video/Video';
 import ImageHome from '../../ImagesHome/image1';
 
