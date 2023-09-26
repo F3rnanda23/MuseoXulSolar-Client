@@ -51,6 +51,9 @@ export function LoginForm() {
                     cookies.set('email', response.data.email, { path: '/' });
                     dispatch(logIn(true));
                     const { id, name, email } = response.data;
+                    console.log('usando id',id);
+                    // console.log('usando name',name);
+
                     dispatch(guardarUserInfo({ id, name, email }));
                     swal("success",response.data.name + ' inicio sesión',"success");
                     navigate('/');

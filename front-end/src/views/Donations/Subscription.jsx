@@ -1,17 +1,24 @@
 import axios from 'axios';
 import { useState } from 'react';
-import { useSelector } from 'react-redux';
-import img_Bg from '../../imagenes/background/bg1.png'
+import Cookies from 'universal-cookie';
 
+import img_Bg from '../../imagenes/background/bg1.png'
 
 
 export const Subscription = () => {
 
     const [initPoint, setInitPoint] = useState(false);
-    const userInfo = useSelector(state => state.loggedUserInfo);
+    const [price, setPrice] = useState('')
+ 
 
     const currentDate = new Date();
     console.log(currentDate);
+
+    const cookies = new Cookies();
+    const userId = cookies.get('id');
+    const userEmail = cookies.get('email');
+    const userName = cookies.get('name');
+  
 
 
     const createPreference = async (price) => {
@@ -37,12 +44,11 @@ export const Subscription = () => {
     }
 
     // const sendSubsInfo = async () => {
-    //     const { id, email, name } = userInfo;
     //     try {
-    //         const subscription = await axios.post('http://localhost:3001/suscribe', {
-    //             UsuarioId: id,
-    //             email,
-    //             name,
+    //         const subscriptionInfo = await axios.post('http://localhost:3001/suscribe', {
+    //             UsuarioId: userId,
+    //             email: userEmail,
+    //             name: userName,
     //             Subscription: price,
     //             date: currentDate,
     //         })
@@ -66,6 +72,7 @@ export const Subscription = () => {
                             <h5 className='text-2xl md:text-3xl font-medium mt-3'>Miembro($30/año)</h5>
                             <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
                             <button onClick={() => {
+                                setPrice(30)
                                 createPreference(30)
                                 // sendSubsInfo()
                             }}
@@ -80,6 +87,7 @@ export const Subscription = () => {
                             <h5 className='text-2xl md:text-3xl font-medium mt-3'>Socio($50/año)</h5>
                             <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
                             <button onClick={() => {
+                                setPrice(50)
                                 createPreference(50)
                                 // sendSubsInfo()
                             }}

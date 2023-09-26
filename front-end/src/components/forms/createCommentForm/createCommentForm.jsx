@@ -1,18 +1,20 @@
 import { useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 
 import { createReview } from '../../../redux/actions/actions'
+
+import  Cookies  from 'universal-cookie';
 
 
 const CreateComment = () => {
 
+    const cookies = new Cookies();
+    const userId = cookies.get('id');
+    
     const dispatch = useDispatch();
     const [selectedRating, setSelectedRating] = useState(0);
 
     const ratings = [1, 2, 3, 4, 5];
-
-    const userInfo = useSelector(state => state.loggedUserInfo);
-    const userId = userInfo.id;
 
     const currentDate = new Date();
 
