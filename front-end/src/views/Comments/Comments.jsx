@@ -1,6 +1,5 @@
 import CreateComment from '../../components/forms/createCommentForm/createCommentForm'
 
-
 import backgroundImage from '../../imagenes/background/bg1.png';  // Importa la imagen
 
 const Comments = () => {
