@@ -68,18 +68,18 @@ export const filtrarActividades = (activities) => {
   }
 };
 
-export const guardarUserInfo = (info) => {
-  try {
-    return {
-      type: GUARDAR_USER_INFO,
-      payload: info,
-    }
+// export const guardarUserInfo = (info) => {
+//   try {
+//     return {
+//       type: GUARDAR_USER_INFO,
+//       payload: info,
+//     }
 
-  } catch (error) {
-    console.log('error al obtener la información del usuario', error);
-  }
+//   } catch (error) {
+//     console.log('error al obtener la información del usuario', error);
+//   }
 
-};
+// };
 
 export const createReview = (comment) => {
   // const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear' 

@@ -9,7 +9,6 @@ const initialState = {
     activities: [],
     activityDetail: {},
     active: false,
-    loggedUserInfo: {},
     comments: []
 };
 
@@ -55,12 +54,6 @@ const reducer = (state = initialState, action) => {
         case UPDATE_ACTIVITIES_FILTER:
             return {
                 ...state, activities: action.payload
-            }
-
-        case GUARDAR_USER_INFO:
-
-            return {
-                ...state, loggedUserInfo: action.payload,
             }
 
         case CREATE_REVIEW:
