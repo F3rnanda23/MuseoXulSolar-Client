@@ -36,26 +36,26 @@ export function LoginForm() {
             // Verificar si el usuario ya ha iniciado sesión con Google
             const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
             const googleEmail = localStorage.getItem("googleEmail");
-    
+
             if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
                 // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
-                swal("error","Este correo electrónico ya se ha utilizado para iniciar sesión con Google.","error");
+                swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
             } else {
                 // Procede con el inicio de sesión manual normal
                 const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
                 const response = await axios.post(endpoint, data);
-    
+
                 if (response.data.success) {
                     cookies.set('id', response.data.id, { path: '/' });
                     cookies.set('name', response.data.name, { path: '/' });
                     cookies.set('email', response.data.email, { path: '/' });
                     dispatch(logIn(true));
 
-                    swal("success",response.data.name + ' inicio sesión',"success");
+                    swal("success", response.data.name + ' inicio sesión', "success");
                     navigate('/');
                 } else {
                     // Mostrar una alerta de error cuando el inicio de sesión falla
-                    swal("error",'El usuario o la contraseña son incorrectos',"error");
+                    swal("error", 'El usuario o la contraseña son incorrectos', "error");
                 }
             }
         } catch (error) {
@@ -63,15 +63,15 @@ export function LoginForm() {
             console.error(error); // Puedes registrar el error en la consola para fines de depuración.
             if (error.response && error.response.status === 401) {
                 // Manejar la respuesta 401 aquí (inicio de sesión fallido)
-                swal("error",'El usuario o la contraseña son incorrectos',"error");
+                swal("error", 'El usuario o la contraseña son incorrectos', "error");
             } else {
                 // Mostrar una alerta de error genérica en otros casos
-                swal("Oops",'Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.',"error");
+                swal("Oops", 'Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.', "error");
             }
         }
     }
-    
-    
+
+
 
 
 
@@ -118,6 +118,10 @@ export function LoginForm() {
                     const serverResponse = await loginResponse.json();
                     console.log(serverResponse);
 
+                    cookies.set('id', serverResponse.responseWithUserInfo.id, { path: '/' });
+                    cookies.set('name', serverResponse.responseWithUserInfo.name, { path: '/' });
+                    cookies.set('email', serverResponse.responseWithUserInfo.email, { path: '/' });
+
                     localStorage.setItem("googleAccessToken", token);
 
                     setValue(data.email);
@@ -126,8 +130,9 @@ export function LoginForm() {
 
 
                     dispatch(logIn(true));
-                
-                    swal("correct",serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso',"success");
+                    // const { id, name, email } = serverResponse.responseWithUserInfo;
+                    // dispatch(guardarUserInfo({ id, name, email }))
+                    swal("correct", serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso', "success");
                     navigate("/");
                 } else {
                     // Manejar errores de inicio de sesión
