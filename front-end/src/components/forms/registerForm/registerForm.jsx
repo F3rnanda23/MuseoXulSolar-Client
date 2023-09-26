@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from "react";
 import { useNavigate } from "react-router";
-import {useForm} from 'react-hook-form'
+import {useForm} from 'react-hook-form';
 import swal from 'sweetalert';
 
 export function RegisterForm (){
@@ -24,7 +24,7 @@ export function RegisterForm (){
         try {
             const endpoint = 'https://server-xul-solar.vercel.app/usuario/crear'
             const response = await axios.post(endpoint, data)
-            if(response.data) swal("",'Usuario Creado',"success")
+            if(response.data) swal("exito",'Usuario Creado',"success")
             navigate('/login')
         } catch (error) {
             swal("Oops",error.response.data,"error")
@@ -61,7 +61,7 @@ export function RegisterForm (){
                     <label className="text-white text-sm">Correo electronico:</label>
                     <input 
                         className='w-full p-2 rounded'
-                        type="text"
+                        type="email"
                         placeholder="Correo electronico"
                         {...register("email",
                         { required:true, pattern:/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/} )}/>

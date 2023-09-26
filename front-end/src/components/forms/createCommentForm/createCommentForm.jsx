@@ -37,7 +37,7 @@ const CreateComment = () => {
         description: '',
         date: formatDate(currentDate),
         rating: '',
-        usuarioId: userId,
+        UsuarioId: userId,
 
     });
 
