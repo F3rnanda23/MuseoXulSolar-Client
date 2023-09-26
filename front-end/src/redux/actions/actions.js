@@ -7,7 +7,6 @@ export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
-export const GUARDAR_USER_INFO = "GUARDAR_USER_INFO"
 export const CREATE_REVIEW = 'CREATE_REVIEW'
 
 export const getAllActivities = () => {
