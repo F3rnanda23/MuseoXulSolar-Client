@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import {useForm} from 'react-hook-form'
+import swal from 'sweetalert';
 
 export function RegisterForm (){
     const navigate = useNavigate();
@@ -23,24 +24,14 @@ export function RegisterForm (){
         try {
             const endpoint = 'https://server-xul-solar.vercel.app/usuario/crear'
             const response = await axios.post(endpoint, data)
-            if(response.data) alert('Usuario Creado')
+            if(response.data) swal("",'Usuario Creado',"success")
             navigate('/login')
         } catch (error) {
-            alert(error.response.data)
+            swal("Oops",error.response.data,"error")
         }
         
     }
 
-    const googleHandler = async () => {
-        try {
-            const endpoint = 'https://server-xul-solar.vercel.app/auth/google'
-            await axios.get(endpoint)
-            
-        } catch (error) {
-            alert(error)
-        }
-    }
-    
     return (
         <div className="rounded p-8 py-2 bg-gray-700 ">
             <h2 className="mt-2 text-center text-2xl font-semibold text-white">REGISTRATE</h2>
