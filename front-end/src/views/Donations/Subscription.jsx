@@ -40,7 +40,7 @@ export const Subscription = () => {
     //     const { id, email, name } = userInfo;
     //     try {
     //         const subscription = await axios.post('http://localhost:3001/suscribe', {
-    //             id,
+    //             UsuarioId: id,
     //             email,
     //             name,
     //             Subscription: price,
