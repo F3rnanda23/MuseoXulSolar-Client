@@ -6,6 +6,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import { store, persistor } from './redux/store/store';
 import App from './App.jsx';
+import {IntlProvider} from 'react-intl'
 
 import './fonts.css'
 

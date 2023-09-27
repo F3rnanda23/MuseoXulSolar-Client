@@ -67,21 +67,30 @@ export const Subscription = () => {
     return (
         <div className="bg-gray-200 min-h-screen w-full bg-cover"
             style={{ backgroundImage: `url(${img_Bg})` }}>
-            <h2 className="text-center text-3xl pt-5">HACETE MIEMBRO DEL PAN KLUB</h2>
+            <div className='container  max-w-screen-md mx-auto'>
+                <h2 className="text-center text-3xl pt-5">HACETE MIEMBRO DEL PAN KLUB</h2>
+                <p className='my-4'>Obtené una variedad de beneficios que permitirán acceder a una experiencia única dentro del Museo. Desde entradas gratuitas y visitas guiadas exclusivas, hasta descuentos en la tienda, actividades y talleres dentro del museo.
+                    Elegí la opción que más te guste a continuación:
+                </p>
+            </div>
             <div className=" flex items-center justify-center min-h-full mx-auto container">
-                <div className="grid grid-cols-1 gap-7 md:grid-cols-2 max-w-2xl  ">
+                <div className="max-w-xs sm:max-w-sm grid grid-cols-1 gap-7 md:grid-cols-2 md:max-w-2xl  ">
                     <div className="rounded shadow-2xl my-3 bg-gray-300 hover:scale">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
                                 <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746264/gl/278_ftvkgw.jpg" alt="" />
                             </div>
-                            <h5 className='text-2xl md:text-3xl font-medium mt-3'>Miembro($30/año)</h5>
-                            <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
-                            {/* <button onClick={() => {
+                            <h5 className='text-xl md:text-2xl font-medium mt-3'>Amigos Xul Solar($30/año)</h5>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                -5 entradas gratis al mes<br/>
+                                -10% de descuento en la tienda<br/>
+                                -10% de descuento en las actividades y espectáculos del Pan Klub
+                            </p>
+                            <button onClick={() => {
                                 setPrice(30)
                                 createPreference(30)
                                 sendSubsInfo()
-                            }} */}
+                            }}></button>
                             <button onClick={() => {
                                 // setPrice(30);
                                 // setSubs(prevState => ({
@@ -99,8 +108,12 @@ export const Subscription = () => {
                             <div className="rounded overflow-hidden">
                                 <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746264/gl/278_ftvkgw.jpg" alt="" />
                             </div>
-                            <h5 className='text-2xl md:text-3xl font-medium mt-3'>Socio($50/año)</h5>
-                            <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
+                            <h5 className='text-xl md:text-2xl font-medium mt-3'>Amigos Xul Solar Plus($50/año)</h5>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                -10 entradas gratis al mes<br/>
+                                -1 entrada gratis mensual a la visita astrológica<br/>
+                                -15% de descuento en la tienda<br/>
+                                -15% de descuento en las actividades y espectáculos del Pan Klub</p>
                             <button onClick={() => {
                                 // setPrice(50)
                                 createPreference(50)
