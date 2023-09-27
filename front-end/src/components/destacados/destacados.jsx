@@ -10,10 +10,10 @@ import  testimonio from '../../imagenes/destacados/testimonio.jpg';
 import  firma6Xul from '../../imagenes/destacados/firma6Xul.png';
 import  firma10Xul from '../../imagenes/destacados/firma10Xul.png';
 import  firma9Xul from '../../imagenes/destacados/firma9Xul.png';
-import  carasXul from '../../imagenes/destacados/carasXul.png';
+import  firma8Xul from '../../imagenes/destacados/firma8Xul.png';
+import  firma11Xul from '../../imagenes/destacados/firma11Xul.png';
 import serpienteXulVerti from '../../imagenes/destacados/serpienteXulVerti.png';
 import serpienteXulHoriz from '../../imagenes/destacados/serpienteXulHoriz.png';
-import  escafandraXul from '../../imagenes/destacados/escafandraXul.png';
 import imagen1 from '../../imagenes/destacados/imagen1.jpg';
 import imagen3 from '../../imagenes/destacados/imagen3.jpg';
 import imagen2 from '../../imagenes/destacados/imagen2.jpg';
@@ -22,23 +22,26 @@ import imagen5 from '../../imagenes/destacados/imagen5.jpg';
 import imagen6 from '../../imagenes/destacados/imagen6.jpg';
 import imagen7 from '../../imagenes/destacados/imagen7.jpg';
 import imagen8 from '../../imagenes/destacados/imagen8.jpg';
+import imagen9 from '../../imagenes/destacados/imagen9.jpg';
+import imagen10 from '../../imagenes/destacados/imagen10.jpg';
+import imagen11 from '../../imagenes/destacados/imagen11.png';
 
 
 const Destacados = () =>{
     return(
 
-        <div class=" w-full xl:h-[1300px]  " >
+        <div class=" w-full xl:h-[1400px]  " >
 
              <div className="w-full h-full grid  bg-gray-200  p-2  xl: grid grid-cols-2 gap-0">
 
 
-                <div class="  flex flex-cols border-2 border-gray-500 bg-gray-200">
+                <div class="  flex flex-cols border-2 border-gray-500 bg-gray-200 ">
 
                     <div class="  w-2/3  w-full h-[600px]">
 
                         <div class="flex flex-cols mb-[50px] mt-[50px]">
 
-                            <div class="w-1/4  h-[200px]   bg-gray-300 mt-[10px] ml-[20px] mr-[20px] shadow-2xl">
+                            <div class="w-1/4  h-[200px]   bg-gray-200 mt-[10px] ml-[20px] mr-[20px] shadow-2xl">
                                 <figure class="shrink-0  w-full h-full   ">
                                             <img src={firma6Xul} alt="Descripción de la imagen" className=" w-full h-full " />
                                 </figure>
@@ -99,7 +102,7 @@ const Destacados = () =>{
 
 
 
-                <div class="  flex flex-col divide-y divide-gray border-2 border-gray-500 bg-gray-200">
+                <div class="  flex flex-col divide-y divide-gray border-2 border-gray-500 bg-gray-200 ">
 
                     <div class="flex w-[750px] h-[150px] ml-[20px] mt-[20px] justify-center items-center   ">
                         <figure class=" w-full h-full bg-gray-200">
@@ -145,7 +148,7 @@ const Destacados = () =>{
 
                         <div class="flex flex-cols  mt-[-50px]">
 
-                            <div class="w-1/4  h-[110px]   bg-gray-300 mt-[80px] ml-[50px] mr-[20px] shadow-2xl">
+                            <div class="w-1/4  h-[110px]   bg-gray-200 mt-[80px] ml-[50px] mr-[20px] shadow-2xl">
                                 <figure class="shrink-0  w-full h-full   ">
                                             <img src={firma9Xul} alt="Descripción de la imagen" className=" w-full h-full " />
                                 </figure>
@@ -165,11 +168,9 @@ const Destacados = () =>{
                 
 
         
-            
-
         
 
-                <div class="  flex flex-col divide-y divide-gray border-2 border-gray-500 bg-gray-200  h-[660px]">
+                <div class="  flex flex-col divide-y divide-gray border-2 border-gray-500 bg-gray-200  ">
 
 
                     <div class="  w-2/3  w-full h-[600px]">
@@ -185,13 +186,13 @@ const Destacados = () =>{
                                     </a>
                                 </figure>
 
-                                <figure class=" shrink-0  w-5/6 h-[150px] mt-[0px] ml-[25px]  bg-gray-300  transform rotate-[-2deg] shadow-2xl">
+                                <figure class=" shrink-0  w-6/6 h-[150px] mt-[0px] ml-[5px]  bg-gray-300  transform rotate-[-2deg] shadow-2xl">
                                             <img src={imagen8} alt="Descripción de la imagen" className=" w-full h-full " />
                                 </figure>
                             </div> 
-                            <div class="w-1/4  h-[110px]   bg-gray-200 mt-[-5px] ml-[100px] mr-[20px] shadow-2xl">
+                            <div class="w-2/6  h-[110px]   bg-gray-200 mt-[-5px] ml-[40px] mr-[20px] shadow-2xl">
                                 <figure class="shrink-0  w-full h-full transform rotate-[20deg]  ">
-                                            <img src={firma6Xul} alt="Descripción de la imagen" className=" w-full h-full " />
+                                            <img src={firma11Xul} alt="Descripción de la imagen" className=" w-full h-full " />
                                 </figure>
                             </div>
 
@@ -201,14 +202,14 @@ const Destacados = () =>{
                         <div class="flex flex-cols ">
 
                             <div class=" w-1/4 h-[80px] mt-[-30px] ml-[130px] bg-gray-200 shadow-2xl">
-                                <figure class=" shrink-0  w-full h-full rotate-[15deg] ">
+                                <figure class=" shrink-0  w-full h-full rotate-[15deg]  ">
                                     <img src={firma10Xul} alt="Descripción de la imagen" className=" w-full h-full " />
                                 </figure>
                             </div> 
 
                             <div class=" w-3/5 h-[300px] mt-[-320px] ml-[50px] mr-[15px] flex flex-cols-2 justify-end shadow-2xl ">
                                 
-                                <figure class="shrink-0  w-3/5 h-[300px] mt-[10px] mr-[8px] rotate-[-5deg] shadow-2xl">
+                                <figure class="shrink-0  w-3/5 h-[300px] mt-[10px] mr-[8px] transform  rotate-[-5deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/educacion.html" className="relative group">
                                         <img src={educacion} alt="Descripción de la imagen"  className=" w-full h-full   object-cover transition-transform transform group-hover:scale-105" />
                                     <p className="absolute w-full bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 ">EDUCACIÓN</p>
@@ -232,51 +233,71 @@ const Destacados = () =>{
 
                 </div> 
 
-{/* 
-<div class="grid grid-cols-3 gap-10 border-2 border-gray-500 bg-gray-300 shrink-0 xl:mb-[100px]">
-
-<figure  class="w-[100px] h-[100px] mt-[20px]">
-    <img src={firma8Xul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block  " />
-</figure>
-
-
-<figure  class="w-[100px] h-[100px] mt-[20px]">
-    <img src={firma8Xul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block  " />
-</figure>
-
-<figure class=" w-[100px] h-[100px] mt-[10px]">
-    <a href="https://www.xulsolar.org.ar/exposiciones.html" className="relative group">
-        <img src={exposiciones} alt="Descripción de la imagen"   className="w-full h-full rounded-[30px] object-cover transition-transform transform group-hover:scale-105"/>
-        <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EXPOSICIONES</p>
-    </a>
-</figure>
-
-<figure  class="w-[100px] h-[100px] mt-[20px]">
-    <img src={firma8Xul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block  " />
-</figure>
-
-<figure  class="w-[100px] h-[100px] mt-[20px]">
-    <img src={firma8Xul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block  " />
-</figure>
-
-
-<figure class=" w-[100px] h-[100px] mt-[20px]">
-    <a href="https://www.xulsolar.org.ar/educacion.html" className="relative group">
-        <img src={educacion} alt="Descripción de la imagen"  className=" w-full h-full   object-cover transition-transform transform group-hover:scale-105" />
-        <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100 ">EDUCACIÓN</p>
-    </a>
-</figure>
-
-<figure class="w-[100px] h-[100px] mt-[20px]">
-    <img src={serpienteXul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block   " />
-</figure>
-
-
-</div> */}
 
 
 
+                <div class="  flex flex-cols border-2 border-gray-500 bg-gray-200 ">
 
+                    <div class="flex w-1/5 h-6/6 justify-center items-center ml-[20px] mr-[20px]  ">
+                        <figure class=" w-full h-full bg-gray-200">
+                         <img src={serpienteXulVerti} alt="Descripción de la imagen" className="w-full h-full  transform rotate-[-15deg] " />
+                        </figure>
+                    </div>
+
+                    <div class="  w-2/3  w-full h-[600px]">
+
+                        <div class="flex flex-cols  mt-[30px] mr-[30px]">
+
+                            <div class=" w-3/4 h-5/6 flex flex-cols-2 justify-end bg-gray-200 shadow-2xl">
+                                <figure class=" shrink-0  w-2/6 h-[198px]  mt-[15px] mr-[10px] border-gray-500 bg-gray-300 transform rotate-[-4deg] shadow-2xl">
+                                    <img src={imagen11} alt="Descripción de la imagen" className=" w-full h-full transform rotate-[0deg] " />
+                                </figure>
+
+                                <figure class=" shrink-0  w-3/5 h-[230px]   mr-[10px] transform rotate-[-4deg] shadow-2xl">
+                                    <a href="https://www.xulsolar.org.ar/museo.html" className="relative group">
+                                        <img src={elMuseo} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
+                                        <p className="absolute w-full bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">EL MUSEO</p>
+                                    </a>
+                                </figure>
+                            </div>
+
+                            <div class="w-1/4  h-[150px]   bg-gray-200  ml-[20px] mr-[20px] mt-[20px] shadow-2xl">
+                                <figure class="shrink-0  w-full h-full  transform rotate-[14deg] ">
+                                            <img src={firma8Xul} alt="Descripción de la imagen" className=" w-full h-full " />
+                                </figure>
+                            </div>
+
+                        </div>
+
+ 
+                        <div class="flex flex-cols mt-[100px] ml-[10px]  ">
+
+                            <div class=" w-4/6 h-[350px] mt-[-50px] ml-[20px] flex flex-cols-2 justify-end shadow-2xl ">
+                                
+                                <figure class="shrink-0  w-3/6 h-[340px] mt-[10px] mr-[10px]  transform rotate-[-5deg] shadow-2xl">
+                                    <a href="https://www.xulsolar.org.ar/testimonios.html" className="relative group">
+                                        <img src={testimonio} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
+                                        <p className="absolute bottom-0 left-0  px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-0 group-hover:opacity-100">TESTIMONIO</p>
+                                    </a> 
+                                </figure>
+
+                                <figure class=" shrink-0  w-2/6 h-[350px] mt-[-8px] mr-[35px] transform rotate-[-5deg] bg-gray-300 shadow-2xl">
+                                            <img src={imagen10} alt="Descripción de la imagen" className=" w-full h-full " />
+                                </figure>
+                            </div>   
+
+                            <div class=" w-1/4 h-[430px] mt-[-120px] ml-[10px] bg-gray-200 shadow-2xl">
+                                <figure class=" shrink-0  w-full h-full transform rotate-[3deg]">
+                                    <img src={imagen9} alt="Descripción de la imagen" className=" w-full h-full " />
+                                </figure>
+                            </div>
+
+                        </div>
+
+                    </div> 
+
+
+                </div>
 
 
 
@@ -284,12 +305,11 @@ const Destacados = () =>{
 
 
                 
-                
-                <div class="grid grid-cols-3 mb-[100px]  mt-[-40px] gap-10 border-2 border-gray-500 bg-gray-300 shrink-0 xl:h-[700px]">
+                {/* <div class="grid grid-cols-3 mb-[100px]  mt-[-40px] gap-10 border-2 border-gray-500 bg-gray-300 shrink-0 xl:h-[700px]">
 
-                        {/* <figure class="w-[100px] h-[100px] mt-[20px]">
+                        <figure class="w-[100px] h-[100px] mt-[20px]">
                                 <img src={serpienteXul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block   " />
-                        </figure> */}
+                        </figure>
 
                     <figure class=" w-[100px] h-[100px] mt-[20px]">
                             <a href="https://www.xulsolar.org.ar/museo.html" className="relative group">
@@ -298,13 +318,13 @@ const Destacados = () =>{
                             </a>
                     </figure>
 
-                        {/* <figure class="w-[100px] h-[100px] mt-[20px]">
+                        <figure class="w-[100px] h-[100px] mt-[20px]">
                             <img src={serpienteXul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block   " />
-                        </figure> */}
-{/* 
+                        </figure>
+
                         <figure class="w-[100px] h-[100px] mt-[20px]">
                              <img src={serpienteXul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block   " />
-                        </figure> */}
+                        </figure>
 
                 
             
@@ -319,12 +339,12 @@ const Destacados = () =>{
                         <figure  class="w-[100px] h-[100px] mt-[20px]">
                             <img src={escafandraXul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block  " />
                         </figure>
-{/* 
+
                         <figure class="w-[100px] h-[100px] mt-[20px]">
                              <img src={serpienteXul} alt="Descripción de la imagen" className="w-full h-full hidden xl:block   " />
-                        </figure> */}
+                        </figure>
                  
-                </div>
+                </div> */}
                 
                
             </div> 
