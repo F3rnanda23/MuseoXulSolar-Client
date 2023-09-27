@@ -45,12 +45,13 @@ export const Subscription = () => {
 
     const sendSubsInfo = async () => {
         try {
-            const subscriptionInfo = await axios.post('http://localhost:3001/suscribe', {
+            const subscriptionInfo = await axios.post('https://server-xul-solar.vercel.app/suscripcion', {
                 UsuarioId: userId,
                 email: userEmail,
                 name: userName,
-                Subscription: price,
+                subscripcion: price,
                 date: currentDate,
+                tipo: `Membresia ${price}`
             })
 
         } catch (error) {
