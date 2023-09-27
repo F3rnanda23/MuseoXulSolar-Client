@@ -7,7 +7,8 @@ export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
-export const CREATE_REVIEW = 'CREATE_REVIEW'
+export const CREATE_REVIEW = 'CREATE_REVIEW';
+export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -67,22 +68,9 @@ export const filtrarActividades = (activities) => {
   }
 };
 
-// export const guardarUserInfo = (info) => {
-//   try {
-//     return {
-//       type: GUARDAR_USER_INFO,
-//       payload: info,
-//     }
-
-//   } catch (error) {
-//     console.log('error al obtener la información del usuario', error);
-//   }
-
-// };
-
 export const createReview = (comment) => {
-  // const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear' 
-  const endpoint = 'http://localhost:3001/comentarios/crear'
+  const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear' 
+  // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
     try {
@@ -97,6 +85,28 @@ export const createReview = (comment) => {
     }
   }
 };
+
+export const getAllComments = () => {
+    // const endpoint = "https://server-xul-solar.vercel.app/comentarios"
+  const endpoint = `http://localhost:3001/comentarios`
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.get(endpoint)
+      return dispatch({
+        type: GET_ALL_COMMENTS,
+        payload: data
+      })
+    } catch (error) {
+      throw new Error('Algo salió mal: ', error.message)
+    }
+  }
+};
+
+
+
+
+
+
 
 
 
