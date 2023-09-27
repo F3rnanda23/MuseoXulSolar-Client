@@ -26,13 +26,26 @@ const ViewComents = () => {
     };
 
     return ( 
-        <div className="w-screen flex flex-col justify-center min-h-screen" style={backgroundStyle}>
-            comentarios en AD
-            {allComments && allComments.map(comment =>
-                <CommentCard key={comment.id} comment={comment} />
-            )}
-
-        </div >
+      
+        <div className="flex flex-col min-h-screen" style={backgroundStyle}>
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Comentarios en AD</h1>
+        </div>
+  
+        <div className="flex">
+          {/* Contenedor izquierdo */}
+          <div className="flex-1 p-4">
+            {allComments.map((comment) => (
+              <CommentCard key={comment.id} comment={comment} />
+            ))}
+          </div>
+  
+        
+          <div className="flex-1 p-4">
+          Hola
+          </div>
+        </div>
+      </div>
 
 
     );
