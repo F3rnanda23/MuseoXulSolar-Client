@@ -9,6 +9,7 @@ export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
 export const CREATE_REVIEW = 'CREATE_REVIEW';
 export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
+export const SEND_SUBS_INFO = 'SEND_SUBS_INFO'
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -69,7 +70,7 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear' 
+  const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
   // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
@@ -87,7 +88,7 @@ export const createReview = (comment) => {
 };
 
 export const getAllComments = () => {
-    // const endpoint = "https://server-xul-solar.vercel.app/comentarios"
+  // const endpoint = "https://server-xul-solar.vercel.app/comentarios"
   const endpoint = `http://localhost:3001/comentarios`
   return async function (dispatch) {
     try {
@@ -102,7 +103,23 @@ export const getAllComments = () => {
   }
 };
 
+export const sendSubsInfo = (subscriptionInfo) => {
 
+  // const endpoint = 'https://server-xul-solar.vercel.app/suscripcion'
+  const endpoint = 'http://localhost:3001/suscripcion'
+
+  return async function (dispatch) {
+    try {
+      const { data } = await axios.post(endpoint, subscriptionInfo)
+      return dispatch({
+        type: SEND_SUBS_INFO,
+        payload: data,
+      })
+    } catch (error) {
+      throw new Error(error.message);
+    }
+  }
+}
 
 
 

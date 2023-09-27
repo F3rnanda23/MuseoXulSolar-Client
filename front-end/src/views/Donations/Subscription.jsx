@@ -1,6 +1,9 @@
 import axios from 'axios';
 import { useState } from 'react';
 import Cookies from 'universal-cookie';
+import { useDispatch } from 'react-redux';
+
+import { sendSubsInfo } from '../../redux/actions/actions'
 
 import img_Bg from '../../imagenes/background/bg1.png'
 import { async } from '@firebase/util';
@@ -9,8 +12,9 @@ import { func } from 'prop-types';
 
 export const Subscription = () => {
 
+    const dispatch = useDispatch();
     const [initPoint, setInitPoint] = useState(false);
-    const [price, setPrice] = useState('')
+    // const [price, setPrice] = useState('')
 
 
     const currentDate = new Date();
@@ -45,24 +49,20 @@ export const Subscription = () => {
         }
     }
 
-    const sendSubsInfo = () => {
-        return async function(){
-            try {
-                const subscriptionInfo = await axios.post('https://server-xul-solar.vercel.app/suscripcion', {
-                    UsuarioId: userId,
-                    email: userEmail,
-                    name: userName,
-                    subscripcion: price,
-                    date: currentDate,
-                    tipo: `Membresia ${price}`
-                })
-    
-            } catch (error) {
-                throw new Error(error.message);
-            }
-        }
-        }
-       
+    const [subs, setSubs] = useState({
+        usuarioId: userId,
+        email: userEmail,
+        name: userName,
+        // subscripcion: '',
+        date: currentDate,
+        // tipo: `Membresia ${price}`
+    })
+    console.log(subs);
+
+    const sendSubInfo = () => {
+        dispatch(sendSubsInfo(subs))
+    }
+
 
     return (
         <div className="bg-gray-200 min-h-screen w-full bg-cover"
@@ -77,10 +77,19 @@ export const Subscription = () => {
                             </div>
                             <h5 className='text-2xl md:text-3xl font-medium mt-3'>Miembro($30/año)</h5>
                             <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
-                            <button onClick={() => {
+                            {/* <button onClick={() => {
                                 setPrice(30)
                                 createPreference(30)
                                 sendSubsInfo()
+                            }} */}
+                            <button onClick={() => {
+                                // setPrice(30);
+                                // setSubs(prevState => ({
+                                //     ...prevState,
+                                //     tipo: `Membresia ${30}`  // Actualiza el tipo de membresía basado en el nuevo precio
+                                // }));
+                                createPreference(30);
+                                sendSubInfo();
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
                         </div>
@@ -93,9 +102,9 @@ export const Subscription = () => {
                             <h5 className='text-2xl md:text-3xl font-medium mt-3'>Socio($50/año)</h5>
                             <p className='text-gray-500 text-lg mt-3'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, repudiandae. Ducimus adipisci est maiores minus eaque. </p>
                             <button onClick={() => {
-                                setPrice(50)
+                                // setPrice(50)
                                 createPreference(50)
-                                sendSubsInfo()
+                                sendSubInfo()
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
                         </div>

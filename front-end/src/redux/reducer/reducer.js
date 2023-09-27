@@ -1,6 +1,6 @@
 import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
-    UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS
+    UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO
 } from '../actions/actions';
 
 
@@ -9,7 +9,8 @@ const initialState = {
     activities: [],
     activityDetail: {},
     active: false,
-    comments: []
+    comments: [],
+    subs: [],
 };
 
 
@@ -67,6 +68,13 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 comments: action.payload
+            }
+
+            case SEND_SUBS_INFO: 
+
+            return{
+                ...state,
+                subs: [...state.subs, action.payload]
             }
 
         default:
