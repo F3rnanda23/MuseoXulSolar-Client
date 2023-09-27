@@ -11,7 +11,7 @@ const CreateComment = () => {
     const cookies = new Cookies();
     const userId = cookies.get('id');
     const userEmail = cookies.get('email')
-    console.log(userEmail);
+    
     
     const dispatch = useDispatch();
     const [selectedRating, setSelectedRating] = useState(0);
