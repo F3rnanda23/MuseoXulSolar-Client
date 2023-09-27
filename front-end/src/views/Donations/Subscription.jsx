@@ -3,6 +3,8 @@ import { useState } from 'react';
 import Cookies from 'universal-cookie';
 
 import img_Bg from '../../imagenes/background/bg1.png'
+import { async } from '@firebase/util';
+import { func } from 'prop-types';
 
 
 export const Subscription = () => {
@@ -43,21 +45,24 @@ export const Subscription = () => {
         }
     }
 
-    const sendSubsInfo = async () => {
-        try {
-            const subscriptionInfo = await axios.post('https://server-xul-solar.vercel.app/suscripcion', {
-                UsuarioId: userId,
-                email: userEmail,
-                name: userName,
-                subscripcion: price,
-                date: currentDate,
-                tipo: `Membresia ${price}`
-            })
-
-        } catch (error) {
-            throw new Error(error.message);
+    const sendSubsInfo = () => {
+        return async function(){
+            try {
+                const subscriptionInfo = await axios.post('https://server-xul-solar.vercel.app/suscripcion', {
+                    UsuarioId: userId,
+                    email: userEmail,
+                    name: userName,
+                    subscripcion: price,
+                    date: currentDate,
+                    tipo: `Membresia ${price}`
+                })
+    
+            } catch (error) {
+                throw new Error(error.message);
+            }
         }
-    }
+        }
+       
 
     return (
         <div className="bg-gray-200 min-h-screen w-full bg-cover"
