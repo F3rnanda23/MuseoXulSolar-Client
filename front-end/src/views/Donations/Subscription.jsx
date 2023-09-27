@@ -9,7 +9,7 @@ export const Subscription = () => {
 
     const [initPoint, setInitPoint] = useState(false);
     const [price, setPrice] = useState('')
- 
+
 
     const currentDate = new Date();
     console.log(currentDate);
@@ -18,7 +18,7 @@ export const Subscription = () => {
     const userId = cookies.get('id');
     const userEmail = cookies.get('email');
     const userName = cookies.get('name');
-  
+
 
 
     const createPreference = async (price) => {
