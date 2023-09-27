@@ -1,6 +1,6 @@
 import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
-    UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW
+    UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS
 } from '../actions/actions';
 
 
@@ -61,6 +61,12 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 comments: [...state.comments, action.payload]
+            }
+
+        case GET_ALL_COMMENTS:
+            return {
+                ...state,
+                comments: action.payload
             }
 
         default:
