@@ -148,7 +148,7 @@ export function LoginForm() {
                 <div>
                     <span className="text-white mr-2">¿No es un miembro?</span>
                     <button type="button" className="text-orange-400 hover:text-orange-500" onClick={() => navigate('/register')}>Registrate</button>
-                </div>
+g                </div>
             </form>
         </div>
     )
