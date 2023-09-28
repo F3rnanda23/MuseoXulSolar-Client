@@ -21,7 +21,12 @@ import NavBar from './components/navBar/navBar';
 import { Subscription } from './views/Donations/Subscription';
 import  Sponsorship  from './views/Donations/Sponsorship';
 import Comments from './views/Comments/Comments';
+import ViewComents from './views/Comments/ViewComments';
+import ResetPassword from "./components/resetPassword/ResetPassword";
+import PutToken from './components/resetPassword/PutToken';
+import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
 import ViewComents from './views/Comments/ViewComments'
+import AdminDash from './views/AdminDash/AdminDash';
 
 import './App.css'
 
@@ -65,6 +70,10 @@ function App() {
         <Route path="/sponsorship" element={<Sponsorship/>} />
         <Route path="/Comments" element={<Comments/>} />
         <Route path="/viewComments" element={<ViewComents/>} />
+        <Route path="/reset" element={<ResetPassword/>} />
+        <Route path="/token" element={<PutToken/>} />
+        <Route path="/miPerfil" element={<PerfilDeUsuario/>} />
+        <Route path="/Admin" element={<AdminDash/>} />
       </Routes>
 
     </div>
