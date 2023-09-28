@@ -9,7 +9,9 @@ export const LOG_OUT = "LOG_OUT";
 export const UPDATE_ACTIVITIES_FILTER = "UPDATE_ACTIVITIES_FILTER";
 export const CREATE_REVIEW = 'CREATE_REVIEW';
 export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
-export const SEND_SUBS_INFO = 'SEND_SUBS_INFO'
+export const SEND_SUBS_INFO = 'SEND_SUBS_INFO';
+export const FILTER_RATING = 'FILTER_RATING';
+export const RESET_COMMENTS = 'RESET_COMMENTS';
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -70,8 +72,8 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  // const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
-  const endpoint = 'http://localhost:3001/comentarios/crear'
+   const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
+  // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
     try {
@@ -118,6 +120,19 @@ export const sendSubsInfo = (subscriptionInfo) => {
     } catch (error) {
       throw new Error(error.message);
     }
+  }
+};
+
+export function filterCommentsbYRating(rating) {
+  return {
+      type: FILTER_RATING,
+      payload: rating,
+  }
+}
+
+export function resetComments() {
+  return {
+      type: RESET_COMMENTS,
   }
 }
 
