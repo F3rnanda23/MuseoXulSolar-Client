@@ -9,6 +9,7 @@ import App from './App.jsx';
 import { LangProvider } from './context/langContext';
 
 import './fonts.css'
+import '@tremor/react/dist'
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
