@@ -42,6 +42,8 @@ export const Subscription = () => {
                 });
 
             const { init_point } = response.data;
+            window.alert(response.data.paymentId)
+            console.log(response.data);
             setInitPoint(init_point);
             window.location.href = init_point;
         } catch (error) {
