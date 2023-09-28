@@ -46,7 +46,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const cookies = new Cookies();
     console.log(cookies);
     const active = useSelector((state) => state.active)
-    
+
 
     function handleSearchClick() {
         setSearchActive(!searchActive);
@@ -60,9 +60,9 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         navigate('/login');
     }
 
-    function handleDropdownMenu(){
+    function handleDropdownMenu() {
         showMenu ? setShowMenu(false)
-        : setShowMenu(true)
+            : setShowMenu(true)
     }
 
     function signOff() {
@@ -100,10 +100,10 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
                     <li className={`relative ${style.secciones}`}>
                         <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
-                        onClick={handleDropdownMenu}>
+                            onClick={handleDropdownMenu}>
                             Apoya al museo
                         </button>
-                        <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${ !showMenu ? "hidden" : "bg-white"}`}
+                        <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${!showMenu ? "hidden" : "bg-white"}`}
                         >
                             <ul className='space-y-2'>
                                 <li className='hover:bg-gray-200 px-1'
@@ -113,13 +113,16 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     onClick={handleDropdownMenu}>
                                     <Link to="/subscription">Membresía</Link></li>
                                 <li className='hover:bg-gray-200'
-                                onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
+                                    onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
                             </ul>
                         </div>
                     </li>
 
                     <li className={style.secciones}>
                         <Link to="/xulsolar">Xul Solar</Link>
+                    </li>
+                    <li className={style.secciones}>
+                        <Link to="/miPerfil">Mi perfil</Link>
                     </li>
                 </ul>
                 <div className='flex ml-auto mr-4'>

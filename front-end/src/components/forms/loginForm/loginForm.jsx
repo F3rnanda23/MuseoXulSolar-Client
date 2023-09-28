@@ -9,6 +9,7 @@ import { logIn } from "../../../redux/actions/actions";
 import { auth, provider } from "./config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import swal from 'sweetalert';
+import { Link } from "react-router-dom";
 
 
 
@@ -185,7 +186,7 @@ export function LoginForm() {
                         <span className="absolute text-white text-sm mt-10">*Ingrese su contraseña</span>)}
                 </div>
                 <div className="mb-5">
-                    <button className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button>
+                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button> </Link>
                 </div>
                 <div className="w-full">
                     <button
