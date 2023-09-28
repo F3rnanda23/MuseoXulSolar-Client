@@ -8,6 +8,7 @@ import { logIn } from "../../../redux/actions/actions";
 
 import { auth, provider } from "./config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import swal from 'sweetalert';
 
 
 
@@ -32,55 +33,115 @@ export function LoginForm() {
 
     const onSubmit = async (data) => {
         try {
-            const endpoint = 'http://localhost:3001/usuario/login';
-            const response = await axios.post(endpoint, data);
-            if (response.data.success) {
-                cookies.set('id', response.data.id, { path: '/' });
-                cookies.set('name', response.data.name, { path: '/' });
-                cookies.set('email', response.data.email, { path: '/' });
-                dispatch(logIn(true));
-                alert(response.data.name + ' inicio sesión');
-                navigate('/');
+            // Verificar si el usuario ya ha iniciado sesión con Google
+            const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
+            const googleEmail = localStorage.getItem("googleEmail");
+
+            if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
+                // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
+                swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
             } else {
-                alert('El usuario o la contraseña son incorrectos');
+                // Procede con el inicio de sesión manual normal
+                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                const response = await axios.post(endpoint, data);
+
+                if (response.data.success) {
+                    cookies.set('id', response.data.id, { path: '/' });
+                    cookies.set('name', response.data.name, { path: '/' });
+                    cookies.set('email', response.data.email, { path: '/' });
+                    dispatch(logIn(true));
+
+                    swal("success", response.data.name + ' inicio sesión', "success");
+                    navigate('/');
+                } else {
+                    // Mostrar una alerta de error cuando el inicio de sesión falla
+                    swal("error", 'El usuario o la contraseña son incorrectos', "error");
+                }
             }
         } catch (error) {
-            alert(error);
+            // Mostrar una alerta de error genérica en caso de otros errores
+            console.error(error); // Puedes registrar el error en la consola para fines de depuración.
+            if (error.response && error.response.status === 401) {
+                // Manejar la respuesta 401 aquí (inicio de sesión fallido)
+                swal("error", 'El usuario o la contraseña son incorrectos', "error");
+            } else {
+                // Mostrar una alerta de error genérica en otros casos
+                swal("Oops", 'Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.', "error");
+            }
         }
     }
+
+
+
+
+
 
     const googleHandler = async () => {
         try {
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
-
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
 
-            const response = await fetch('http://localhost:3001/usuario/crear', {
+            localStorage.setItem("googleLoggedIn", "true");
+            localStorage.setItem("googleEmail", data.email);
+            const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     name: data.displayName?.split(' ')[0],
-                    image: data.photoURL,
                     email: data.email,
                     telephone: data.phoneNumber,
                     password: data.uid,
+
                 }),
             });
 
-            localStorage.setItem("googleAccessToken", token);
+            if (createUserResponse.ok || createUserResponse.status === 404) {
+                // Usuario creado exitosamente, ahora inicia sesión automáticamente
+                const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
 
-            setValue(data.email);
-            localStorage.setItem("email", data.email);
+                        email: data.email,
+                        password: data.uid,
+                    }),
+                });
 
-            dispatch(logIn(true));
-            alert('inicio sesión con google');
-            navigate("/");
+                if (loginResponse.ok) {
+                    // Inicio de sesión exitoso
+                    const serverResponse = await loginResponse.json();
+                    console.log(serverResponse);
 
-            return response;
+                    cookies.set('id', serverResponse.responseWithUserInfo.id, { path: '/' });
+                    cookies.set('name', serverResponse.responseWithUserInfo.name, { path: '/' });
+                    cookies.set('email', serverResponse.responseWithUserInfo.email, { path: '/' });
+
+                    localStorage.setItem("googleAccessToken", token);
+
+                    setValue(data.email);
+                    localStorage.setItem("email", data.email);
+                    setValue(data.id);
+
+
+                    dispatch(logIn(true));
+                    // const { id, name, email } = serverResponse.responseWithUserInfo;
+                    // dispatch(guardarUserInfo({ id, name, email }))
+                    swal("correct", serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso', "success");
+                    navigate("/");
+                } else {
+                    // Manejar errores de inicio de sesión
+                    console.error('Error al iniciar sesión después de crear el usuario:', loginResponse.status);
+                }
+            } else {
+                // Manejar errores de creación de usuario
+                console.error('Error al crear el usuario en el servidor:', createUserResponse.status);
+            }
         } catch (error) {
             // Manejar errores aquí
             console.error("Error al iniciar sesión con Google:", error);
@@ -89,7 +150,7 @@ export function LoginForm() {
 
     useEffect(() => {
         setValue(localStorage.getItem("email"))
-    })
+    }, [])
 
     return (
         <div className="rounded p-8 py-2 bg-gray-600 ">

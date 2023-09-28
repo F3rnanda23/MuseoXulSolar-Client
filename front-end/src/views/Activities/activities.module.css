@@ -1,0 +1,40 @@
+body, html {
+
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+.activitiesContainer {
+    background-image: url('../../imagenes//actividades//firmasXulFondo.png');
+    background-attachment: fixed;
+    background-size: cover;
+    min-height: 100vh;
+    
+}
+
+
+.contenedorCard {
+    position: relative;
+    display: flex;
+    margin-left: 1.25rem;
+    height: 250px;
+    max-width: 48rem;
+    align-items: flex-start;
+    gap: 0.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.7);
+    background-color: transparent; 
+    margin-bottom: 20px;
+}
+
+.contenedorCard  img {
+    border-radius: 300px;
+    height: 200px;
+    width: 200px;
+    margin-left: 20px;
+    margin-top: 10px;
+    
+}
+
+

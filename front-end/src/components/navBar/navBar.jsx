@@ -13,6 +13,8 @@ import style from './navBar.module.css';
 import { logOut } from '../../redux/actions/actions';
 import { auth } from '../forms/loginForm/config';
 import { signOut } from 'firebase/auth';
+import swal from 'sweetalert';
+
 
 
 const NavBar = ({ searchActive, setSearchActive }) => {
@@ -21,7 +23,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const [search, setSearch] = useState('')
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
-    const [showMenu, setShowMenu] = useState(false)
+    const [showMenu, setShowMenu] = useState(false);
 
 
     const removeAccents = (str) => {
@@ -42,7 +44,9 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
     const dispatch = useDispatch();
     const cookies = new Cookies();
+    console.log(cookies);
     const active = useSelector((state) => state.active)
+    
 
     function handleSearchClick() {
         setSearchActive(!searchActive);
@@ -65,12 +69,11 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         cookies.remove('id', { path: '/' });
         cookies.remove('name', { path: '/' });
         cookies.remove('email', { path: '/' });
-        signOut(auth).then(val => {
-            console.log(val, "val");
+        signOut(auth).then(() => {
             navigate("/")
         })
         navigate('/')
-        alert('Sesión Cerrada')
+        swal('Sesión Cerrada')
         dispatch(logOut(false))
     }
 
@@ -98,7 +101,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     <li className={`relative ${style.secciones}`}>
                         <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
                         onClick={handleDropdownMenu}>
-                            Patrocinios
+                            Apoya al museo
                         </button>
                         <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${ !showMenu ? "hidden" : "bg-white"}`}
                         >
