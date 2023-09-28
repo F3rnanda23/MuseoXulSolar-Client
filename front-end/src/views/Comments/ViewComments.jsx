@@ -15,13 +15,6 @@ const ViewComents = () => {
 
   useEffect(() => {
     dispatch(getAllComments());
-    
-    // const totalComments = [];
-    // for (let i = 1; i < 6; i++) {
-    //   const eachRating = allComments.filter(comment => comment.rating === i);
-    //   totalComments.push(eachRating.length);
-    // }
-    // console.log(totalComments);
 
   }, [dispatch]);
 
