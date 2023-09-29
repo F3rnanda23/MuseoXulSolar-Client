@@ -81,18 +81,22 @@ export function LoginForm() {
         try {
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
+            console.log('====================================');
+            console.log(data);
+            console.log('====================================');
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
 
             localStorage.setItem("googleLoggedIn", "true");
             localStorage.setItem("googleEmail", data.email);
-            const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
+            const createUserResponse = await fetch('http://localhost:3001/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     name: data.displayName?.split(' ')[0],
+                    image: data.photoURL,
                     email: data.email,
                     telephone: data.phoneNumber,
                     password: data.uid,
@@ -102,7 +106,7 @@ export function LoginForm() {
 
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
-                const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
+                const loginResponse = await fetch('http://localhost:3001/usuario/loginGoogle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -113,7 +117,6 @@ export function LoginForm() {
                         password: data.uid,
                     }),
                 });
-
                 if (loginResponse.ok) {
                     // Inicio de sesión exitoso
                     const serverResponse = await loginResponse.json();

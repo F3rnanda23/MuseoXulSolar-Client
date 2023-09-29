@@ -25,7 +25,6 @@ import ViewComents from './views/Comments/ViewComments';
 import ResetPassword from "./components/resetPassword/ResetPassword";
 import PutToken from './components/resetPassword/PutToken';
 import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
-import ViewComents from './views/Comments/ViewComments'
 import AdminDash from './views/AdminDash/AdminDash';
 
 import './App.css'
@@ -75,9 +74,7 @@ function App() {
         <Route path="/miPerfil" element={<PerfilDeUsuario/>} />
         <Route path="/Admin" element={<AdminDash/>} />
       </Routes>
-
     </div>
-
   )
 }
 
