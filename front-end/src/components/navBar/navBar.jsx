@@ -37,8 +37,8 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         } else {
             setEspañol(false);
         }
-    }, []); 
-    
+    }, []);
+
     const removeAccents = (str) => {
         return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     };
@@ -178,10 +178,10 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         </Link>
                     </li>
                     {
-                        active?
-                        <li className={style.secciones}>
-                            <Link to="/miPerfil">Mi perfil</Link>
-                        </li>:<li></li>
+                        active ?
+                            <li className={style.secciones}>
+                                <Link to="/miPerfil">Mi perfil</Link>
+                            </li> : <li></li>
                     }
                 </ul>
 
@@ -216,25 +216,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                 id='nav.cerrarsesion'
                                 defaultMessage='Cerrar Sesión'
                             />
-                        {/* <button className='mb-2 font-bold text-lg text-orange-200'>Perfil</button> */}
-                        {active ? (<button
-                            onClick={signOff}
-                            type="button"
-                            className=" ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                            <FormattedMessage
-                                id='nav.cerrarsesion'
-                                defaultMessage='Cerrar Sesión'
-                            />
 
-                        </button>) : (<button
-                            onClick={handleClickLogIn}
-                            type="button"
-                            className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                            <FormattedMessage
-                                id='nav.iniciarsesion'
-                                defaultMessage='Iniciar Sesión'
-                            />
-                        </button>)}
                         </button>) : (<button
                             onClick={handleClickLogIn}
                             type="button"
