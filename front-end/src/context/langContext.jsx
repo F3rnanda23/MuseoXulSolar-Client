@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
-import {IntlProvider} from 'react-intl'
-import messagesSpanish from "../lang/es.json"
+import {IntlProvider} from 'react-intl';
+import messagesSpanish from "../lang/es.json";
+import messagesEnglish from "../lang/en.json";
 
 const langContext = React.createContext();
 
@@ -11,11 +12,11 @@ const LangProvider= ({children}) => {
 
     const changeLanguage = (lang) => {
         if(lang === 'es'){
-            setMessages('es')
+            setMessages(messagesSpanish)
             setLocale('es')
         }
         if(lang === 'en'){
-            setMessages('en')
+            setMessages(messagesEnglish)
             setLocale('en')
         }
     }
