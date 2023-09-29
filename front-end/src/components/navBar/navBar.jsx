@@ -37,8 +37,8 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         } else {
             setEspañol(false);
         }
-    }, []); 
-    
+    }, []);
+
     const removeAccents = (str) => {
         return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
     };
@@ -143,10 +143,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     <li className={`relative ${style.secciones}`}>
                         <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
                             onClick={handleDropdownMenu}>
-                            <FormattedMessage
-                                id='nav.apoya'
-                                defaultMessage='Apoyá al museo'
-                            />
+                            Apoya al museo
                         </button>
                         <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${!showMenu ? "hidden" : "bg-white"}`}
                         >
@@ -170,14 +167,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     </Link>
                                 </li>
                                 <li className='hover:bg-gray-200'
-                                    onClick={handleDropdownMenu}>
-                                    <Link to="/sponsorship">
-                                        <FormattedMessage
-                                            id='nav.benefactores'
-                                            defaultMessage='Benefactores'
-                                        />
-                                    </Link>
-                                </li>
+                                    onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
                             </ul>
                         </div>
                     </li>
@@ -187,6 +177,12 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                             Xul Solar
                         </Link>
                     </li>
+                    {
+                        active ?
+                            <li className={style.secciones}>
+                                <Link to="/miPerfil">Mi perfil</Link>
+                            </li> : <li></li>
+                    }
                 </ul>
 
                 <div className='flex ml-auto mr-4'>
@@ -199,12 +195,14 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </button>
 
                     {español ? (<button onClick={() => {
-                        handleLanguageToEnglish()
+                        setEspañol(false)
+                        idioma.changeLanguage('en')
                     }}
                         className='text-orange-200 text-lg font-bold mt-auto mb-5 mr-4'
                     >EN</button>) :
                         (<button onClick={() => {
-                            handleLanguageToSpanish()
+                            setEspañol(true)
+                            idioma.changeLanguage('es')
                         }}
                             className='text-orange-200 text-lg font-semibold mt-auto mb-5 mr-4'>ESP</button>)}
                     <div className='flex flex-col mt-1 md:mt-3 lg:mt-5 mr-2 mb-2'>
