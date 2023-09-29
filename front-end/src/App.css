@@ -19,9 +19,9 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-    margin-left: 30px;
-    margin-right: 30px;
-    color: rgb(224, 110, 17);
+    margin-left: 20px;
+    margin-right: 20px;
+    color: rgb(218, 108, 18);
     border-radius: 10px;
   }
   .react-calendar .react-calendar__navigation__label:hover{
