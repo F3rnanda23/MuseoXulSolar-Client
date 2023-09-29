@@ -4,7 +4,7 @@ import Cookies from 'universal-cookie';
 import { useDispatch } from 'react-redux';
 
 import { sendSubsInfo } from '../../redux/actions/actions'
-
+import { FormattedMessage } from 'react-intl';
 import img_Bg from '../../imagenes/background/bg1.png'
 import { async } from '@firebase/util';
 import { func } from 'prop-types';
@@ -70,9 +70,15 @@ export const Subscription = () => {
         <div className="bg-gray-200 min-h-screen w-full bg-cover"
             style={{ backgroundImage: `url(${img_Bg})` }}>
             <div className='container  max-w-screen-md mx-auto'>
-                <h2 className="text-center text-3xl pt-5">HACETE MIEMBRO DEL PAN KLUB</h2>
-                <p className='my-4'>Obtené una variedad de beneficios que permitirán acceder a una experiencia única dentro del Museo. Desde entradas gratuitas y visitas guiadas exclusivas, hasta descuentos en la tienda, actividades y talleres dentro del museo.
-                    Elegí la opción que más te guste a continuación:
+                <h2 className="text-center text-3xl pt-5">
+                    <FormattedMessage
+                        id='membresia.titulo'
+                        defaultMessage='Hacete miembro del Pan Klub'
+                    /></h2>
+                <p className='my-4'>
+                    <FormattedMessage
+                        id='membresia.texto'
+                    />
                 </p>
             </div>
             <div className=" flex items-center justify-center min-h-full mx-auto container">
@@ -82,12 +88,30 @@ export const Subscription = () => {
                             <div className="rounded overflow-hidden">
                                 <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746264/gl/278_ftvkgw.jpg" alt="" />
                             </div>
-                            <h5 className='text-xl md:text-2xl font-medium mt-3'>Amigos Xul Solar($30/año)</h5>
+                            <h5 className='text-xl md:text-2xl font-medium mt-3'>
+                                <FormattedMessage
+                                    id='membresia.titulocard1'
+                                    defaultMessage='Amigos Xul Solar ($30/año)'
+                                /></h5>
                             <p className='text-gray-500 text-lg mt-3'>
-                                -5 entradas gratis al mes<br/>
-                                -10% de descuento en la tienda<br/>
-                                -10% de descuento en las actividades y espectáculos del Pan Klub
+                                <FormattedMessage
+                                    id='membresia.beneficio1card1'
+                                    defaultMessage='✔5 entradas gratis al mes'
+                                />
                             </p>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                <FormattedMessage
+                                    id='membresia.beneficio2card1'
+                                    defaultMessage='✔10% de descuento en la tienda'
+                                />
+                            </p>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                <FormattedMessage
+                                    id='membresia.beneficio3card1'
+                                    defaultMessage='✔10% de descuento en las actividades y espectáculos del Pan Klub'
+                                />
+                            </p>
+
                             <button onClick={() => {
                                 setPrice(30)
                                 createPreference(30)
@@ -102,7 +126,11 @@ export const Subscription = () => {
                                 createPreference(30);
                                 sendSubInfo();
                             }}
-                                className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
+                                className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>
+                                <FormattedMessage
+                                    id='membresia.suscribete'
+                                    defaultMessage='SUSCRIBETE'
+                                /></button>
                         </div>
                     </div>
                     <div className="rounded my-3 shadow-2xl bg-gray-300">
@@ -110,18 +138,45 @@ export const Subscription = () => {
                             <div className="rounded overflow-hidden">
                                 <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746264/gl/278_ftvkgw.jpg" alt="" />
                             </div>
-                            <h5 className='text-xl md:text-2xl font-medium mt-3'>Amigos Xul Solar Plus($50/año)</h5>
+                            <h5 className='text-xl md:text-2xl font-medium mt-3'>
+                                <FormattedMessage
+                                    id='membresia.titulocard2'
+                                    defaultMessage='Amigos Xul Solar Plus ($50/año)'
+                                /></h5>
                             <p className='text-gray-500 text-lg mt-3'>
-                                -10 entradas gratis al mes<br/>
-                                -1 entrada gratis mensual a la visita astrológica<br/>
-                                -15% de descuento en la tienda<br/>
-                                -15% de descuento en las actividades y espectáculos del Pan Klub</p>
+                                <FormattedMessage
+                                    id='membresia.beneficio1card2'
+                                    defaultMessage='✔10 entradas gratis al mes'
+                                />
+                            </p>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                <FormattedMessage
+                                    id='membresia.beneficio2card2'
+                                    defaultMessage='✔1 entrada gratis mensual a la visita astrológica'
+                                />
+                            </p>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                <FormattedMessage
+                                    id='membresia.beneficio3card2'
+                                    defaultMessage='✔1 entrada gratis mensual a la visita astrológica'
+                                />
+                            </p>
+                            <p className='text-gray-500 text-lg mt-3'>
+                                <FormattedMessage
+                                    id='membresia.beneficio4card2'
+                                    defaultMessage='✔1 entrada gratis mensual a la visita astrológica'
+                                />
+                            </p>
                             <button onClick={() => {
                                 // setPrice(50)
                                 createPreference(50)
                                 sendSubInfo()
                             }}
-                                className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>SUSCRIBETE</button>
+                                className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>
+                                <FormattedMessage
+                                    id='membresia.suscribete'
+                                    defaultMessage='SUSCRIBETE'
+                                /></button>
                         </div>
                     </div>
                 </div>
