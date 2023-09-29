@@ -155,9 +155,12 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                             Xul Solar
                         </Link>
                     </li>
-                    <li className={style.secciones}>
-                        <Link to="/miPerfil">Mi perfil</Link>
-                    </li>
+                    {
+                        active?
+                        <li className={style.secciones}>
+                            <Link to="/miPerfil">Mi perfil</Link>
+                        </li>:<li></li>
+                    }
                 </ul>
 
                 <div className='flex ml-auto mr-4'>
@@ -181,8 +184,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         }}
                             className='text-orange-200 text-lg font-semibold mt-auto mb-5 mr-4'>ESP</button>)}
                     <div className='flex flex-col mt-1 md:mt-3 lg:mt-5 mr-2 mb-2'>
-                        <button className='mb-2 font-bold text-lg text-orange-200'>Perfil</button>
-
+                        {/* <button className='mb-2 font-bold text-lg text-orange-200'>Perfil</button> */}
                         {active ? (<button
                             onClick={signOff}
                             type="button"

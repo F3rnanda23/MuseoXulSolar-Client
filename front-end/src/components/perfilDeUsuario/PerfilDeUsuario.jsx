@@ -2,13 +2,14 @@ import React, { useEffect } from 'react'
 import Cookies from "universal-cookie";
 import axios from 'axios';
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
+import style from "./PerfilDeUsuario.module.css"
 
 function PerfilDeUsuario() {
 
     const [usuario, setUsuario] = useState({
         name: "",
-        image:"",
+        image: "",
         phone: "",
         birthday: "",
         Suscripciones: [],
@@ -26,7 +27,7 @@ function PerfilDeUsuario() {
 
     const searchUserById = async (id) => {
         const response = await axios.get(`http://localhost:3001/usuario/id/${id}`);
-        const { name, phone, birthday, Suscripciones, Comentarios, Actividades,image } = response.data;
+        const { name, phone, birthday, Suscripciones, Comentarios, Actividades, image } = response.data;
         setUsuario({
             name: name,
             phone: phone,
@@ -38,71 +39,70 @@ function PerfilDeUsuario() {
         })
     }
 
-    // const openCloudinaryWidget = () => {
-    //     // Abre el widget de Cloudinary al hacer clic en el botón
-    //     cloudinary.openUploadWidget(
-    //       {
-    //         cloudName: 'dtsmy1ksn',
-    //         uploadPreset: 'primero',
-    //         sources: ['local', 'url', 'camera', 'facebook', 'dropbox', 'instagram'],
-    //         multiple: false,
-    //         cropping: 'server',
-    //         croppingAspectRatio: 1,
-    //         folder: 'uploads', // Carpeta de destino en Cloudinary
-    //       },
-    //       (error, result) => {
-    //         if (!error && result && result.event === 'success') {
-    //           // La imagen se ha subido con éxito, puedes manejarla aquí
-    //           setActivitiesData({
-    //             ...activitiesData,
-    //             image: result.info.secure_url // Actualiza la URL de la imagen en el estado
-          
-    //           });
-    //         }
-    //       }
-    //     );
-    //   };
+
 
     return (
-        <div>
-            <h1>Tu perfil</h1>
-            <img src={usuario.image} alt="imagen del usuario" />
-            <p>Nombre: {usuario.name}</p>
-            <p>Teléfono: {usuario.phone}</p>
-            <p>Fecha de nacimiento: {usuario.birthday}</p>
-            <h2>Suscripciones:</h2>
-            <ul>
-                {usuario.Suscripciones?.map((s, index) => (
-                    <li key={index}>
-                        <ul>
-                            <li>Tu membresía: {s.tipo}</li>
-                            <li>Desde: {s.date}</li>
-                        </ul>
-                    </li>
-                ))}
-            </ul>
-            <h2>Tus comentarios:</h2>
-            <ul>
-                {usuario.Comentarios?.map((s, index) => (
-                    <li key={index}>
-                        <ul>
-                            <li>Descripcion: {s.description}</li>
-                        </ul>
-                    </li>
-                ))}
-            </ul>
-            <h2>Tus actividades:</h2>
-            <ul>
-                {usuario.Actividades?.map((s, index) => (
-                    <li key={index}>
-                        <ul>
-                            <li>Nombre: {s.name}</li>
-                            <li>Fecha: {s.date}</li>
-                            <li>Descripcion: {s.description}</li>
-                        </ul>
-                    </li>
-                ))}
-            </ul>
+        <div className={style.container}>
+            <div className={style.card}>
+                <br />
+                <div className={style.h1}>
+                    <h1>Tu perfil</h1>
+                </div>
+                <br />
+                <img src={usuario.image} alt="imagen del usuario" className={style.imagen} />
+                <br />
+                <p>Nombre: {usuario.name}</p>
+                <br />
+                <p>Teléfono: {usuario.phone}</p>
+                <br />
+                <p>Fecha de nacimiento: {usuario.birthday}</p>
+                <br />
+                <h2>Suscripciones:</h2>
+                <br />
+                <ul>
+                    {usuario.Suscripciones?.map((s, index) => (
+                        <li key={index}>
+                            <ul>
+                                <li>Tu membresía: {s.tipo}</li>
+                                <li>Desde: {s.date}</li>
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+                <br />
+                <h2>Tus comentarios:</h2>
+                <br />
+                <ul>
+                    {usuario.Comentarios?.map((s, index) => (
+                        <li key={index}>
+                            <ul>
+                                <li>Descripcion: {s.description}</li>
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+                <br />
+                <h2>Tus actividades:</h2>
+                <br />
+                <ul>
+                    {usuario.Actividades?.map((s, index) => (
+                        <li key={index}>
+                            <ul>
+                                <li>Nombre: {s.name}</li>
+                                <li>Fecha: {s.date}</li>
+                                <li>Descripcion: {s.description}</li>
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+                <br />
+                <div className={style.button}>
+                    <Link to="/modificarPerfil">
+                        <button>Modifica tu perfil</button>
+                    </Link>
+                </div>
+                <br />
+            </div>
         </div>
     )
 }

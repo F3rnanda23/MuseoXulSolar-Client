@@ -19,13 +19,14 @@ import Donations from './views/Donations/Donations';
 import Faqs from './views/FAQS/FAQS';
 import NavBar from './components/navBar/navBar';
 import { Subscription } from './views/Donations/Subscription';
-import  Sponsorship  from './views/Donations/Sponsorship';
+import Sponsorship from './views/Donations/Sponsorship';
 import Comments from './views/Comments/Comments';
 import ViewComents from './views/Comments/ViewComments';
 import ResetPassword from "./components/resetPassword/ResetPassword";
 import PutToken from './components/resetPassword/PutToken';
 import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
 import AdminDash from './views/AdminDash/AdminDash';
+import ModificarPerfil from './components/perfilDeUsuario/ModificarPerfil';
 
 
 import './App.css'
@@ -61,20 +62,20 @@ function App() {
         <Route path="/Exhibitions" element={<Exhibitions />} />
         <Route path="/Education" element={<Education />} />
         <Route path="/activities" element={<Activities />} />
-        <Route exact path='/detail/:id' element={<ActivityDetail/>}/>
+        <Route exact path='/detail/:id' element={<ActivityDetail />} />
         <Route path="/createActivities" element={<CreateActivityForm />} />
         <Route path="/Donations" element={<Donations />} />
         <Route path="/Events" element={<Events />} />
         <Route path="/Faqs" element={<Faqs />} />
-        <Route path="/subscription" element={<Subscription/>} />
-        <Route path="/sponsorship" element={<Sponsorship/>} />
-        <Route path="/Comments" element={<Comments/>} />
-        <Route path="/viewComments" element={<ViewComents/>} />
-        <Route path="/reset" element={<ResetPassword/>} />
-        <Route path="/token" element={<PutToken/>} />
-        <Route path="/miPerfil" element={<PerfilDeUsuario/>} />
-        <Route path="/Admin" element={<AdminDash/>} />
-      
+        <Route path="/subscription" element={<Subscription />} />
+        <Route path="/sponsorship" element={<Sponsorship />} />
+        <Route path="/Comments" element={<Comments />} />
+        <Route path="/viewComments" element={<ViewComents />} />
+        <Route path="/reset" element={<ResetPassword />} />
+        <Route path="/token" element={<PutToken />} />
+        <Route path="/miPerfil" element={<PerfilDeUsuario />} />
+        <Route path="/Admin" element={<AdminDash />} />
+        <Route path="/modificarPerfil" element={<ModificarPerfil />} />
       </Routes>
     </div>
   )
