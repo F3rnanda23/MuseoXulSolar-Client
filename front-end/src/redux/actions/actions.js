@@ -12,6 +12,8 @@ export const GET_ALL_COMMENTS = 'GET_ALL_COMMENTS';
 export const SEND_SUBS_INFO = 'SEND_SUBS_INFO';
 export const FILTER_RATING = 'FILTER_RATING';
 export const RESET_COMMENTS = 'RESET_COMMENTS';
+export const GET_USERS = 'GET_USERS'
+export const FILTER_USER_BY_ID = 'FILTER_USER_BY_ID'
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -72,7 +74,7 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-   const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
+  const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
   // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
@@ -94,7 +96,7 @@ export const getAllComments = () => {
   // const endpoint = `http://localhost:3001/comentarios`
   return async function (dispatch) {
     try {
-      const { data } = await axios.get(endpoint)
+      const { data } = await axios(endpoint)
       return dispatch({
         type: GET_ALL_COMMENTS,
         payload: data
@@ -125,14 +127,47 @@ export const sendSubsInfo = (subscriptionInfo) => {
 
 export function filterCommentsbYRating(rating) {
   return {
-      type: FILTER_RATING,
-      payload: rating,
+    type: FILTER_RATING,
+    payload: rating,
   }
 }
 
 export function resetComments() {
   return {
-      type: RESET_COMMENTS,
+    type: RESET_COMMENTS,
+  }
+}
+
+export function getAllUsers() {
+  const endpoint = 'https://server-xul-solar.vercel.app/usuario';
+  // const endpoint =  'http://localhost:3001/usuario'
+  return async function (dispatch) {
+    try {
+      const { data } = await axios(endpoint)
+      return dispatch({
+        type: 'GET_USERS',
+        payload: data
+      })
+    } catch (error) {
+      throw new Error('Error al obtener los usuarios')
+    }
+  }
+}
+
+export function filterUserByEmail(email) {
+  const endpoint = `https://server-xul-solar.vercel.app/usuario/${email}`
+  //   const endpoint ='http://localhost:3001/usuario/' + id;
+  return async function (dispatch) {
+    try {
+      const { data } = await axios(endpoint);
+      return dispatch({
+        type: 'FILTER_USER_BY_ID',
+        payload: data,
+      })
+
+    } catch (error) {
+      throw new Error('Error al filtrar usuarios: ', error.message)
+    }
   }
 }
 

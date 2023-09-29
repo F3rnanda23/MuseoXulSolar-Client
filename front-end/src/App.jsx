@@ -24,6 +24,7 @@ import Comments from './views/Comments/Comments';
 import ViewComents from './views/Comments/ViewComments'
 import AdminDash from './views/AdminDash/AdminDash';
 
+
 import './App.css'
 
 
@@ -67,6 +68,7 @@ function App() {
         <Route path="/Comments" element={<Comments/>} />
         <Route path="/viewComments" element={<ViewComents/>} />
         <Route path="/Admin" element={<AdminDash/>} />
+      
       </Routes>
 
     </div>
