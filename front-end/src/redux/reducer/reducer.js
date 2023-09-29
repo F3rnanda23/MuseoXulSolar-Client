@@ -1,6 +1,7 @@
 import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
-    UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO, FILTER_RATING, RESET_COMMENTS
+    UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO, FILTER_RATING,
+    RESET_COMMENTS, GET_USERS, FILTER_USER_BY_EMAIL
 } from '../actions/actions';
 
 
@@ -12,6 +13,8 @@ const initialState = {
     comments: [],
     commentsBackUp: [],
     subs: [],
+    users: [],
+    userDetail: {},
 };
 
 
@@ -81,19 +84,33 @@ const reducer = (state = initialState, action) => {
 
         case FILTER_RATING:
             const filteredComments = state.commentsBackUp.filter(comment => comment.rating === action.payload);
-            
+
             return {
                 ...state,
                 comments: filteredComments,
             }
 
-            case RESET_COMMENTS: 
+        case RESET_COMMENTS:
 
             return {
                 ...state,
                 comments: state.commentsBackUp,
             }
-            
+
+        case GET_USERS:
+            return {
+                ...state,
+                users: action.payload,
+                userTofilter: action.payload
+            }
+        case FILTER_USER_BY_EMAIL:
+            const filteredUsers = state.users.filter(user => user.email === action.payload);
+        
+            return {
+                ...state,
+                users: filteredUsers,
+            }
+
         default:
             return {
                 ...state

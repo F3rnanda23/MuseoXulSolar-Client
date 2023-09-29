@@ -35,14 +35,14 @@ percentage.push(individualPercentage);
             <Card value={1} className="max-w-md mx-auto mb-5 font-bold"
                 onClick={() => handleClick(5)} >
                 <Text>Calificación 5 ⭐</Text>
-                <Metric>{totalComments[0]} votos</Metric>
-                <ProgressBar value={percentage[0]} />
+                <Metric>{totalComments[4]} votos</Metric>
+                <ProgressBar value={percentage[4]} />
             </Card>
             <Card className="max-w-md mx-auto mb-5 font-bold"
                 onClick={() => handleClick(4)}>
                 <Text>Calificación 4 ⭐</Text>
-                <Metric>{totalComments[1]} votos</Metric>
-                <ProgressBar value={percentage[1]} />
+                <Metric>{totalComments[3]} votos</Metric>
+                <ProgressBar value={percentage[3]} />
             </Card>
             <Card className="max-w-md mx-auto mb-5 font-bold"
                 onClick={() => handleClick(3)}>
@@ -53,14 +53,14 @@ percentage.push(individualPercentage);
             <Card className="max-w-md mx-auto mb-5 font-bold"
                 onClick={() => handleClick(2)}>
                 <Text>Calificación 2 ⭐</Text>
-                <Metric>{totalComments[3]} votos</Metric>
-                <ProgressBar value={percentage[3]} />
+                <Metric>{totalComments[1]} votos</Metric>
+                <ProgressBar value={percentage[1]} />
             </Card>
             <Card className="max-w-md mx-auto mb-5 font-bold"
                 onClick={() => handleClick(1)}>
                 <Text>Calificación 1 ⭐</Text>
-                <Metric>{totalComments[4]} votos</Metric>
-                <ProgressBar value={percentage[4]} />
+                <Metric>{totalComments[0]} votos</Metric>
+                <ProgressBar value={percentage[0]} />
             </Card>
         </div>
     );
