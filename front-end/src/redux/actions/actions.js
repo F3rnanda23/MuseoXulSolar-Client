@@ -155,21 +155,27 @@ export function getAllUsers() {
 }
 
 export function filterUserByEmail(email) {
-  const endpoint = `https://server-xul-solar.vercel.app/usuario/${email}`
-  //   const endpoint ='http://localhost:3001/usuario/' + id;
-  return async function (dispatch) {
-    try {
-      const { data } = await axios(endpoint);
-      return dispatch({
-        type: 'FILTER_USER_BY_EMAIL',
-        payload: data,
-      })
-
-    } catch (error) {
-      throw new Error('Error al filtrar usuarios: ', error.message)
-    }
+  return {
+    type: FILTER_USER_BY_EMAIL,
+    payload: email,
   }
 }
+// export function filterUserByEmail(email) {
+//   const endpoint = `https://server-xul-solar.vercel.app/usuario/${email}`
+//   //   const endpoint ='http://localhost:3001/usuario/' + id;
+//   return async function (dispatch) {
+//     try {
+//       const { data } = await axios(endpoint);
+//       return dispatch({
+//         type: 'FILTER_USER_BY_EMAIL',
+//         payload: data,
+//       })
+
+//     } catch (error) {
+//       throw new Error('Error al filtrar usuarios: ', error.message)
+//     }
+//   }
+// }
 
 
 

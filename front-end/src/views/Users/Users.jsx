@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
 
-import { getAllUsers } from '../../redux/actions/actions'
+import { getAllUsers, filterUserByEmail } from '../../redux/actions/actions'
 
 import UserCard from '../../components/userCard/userCard';
 import UserDetail from '../../components/userCard/userDetail';
@@ -34,6 +34,11 @@ const Users = () => {
         setSuggestions(filteredSuggestions);
     };
 
+    const handleFilterUser = (email) => {
+        dispatch(filterUserByEmail(email));
+
+    }
+
     return (
        
         <div>
@@ -50,7 +55,8 @@ const Users = () => {
                     />
                     <ul className="bg-orange-100 w-full md:w-3/4 rounded-md border border-gray-300">
                         {suggestions.map((suggestion, index) => (
-                            <li className="my-2" key={index}>
+                            <li onClick={() => handleFilterUser(suggestion.email)}
+                            className="my-2" key={index}>
                                 {suggestion.email}
                             </li>
                         ))}
