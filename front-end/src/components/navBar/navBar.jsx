@@ -151,7 +151,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     onClick={handleDropdownMenu}>
                                     <Link to="/sponsorship">
                                         <FormattedMessage
-                                            id='nav.Benefactores'
+                                            id='nav.benefactores'
                                             defaultMessage='Benefactores'
                                         />
                                     </Link>
