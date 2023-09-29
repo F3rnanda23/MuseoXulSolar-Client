@@ -18,7 +18,7 @@ function ModificarPerfil() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.put(`http://localhost:3001/usuario/editar/${id}`, usuario);
+    const response = await axios.put(`https://server-xul-solar.vercel.app/usuario/editar/${id}`, usuario);
     navigate("/miPerfil")
   }
 
