@@ -22,44 +22,55 @@ const Users = () => {
         dispatch(getAllUsers())
     }, [dispatch])
 
-    
+
     const handleInputChange = (event) => {
         const newSearchTerm = event.target.value;
         setSearchTerm(newSearchTerm);
-    
+
         const filteredSuggestions = users.filter(user =>
             user.email.toLowerCase().includes(newSearchTerm.toLowerCase())
         );
-    
+
         setSuggestions(filteredSuggestions);
     };
 
     return (
+       
         <div>
-            <div className='flex flex-col items-center mt-5'>
 
-                <TextInput icon={MagnifyingGlassIcon} placeholder="Buscar Usuario por email..."
-                    className='max-w-md bg-orange-100'
-                    value={searchTerm}
-                    onChange={handleInputChange}
-                />
-                <ul>
-                    {suggestions.map((suggestion, index) => (
-                        <li key={index}>{suggestion.email}</li>
-                    ))}
-                </ul>
-            </div>
-            <div className='flex flex-row'>
-                <div className='w-1/2'>
-                    {users && users.map(user =>
-                        <UserCard key={user.id} user={user} />
-                    )}
-                </div>
-                <div className='flex flex-row justify-center items-start w-1/2'>
-                    <UserDetail />
+
+            <div className="flex flex-col md:flex-row justify-center items-center">
+                <div className="flex flex-col items-center mt-5 md:w-1/3 w-3/4">
+                    <TextInput
+                        icon={MagnifyingGlassIcon}
+                        placeholder="Buscar Usuario por email..."
+                        className="w-full bg-orange-100"
+                        value={searchTerm}
+                        onChange={handleInputChange}
+                    />
+                    <ul className="bg-orange-100 w-full md:w-3/4 rounded-md border border-gray-300">
+                        {suggestions.map((suggestion, index) => (
+                            <li className="my-2" key={index}>
+                                {suggestion.email}
+                            </li>
+                        ))}
+                    </ul>
                 </div>
             </div>
+
+            <div className="flex flex-col-reverse md:flex-row">
+  <div className="w-full md:w-1/2">
+    {users &&
+      users.map((user) => (
+        <UserCard key={user.id} user={user} />
+      ))}
+  </div>
+  <div className="flex flex-col justify-center items-center w-full md:w-1/2">
+    <UserDetail />
+  </div>
+</div>
         </div>
+
     );
 }
 
