@@ -5,10 +5,11 @@ import { useForm } from 'react-hook-form'
 import Cookies from "universal-cookie";
 import axios from "axios";
 import { logIn } from "../../../redux/actions/actions";
-
+import { FormattedMessage } from 'react-intl';
 import { auth, provider } from "./config";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import swal from 'sweetalert';
+import { Link } from "react-router-dom";
 
 
 
@@ -80,18 +81,22 @@ export function LoginForm() {
         try {
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
+            console.log('====================================');
+            console.log(data);
+            console.log('====================================');
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
 
             localStorage.setItem("googleLoggedIn", "true");
             localStorage.setItem("googleEmail", data.email);
-            const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
+            const createUserResponse = await fetch('http://localhost:3001/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
                     name: data.displayName?.split(' ')[0],
+                    image: data.photoURL,
                     email: data.email,
                     telephone: data.phoneNumber,
                     password: data.uid,
@@ -101,7 +106,7 @@ export function LoginForm() {
 
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
-                const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
+                const loginResponse = await fetch('http://localhost:3001/usuario/loginGoogle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -112,7 +117,6 @@ export function LoginForm() {
                         password: data.uid,
                     }),
                 });
-
                 if (loginResponse.ok) {
                     // Inicio de sesión exitoso
                     const serverResponse = await loginResponse.json();
@@ -154,7 +158,11 @@ export function LoginForm() {
 
     return (
         <div className="rounded p-8 py-2 bg-gray-600 ">
-            <h2 className="mt-5 text-center text-2xl font-semibold text-white">Iniciar sesión</h2>
+            <h2 className="mt-5 text-center text-2xl font-semibold text-white">
+                <FormattedMessage
+                    id='login.titulo'
+                    defaultMessage='Iniciar Sesión'
+                /></h2>
 
             <form onSubmit={handleSubmit(onSubmit)}
                 className="flex flex-col items-center justify-center py-8" >
@@ -185,12 +193,16 @@ export function LoginForm() {
                         <span className="absolute text-white text-sm mt-10">*Ingrese su contraseña</span>)}
                 </div>
                 <div className="mb-5">
-                    <button className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button>
+                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button> </Link>
                 </div>
                 <div className="w-full">
                     <button
                         type="submit"
-                        className="w-full border border-black rounded p-2 text-white bg-gray-900 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">INICIAR SESIÓN</button>
+                        className="w-full border border-black rounded p-2 text-white bg-gray-900 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
+                        <FormattedMessage
+                            id='login.boton'
+                            defaultMessage='INICIAR SESIÓN'
+                        /></button>
                 </div>
                 <div className="mt-5 grid grid-cols-3 items-center text-gray-400 gap-1 w-full">
                     <hr className="border-gray-400" />
@@ -203,12 +215,24 @@ export function LoginForm() {
                         type="button"
                         className="w-full flex items-center bg-white rounded p-2 mt-5 h-100 mb-5 space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
                         <img className="w-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
-                        <span className="text-center">iniciar sesion con Google</span>
+                        <span className="text-center">
+                        <FormattedMessage
+                            id='login.botongoogle'
+                            defaultMessage='Iniciar Sesión con Google'
+                        /></span>
                     </button>
                 </div>
                 <div>
-                    <span className="text-white mr-2">¿No es un miembro?</span>
-                    <button type="button" className="text-orange-400 hover:text-orange-500" onClick={() => navigate('/register')}>Registrate</button>
+                    <span className="text-white mr-2">
+                    <FormattedMessage
+                            id='login.registro'
+                            defaultMessage='¿No es un miembro?'
+                        /></span>
+                    <button type="button" className="text-orange-400 hover:text-orange-500" onClick={() => navigate('/register')}>
+                    <FormattedMessage
+                            id='login.registrolink'
+                            defaultMessage='Registrate'
+                        /></button>
                 </div>
             </form>
         </div>
