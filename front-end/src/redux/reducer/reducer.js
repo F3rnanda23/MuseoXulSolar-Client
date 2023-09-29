@@ -104,10 +104,11 @@ const reducer = (state = initialState, action) => {
                 userTofilter: action.payload
             }
         case FILTER_USER_BY_EMAIL:
+            const filteredUsers = state.users.filter(user => user.email === action.payload);
         
             return {
                 ...state,
-                userDetail: action.payload,
+                users: filteredUsers,
             }
 
         default:
