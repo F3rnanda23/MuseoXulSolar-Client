@@ -166,6 +166,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         </Link>
                     </li>
                 </ul>
+
                 <div className='flex ml-auto mr-4'>
                     <button onClick={handleSearchClick} className='flex font-bold text-lg mt-auto mb-5 text-orange-200 mr-4'>
                         <FormattedMessage
@@ -181,12 +182,14 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         >EN</button>) : 
                         (<button onClick={() => {setEspañol(true)
                         idioma.changeLanguage('es')}}
-                            className='text-orange-200 text-lg font-bold mt-auto mb-5 mr-4'>ESP</button>)}
+                            className='text-orange-200 text-lg font-semibold mt-auto mb-5 mr-4'>ESP</button>)}
+                    <div className='flex flex-col mt-1 md:mt-3 lg:mt-5 mr-2 mb-2'>
+                        <button className='mb-2 font-bold text-lg text-orange-200'>Perfil</button>
 
                     {active ? (<button
                         onClick={signOff}
                         type="button"
-                        className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                        className=" ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                         <FormattedMessage
                             id='nav.cerrarsesion'
                             defaultMessage='Cerrar Sesión'
@@ -201,6 +204,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                             defaultMessage='Iniciar Sesión'
                         />
                     </button>)}
+                    </div>
 
                 </div>
 
