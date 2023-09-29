@@ -1,14 +1,14 @@
 import { useSelector, useDispatch } from "react-redux";
 
-import { filterUserByEmail } from '../../redux/actions/actions'
+// import { filterUserByEmail } from '../../redux/actions/actions'
 import { useEffect } from "react";
 
 
 const UserDetail = () => {
 
 
-    const user = useSelector(state => state.userToFilter);
-    console.log("USER DETAIL", user)
+    // const user = useSelector(state => state.userToFilter);
+    // console.log("USER DETAIL", user)
 
 
 

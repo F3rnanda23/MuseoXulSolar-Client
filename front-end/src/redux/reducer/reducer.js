@@ -1,7 +1,7 @@
 import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
     UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO, FILTER_RATING,
-    RESET_COMMENTS, GET_USERS, FILTER_USER_BY_ID
+    RESET_COMMENTS, GET_USERS, FILTER_USER_BY_EMAIL
 } from '../actions/actions';
 
 
@@ -103,7 +103,7 @@ const reducer = (state = initialState, action) => {
                 users: action.payload,
                 userTofilter: action.payload
             }
-        case FILTER_USER_BY_ID:
+        case FILTER_USER_BY_EMAIL:
         
             return {
                 ...state,

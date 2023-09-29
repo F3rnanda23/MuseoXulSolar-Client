@@ -1,19 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import { filterUserByEmail } from '../../redux/actions/actions'
+// import { filterUserByEmail } from '../../redux/actions/actions'
 
 import { Card, Text, Metric, Button } from "@tremor/react";
 
+// eslint-disable-next-line react/prop-types
 const UserCard = ({ user }) => {
 
-    const { email, name, id} = user; 
+    // eslint-disable-next-line react/prop-types
+    const { email, name} = user; 
   
     const dispatch = useDispatch();
 
    function handleFilterClick(){
 
-       dispatch(filterUserByEmail(email))
+        console.log('Mientras tanto');
    }
     
 

@@ -13,7 +13,7 @@ export const SEND_SUBS_INFO = 'SEND_SUBS_INFO';
 export const FILTER_RATING = 'FILTER_RATING';
 export const RESET_COMMENTS = 'RESET_COMMENTS';
 export const GET_USERS = 'GET_USERS'
-export const FILTER_USER_BY_ID = 'FILTER_USER_BY_ID'
+export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL'
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -74,8 +74,8 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
-  // const endpoint = 'http://localhost:3001/comentarios/crear'
+  // const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
+  const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
     try {
@@ -161,7 +161,7 @@ export function filterUserByEmail(email) {
     try {
       const { data } = await axios(endpoint);
       return dispatch({
-        type: 'FILTER_USER_BY_ID',
+        type: 'FILTER_USER_BY_EMAIL',
         payload: data,
       })
 

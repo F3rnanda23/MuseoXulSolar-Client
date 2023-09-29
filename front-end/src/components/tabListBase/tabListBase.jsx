@@ -14,7 +14,7 @@ const TabListBase = () => {
     return (
         <div>
             <TabGroup>
-                <TabList className="min-h-20 flex flex-row justify-center bg-orange-400">
+                <TabList className="min-h-20 flex flex-row justify-center font-semibold bg-orange-400 rounded-md">
 
                     <Tab value={1} icon={CalendarDaysIcon} onClick={() => setSelectedTab(1)}>Actividades</Tab>
                     <Tab value={2} icon={PencilIcon} onClick={() => setSelectedTab(2)}>Crear Actividades</Tab>
@@ -31,10 +31,13 @@ const TabListBase = () => {
                 ) : selectedTab === 2 ? (
                     <CreateActivityForm />
                 ) : selectedTab === 3 ? (
-                    <ViewComents/>
+                  <h2>Reservas</h2>
                     ) : selectedTab === 4 ? (
+                      <ViewComents/>
+                    ) : selectedTab === 5 ? (
                       <Users/>
                     ) : null
+
                 
             }
 
