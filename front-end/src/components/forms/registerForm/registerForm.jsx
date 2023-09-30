@@ -103,7 +103,7 @@ export function RegisterForm() {
                     <div className="flex flex-col">
                         <label className="text-white text-sm">
                             <FormattedMessage
-                                id='registro.celular'
+                                id='registro.labelcelular'
                                 defaultMessage='Celular:'
                             /></label>
                         <input
