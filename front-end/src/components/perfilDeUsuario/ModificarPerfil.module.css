@@ -66,3 +66,26 @@
 .text {
     font-size: 30px;
 }
+
+@media (max-width: 768px) {
+    .container {
+        height: 87.5vh;
+        /* Ajustar la altura automáticamente */
+    }
+
+    .form {
+        width: 90%;
+        /* Hacer el formulario más ancho en pantallas pequeñas */
+    }
+
+    .input {
+        width: 100%;
+        /* Hacer los campos de entrada ocupar todo el ancho */
+    }
+
+    .button,
+    .buttonCloudinary {
+        width: 100%;
+        /* Hacer los botones ocupar todo el ancho */
+    }
+}

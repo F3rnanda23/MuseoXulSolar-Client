@@ -28,7 +28,7 @@ function PerfilDeUsuario() {
     }, [id]);
 
     const searchUserById = async (id) => {
-        const response = await axios.get(`http://localhost:3001/usuario/id/${id}`);
+        const response = await axios.get(`https://server-xul-solar.vercel.app/usuario/id/${id}`);
         const { name, phone, birthday, Suscripciones, Comentarios, Actividades, image } = response.data;
         setUsuario({
             name: name,
@@ -39,7 +39,7 @@ function PerfilDeUsuario() {
             Comentarios: Comentarios,
             Actividades: Actividades
         })
-    }
+    };
 
 
 

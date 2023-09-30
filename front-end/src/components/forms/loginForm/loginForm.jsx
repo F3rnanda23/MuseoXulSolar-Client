@@ -89,7 +89,7 @@ export function LoginForm() {
 
             localStorage.setItem("googleLoggedIn", "true");
             localStorage.setItem("googleEmail", data.email);
-            const createUserResponse = await fetch('http://localhost:3001/usuario/crear', {
+            const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export function LoginForm() {
 
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
-                const loginResponse = await fetch('http://localhost:3001/usuario/loginGoogle', {
+                const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -193,7 +193,11 @@ export function LoginForm() {
                         <span className="absolute text-white text-sm mt-10">*Ingrese su contraseña</span>)}
                 </div>
                 <div className="mb-5">
-                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button> </Link>
+                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">
+                    <FormattedMessage
+                    id='login.olvidado'
+                    defaultMessage='¿Has olvidado tu contraseña?'
+                /></button> </Link>
                 </div>
                 <div className="w-full">
                     <button

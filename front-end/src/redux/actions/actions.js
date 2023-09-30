@@ -17,6 +17,7 @@ export const GET_USERS = 'GET_USERS'
 export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL';
 export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
+export const GET_USER_DETAIL = 'GET_USER_DETAIL';
 
 
 
@@ -87,7 +88,7 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  const endpoint = 'https://server-xul-solar.vercel.app/comentarios/crear'
+  const endpoint = "https://server-xul-solar.vercel.app/comentarios/crear"
   // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
@@ -173,22 +174,24 @@ export function filterUserByEmail(email) {
     payload: email,
   }
 }
-// export function filterUserByEmail(email) {
-//   const endpoint = `https://server-xul-solar.vercel.app/usuario/${email}`
-//   //   const endpoint ='http://localhost:3001/usuario/' + id;
-//   return async function (dispatch) {
-//     try {
-//       const { data } = await axios(endpoint);
-//       return dispatch({
-//         type: 'FILTER_USER_BY_EMAIL',
-//         payload: data,
-//       })
 
-//     } catch (error) {
-//       throw new Error('Error al filtrar usuarios: ', error.message)
-//     }
-//   }
-// }
+export function getUserDetail(id) {
+  // const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
+  const endpoint = `http://localhost:3001/usuario/id/${id}`
+  
+  return async function (dispatch) {
+    try {
+      const { data } = await axios(endpoint);
+      return dispatch({
+        type: 'GET_USER_DETAIL',
+        payload: data,
+      })
+
+    } catch (error) {
+      throw new Error('Error al obtener la información del usuario: ', error.message)
+    }
+  }
+}
 
 
 // traer actividades al perfil del usuario

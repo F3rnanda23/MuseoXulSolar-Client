@@ -4,6 +4,7 @@ import Cookies from "universal-cookie";
 import { useNavigate } from 'react-router-dom';
 import style from "./ModificarPerfil.module.css"
 import { Image, Transformation } from 'cloudinary-react';
+import swal from 'sweetalert';
 
 function ModificarPerfil() {
   const navigate = useNavigate();
@@ -18,7 +19,17 @@ function ModificarPerfil() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.put(`http://localhost:3001/usuario/editar/${id}`, usuario);
+    try {
+      const response = await axios.put(`https://server-xul-solar.vercel.app/usuario/editar/${id}`, usuario);
+      if (response.status === 200 || 204) {
+        swal("success", 'Usuario actualizado', "success")
+      }
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        // Manejar la respuesta 401 aquí (inicio de sesión fallido)
+        swal("Oops", 'Se produjo un error al procesar la solicitud. Por favor, inténtalo de nuevo más tarde.', "error");
+      }
+    }
     navigate("/miPerfil")
   }
 
@@ -58,7 +69,7 @@ function ModificarPerfil() {
         <form action="" onSubmit={handleSubmit}>
           <label htmlFor="">Nombre</label>
           <br />
-          <input className={style.input} type="text" name='name' value={usuario.name} onChange={handleChange} placeholder='Coloca tu nombre...'/>
+          <input className={style.input} type="text" name='name' value={usuario.name} onChange={handleChange} placeholder='Coloca tu nombre...' />
           <br />
           <label htmlFor="" >Imagen</label>
           <br />
@@ -68,7 +79,7 @@ function ModificarPerfil() {
           <br />
           <label htmlFor="">Telefono</label>
           <br />
-          <input className={style.input} type="text" name='phone' value={usuario.phone} onChange={handleChange} placeholder='Coloca tu numero celular...'/>
+          <input className={style.input} type="text" name='phone' value={usuario.phone} onChange={handleChange} placeholder='Coloca tu numero celular...' />
           <br />
           <br />
           <div className={style.button}>
