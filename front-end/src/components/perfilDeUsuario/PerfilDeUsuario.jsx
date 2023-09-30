@@ -87,11 +87,11 @@ function PerfilDeUsuario() {
                 <ul>
                     {usuario.Actividades?.map((s, index) => (
                         <li key={index}>
-                            <ul>
-                                <li>Nombre: {s.name}</li>
-                                <li>Fecha: {s.date}</li>
-                                <li>Descripcion: {s.description}</li>
-                            </ul>
+                            <div className={style.cardActivity}>
+                                <h1>Nombre: {s.name}</h1>
+                                <h2>Fecha: {s.date}</h2>
+                                <p>Descripcion: {s.description}</p>
+                            </div>
                         </li>
                     ))}
                 </ul>

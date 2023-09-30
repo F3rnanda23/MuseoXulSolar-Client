@@ -193,7 +193,11 @@ export function LoginForm() {
                         <span className="absolute text-white text-sm mt-10">*Ingrese su contraseña</span>)}
                 </div>
                 <div className="mb-5">
-                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button> </Link>
+                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">
+                    <FormattedMessage
+                    id='login.olvidado'
+                    defaultMessage='¿Has olvidado tu contraseña?'
+                /></button> </Link>
                 </div>
                 <div className="w-full">
                     <button
