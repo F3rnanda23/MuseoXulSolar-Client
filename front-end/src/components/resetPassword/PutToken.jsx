@@ -63,7 +63,7 @@ function PutToken() {
                     <br />
                     <label htmlFor="">Contraseña:</label>
                     <br />
-                    <div>
+                    <div className={style.inputContainer}>
                         <input
                             className={style.input}
                             type={visible ? "text" : "password"}
