@@ -17,6 +17,8 @@ function PerfilDeUsuario() {
         Actividades: []
     });
 
+    
+
     const cookies = new Cookies();
     console.log(cookies);
     console.log(cookies.cookies.id);
@@ -83,6 +85,10 @@ function PerfilDeUsuario() {
                 </ul>
                 <br />
                 <h2>Tus actividades:</h2>
+                <br />
+                    <Link to="/perfilActividades">
+                        <button className={style.botonActividades}>Ver mis actividades</button>
+                    </Link>
                 <br />
                 <ul>
                     {usuario.Actividades?.map((s, index) => (

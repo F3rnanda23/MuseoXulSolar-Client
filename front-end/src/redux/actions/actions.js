@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
+export const DELETE_ACTIVITY_USER = "DELETE_ACTIVITY_USER";
 export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
@@ -13,7 +14,11 @@ export const SEND_SUBS_INFO = 'SEND_SUBS_INFO';
 export const FILTER_RATING = 'FILTER_RATING';
 export const RESET_COMMENTS = 'RESET_COMMENTS';
 export const GET_USERS = 'GET_USERS'
-export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL'
+export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL';
+export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
+export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
+
+
 
 export const getAllActivities = () => {
   return async function (dispatch) {
@@ -34,6 +39,13 @@ export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
     const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`,)
     return dispatch(getAllActivities());
+  }
+};
+
+export const deteleActivitiesUser = (actividadId, usuarioId) => {
+  return async function (dispatch) {
+    const response = await axios.delete(`http://localhost:3001/actividades/delete/`,{usuarioId, actividadId})
+    return dispatch(getAllActivitiesUser());
   }
 };
 
@@ -178,8 +190,29 @@ export function filterUserByEmail(email) {
 // }
 
 
+// traer actividades al perfil del usuario
+
+export const getAllActivitiesUser = (id) => {
+  console.log("emtre")
+  return async function (dispatch) {
+    const response = await axios(`http://localhost:3001/usuario/id/${id}`)
+    console.log(response.data, 'aqui response')
+    return dispatch({ type: GET_ALL_ACTIVITIES_USER, payload: response.data.Actividades })
+  }
+};
+
+
+//post de reserva actividades
+export const postAllActivitiesUser = (usuarioId,actividadId ) => {
+  return async function (dispatch) {
+    const response = await axios.post( 'http://localhost:3001/actividades/reservar',{usuarioId, actividadId})
+    return dispatch()
+  }
+};
 
 
 
+
+ 
 
 
