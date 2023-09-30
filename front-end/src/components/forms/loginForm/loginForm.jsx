@@ -89,7 +89,7 @@ export function LoginForm() {
 
             localStorage.setItem("googleLoggedIn", "true");
             localStorage.setItem("googleEmail", data.email);
-            const createUserResponse = await fetch('http://localhost:3001/usuario/crear', {
+            const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ export function LoginForm() {
 
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
-                const loginResponse = await fetch('http://localhost:3001/usuario/loginGoogle', {
+                const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
