@@ -1,22 +1,21 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-// import { filterUserByEmail } from '../../redux/actions/actions'
+import { getUserDetail } from '../../redux/actions/actions'
 
 import { Card, Text, Metric, Button } from "@tremor/react";
 
 // eslint-disable-next-line react/prop-types
 const UserCard = ({ user }) => {
-
     // eslint-disable-next-line react/prop-types
-    const { email, name} = user; 
+    const { email, name, id} = user; 
   
     const dispatch = useDispatch();
 
-   function handleFilterClick(){
-
-        console.log('Mientras tanto');
-   }
+   const handleUserCardClick = (id) => {
+    dispatch(getUserDetail(id))
+    console.log('se despacha', id);
+}
     
 
     return (
@@ -30,7 +29,7 @@ const UserCard = ({ user }) => {
                     </div>
 
                     <div className="flex flex-col ml-auto mr-2">
-                        <Button onClick={handleFilterClick} className="max-h-10 mt-auto my-1 hover:bg-gray-600">Ver Usuario</Button>
+                        <Button onClick={() => handleUserCardClick(id)} className="max-h-10 mt-auto my-1 hover:bg-gray-600">Ver Usuario</Button>
                         <Button className="max-h-10 mt-auto my-1 hover:bg-gray-600">Bloquear</Button>
                     </div>
                 </div>
