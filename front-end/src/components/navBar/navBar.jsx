@@ -7,9 +7,8 @@ import SearchResultsBanner from '../../searchResultsBanner/searchResultsBanner';
 
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "universal-cookie";
-import museoLogo from '../../imagenes/navbar/museo-logo.png';
+import museoLogo from '../../imagenes/navbar/logoMuseo.png';
 import glass from '../../imagenes/navbar/lupa.png'
-import style from './navBar.module.css';
 import { logOut } from '../../redux/actions/actions';
 import { auth } from '../forms/loginForm/config';
 import { signOut } from 'firebase/auth';
@@ -107,12 +106,18 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     return (
 
         <div>
-            <nav className='bg-gray-300 flex items-center justify-between flex-wrap'>
-                <div className='cursor-pointer w-1/4' onClick={handleLogoClick}>
+            <nav className='bg-gray-300 flex items-center justify-evenly flex-wrap'>
+                <div className='cursor-pointer w-1/12  flex flex-shrink-0' onClick={handleLogoClick}>
                     <img src={museoLogo} alt="Logo del museo" />
                 </div>
 
-                <div className={style.secciones}>
+                <div class="block lg:hidden">
+                    <button id='boton' class="flex items-center px-3 py-2 border rounded text-orange-200 border-orange-300 hover:text-white hover:border-white">
+                        <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
+                    </button>
+                </div>
+
+                <div className='text-orange-200 text-base lg:text-lg font-bold'>
                     <Link to="/Visits">
                         <FormattedMessage
                             id='nav.visitas'
@@ -121,7 +126,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </Link>
                 </div>
 
-                <div className={style.secciones}>
+                <div className='text-orange-200 text-base lg:text-lg font-bold'>
                     <Link to="/Activities">
                         <FormattedMessage
                             id='nav.actividades'
@@ -130,7 +135,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </Link>
                 </div>
 
-                <div className={style.secciones}>
+                <div className='text-orange-200 text-base lg:text-lg font-bold'>
                     <Link to="/Events">
                         <FormattedMessage
                             id='nav.eventos'
@@ -139,8 +144,8 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </Link>
                 </div>
 
-                <li className={`relative ${style.secciones}`}>
-                    <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
+                <div className={`relative`}>
+                    <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-base lg:text-lg font-bold"
                         onClick={handleDropdownMenu}>
                         <FormattedMessage
                             id='nav.apoya'
@@ -150,7 +155,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${!showMenu ? "hidden" : "bg-white"}`}
                     >
                         <ul className='space-y-2'>
-                            <li className='hover:bg-gray-200 px-1'
+                            <li className='hover:bg-gray-200 px-1 text-orange-200 text-base lg:text-lg font-bold'
                                 onClick={handleDropdownMenu}>
                                 <Link to="/Donations">
                                     <FormattedMessage
@@ -159,7 +164,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     />
                                 </Link>
                             </li>
-                            <li className='hover:bg-gray-200'
+                            <li className='hover:bg-gray-200 text-orange-200 text-base lg:text-lg font-bold'
                                 onClick={handleDropdownMenu}>
                                 <Link to="/subscription">
                                     <FormattedMessage
@@ -168,7 +173,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     />
                                 </Link>
                             </li>
-                            <li className='hover:bg-gray-200'
+                            <li className='hover:bg-gray-200 text-orange-200 text-base lg:text-lg font-bold'
                                 onClick={handleDropdownMenu}><Link to="/sponsorship">
                                     <FormattedMessage
                                         id='nav.benefactores'
@@ -176,25 +181,15 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     /></Link></li>
                         </ul>
                     </div>
-                </li>
+                </div>
 
-                <div className={style.secciones}>
+                <div className='text-orange-200 text-base lg:text-lg font-bold'>
                     <Link to="/xulsolar">
                         Xul Solar
                     </Link>
                 </div>
-                {
-                    active ?
-                        <div className={style.secciones}>
-                            <Link to="/miPerfil">
-                                <FormattedMessage
-                                    id='nav.perfil'
-                                    defaultMessage='Perfil'
-                                /></Link>
-                        </div> : <div></div>
-                }
 
-                <button onClick={handleSearchClick} className='flex font-bold text-lg  mb-5 text-orange-200 '>
+                <button onClick={handleSearchClick} className='flex font-bold text-base lg:text-lg   text-orange-200 '>
                     <FormattedMessage
                         id='nav.buscar'
                         defaultMessage='Buscar'
@@ -205,13 +200,24 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                 {español ? (<button onClick={() => {
                     handleLanguageToEnglish()
                 }}
-                    className='text-orange-200 text-lg font-bold'
+                    className='text-orange-200 text-base lg:text-lg font-bold'
                 >EN</button>) :
                     (<button onClick={() => {
                         handleLanguageToSpanish()
                     }}
-                        className='text-orange-200 text-lg font-semibold'>ESP</button>)}
-                
+                        className='text-orange-200 text-base lg:text-lg font-bold'>ESP</button>)}
+
+                {
+                    active ?
+                        <div className='text-orange-200 text-base lg:text-lg font-bold'>
+                            <Link to="/miPerfil">
+                                <FormattedMessage
+                                    id='nav.perfil'
+                                    defaultMessage='Perfil'
+                                /></Link>
+                        </div> : <div></div>
+                }
+
                 <div className='flex flex-col '>
                     {active ? (<button
                         onClick={signOff}
