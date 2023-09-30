@@ -38,6 +38,21 @@
     justify-content: center;
 }
 
+.botonActividades{
+    border-radius: 10px;
+    width: 110%;
+    height: 120%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(235, 158, 104);
+    color: white;
+}
+.botonActividades:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+
 .button{
     border-radius: 10px;
     width: 30%;
@@ -49,6 +64,8 @@
     color: white;
     transition: transform 0.3s;
 }
+
+
 .button:hover{
     transform: scale(1.1);
     cursor: pointer;
