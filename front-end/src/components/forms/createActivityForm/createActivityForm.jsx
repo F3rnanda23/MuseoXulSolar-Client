@@ -4,6 +4,7 @@ import { Link  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import {  createActivities } from '../../../redux/actions/actions';
 import { Image, Transformation } from 'cloudinary-react'; // Importa el componente Image
+import swal from 'sweetalert';
 
 
 
@@ -43,7 +44,7 @@ const CreateActivityForm= () =>{
             description:'',
             hora:'',
           });
-
+          swal("Listo","Se creó la actividad con exito","success")
     }; 
 
     const openCloudinaryWidget = () => {
