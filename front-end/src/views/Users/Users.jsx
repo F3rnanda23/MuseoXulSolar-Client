@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { Button } from "@tremor/react";
 
@@ -16,6 +17,7 @@ import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
 const Users = () => {
 
     const dispatch = useDispatch();
+
     const users = useSelector(state => state.users);
     const filteredUsers = useSelector(state => state.filteredUsers);
 
@@ -84,6 +86,7 @@ const Users = () => {
                 </div>
                 <Button onClick={() => setFilteredActive(false)}
                     className="max-h-10 my-1 mb-auto mt-5 ml-2 bg-orange-200 hover:bg-orange-200">Todos los usuarios</Button>
+
             </div>
 
             <div className="flex flex-col-reverse md:flex-row">

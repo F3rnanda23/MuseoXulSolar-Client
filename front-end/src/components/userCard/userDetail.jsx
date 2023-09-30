@@ -4,13 +4,23 @@ import { useSelector } from "react-redux";
 const UserDetail = () => {
 
     const userDetail = useSelector(state => state.userDetail);
-    console.log(userDetail);
-
+   
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         return date.toISOString().split('T')[0];
     };
-    
+
+    const showSubs = (subs) => {
+        return subs.map(sub => {
+          let nombreSuscripcion = '';
+          if (sub.tipo === '1') {
+            nombreSuscripcion = 'Amigos Xul Solar ($30/año)';
+          } else if (sub.tipo === '2') {
+            nombreSuscripcion = 'Amigos Xul Solar Plus ($50/año)';
+          }
+          return nombreSuscripcion;
+        }).join(', ');
+      };
 
     return (
 
@@ -34,7 +44,7 @@ const UserDetail = () => {
                             src={userDetail.image}
                             alt="UserIcon"
                         />
-                    </div>
+                    </div> 
                     <div className="p-6">
                         <h5
                             className="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">
@@ -42,7 +52,7 @@ const UserDetail = () => {
                         </h5>
 
                         <h3 className="text-base text-white dark:text-neutral-50">
-                            Suscripciones: {userDetail.Suscripciones.length > 0 ? userDetail.Suscripciones.join(', ') : 'Ninguna'}
+                            Suscripciones: {userDetail.Suscripciones.length > 0 ? showSubs(userDetail.Suscripciones) : 'Ninguna'}
                         </h3>
                      
                         <h3 className="text-base text-white dark:text-neutral-50">

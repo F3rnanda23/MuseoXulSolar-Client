@@ -6,6 +6,7 @@ import Activities from '../../views/Activities/Activities'
 import CreateActivityForm from '../../components/forms/createActivityForm/createActivityForm'
 import ViewComents from '../../views/Comments/ViewComments'
 import Users from '../../views/Users/Users'
+import BannedUsers from '../../views/Users/BannedUsers';
 
 const TabListBase = () => {
 
@@ -67,6 +68,15 @@ const TabListBase = () => {
     >
       Usuarios
     </Tab>
+    <Tab
+      value={6}
+      icon={UserGroupIcon}
+      onClick={() => setSelectedTab(6)}
+      className="mb-2 sm:mb-0"
+    >
+      Usuarios Bloquados
+    </Tab>
+
   </TabList>
 </TabGroup>
 
@@ -81,6 +91,8 @@ const TabListBase = () => {
                       <ViewComents/>
                     ) : selectedTab === 5 ? (
                       <Users/>
+                    ) : selectedTab === 6 ? (
+                      <BannedUsers/>
                     ) : null
             }
     </div>
