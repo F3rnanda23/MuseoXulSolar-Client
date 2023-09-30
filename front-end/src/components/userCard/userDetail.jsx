@@ -1,13 +1,16 @@
 import { useSelector } from "react-redux";
 
-import userIconOrange from '../../imagenes/register/userIcon.png'
+// import userIconOrange from '../../imagenes/register/userIcon.png'
 
 const UserDetail = () => {
 
-
     const userDetail = useSelector(state => state.userDetail);
-    console.log(userDetail);
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+    
 
     return (
 
@@ -25,18 +28,13 @@ const UserDetail = () => {
                         {userDetail.email}
                     </div>
 
-                     <img
-                        className="max-h-10"
-                        src={userDetail.image !== null ? userDetail.image : userIconOrange}
-                        alt="UserIcon"
-                    /> 
-                     {/* <div className="flex justify-center items-center rounded-full bg-orange-100 h-20 w-20 mx-auto mb-4">
-            <img
-                className="max-h-full max-w-full rounded-full"
-                src={userDetail.image !== null ? userDetail.image : userIconOrange}
-                alt="UserIcon"
-            />
-        </div> */}
+                    <div className="flex justify-center items-center rounded-full bg-orange-100 h-20 w-20 mx-auto mb-4">
+                        <img
+                            className="max-h-full max-w-full rounded-full"
+                            src={userDetail.image}
+                            alt="UserIcon"
+                        />
+                    </div>
                     <div className="p-6">
                         <h5
                             className="mb-2 text-xl font-medium leading-tight text-white dark:text-neutral-50">
@@ -47,10 +45,11 @@ const UserDetail = () => {
                             Suscripciones: {userDetail.Suscripciones.length > 0 ? userDetail.Suscripciones.join(', ') : 'Ninguna'}
                         </h3>
                         <h3 className="text-base text-white dark:text-neutral-50">
-                            {userDetail.birthday}
+                            {userDetail.birthday !== null ? formatDate(userDetail.birthday) : 'No registra Fecha de Nacimiento'}
+
                         </h3>
                         <h3 className="text-base text-white dark:text-neutral-50">
-                            {userDetail.phone}
+                            {userDetail.phone !== null ? userDetail.phone : 'No registra Telefono'}
                         </h3>
 
 

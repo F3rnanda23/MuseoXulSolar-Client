@@ -1,5 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { createFactory, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+import { Button } from "@tremor/react";
 
 import { getAllUsers, filterUserByEmail, getUserDetail } from '../../redux/actions/actions'
 
@@ -15,9 +17,13 @@ const Users = () => {
 
     const dispatch = useDispatch();
     const users = useSelector(state => state.users);
+    const filteredUsers = useSelector(state => state.filteredUsers);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
+    const [filteredActive, setFilteredActive] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
 
     useEffect(() => {
         dispatch(getAllUsers())
@@ -37,15 +43,22 @@ const Users = () => {
 
     const handleFilterUser = (email) => {
         dispatch(filterUserByEmail(email));
-
+        setFilteredActive(true);
     };
 
+    const handleInputBlur = () => {
+        setTimeout(() => {
+            setIsDropdownOpen(false);
+        }, 300);
+    };
 
+    const handleInputFocus = () => {
+        setIsDropdownOpen(true);
+    };
 
     return (
 
         <div>
-
 
             <div className="flex flex-col md:flex-row justify-center items-center">
                 <div className="flex flex-col items-center mt-5 md:w-1/3 w-3/4">
@@ -55,24 +68,36 @@ const Users = () => {
                         className="w-full bg-orange-100"
                         value={searchTerm}
                         onChange={handleInputChange}
+                        onFocus={handleInputFocus}
+                        onBlur={handleInputBlur}
                     />
-                    <ul className="bg-orange-100 w-full md:w-3/4 rounded-md border border-gray-300">
-                        {suggestions.map((suggestion, index) => (
-                            <li onClick={() => handleFilterUser(suggestion.email)}
-                                className="my-2" key={index}>
-                                {suggestion.email}
-                            </li>
-                        ))}
-                    </ul>
+                    {isDropdownOpen && (
+                        <ul className="bg-orange-100 w-full md:w-3/4 rounded-md border border-gray-300">
+                            {suggestions.map((suggestion, index) => (
+                                <li onClick={() => handleFilterUser(suggestion.email)}
+                                    className="my-2" key={index}>
+                                    {suggestion.email}
+                                </li>
+                            ))}
+                        </ul>
+                    )}
                 </div>
+                <Button onClick={() => setFilteredActive(false)}
+                    className="max-h-10 my-1 mb-auto mt-5 ml-2 bg-orange-200 hover:bg-orange-200">Todos los usuarios</Button>
             </div>
 
             <div className="flex flex-col-reverse md:flex-row">
+
                 <div className="w-full md:w-1/2">
-                    {users &&
+                    {filteredActive ? (
+                        filteredUsers.map((user) => (
+                            <UserCard key={user.id} user={user} />
+                        ))
+                    ) : (
                         users.map((user) => (
                             <UserCard key={user.id} user={user} />
-                        ))}
+                        ))
+                    )}
                 </div>
                 <div className="flex flex-col justify-start items-center w-full md:w-1/2">
                     <UserDetail />

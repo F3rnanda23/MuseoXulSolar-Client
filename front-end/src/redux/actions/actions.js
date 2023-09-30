@@ -16,6 +16,7 @@ export const GET_USERS = 'GET_USERS'
 export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL';
 export const GET_USER_DETAIL = 'GET_USER_DETAIL'
 
+
 export const getAllActivities = () => {
   return async function (dispatch) {
     const response = await axios('http://localhost:3001/actividades')
@@ -165,7 +166,7 @@ export function filterUserByEmail(email) {
 export function getUserDetail(id) {
   // const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
   const endpoint = `http://localhost:3001/usuario/id/${id}`
-  console.log('actions',  id);
+  
   return async function (dispatch) {
     try {
       const { data } = await axios(endpoint);

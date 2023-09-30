@@ -14,6 +14,7 @@ const initialState = {
     commentsBackUp: [],
     subs: [],
     users: [],
+    filteredUsers: [],
     userDetail: {},
 };
 
@@ -108,7 +109,7 @@ const reducer = (state = initialState, action) => {
 
             return {
                 ...state,
-                users: filteredUsers,
+                filteredUsers: filteredUsers,
             }
 
         case GET_USER_DETAIL:
