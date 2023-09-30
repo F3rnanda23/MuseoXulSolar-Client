@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 
 import { Button } from "@tremor/react";
 
-import { getAllUsers, filterUserByEmail, getUserDetail } from '../../redux/actions/actions'
+import { getAllUsers, filterUserByEmail } from '../../redux/actions/actions'
 
 import UserCard from '../../components/userCard/userCard';
 import UserDetail from '../../components/userCard/userDetail';

@@ -1,10 +1,10 @@
 import { useSelector } from "react-redux";
 
-// import userIconOrange from '../../imagenes/register/userIcon.png'
 
 const UserDetail = () => {
 
     const userDetail = useSelector(state => state.userDetail);
+    console.log(userDetail);
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -44,6 +44,7 @@ const UserDetail = () => {
                         <h3 className="text-base text-white dark:text-neutral-50">
                             Suscripciones: {userDetail.Suscripciones.length > 0 ? userDetail.Suscripciones.join(', ') : 'Ninguna'}
                         </h3>
+                     
                         <h3 className="text-base text-white dark:text-neutral-50">
                             {userDetail.birthday !== null ? formatDate(userDetail.birthday) : 'No registra Fecha de Nacimiento'}
 

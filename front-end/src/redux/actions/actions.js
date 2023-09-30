@@ -14,7 +14,8 @@ export const FILTER_RATING = 'FILTER_RATING';
 export const RESET_COMMENTS = 'RESET_COMMENTS';
 export const GET_USERS = 'GET_USERS'
 export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL';
-export const GET_USER_DETAIL = 'GET_USER_DETAIL'
+export const GET_USER_DETAIL = 'GET_USER_DETAIL';
+export const CLEAR_USER_DETAIL = 'CLEAR_USER_DETAIL'
 
 
 export const getAllActivities = () => {
@@ -180,8 +181,6 @@ export function getUserDetail(id) {
     }
   }
 }
-
-
 
 
 
