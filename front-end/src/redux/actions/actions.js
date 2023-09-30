@@ -37,15 +37,16 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`,)
+    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`)
     return dispatch(getAllActivities());
   }
 };
 
-export const deteleActivitiesUser = (actividadId, usuarioId) => {
+export const deteleActivitiesUser = (usuarioId, actividadId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/delete/`,{usuarioId, actividadId})
-    return dispatch(getAllActivitiesUser());
+    console.log(actividadId, usuarioId,'aqui delete')
+    const response = await axios.delete(`http://localhost:3001/actividades/eliminarReserva/${usuarioId}/${actividadId}`)
+    return dispatch(getAllActivitiesUser(usuarioId));
   }
 };
 
@@ -193,10 +194,9 @@ export function filterUserByEmail(email) {
 // traer actividades al perfil del usuario
 
 export const getAllActivitiesUser = (id) => {
-  console.log("emtre")
   return async function (dispatch) {
     const response = await axios(`http://localhost:3001/usuario/id/${id}`)
-    console.log(response.data, 'aqui response')
+    
     return dispatch({ type: GET_ALL_ACTIVITIES_USER, payload: response.data.Actividades })
   }
 };

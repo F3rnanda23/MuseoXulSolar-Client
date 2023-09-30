@@ -22,8 +22,9 @@ const actividadesUsuario = ()=>{
 
     }, []);
 
-    const handleDelete = (activityId) => {
-        dispatch(deteleActivitiesUser(activityId));
+    const handleDelete = (idUser,activityId ) => {
+        console.log(activityId,idUser, 'aqui activity y id' )
+        dispatch(deteleActivitiesUser(idUser,activityId ));
         };
 
     const formatDate = (dateString) => {
@@ -51,7 +52,7 @@ const actividadesUsuario = ()=>{
                                 <div class="mr-[100px] xl:mr-[30px]">
                                     <div class=" flex justify-center items-center  mt-[20px]  ">
                                         <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-3 bg-orange-400 bg-opacity-50 w-2/3 py-2 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 ">Ver detalle</button>
-                                        <button onClick={() => handleDelete(activity.id)} className="rounded  bg-orange-400 bg-opacity-50 w-2/3 py-2 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 ">Eliminar reserva</button>
+                                        <button onClick={() => handleDelete(idUser,activity.id)} className="rounded  bg-orange-400 bg-opacity-50 w-2/3 py-2 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 ">Eliminar reserva</button>
                                     </div>
                                 </div>
 
