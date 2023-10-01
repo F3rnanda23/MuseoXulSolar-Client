@@ -9,10 +9,6 @@ const UserDetail = () => {
 
     console.log(userDetail);
 
-    // const formatDate = (dateString) => {
-    //     const date = new Date(dateString);
-    //     return date.toISOString().split('T')[0];
-    // };
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);

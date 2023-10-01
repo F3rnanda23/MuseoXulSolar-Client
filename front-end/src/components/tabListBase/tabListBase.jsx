@@ -14,17 +14,6 @@ const TabListBase = () => {
     
     return (
         <div>
-            {/* <TabGroup>
-                <TabList className="min-h-20 flex flex-row justify-center font-semibold bg-orange-400 rounded-md">
-
-                    <Tab value={1} icon={CalendarDaysIcon} onClick={() => setSelectedTab(1)}>Actividades</Tab>
-                    <Tab value={2} icon={PencilIcon} onClick={() => setSelectedTab(2)}>Crear Actividades</Tab>
-                    <Tab value={3} icon={BookOpenIcon} onClick={() => setSelectedTab(3)}>Reservas</Tab>
-                    <Tab value={4} icon={ChatBubbleLeftRightIcon} onClick={() => setSelectedTab(4)}>Ver Comentarios</Tab>
-                    <Tab value={5} icon={UserGroupIcon} onClick={() => setSelectedTab(5)}>Usuarios</Tab>
-
-                </TabList>
-            </TabGroup> */}
 
             <TabGroup>
   <TabList className="flex flex-col sm:flex-row justify-center font-semibold bg-orange-400 rounded-md">

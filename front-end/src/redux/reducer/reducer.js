@@ -2,8 +2,9 @@ import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
     UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO, FILTER_RATING,
     RESET_COMMENTS, GET_USERS, FILTER_USER_BY_EMAIL, GET_USER_DETAIL, BAN_USER, RESTORE_USER,
-    FRESET_BANNED
+    FRESET_BANNED, GET_ALL_ACTIVITIES_USER
 } from '../actions/actions';
+
 
 
 const initialState = {
@@ -119,6 +120,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 userDetail: action.payload,
             }
+
+        case GET_ALL_ACTIVITIES_USER:
+            return {
+                ...state,
+                activitiesUser: action.payload,
+            };
 
         case BAN_USER:
             const { id, email } = action.payload;
