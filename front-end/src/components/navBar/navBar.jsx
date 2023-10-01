@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../searchBar/searchBar';
 import allResults from '../../views/Home/allResults';
 import SearchResultsBanner from '../../searchResultsBanner/searchResultsBanner';
-import museoLetras from '../../imagenes/navbar/panklub.png';
+import museoLetras from '../../imagenes/navbar/panKlub.png';
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "universal-cookie";
 import museoLogo from '../../imagenes/navbar/logoMuseo.png';
