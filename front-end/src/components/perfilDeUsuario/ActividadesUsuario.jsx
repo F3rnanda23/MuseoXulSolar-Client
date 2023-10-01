@@ -32,11 +32,25 @@ const actividadesUsuario = ()=>{
         return date.toISOString().split('T')[0];
     };
 
+    const handleRefresh = () => {
+        window.location.reload(); 
+    };
+
     return (
         <div className={style.containerActividadesUser}>
             <br />
-            <h1 class=" flex  justify-center items-center text-3xl font-bold  text-orange-200 underline ">Mis actividades agendadas</h1>
-            
+
+            <div className="flex mt-[30px]  md:justify-start md:items-start md:ml-[180px] ">
+                    <button onClick={() => navigate('/')} className=" flex justify-end  rounded  bg-orange-200  h-[35px] px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Volver a página de inicio</button>
+            </div> 
+
+            <div className="flex mt-[20px] mb-[30px] md:justify-end md:items-end md:mr-[180px] ">
+                    <button onClick={handleRefresh} className=" flex justify-end  rounded  bg-orange-200  h-[35px] px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Mostrar todas mis actividades</button>
+            </div>
+
+            <h1 class=" flex text-3xl font-bold  text-orange-200 underline ml-[20px] md:justify-center md:items-center  ">Mis actividades agendadas</h1>
+           
+
             <div className='relative  w-full  h-full' >
 
                 <div className=" grid sm:grid-cols-1 xl:grid-cols-3   gap-0 w-full h-full-">  

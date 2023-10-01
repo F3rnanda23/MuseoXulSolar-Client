@@ -6,8 +6,6 @@ import Activities from '../../views/Activities/Activities'
 import CreateActivityForm from '../../components/forms/createActivityForm/createActivityForm'
 import ViewComents from '../../views/Comments/ViewComments'
 import Users from '../../views/Users/Users'
-import BannedUsers from '../../views/Users/BannedUsers';
-import CreateExpo from '../forms/createExpo/CreateExpo';
 
 const TabListBase = () => {
 
@@ -84,7 +82,7 @@ const TabListBase = () => {
                 ) : selectedTab === 2 ? (
                     <CreateActivityForm />
                 ) : selectedTab === 3 ? (
-                  <h2>Reservas</h2>
+                  <ReservasAdmin />
                     ) : selectedTab === 4 ? (
                       <ViewComents/>
                     ) : selectedTab === 5 ? (
