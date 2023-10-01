@@ -27,7 +27,7 @@ import PutToken from './components/resetPassword/PutToken';
 import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
 import AdminDash from './views/AdminDash/AdminDash';
 import ModificarPerfil from './components/perfilDeUsuario/ModificarPerfil';
-import ActividadesUsuario from './components/perfilDeUsuario/actividadesUsuario';
+import actividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario';
 
 
 import './App.css'
@@ -77,7 +77,7 @@ function App() {
         <Route path="/miPerfil" element={<PerfilDeUsuario />} />
         <Route path="/Admin" element={<AdminDash />} />
         <Route path="/modificarPerfil" element={<ModificarPerfil />} />
-        <Route path="/perfilActividades" element={<ActividadesUsuario />} />
+        <Route path="/perfilActividades" element={<actividadesUsuario />} />
       </Routes>
     </div>
   )
