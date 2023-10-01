@@ -14,7 +14,7 @@ export const Subscription = () => {
 
     const dispatch = useDispatch();
     const [initPoint, setInitPoint] = useState(false);
-    // const [price, setPrice] = useState('')
+    const [price, setPrice] = useState('')
 
 
     const currentDate = new Date();
@@ -27,27 +27,36 @@ export const Subscription = () => {
 
 
 
-    const createPreference = async (price) => {
+    const createPreference = async (subscripcion, price) => {
 
         try {
-            const response = await axios.post('https://server-xul-solar.vercel.app/pagar', {
+            const response = await axios.post('http://localhost:3001/pagar', {
                 description: `Membresia anual de $${price}`,
                 price: price,
                 quantity: 1,
+                usuarioId: userId,
+                email: userEmail,
+                name: userName,
+                subscripcion: price,
+                date: currentDate,
+                tipo: subscripcion,
+
             },
                 {
                     headers: {
                         "Content-Type": "application/json",
                     }
                 });
-
-            const { init_point } = response.data;
-            window.alert(response.data.paymentId)
-            console.log(response.data);
-            setInitPoint(init_point);
-            window.location.href = init_point;
+                
+                    const { init_point } = response.data;
+                    window.alert("Lo dirigimos a Mercado Pago?")
+                    setInitPoint(init_point);
+                    window.location.href = init_point;
+                
+            
         } catch (error) {
-            throw new Error(error.message)
+            window.alert("Usuario ya suscripto")
+            // throw new Error(error.message)
         }
     }
 
@@ -55,9 +64,9 @@ export const Subscription = () => {
         usuarioId: userId,
         email: userEmail,
         name: userName,
-        // subscripcion: '',
+        subscripcion: '',
         date: currentDate,
-        // tipo: `Membresia ${price}`
+        tipo: `Membresia ${price}`
     })
     console.log(subs);
 
@@ -114,17 +123,17 @@ export const Subscription = () => {
 
                             <button onClick={() => {
                                 setPrice(30)
-                                createPreference(30)
-                                sendSubsInfo()
+                                createPreference("Amigos Xul Solar", 30)
+                                //sendSubsInfo()
                             }}></button>
                             <button onClick={() => {
-                                // setPrice(30);
+                                setPrice(30);
                                 // setSubs(prevState => ({
                                 //     ...prevState,
                                 //     tipo: `Membresia ${30}`  // Actualiza el tipo de membresía basado en el nuevo precio
                                 // }));
-                                createPreference(30);
-                                sendSubInfo();
+                                createPreference("Amigos Xul Solar", 30);
+                                //sendSubInfo();
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>
                                 <FormattedMessage
@@ -168,9 +177,9 @@ export const Subscription = () => {
                                 />
                             </p>
                             <button onClick={() => {
-                                // setPrice(50)
-                                createPreference(50)
-                                sendSubInfo()
+                                setPrice(50)
+                                createPreference("Amigos Xul Solar Plus", 50)
+                                //sendSubInfo()
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>
                                 <FormattedMessage
