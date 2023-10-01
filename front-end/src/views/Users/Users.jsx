@@ -20,6 +20,7 @@ const Users = () => {
 
     const users = useSelector(state => state.users);
     const filteredUsers = useSelector(state => state.filteredUsers);
+    const bannedUsers = useSelector(state => state.bannedList);
 
     const [searchTerm, setSearchTerm] = useState('');
     const [suggestions, setSuggestions] = useState([]);
@@ -30,6 +31,10 @@ const Users = () => {
     useEffect(() => {
         dispatch(getAllUsers())
     }, [dispatch])
+
+  useEffect(() => {
+    dispatch(getAllUsers())
+  }, [bannedUsers]);
 
 
     const handleInputChange = (event) => {
@@ -94,17 +99,21 @@ const Users = () => {
                 <div className="w-full md:w-1/2">
                     {filteredActive ? (
                         filteredUsers.map((user) => (
-                            <UserCard key={user.id} user={user} />
+                            user && user.id && <UserCard key={user.id} user={user} />
                         ))
                     ) : (
-                        users.map((user) => (
-                            <UserCard key={user.id} user={user} />
+                            users.map((user) => (
+                                user && user.id && <UserCard key={user.id} user={user} />
                         ))
                     )}
                 </div>
+                {users && (
                 <div className="flex flex-col justify-start items-center w-full md:w-1/2">
                     <UserDetail />
                 </div>
+                ) 
+                
+                }
             </div>
         </div>
 

@@ -11,7 +11,7 @@ import BannedUsers from '../../views/Users/BannedUsers';
 const TabListBase = () => {
 
     const [selectedTab, setSelectedTab] = useState(1);
-    console.log(selectedTab);
+    
     return (
         <div>
             {/* <TabGroup>

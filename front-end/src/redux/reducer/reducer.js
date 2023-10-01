@@ -1,7 +1,8 @@
 import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
     UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO, FILTER_RATING,
-    RESET_COMMENTS, GET_USERS, FILTER_USER_BY_EMAIL, GET_USER_DETAIL, CLEAR_USER_DETAIL
+    RESET_COMMENTS, GET_USERS, FILTER_USER_BY_EMAIL, GET_USER_DETAIL, BAN_USER, RESTORE_USER,
+    FRESET_BANNED
 } from '../actions/actions';
 
 
@@ -16,6 +17,7 @@ const initialState = {
     users: [],
     filteredUsers: [],
     userDetail: {},
+    bannedList: [],
 };
 
 
@@ -118,12 +120,36 @@ const reducer = (state = initialState, action) => {
                 userDetail: action.payload,
             }
 
+        case BAN_USER:
+            const { id, email } = action.payload;
+            const updatedUsers = state.users.filter(user => user.id !== action.payload);
+
+            return {
+                ...state,
+                users: updatedUsers,
+                bannedList: [...state.bannedList, { id, email }],
+            }
+        case RESTORE_USER:
+console.log('AP id',action.payload);
+            const filteredBanned = state.bannedList.filter(user => user.id !== action.payload);
+
+            console.log('red', filteredBanned);
+            return {
+                ...state,
+                users: [...state.users, action.payload],
+                bannedList: filteredBanned,
+            }
+        case FRESET_BANNED:
+            return {
+                ...state,
+                bannedList: [],
+            }
+
         default:
             return {
                 ...state
             }
     }
-
 };
 
 export default reducer;
