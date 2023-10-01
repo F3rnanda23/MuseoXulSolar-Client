@@ -26,6 +26,7 @@ import imagen9 from '../../imagenes/destacados/imagen9.jpg';
 import imagen10 from '../../imagenes/destacados/imagen10.jpg';
 import imagen11 from '../../imagenes/destacados/imagen11.png';
 import firmasXul4 from '../../imagenes/destacados/firmasXul4.png';
+import { FormattedMessage } from 'react-intl';
 
 
 
@@ -35,7 +36,7 @@ const Destacados = () =>{
 
         <div class=" w-full s:h-[3500px]  xl:h-[1700px]  " >
 
-             <div class="grid bg-gray-200 s:grid-cols-1 mb-[1px]   xl:grid-cols-2 gap-0 xl:mb-[0px] bg-gray-200 mb-[-40px] ">
+             <div class="grid bg-gray-200 s:grid-cols-1 mb-[1px]   xl:grid-cols-2 gap-0 xl:mb-[0px] mb-[-40px] ">
 
                 <div class=" w-2/2 h-4/5 ">
                     <img src={firmasXul4} alt="Descripción de la imagen" className="w-full h-full" />
@@ -71,7 +72,11 @@ const Destacados = () =>{
                                 <figure class=" shrink-0  w-3/5 h-[300px]   mr-[10px] transform rotate-[-4deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/bibliografia.html" className="relative group">
                                         <img src={bibliografiaXul} alt="Descripción de la imagen" className="  w-full h-full   object-cover transition-transform transform group-hover:scale-105   " />
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">BIBLIOGRAFÍA</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                            <FormattedMessage
+                                            id='destac.bibliografia'
+                                            defaultMessage='BIBLIOGRAFÍA'/>
+                                            </p>
                                     </a>
                                 </figure>
                             </div>
@@ -92,7 +97,11 @@ const Destacados = () =>{
                                 <figure class="shrink-0  w-4/6 h-[360px] mt-[10px] mr-[8px] rotate-[-5deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/coleccion.html" className="relative group">
                                             <img src={coleccionPermanente} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">COLECCIÓN PERMANENTE</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                        <FormattedMessage
+                                            id='destac.coleccion'
+                                            defaultMessage='COLECCIÓN PERMANENTE'/>
+                                            </p>
                                     </a>
                                 </figure>
 
@@ -136,7 +145,10 @@ const Destacados = () =>{
                                 <figure class="shrink-0  w-5/5 h-[230px] mt-[0px] mr-[20px] mb-[10px] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/catalogo.html" className="relative group">
                                         <img src={catalogoRazonado} alt="Descripción de la imagen"  className="w-full h-full  transform rotate-[2deg] object-cover transition-transform transform group-hover:scale-105" />
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">CATÁLOGO RAZONADO</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                        <FormattedMessage
+                                            id='destac.catalogo'
+                                            defaultMessage='CATÁLOGO RAZONADO'/></p>
                                     </a>
                                 </figure>
 
@@ -153,7 +165,10 @@ const Destacados = () =>{
                                 <figure class=" shrink-0  w-3/5 h-[300px]   mr-[20px] transform rotate-[-4deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/biografia.html" className="relative group">
                                         <img src={biografiaXul} alt="Descripción de la imagen" className=" relative w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">BIBLIOGRAFÍA XUL SOLAR</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                        <FormattedMessage
+                                            id='destac.biografiaxul'
+                                            defaultMessage='BIOGRAFÍA XUL SOLAR'/></p>
                                     </a>
                                 </figure>
                             </div>
@@ -197,7 +212,10 @@ const Destacados = () =>{
                                 <figure class="  shrink-0 sm:w-2/4 md:w-3/6 h-[300px] xl:w-5/6 xl:h-[300px] mt-[0px] mr-[10px]  mb-[10px] transform rotate-[2deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/exposiciones.html" className="relative group">
                                         <img src={exposiciones} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">EXPOSICIONES</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                        <FormattedMessage
+                                            id='destac.exposiciones'
+                                            defaultMessage='EXPOSICIONES'/></p>
                                     </a>
                                 </figure>
 
@@ -227,7 +245,10 @@ const Destacados = () =>{
                                 <figure class="shrink-0 w-4/5 h-[300px]  xl:w-3/5 xl:h-[350px] mt-[10px] mr-[8px] transform  rotate-[-5deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/educacion.html" className="relative group">
                                         <img src={educacion} alt="Descripción de la imagen"  className=" w-full h-full   object-cover transition-transform transform group-hover:scale-105" />
-                                    <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100 ">EDUCACIÓN</p>
+                                    <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100 ">
+                                    <FormattedMessage
+                                            id='destac.educacion'
+                                            defaultMessage='EDUCACIÓN'/></p>
                                     </a>
                                 </figure>
 
@@ -271,7 +292,10 @@ const Destacados = () =>{
                                 <figure class=" shrink-0  w-3/5 h-[300px]   mr-[10px] transform rotate-[4deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/museo.html" className="relative group">
                                         <img src={elMuseo} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">EL MUSEO</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                        <FormattedMessage
+                                            id='destac.elmuseo'
+                                            defaultMessage='EL MUSEO'/></p>
                                     </a>
                                 </figure>
                             </div>
@@ -292,7 +316,10 @@ const Destacados = () =>{
                                 <figure class="shrink-0  w-3/5 h-[390px] mt-[10px] ml-[40px] mr-[10px]  transform rotate-[-5deg] shadow-2xl">
                                     <a href="https://www.xulsolar.org.ar/testimonios.html" className="relative group">
                                         <img src={testimonio} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
-                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">TESTIMONIO</p>
+                                        <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
+                                        <FormattedMessage
+                                            id='destac.testimonio'
+                                            defaultMessage='TESTIMONIO'/></p>
                                     </a> 
                                 </figure>
 
