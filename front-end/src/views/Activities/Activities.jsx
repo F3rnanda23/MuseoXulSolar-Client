@@ -2,11 +2,13 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getAllActivities, deteleActivities, filtrarActividades } from '../../redux/actions/actions';
+import { getAllActivities, deteleActivities, filtrarActividades, postAllActivitiesUser } from '../../redux/actions/actions';
 import Calendar from 'react-calendar';
 import  firma6Xul from '../../imagenes/destacados/firma6Xul.png';
 import  style from './activities.module.css';
 import { BsSun } from 'react-icons/bs';
+import Cookies from "universal-cookie";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -22,6 +24,9 @@ const Activities = () => {
 
     const Value = ValuePiece | [ValuePiece, ValuePiece];
 
+    const cookies = new Cookies();
+    const idUser = cookies.cookies.id;
+
 
     useEffect(() => {
         dispatch(getAllActivities());
@@ -31,6 +36,21 @@ const Activities = () => {
     const handleDelete = (activityId) => {
     dispatch(deteleActivities(activityId));
     };
+
+    const handleReserve = async (idUser, activityId) => {
+        try {
+            // Intenta realizar la reserva
+             dispatch(await postAllActivitiesUser(idUser, activityId));
+            // Si la reserva es exitosa, muestra una notificación de éxito
+            toast.success("Reserva exitosa");
+        } catch (error) {
+            // Si hay un error, muestra una alerta de error
+            console.error("Error al realizar la reserva:", error);
+            toast.error("Error al realizar la reserva");
+        }
+    };
+    
+    
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -103,8 +123,9 @@ const Activities = () => {
                                                 <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 py-2">Conocer más</button>
                                                 <button onClick={() => handleDelete(activity.id)} className="rounded mt-[5px] bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 py-2">Eliminar</button>
                                             </div>
-                                            <div className="mt-[10px] sm:mr-[5px] ">
-                                                <button className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5 py-2">Reservar entrada</button>
+                                            <div class="mt-[10px] sm:mr-[5px] ">
+                                                <button onClick={() => handleReserve(idUser, activity.id)} 
+                                                className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5 py-2">Reservar entrada</button>
                                                 <button className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 md:px-2 py-1 2xl:px-5 py-2">Comprar entrada</button>
                                             </div>
                                         </div>
@@ -165,7 +186,10 @@ const Activities = () => {
                 
 
             </div>
-
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
 
     )

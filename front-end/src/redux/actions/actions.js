@@ -3,6 +3,7 @@ import axios from 'axios';
 export const GET_ALL_ACTIVITIES = "GET_ALL_ACTIVITIES";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
 export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
+export const DELETE_ACTIVITY_USER = "DELETE_ACTIVITY_USER";
 export const GET_ACTIVITY_DETAIL = "GET_ACTIVITY_DETAIL";
 export const LOG_IN = "LOG_IN";
 export const LOG_OUT = "LOG_OUT";
@@ -14,11 +15,18 @@ export const FILTER_RATING = 'FILTER_RATING';
 export const RESET_COMMENTS = 'RESET_COMMENTS';
 export const GET_USERS = 'GET_USERS'
 export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL';
+<<<<<<< HEAD
 export const GET_USER_DETAIL = 'GET_USER_DETAIL';
 export const CLEAR_USER_DETAIL = 'CLEAR_USER_DETAIL';
 export const BAN_USER = 'BAN_USER';
 export const RESTORE_USER = 'RESTORE_USER';
 export const FRESET_BANNED = 'FRESET_BANNED'
+=======
+export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
+export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
+export const GET_USER_DETAIL = 'GET_USER_DETAIL';
+
+>>>>>>> develop
 
 
 export const getAllActivities = () => {
@@ -38,8 +46,16 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`,)
+    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`)
     return dispatch(getAllActivities());
+  }
+};
+
+export const deteleActivitiesUser = (usuarioId, actividadId) => {
+  return async function (dispatch) {
+    console.log(actividadId, usuarioId,'aqui delete')
+    const response = await axios.delete(`http://localhost:3001/actividades/eliminarReserva/${usuarioId}/${actividadId}`)
+    return dispatch(getAllActivitiesUser(usuarioId));
   }
 };
 
@@ -185,6 +201,7 @@ export function getUserDetail(id) {
   }
 }
 
+<<<<<<< HEAD
 // export function banUser(id, email) {
 //   console.log('actions', id + email);
 //   // const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
@@ -250,7 +267,31 @@ export function resetBanned() {
     type: FRESET_BANNED,
   }
 }
+=======
+
+// traer actividades al perfil del usuario
+
+export const getAllActivitiesUser = (id) => {
+  return async function (dispatch) {
+    const response = await axios(`http://localhost:3001/usuario/id/${id}`)
+    
+    return dispatch({ type: GET_ALL_ACTIVITIES_USER, payload: response.data.Actividades })
+  }
+};
 
 
+//post de reserva actividades
+export const postAllActivitiesUser = (usuarioId,actividadId ) => {
+  return async function (dispatch) {
+    const response = await axios.post( 'http://localhost:3001/actividades/reservar',{usuarioId, actividadId})
+    return dispatch()
+  }
+};
+
+>>>>>>> develop
+
+
+
+ 
 
 

@@ -130,7 +130,7 @@ const reducer = (state = initialState, action) => {
                 bannedList: [...state.bannedList, { id, email }],
             }
         case RESTORE_USER:
-console.log('AP id',action.payload);
+
             const filteredBanned = state.bannedList.filter(user => user.id !== action.payload);
 
             console.log('red', filteredBanned);
