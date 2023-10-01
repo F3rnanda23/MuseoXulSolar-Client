@@ -2,10 +2,11 @@ import { Tab, TabGroup, TabList } from '@tremor/react'
 import { UserGroupIcon, CalendarDaysIcon, ChatBubbleLeftRightIcon, PencilIcon, BookOpenIcon } from "@heroicons/react/20/solid";
 import React, { useState } from 'react';
 
-import Activities from '../../views/Activities/Activities'
-import CreateActivityForm from '../../components/forms/createActivityForm/createActivityForm'
-import ViewComents from '../../views/Comments/ViewComments'
-import Users from '../../views/Users/Users'
+import Activities from '../../views/Activities/Activities';
+import CreateActivityForm from '../../components/forms/createActivityForm/createActivityForm';
+import ReservasAdmin from '../../components/forms/reservasAdmin/reservasAdmin'
+import ViewComents from '../../views/Comments/ViewComments';
+import Users from '../../views/Users/Users';
 
 const TabListBase = () => {
 
@@ -31,7 +32,7 @@ const TabListBase = () => {
                 ) : selectedTab === 2 ? (
                     <CreateActivityForm />
                 ) : selectedTab === 3 ? (
-                  <h2>Reservas</h2>
+                  <ReservasAdmin />
                     ) : selectedTab === 4 ? (
                       <ViewComents/>
                     ) : selectedTab === 5 ? (
