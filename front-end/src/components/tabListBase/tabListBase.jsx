@@ -7,7 +7,6 @@ import CreateActivityForm from '../../components/forms/createActivityForm/create
 import ViewComents from '../../views/Comments/ViewComments'
 import Users from '../../views/Users/Users'
 import BannedUsers from '../../views/Users/BannedUsers';
-import CreateExpo from '../forms/createExpo/CreateExpo';
 
 const TabListBase = () => {
 
@@ -83,8 +82,6 @@ const TabListBase = () => {
                       <Users/>
                     ) : selectedTab === 6 ? (
                       <BannedUsers/>
-                    ) : selectedTab === 7 ? (
-                      <CreateExpo/>
                     ) : null
             }
     </div>
