@@ -65,6 +65,14 @@ const TabListBase = () => {
     >
       Usuarios Bloquados
     </Tab>
+    <Tab
+      value={7}
+      icon={ChatBubbleLeftRightIcon}
+      onClick={() => setSelectedTab(7)}
+      className="mb-2 sm:mb-0"
+    >
+      Exposiciones
+    </Tab>
 
   </TabList>
 </TabGroup>
@@ -82,7 +90,9 @@ const TabListBase = () => {
                       <Users/>
                     ) : selectedTab === 6 ? (
                       <BannedUsers/>
-                    ) : null
+                    ) : selectedTab === 7 ? (
+                    <h2>Exposiciones</h2> 
+                    ) :null
             }
     </div>
 
