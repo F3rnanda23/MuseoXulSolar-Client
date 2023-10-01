@@ -37,21 +37,19 @@ const Activities = () => {
     dispatch(deteleActivities(activityId));
     };
 
-    const handleReserve = (idUser, activityId) => {
-        dispatch(postAllActivitiesUser(idUser, activityId))
-            .then((response) => {
-                // El dispatch fue exitoso, puedes mostrar una alerta aquí
-                if (response && response.status === 200) {
-                    toast.success("Reserva exitosa")
-                }
-            })
-            .catch((error) => {
-                // Manejar errores si el dispatch falla
-                console.error("Error al realizar la reserva:", error);
-                // Puedes mostrar una alerta de error aquí si lo deseas
-                toast.error("Error al realizar la reserva")
-            });
+    const handleReserve = async (idUser, activityId) => {
+        try {
+            // Intenta realizar la reserva
+             dispatch(await postAllActivitiesUser(idUser, activityId));
+            // Si la reserva es exitosa, muestra una notificación de éxito
+            toast.success("Reserva exitosa");
+        } catch (error) {
+            // Si hay un error, muestra una alerta de error
+            console.error("Error al realizar la reserva:", error);
+            toast.error("Error al realizar la reserva");
+        }
     };
+    
     
 
     const formatDate = (dateString) => {
