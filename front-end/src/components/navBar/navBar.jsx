@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../searchBar/searchBar';
 import allResults from '../../views/Home/allResults';
 import SearchResultsBanner from '../../searchResultsBanner/searchResultsBanner';
-
+import museoLetras from '../../imagenes/navbar/panKlub.png';
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "universal-cookie";
 import museoLogo from '../../imagenes/navbar/logoMuseo.png';
@@ -106,9 +106,12 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     return (
 
         <div>
-            <nav className='bg-gray-300 flex items-center justify-evenly flex-wrap'>
-                <div className='cursor-pointer w-1/12  flex flex-shrink-0' onClick={handleLogoClick}>
+            <nav className='bg-gray-300 flex  justify-evenly flex-wrap relative'>
+                <div className='cursor-pointer w-[90px]  flex flex-shrink-0' onClick={handleLogoClick}>
                     <img src={museoLogo} alt="Logo del museo" />
+                </div>
+                <div className='z-20 w-1/2 mt-9 absolute'>
+                    <img src={museoLetras} className='' />
                 </div>
 
                 <div class="block lg:hidden">
@@ -117,7 +120,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </button>
                 </div>
 
-                <div className='text-orange-200 text-base lg:text-lg font-bold'>
+                <div className='text-orange-200 mt-1 text-sm md:text-base font-bold'>
                     <Link to="/Visits">
                         <FormattedMessage
                             id='nav.visitas'
@@ -126,7 +129,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </Link>
                 </div>
 
-                <div className='text-orange-200 text-base lg:text-lg font-bold'>
+                <div className='text-orange-200 mt-1 text-sm md:text-base  font-bold'>
                     <Link to="/Activities">
                         <FormattedMessage
                             id='nav.actividades'
@@ -135,7 +138,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </Link>
                 </div>
 
-                <div className='text-orange-200 text-base lg:text-lg font-bold'>
+                <div className='text-orange-200 mt-1 text-sm md:text-base  font-bold'>
                     <Link to="/Events">
                         <FormattedMessage
                             id='nav.eventos'
@@ -145,7 +148,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                 </div>
 
                 <div className={`relative`}>
-                    <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-base lg:text-lg font-bold"
+                    <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded mt-1 text-sm md:text-base  font-bold"
                         onClick={handleDropdownMenu}>
                         <FormattedMessage
                             id='nav.apoya'
@@ -155,7 +158,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${!showMenu ? "hidden" : "bg-white"}`}
                     >
                         <ul className='space-y-2'>
-                            <li className='hover:bg-gray-200 px-1 text-orange-200 text-base lg:text-lg font-bold'
+                            <li className='hover:bg-gray-200 px-1 text-orange-200 text-sm md:text-base  font-bold'
                                 onClick={handleDropdownMenu}>
                                 <Link to="/Donations">
                                     <FormattedMessage
@@ -164,7 +167,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     />
                                 </Link>
                             </li>
-                            <li className='hover:bg-gray-200 text-orange-200 text-base lg:text-lg font-bold'
+                            <li className='hover:bg-gray-200 text-orange-200 text-sm md:text-base  font-bold'
                                 onClick={handleDropdownMenu}>
                                 <Link to="/subscription">
                                     <FormattedMessage
@@ -173,7 +176,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     />
                                 </Link>
                             </li>
-                            <li className='hover:bg-gray-200 text-orange-200 text-base lg:text-lg font-bold'
+                            <li className='hover:bg-gray-200 text-orange-200 text-sm md:text-base  font-bold'
                                 onClick={handleDropdownMenu}><Link to="/sponsorship">
                                     <FormattedMessage
                                         id='nav.benefactores'
@@ -183,13 +186,13 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </div>
                 </div>
 
-                <div className='text-orange-200 text-base lg:text-lg font-bold'>
+                <div className='text-orange-200 mt-1 text-sm md:text-base  font-bold'>
                     <Link to="/xulsolar">
                         Xul Solar
                     </Link>
                 </div>
 
-                <button onClick={handleSearchClick} className='flex font-bold text-base lg:text-lg   text-orange-200 '>
+                <button onClick={handleSearchClick} className='flex font-bold text-sm md:text-base  mt-1 text-orange-200 '>
                     <FormattedMessage
                         id='nav.buscar'
                         defaultMessage='Buscar'
@@ -200,29 +203,29 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                 {español ? (<button onClick={() => {
                     handleLanguageToEnglish()
                 }}
-                    className='text-orange-200 text-base lg:text-lg font-bold'
+                    className='flex text-orange-200 mt-1 text-sm md:text-base  font-bold'
                 >EN</button>) :
                     (<button onClick={() => {
                         handleLanguageToSpanish()
                     }}
-                        className='text-orange-200 text-base lg:text-lg font-bold'>ESP</button>)}
+                        className='flex text-orange-200 mt-1 text-sm md:text-base font-bold'>ESP</button>)}
 
                 {
                     active ?
-                        <div className='text-orange-200 text-base lg:text-lg font-bold'>
+                        <div className='text-orange-200 mt-1 font-bold'>
                             <Link to="/miPerfil">
-                                <FormattedMessage
-                                    id='nav.perfil'
-                                    defaultMessage='Perfil'
-                                /></Link>
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </Link>
                         </div> : <div></div>
                 }
 
-                <div className='flex flex-col '>
+                <div className='flex flex-col justify-center'>
                     {active ? (<button
                         onClick={signOff}
                         type="button"
-                        className="inline-block w-8 md:w-36 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                        className="inline-block w-8 md:w-36 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:border hover:border-orange-200 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                         <FormattedMessage
                             id='nav.cerrarsesion'
                             defaultMessage='Cerrar Sesión'
@@ -231,7 +234,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </button>) : (<button
                         onClick={handleClickLogIn}
                         type="button"
-                        className=" mr-2 inline-block w-8 md:w-36 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                        className=" mr-2 inline-block w-8 md:w-36 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border hover:border-orange-200 hover:scale-105  hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                         <FormattedMessage
                             id='nav.iniciarsesion'
                             defaultMessage='Iniciar Sesión'
