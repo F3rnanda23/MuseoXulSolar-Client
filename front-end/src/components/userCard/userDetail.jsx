@@ -32,7 +32,7 @@ const UserDetail = () => {
 
     return (
 
-        <div className="max-w-lg mt-10 mx-auto">
+        <div className="w-80 md:w-96 mt-10 mx-auto">
             {!userDetail ? (
                 <div>
                     Selecciona un usuario para ver los detalles.
