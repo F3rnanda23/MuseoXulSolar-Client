@@ -15,18 +15,15 @@ export const FILTER_RATING = 'FILTER_RATING';
 export const RESET_COMMENTS = 'RESET_COMMENTS';
 export const GET_USERS = 'GET_USERS'
 export const FILTER_USER_BY_EMAIL = 'FILTER_USER_BY_EMAIL';
-<<<<<<< HEAD
 export const GET_USER_DETAIL = 'GET_USER_DETAIL';
 export const CLEAR_USER_DETAIL = 'CLEAR_USER_DETAIL';
 export const BAN_USER = 'BAN_USER';
 export const RESTORE_USER = 'RESTORE_USER';
 export const FRESET_BANNED = 'FRESET_BANNED'
-=======
 export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
-export const GET_USER_DETAIL = 'GET_USER_DETAIL';
 
->>>>>>> develop
+
 
 
 export const getAllActivities = () => {
@@ -201,26 +198,6 @@ export function getUserDetail(id) {
   }
 }
 
-<<<<<<< HEAD
-// export function banUser(id, email) {
-//   console.log('actions', id + email);
-//   // const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
-//   const endpoint = `http://localhost:3001/usuario/${id}`
-
-//   return async function (dispatch) {
-//     try {
-//       await axios.delete(endpoint);
-//       return dispatch({
-//         type: 'BAN_USER',
-//         payload: { id, email }
-//       })
-
-//     } catch (error) {
-//       throw new Error('Error al bloquear el usuario: ', error.message)
-//     }
-//   }
-// } 
-
 export function banUser(id, email) {
 
   const endpoint = `http://localhost:3001/usuario/${id}`;
@@ -267,7 +244,6 @@ export function resetBanned() {
     type: FRESET_BANNED,
   }
 }
-=======
 
 // traer actividades al perfil del usuario
 
@@ -288,7 +264,6 @@ export const postAllActivitiesUser = (usuarioId,actividadId ) => {
   }
 };
 
->>>>>>> develop
 
 
 
