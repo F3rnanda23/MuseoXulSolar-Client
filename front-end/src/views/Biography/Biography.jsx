@@ -13,7 +13,7 @@ const Biography = () => {
         style={backgroundStyle}
       >
         <div className="mx-5">
-          <h1 className="">Biografía </h1>
+          <h1 className="rounded  text-2xl font-bold mb-4 mt-10 flex justify-center items-center">Biografía </h1>
           <div className="flex flex-col justify-center items-center ">
             <br></br>
             <div className="bg-gray-100 rounded-lg shadow-lg p-6 max-w-2/3">
