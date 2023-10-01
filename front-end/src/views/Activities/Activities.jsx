@@ -8,6 +8,7 @@ import  firma6Xul from '../../imagenes/destacados/firma6Xul.png';
 import  style from './activities.module.css';
 import { BsSun } from 'react-icons/bs';
 import Cookies from "universal-cookie";
+import toast, { Toaster } from 'react-hot-toast';
 
 
 
@@ -37,8 +38,21 @@ const Activities = () => {
     };
 
     const handleReserve = (idUser, activityId) => {
-        dispatch(postAllActivitiesUser(idUser, activityId));
+        dispatch(postAllActivitiesUser(idUser, activityId))
+            .then((response) => {
+                // El dispatch fue exitoso, puedes mostrar una alerta aquí
+                if (response && response.status === 200) {
+                    toast.success("Reserva exitosa")
+                }
+            })
+            .catch((error) => {
+                // Manejar errores si el dispatch falla
+                console.error("Error al realizar la reserva:", error);
+                // Puedes mostrar una alerta de error aquí si lo deseas
+                toast.error("Error al realizar la reserva")
+            });
     };
+    
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -174,7 +188,10 @@ const Activities = () => {
                 
 
             </div>
-
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
 
     )
