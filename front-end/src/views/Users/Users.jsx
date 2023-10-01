@@ -108,7 +108,7 @@ const Users = () => {
                     )}
                 </div>
                 {users && (
-                <div className="flex flex-col justify-start items-center w-full md:w-1/2">
+                <div className="sticky top-0 flex flex-col justify-start items-center w-full md:w-1/2 md:ml-auto max-h-screen overflow-y-auto">
                     <UserDetail />
                 </div>
                 ) 
