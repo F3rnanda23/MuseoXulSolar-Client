@@ -232,7 +232,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         {active ? (<button
                             onClick={signOff}
                             type="button"
-                            className="inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11  text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:border hover:border-orange-200 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            className="inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11  text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:border hover:border-orange-200 hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                             <FormattedMessage
                                 id='nav.cerrarsesion'
                                 defaultMessage='Cerrar Sesión'
@@ -241,7 +241,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         </button>) : (<button
                             onClick={handleClickLogIn}
                             type="button"
-                            className=" inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border hover:border-orange-200 hover:scale-105  hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            className=" inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border hover:border-orange-200 hover:scale-105  hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                             <FormattedMessage
                                 id='nav.iniciarsesion'
                                 defaultMessage='Iniciar Sesión'
