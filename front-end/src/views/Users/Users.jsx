@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 
 import { Button } from "@tremor/react";
 
-import { getAllUsers, filterUserByEmail } from '../../redux/actions/actions'
+import { getAllUsers, filterUserByEmail, clearUserDetail } from '../../redux/actions/actions'
 
 import UserCard from '../../components/userCard/userCard';
 import UserDetail from '../../components/userCard/userDetail';
@@ -32,6 +32,8 @@ const Users = () => {
 
     useEffect(() => {
         dispatch(getAllUsers())
+
+        return () => { dispatch(clearUserDetail())};
     }, [dispatch])
 
   useEffect(() => {
