@@ -28,9 +28,11 @@ const Events = () => {
           <p className="mt-4 text-lg text-gray-700">
             <FormattedMessage
               id="eventos.texto"
+              defaultMessage='El museo ofrece sus instalaciones para distintas actividades: presentación de libros, música, ciclos de conferencias, cursos, entrega de premios, actos culturales y empresariales.'
             />
             <FormattedMessage
               id="eventos.texto2"
+              defaultMessage='Un lugar ideal para organizar eventos. Su salón principal de 140 m2 aproximadamente permite la realización de una reunión en un contexto privilegiado, donde conviven la excelente colección de obras del Museo y el entorno especial de la arquitectura.'
             />
             <br></br>
             <br></br>
