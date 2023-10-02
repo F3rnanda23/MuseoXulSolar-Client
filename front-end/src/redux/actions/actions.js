@@ -131,7 +131,7 @@ export const getAllComments = () => {
 export const sendSubsInfo = (subscriptionInfo) => {
 
   // const endpoint = 'https://server-xul-solar.vercel.app/suscripcion'
-  const endpoint = 'http://localhost:3001/suscripcion'
+  const endpoint = 'https://server-xul-solar.vercel.app/suscripcion/crear'
 
   return async function (dispatch) {
     try {
