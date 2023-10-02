@@ -1,4 +1,7 @@
 import React from 'react';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllActivitiesAdmin } from '../../../redux/actions/actions';
 import { Card, Title, Table, TableHead, TableBody, TableRow, TableHeaderCell, TableCell } from '@tremor/react';
 import style from './reserveTable.module.css';
 
@@ -6,60 +9,30 @@ import style from './reserveTable.module.css';
 
 const reserveTable = ()=>{
 
-    var data = {
-        "actividades": [
-          {
-            "name": "Actividad 1",
-            "date": "13 de octubre de 2023 a las 15.00",
-            "usuarios": [
-              {
-                "name": "Usuario 1",
-                "email": "user1@gmail.com"
-              },
-              {
-                "name": "Usuario 2",
-                "email": "user2@gmail.com"
-              },
-              {
-                "name": "Usuario 2.2",
-                "email": "user2@gmail.com"
-              }
-            ]
-          },
-          {
-            "name": "Actividad 2",
-            "usuarios": [
-              {
-                "name": "Usuario 3",
-                "email":  "user3@gmail.com"
-              },
-              {
-                "name": "Usuario 4",
-                "email":  "user4@gmail.com"
-              }
-            ]
-          },
-          {
-            "name": "Actividad 3",
-            "usuarios": [
-              {
-                "name": "Usuario 5",
-                "email":  "user3@gmail.com"
-              },
-              {
-                "name": "Usuario 6",
-                "email":  "user4@gmail.com"
-              }
-            ]
-          }
-        ]
-      };
+    const activities = useSelector(state => state.activitiesUser);
+    console.log(activities,'aqui estado')
+    const dispatch = useDispatch();
+    
+   
+  
+
+
+    useEffect(() => {
+        dispatch(getAllActivitiesAdmin());
+
+    }, [dispatch]);
+
+    const formatDate = (dateString) => {
+      const date = new Date(dateString);
+      return date.toISOString().split('T')[0];
+  };
+
+   
  
     return(
         <Card className={style.containerTable}>
             <Title  class='flex text-2xl font-bold text-gray-500  ml-[20px] md:justify-center md:items-center' >Reserva de actividades</Title>
-            <br />
-            <br />
+           
 
             <Table>
                 <TableHead>
@@ -69,14 +42,13 @@ const reserveTable = ()=>{
                         
                     </TableRow>
                 </TableHead>
-                <br />
-                <br />
-
+                
                 <TableBody >
                     {
-                        data.actividades &&  data.actividades.map( (actividad) =>(
-                            <TableRow  >
+                        activities &&  activities.map( (actividad) =>(
+                            <TableRow key={actividad.id}>
                                 <TableCell class=" text-lg font-bold  ">{actividad.name}</TableCell>
+                                <TableCell class=" text-lg font-bold  ">{actividad.date}</TableCell>
                                 <TableCell>
                                     <Table>
                                     <TableHead>
@@ -86,8 +58,8 @@ const reserveTable = ()=>{
                                         </TableRow>
                                     </TableHead>
                                     <TableBody >
-                                        {actividad.usuarios.map((usuario) => (
-                                        <TableRow >
+                                        {actividad.Usuarios.map((usuario) => (
+                                        <TableRow key={usuario.id}>
                                             <TableCell class=" text-md ">{usuario.name}</TableCell>
                                             <TableCell class=" text-md ">{usuario.email}</TableCell>
                                         </TableRow>
