@@ -248,7 +248,7 @@ export function restoreUser(id) {
 
 export const getAllActivitiesUser = (id) => {
   return async function (dispatch) {
-    const response = await axios(`http://localhost:3001/usuario/id/${id}`)
+    const response = await axios(`https://server-xul-solar.vercel.app/usuario/id/${id}`)
     
     return dispatch({ type: GET_ALL_ACTIVITIES_USER, payload: response.data.Actividades })
   }
@@ -258,7 +258,7 @@ export const getAllActivitiesUser = (id) => {
 //post de reserva actividades
 export const postAllActivitiesUser = (usuarioId,actividadId ) => {
   return async function (dispatch) {
-    const response = await axios.post( 'http://localhost:3001/actividades/reservar',{usuarioId, actividadId})
+    const response = await axios.post( 'https://server-xul-solar.vercel.app/actividades/reservar',{usuarioId, actividadId})
     return dispatch()
   }
 };
@@ -267,7 +267,7 @@ export const postAllActivitiesUser = (usuarioId,actividadId ) => {
 //get para reservas administrador
 export const getAllActivitiesAdmin = () => {
   return async function (dispatch) {
-    const response = await axios( 'http://localhost:3001/actividades/usuario')
+    const response = await axios( 'https://server-xul-solar.vercel.app/actividades/usuario')
     return  dispatch({ type: GET_ALL_ACTIVITIES_ADMIN, payload: response.data })
   }
 };
