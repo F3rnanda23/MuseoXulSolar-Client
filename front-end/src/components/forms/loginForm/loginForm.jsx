@@ -227,11 +227,6 @@ export function LoginForm() {
                     </button>
                 </div>
                 <div>
-<<<<<<< HEAD
-                    <span className="text-white mr-2">¿No es un miembro?</span>
-                    <button type="button" className="text-orange-400 hover:text-orange-500" onClick={() => navigate('/register')}>Registrate</button>
-g                </div>
-=======
                     <span className="text-white mr-2">
                     <FormattedMessage
                             id='login.registro'
@@ -243,7 +238,6 @@ g                </div>
                             defaultMessage='Registrate'
                         /></button>
                 </div>
->>>>>>> 298919d0fc903baa4aa5f3391ec17b0c152746c1
             </form>
         </div>
     )
