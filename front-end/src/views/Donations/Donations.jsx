@@ -138,8 +138,7 @@ import { initMercadoPago } from '@mercadopago/sdk-react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import img1 from '../../imagenes/patrocinios/pic1.png';
-import img2 from '../../imagenes/patrocinios/pic2.png';
+import backgroundImage from '../../imagenes/background/bg1.png'
 import { auth } from '../../components/forms/loginForm/config';
 
 const Donations = () => {
@@ -187,15 +186,19 @@ const Donations = () => {
     }
   };
 
+  const backgroundStyle = {
+    backgroundImage: `url(${backgroundImage})`,
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat'
+  };
+
 
 
   return (
-    <div className='bg-gray-200 min-h-screen'>
+    <div className='bg-gray-200 min-h-screen' style={backgroundStyle}>
 
       <main className="flex flex-row justify-center items-center h-full">
-        <div className='h-2/4 flex flex-col justify-center'>
-          <img src={img2} alt="picture" className='mx-10 h-2/4' />
-        </div>
+        
         <div className='w-3/5 flex flex-col items-center h-full'>
 
           <h2 className="text-black text-2xl font-bold mt-5 md:mt-8 lg:mt-10 mb-5 md:mb-8 lg:mb-10">
@@ -245,9 +248,6 @@ const Donations = () => {
               {redirecting && <span className='bg-orange-200 mt-5 md:mt-8 lg:mt-10'>Redirigiendo a Mercado Pago...</span>}
             </div>
           </section>
-        </div>
-        <div className='h-3/4 flex flex-col justify-center'>
-          <img src={img2} alt="picture" className='h-2/4' />
         </div>
       </main>
     </div>
