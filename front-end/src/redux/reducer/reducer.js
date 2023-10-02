@@ -2,7 +2,7 @@ import {
     GET_ALL_ACTIVITIES, CREATE_ACTIVITY, DELETE_ACTIVITY, GET_ACTIVITY_DETAIL, LOG_IN, LOG_OUT,
     UPDATE_ACTIVITIES_FILTER, CREATE_REVIEW, GET_ALL_COMMENTS, SEND_SUBS_INFO, FILTER_RATING,
     RESET_COMMENTS, GET_USERS, FILTER_USER_BY_EMAIL, GET_USER_DETAIL, BAN_USER, RESTORE_USER,
-    FRESET_BANNED, GET_ALL_ACTIVITIES_USER,GET_ALL_ACTIVITIES_ADMIN
+ GET_ALL_ACTIVITIES_USER, GET_ALL_ACTIVITIES_ADMIN, CLEAR_USER_DETAIL
 } from '../actions/actions';
 
 
@@ -11,8 +11,8 @@ const initialState = {
 
     activities: [],
     activityDetail: {},
-    activitiesUser:[],
-    activitiesAdmin:[] ,
+    activitiesUser: [],
+    activitiesAdmin: [],
     active: false,
     comments: [],
     commentsBackUp: [],
@@ -123,6 +123,12 @@ const reducer = (state = initialState, action) => {
                 userDetail: action.payload,
             }
 
+        case CLEAR_USER_DETAIL:
+            return {
+                ...state,
+                userDetail: {},
+            }
+
         case GET_ALL_ACTIVITIES_USER:
             return {
                 ...state,
@@ -148,16 +154,12 @@ const reducer = (state = initialState, action) => {
                 users: [...state.users, action.payload],
                 bannedList: filteredBanned,
             }
-        case FRESET_BANNED:
-            return {
-                ...state,
-                bannedList: [],
-            }
+       
         case GET_ALL_ACTIVITIES_ADMIN:
             return {
                 ...state,
                 activitiesAdmin: action.payload,
-            };    
+            };
 
         default:
             return {
