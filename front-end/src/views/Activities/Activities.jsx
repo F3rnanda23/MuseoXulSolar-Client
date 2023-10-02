@@ -160,9 +160,9 @@ const Activities = () => {
 
 
 
-                <div className="grid w-5/6  justify-end  sm:order-1 xl:order-2  ">
+                <div className="grid w-5/6  justify-end  sm:order-1   ">
 
-                    <div className= " relative  w-4/4 h-1/6 bg-gray-200  ml-[30px] mr-[-40px] mt-[50px] rounded-lg sm:w-4/6 xl:justify-end ">
+                    <div className= " relative  w-4/4 h-[400px] bg-gray-200  ml-[30px] mr-[-40px] mt-[50px] rounded-lg sm:w-4/6  xl:justify-end ">
                         <h1 className="text-2xl font-bold  text-center font-sans text-gray-700 "><BsSun  class="" /> Calendario <BsSun  class="ml-auto "/></h1>
                         <div className=" bg-gray-300 mt-[10px]  border-2  p-4 rounded-lg shadow-2xl bg-cover  w-4/4 h-6/6 " >
                             
