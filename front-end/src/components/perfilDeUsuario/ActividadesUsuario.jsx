@@ -72,9 +72,9 @@ const actividadesUsuario = () => {
                 <div className=" grid sm:grid-cols-1 xl:grid-cols-3   gap-0 w-full h-full-">
 
                     {activitiesUser && activitiesUser.map(activity => (
-
-                        <div key={activity.name} class="relative flex flex-col w-3/4 h-[650px] border-2 shadow-2xl mt-[70px] ml-[50px] mb-[30px]">
-                            <img src={activity.image} className=" w-3/5 mt-[20px] ml-auto mr-auto  rounded-full  object-cover transition-all duration-300 group-hover:opacity-90" />
+                    
+                        <div key={activity.name} class="relative flex flex-col w-3/4 border-2 shadow-2xl mt-[70px] ml-[50px] mb-[30px]">
+                            <img src={activity.image} className=" w-2/5 h-2/3 mt-[20px]  ml-auto mr-auto  rounded-full  object-cover transition-all duration-300 group-hover:opacity-90" />
                             <div className="flex flex-col gap-4 p-4 w-full  justity-center text-center mt-auto mb-auto">
                                 <h2 className="text-2xl font-semibold w-full xl:text-3xl">{activity.name}</h2>
                                 <h2 className='font-semibold w-full xl:text-2xl'>{formatDate(activity.date)}</h2>

@@ -47,13 +47,16 @@ export function LoginForm() {
                 swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
             } else {
                 // Procede con el inicio de sesión manual normal
-                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                
+                // const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                const endpoint = 'http://localhost:3001/usuario/login'
                 const response = await axios.post(endpoint, data);
 
                 if (response.data.success) {
                     cookies.set('id', response.data.id, { path: '/' });
                     cookies.set('name', response.data.name, { path: '/' });
                     cookies.set('email', response.data.email, { path: '/' });
+                    cookies.set('admin', response.data.admin, { path: '/' });
                     dispatch(logIn(true));
 
                     swal("BIENVENIDO", response.data.name + ' inicio sesión exitosamente', "success");
