@@ -57,7 +57,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
     const dispatch = useDispatch();
     const cookies = new Cookies();
-    console.log(cookies);
+    const admin = cookies.get('admin')
     const active = useSelector((state) => state.active)
 
 
@@ -82,8 +82,9 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         cookies.remove('id', { path: '/' });
         cookies.remove('name', { path: '/' });
         cookies.remove('email', { path: '/' });
+        cookies.remove('admin', { path: '/' });
         signOut(auth).then(() => {
-        navigate("/")
+            navigate("/")
         })
         navigate('/')
         swal({
@@ -242,6 +243,10 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                 </Link>
                             </div> : <div></div>
                     }
+                    {admin ? (<button onClick={navigate('/admin')} className='flex font-bold text-sm md:text-base  text-orange-200 hover:transition duration-150 ease-in-out hover:scale-105 '>
+                        Admin
+                    </button>) : null}
+
 
                     <div className='mt-1 md:mt-5'>
                         {active ? (<button
