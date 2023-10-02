@@ -144,7 +144,7 @@ const Activities = () => {
                                             <div className="mt-[10px] sm:mr-[5px] ">
                                                 <button onClick={() => handleReserve(idUser, activity.id)} 
                                                 className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5">Reservar entrada</button>
-                                                <button className="rounded mt-[10px] bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 md:px-2 2xl:px-5">Comprar entrada</button>
+                                                <button onClick={() => window.location.href = 'https://www.eventbrite.com.ar/o/museo-xul-solar-38576839753'} className="rounded mt-[10px] bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 md:px-2 2xl:px-5">Comprar entrada</button>
                                             </div>
                                         </div>
 
