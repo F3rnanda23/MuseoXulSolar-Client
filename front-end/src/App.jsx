@@ -27,7 +27,7 @@ import PutToken from './components/resetPassword/PutToken';
 import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
 import AdminDash from './views/AdminDash/AdminDash';
 import ModificarPerfil from './components/perfilDeUsuario/ModificarPerfil';
-import ActividadesUsuario from './components/perfilDeUsuario/actividadesUsuario';
+import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario';
 
 
 import './App.css'
