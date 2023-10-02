@@ -12,6 +12,7 @@ const initialState = {
     activities: [],
     activityDetail: {},
     activitiesUser:[],
+    activitiesAdmin:[] ,
     active: false,
     comments: [],
     commentsBackUp: [],
@@ -155,7 +156,7 @@ const reducer = (state = initialState, action) => {
         case GET_ALL_ACTIVITIES_ADMIN:
             return {
                 ...state,
-                activitiesUser: action.payload,
+                activitiesAdmin: action.payload,
             };    
 
         default:
