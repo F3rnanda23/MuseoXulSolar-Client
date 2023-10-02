@@ -37,8 +37,11 @@ const reserveTable = ()=>{
             <Table>
                 <TableHead>
                     <TableRow>
-                    <TableHeaderCell class=" text-xl font-bold text-orange-400 ">Datos de actividad</TableHeaderCell>
-                    <TableHeaderCell class=" text-xl font-bold text-orange-400 ">Datos del usuario</TableHeaderCell>
+                    <TableHeaderCell className=" text-xl font-bold text-orange-500 ">Nombre de la actividad</TableHeaderCell>
+                    <TableHeaderCell class=" text-xl font-bold text-orange-500 ">Día</TableHeaderCell>
+                    <TableHeaderCell className=" text-xl font-bold text-orange-500 ">Hora</TableHeaderCell>
+                    <TableHeaderCell class=" text-xl font-bold text-orange-500 ">Datos del usuario</TableHeaderCell>
+                    
                         
                     </TableRow>
                 </TableHead>
@@ -47,9 +50,9 @@ const reserveTable = ()=>{
                     {
                         activities &&  activities.map( (actividad) =>(
                             <TableRow key={actividad.id}>
-                                <TableCell class=" text-lg font-bold  ">{actividad.name}</TableCell>
-                                <TableCell class=" text-lg font-bold  ">{formatDate(actividad.date)}</TableCell>
-                                <TableCell class=" text-lg font-bold  ">{actividad.hora}</TableCell>
+                                <TableCell class=" text-lg font-bold  w-1/4 ">{actividad.name}</TableCell>
+                                <TableCell class=" border-2 border-gray-300 w-1/6 text-lg font-bold md:border-none  ">{formatDate(actividad.date)}</TableCell>
+                                <TableCell class="border-2 border-gray-300 w-1/6 text-lg font-bold md:border-none    ">{actividad.hora} hrs.</TableCell>
                                 <TableCell>
                                     <Table>
                                     <TableHead>
@@ -61,8 +64,8 @@ const reserveTable = ()=>{
                                     <TableBody >
                                         {actividad.Usuarios.map((usuario) => (
                                         <TableRow key={usuario.id}>
-                                            <TableCell class=" text-md ">{usuario.name}</TableCell>
-                                            <TableCell class=" text-md ">{usuario.email}</TableCell>
+                                            <TableCell class=" text-md w-1/4 ">{usuario.name}</TableCell>
+                                            <TableCell class=" text-md w-1/4  ">{usuario.email}</TableCell>
                                         </TableRow>
                                         ))}
                                     </TableBody>
