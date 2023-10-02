@@ -9,7 +9,7 @@ import style from './reserveTable.module.css';
 
 const reserveTable = ()=>{
 
-    const activities = useSelector(state => state.activitiesUser);
+    const activities = useSelector(state => state.activitiesAdmin);
     console.log(activities,'aqui estado')
     const dispatch = useDispatch();
     
@@ -48,7 +48,8 @@ const reserveTable = ()=>{
                         activities &&  activities.map( (actividad) =>(
                             <TableRow key={actividad.id}>
                                 <TableCell class=" text-lg font-bold  ">{actividad.name}</TableCell>
-                                <TableCell class=" text-lg font-bold  ">{actividad.date}</TableCell>
+                                <TableCell class=" text-lg font-bold  ">{formatDate(actividad.date)}</TableCell>
+                                <TableCell class=" text-lg font-bold  ">{actividad.hora}</TableCell>
                                 <TableCell>
                                     <Table>
                                     <TableHead>
