@@ -9,6 +9,7 @@ import  style from './activities.module.css';
 import { BsSun } from 'react-icons/bs';
 import Cookies from "universal-cookie";
 import toast, { Toaster } from 'react-hot-toast';
+import swal from "sweetalert"
 
 
 
@@ -34,7 +35,23 @@ const Activities = () => {
     }, [dispatch]);
 
     const handleDelete = (activityId) => {
-    dispatch(deteleActivities(activityId));
+        swal({
+            title: "Estas seguro?",
+            text: "una vez eliminado, no podras recuperar los datos!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+        dispatch(deteleActivities(activityId));
+          swal("Listo, tu actividad ha sido eliminada!", {
+              icon: "success",
+          });
+        } else {
+          swal("No se elimino!");
+        }
+    });
     };
 
     const handleReserve = async (idUser, activityId) => {
