@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getActivityDetail } from "../../redux/actions/actions";
+import { getActivityDetail, clearActivityDetail } from "../../redux/actions/actions";
 
 const ActivityDetail = () => {
 
@@ -10,11 +10,13 @@ const ActivityDetail = () => {
     const navigate = useNavigate();
     const detail = useSelector((state) => state.activityDetail)
     const dispatch = useDispatch();
-    console.log('Aca es', detail);
+   
 
     useEffect(() => {
         dispatch(getActivityDetail(id))
-        // return () => { dispatch(clearDetail())};
+
+        return () => { dispatch(clearActivityDetail())};
+        
     }, [id, dispatch]);
 
 
