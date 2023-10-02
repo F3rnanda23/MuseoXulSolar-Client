@@ -28,9 +28,11 @@ const Events = () => {
           <p className="mt-4 text-lg text-gray-700">
             <FormattedMessage
               id="eventos.texto"
+              defaultMessage='El museo ofrece sus instalaciones para distintas actividades: presentación de libros, música, ciclos de conferencias, cursos, entrega de premios, actos culturales y empresariales.'
             />
             <FormattedMessage
               id="eventos.texto2"
+              defaultMessage='Un lugar ideal para organizar eventos. Su salón principal de 140 m2 aproximadamente permite la realización de una reunión en un contexto privilegiado, donde conviven la excelente colección de obras del Museo y el entorno especial de la arquitectura.'
             />
             <br></br>
             <br></br>
@@ -49,7 +51,7 @@ const Events = () => {
               </a>
               <a href="" className="flex flex-col items-center">
                 <img className="w-12 h-12 flex justify-center items-center" src={phoneIcon}></img>
-                <span className="">(54 11) 4824-3302</span>
+                <span className="">(011) 4824-3302/4821-5378</span>
               </a>
               <a
                 href="https://www.instagram.com/museo.xul.solar/"
@@ -60,7 +62,7 @@ const Events = () => {
               </a>
               <a className="flex flex-col items-center">
                 <img className="w-12 h-12 flex justify-center items-center" src={envelopeIcon}></img>
-                <span className="">info@xulsolar.org.ar</span>
+                <span className="">coordinacionpanklub@xulsolar.org.ar</span>
               </a>
               <a
                 href="https://twitter.com/xul_solar"

@@ -30,7 +30,7 @@ export const Subscription = () => {
     const createPreference = async (subscripcion, price) => {
 
         try {
-            const response = await axios.post('http://localhost:3001/pagar', {
+            const response = await axios.post('https://server-xul-solar.vercel.app/pagar', {
                 description: `Membresia anual de $${price}`,
                 price: price,
                 quantity: 1,
@@ -123,7 +123,7 @@ export const Subscription = () => {
 
                             <button onClick={() => {
                                 setPrice(30)
-                                createPreference("Amigos Xul Solar", 30)
+                                createPreference(1, 30)
                                 //sendSubsInfo()
                             }}></button>
                             <button onClick={() => {
@@ -132,7 +132,7 @@ export const Subscription = () => {
                                 //     ...prevState,
                                 //     tipo: `Membresia ${30}`  // Actualiza el tipo de membresía basado en el nuevo precio
                                 // }));
-                                createPreference("Amigos Xul Solar", 30);
+                                createPreference(1, 30);
                                 //sendSubInfo();
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>
@@ -178,7 +178,7 @@ export const Subscription = () => {
                             </p>
                             <button onClick={() => {
                                 setPrice(50)
-                                createPreference("Amigos Xul Solar Plus", 50)
+                                createPreference(2, 50)
                                 //sendSubInfo()
                             }}
                                 className='mt-2 text-center text-white bg-orange-200 py-2 rounded font-semibold hover:bg-orange-400 '>
