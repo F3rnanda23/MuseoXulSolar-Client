@@ -44,7 +44,8 @@ export function LoginForm() {
             } else {
                 // Procede con el inicio de sesión manual normal
                 
-                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                // const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                const endpoint = 'http://localhost:3001/usuario/login'
                 const response = await axios.post(endpoint, data);
 
                 if (response.data.success) {

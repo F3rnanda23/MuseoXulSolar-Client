@@ -27,6 +27,7 @@ const Activities = () => {
 
     const cookies = new Cookies();
     const idUser = cookies.cookies.id;
+    const adminTrue = cookies.get('admin');
 
 
     useEffect(() => {
@@ -137,13 +138,13 @@ const Activities = () => {
                                         <h2 className='font-semibold w-full xl:text-2xl'>{activity.hora} hrs.</h2>
                                         <div className="mr-[100px] sm:mr-[30px] sm:grid-cols-2  xl:mr-[30px]">
                                             <div className=" grid mt-[20px]  ">
-                                                <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 py-2">Conocer más</button>
-                                                <button onClick={() => handleDelete(activity.id)} className="rounded mt-[5px] bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 py-2">Eliminar</button>
+                                                <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 ">Conocer más</button>
+                                               {adminTrue ? <button onClick={() => handleDelete(activity.id)} className="rounded mt-[5px] bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 ">Eliminar</button> : null } 
                                             </div>
-                                            <div class="mt-[10px] sm:mr-[5px] ">
+                                            <div className="mt-[10px] sm:mr-[5px] ">
                                                 <button onClick={() => handleReserve(idUser, activity.id)} 
-                                                className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5 py-2">Reservar entrada</button>
-                                                <button className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 md:px-2 py-1 2xl:px-5 py-2">Comprar entrada</button>
+                                                className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5">Reservar entrada</button>
+                                                <button className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 md:px-2 2xl:px-5">Comprar entrada</button>
                                             </div>
                                         </div>
 
@@ -159,7 +160,7 @@ const Activities = () => {
 
 
 
-                <div class="grid w-5/6 justify-center  sm:order-1 xl:order-2  xl:justify-end">
+                <div className="grid w-5/6 justify-center  sm:order-1 xl:order-2  xl:justify-end">
 
                     <div className= " relative   sm:w-[400px] sm:h-[300px] bg-gray-200 ml-auto mr-[80px] mt-[50px] rounded-lg ">
                         <h1 className="text-2xl font-bold  text-center font-sans text-gray-700 "><BsSun  class="mb-[-20px]" /> Calendario <BsSun  class="ml-[370px] mt-[-20px]"/></h1>
