@@ -83,11 +83,26 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         cookies.remove('name', { path: '/' });
         cookies.remove('email', { path: '/' });
         signOut(auth).then(() => {
-            navigate("/")
+        navigate("/")
         })
         navigate('/')
-        swal('Sesión Cerrada')
-        dispatch(logOut(false))
+        swal({
+            title: "Estas seguro?",
+            text: "Deberas iniciar sesion nuevamente!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    dispatch(logOut(false))
+                    swal("Listo, sesion cerrada!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("No cerraste sesion!");
+                }
+            });
     }
 
     function handleLanguageToEnglish() {
