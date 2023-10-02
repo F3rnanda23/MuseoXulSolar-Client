@@ -1,5 +1,4 @@
 import { LoginForm } from "../../components/forms/loginForm/loginForm"
-import dragon from '../../imagenes/login/serpiente.png'
 import firma from '../../imagenes/login/26.png'
 import {useNavigate} from 'react-router-dom'
 
@@ -20,10 +19,10 @@ export function Login() {
             </div>
             <div className="hidden md:flex h-full w-1/2 items-center justify-center relative">
                 <div className="">
-                    <img src={dragon} alt="" />
+                    <img src='https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696269450/serpiente_qywebh.png' alt="" />
                 </div>
                 <div className="absolute right-0 bottom-0 mb-10 mr-10">
-                    <img src={firma} alt="firma de xul" className="w-18 h-10"/>
+                    <img src='https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696269474/26_ug37rs.png' alt="firma de xul" className="w-18 h-10"/>
                 </div>
             </div>
         </div>

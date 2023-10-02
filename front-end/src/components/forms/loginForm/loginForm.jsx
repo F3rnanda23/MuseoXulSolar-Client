@@ -37,22 +37,29 @@ export function LoginForm() {
             // Verificar si el usuario ya ha iniciado sesión con Google
             const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
             const googleEmail = localStorage.getItem("googleEmail");
-
+            const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
+            console.log(block.data);
+            if (block.status === 201) {
+                return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+            }
             if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
                 // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
                 swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
             } else {
                 // Procede con el inicio de sesión manual normal
-                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                
+                // const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
+                const endpoint = 'http://localhost:3001/usuario/login'
                 const response = await axios.post(endpoint, data);
 
                 if (response.data.success) {
                     cookies.set('id', response.data.id, { path: '/' });
                     cookies.set('name', response.data.name, { path: '/' });
                     cookies.set('email', response.data.email, { path: '/' });
+                    cookies.set('admin', response.data.admin, { path: '/' });
                     dispatch(logIn(true));
 
-                    swal("success", response.data.name + ' inicio sesión', "success");
+                    swal("BIENVENIDO", response.data.name + ' inicio sesión exitosamente', "success");
                     navigate('/');
                 } else {
                     // Mostrar una alerta de error cuando el inicio de sesión falla
@@ -136,7 +143,7 @@ export function LoginForm() {
                     dispatch(logIn(true));
                     // const { id, name, email } = serverResponse.responseWithUserInfo;
                     // dispatch(guardarUserInfo({ id, name, email }))
-                    swal("correct", serverResponse.responseWithUserInfo.name + " " + 'Inicio de sesión con Google exitoso', "success");
+                    swal("BIENVENIDO", serverResponse.responseWithUserInfo.name + " " + 'inicio sesión con Google exitosamente', "success");
                     navigate("/");
                 } else {
                     // Manejar errores de inicio de sesión

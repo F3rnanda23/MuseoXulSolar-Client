@@ -28,9 +28,12 @@ import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
 import AdminDash from './views/AdminDash/AdminDash';
 import ModificarPerfil from './components/perfilDeUsuario/ModificarPerfil';
 import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario';
+import ErrorPage from './views/ErrorPage/ErrorPage';
+
 
 
 import './App.css'
+import Cookies from 'universal-cookie';
 
 
 function App() {
@@ -44,6 +47,11 @@ function App() {
     const cld = new Cloudinary({ cloud: { cloudName: 'dtsmy1ksn' } });
     setCloudinaryInstance(cld);
   }, []);
+
+  const cookies = new Cookies();
+  const adminTrue = cookies.get('admin')
+  console.log('admin app', adminTrue);
+
 
 
   return (
@@ -75,9 +83,10 @@ function App() {
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/token" element={<PutToken />} />
         <Route path="/miPerfil" element={<PerfilDeUsuario />} />
-        <Route path="/Admin" element={<AdminDash />} />
+        <Route path="/Admin" element={adminTrue ? <AdminDash /> : <Home />} />
         <Route path="/modificarPerfil" element={<ModificarPerfil />} />
         <Route path="/perfilActividades" element={<ActividadesUsuario />} />
+        <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
   )
