@@ -22,6 +22,8 @@ export const RESTORE_USER = 'RESTORE_USER';
 export const FRESET_BANNED = 'FRESET_BANNED'
 export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
+export const GET_ALL_ACTIVITIES_ADMIN = 'GET_ALL_ACTIVITIES_ADMIN';
+
 
 
 
@@ -263,6 +265,16 @@ export const postAllActivitiesUser = (usuarioId,actividadId ) => {
     return dispatch()
   }
 };
+
+
+//get para reservas administrador
+export const getAllActivitiesAdmin = () => {
+  return async function (dispatch) {
+    const response = await axios( 'http://localhost:3001/actividades/usuario')
+    return  dispatch({ type: GET_ALL_ACTIVITIES_ADMIN, payload: response.data })
+  }
+};
+
 
 
 
