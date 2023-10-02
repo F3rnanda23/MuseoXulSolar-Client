@@ -28,6 +28,7 @@ import PerfilDeUsuario from './components/perfilDeUsuario/PerfilDeUsuario';
 import AdminDash from './views/AdminDash/AdminDash';
 import ModificarPerfil from './components/perfilDeUsuario/ModificarPerfil';
 import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario';
+import { AdminRoute } from './views/AdminDash/AdminRoute';
 
 
 import './App.css'
@@ -75,7 +76,7 @@ function App() {
         <Route path="/reset" element={<ResetPassword />} />
         <Route path="/token" element={<PutToken />} />
         <Route path="/miPerfil" element={<PerfilDeUsuario />} />
-        <Route path="/Admin" element={<AdminDash />} />
+        <Route path="/Admin" element={<AdminRoute element={<AdminDash />} />} />
         <Route path="/modificarPerfil" element={<ModificarPerfil />} />
         <Route path="/perfilActividades" element={<ActividadesUsuario />} />
       </Routes>
