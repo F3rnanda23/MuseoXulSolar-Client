@@ -1,7 +1,7 @@
 const Sponsorship= () => {
     return(
         <div>
-            
+    
         </div>
     )
 };
