@@ -12,7 +12,7 @@ import swal from 'sweetalert';
 import { Link } from "react-router-dom";
 
 
-
+//m
 export function LoginForm() {
     const dispatch = useDispatch();
 
@@ -174,7 +174,11 @@ export function LoginForm() {
                         {...register("email",
                             { required: true })} />
                     {errors.email?.type === "required" && (
-                        <span className="absolute text-white text-sm mt-10">*Ingrese su correo electronico</span>
+                        <span className="absolute text-white text-sm mt-10">
+                            <FormattedMessage
+                                id='login.error1'
+                                defaultMessage='*Ingrese su correo electrónico'
+                            /></span>
                     )}
                 </div>
                 <div className="flex flex-col w-full m-5 relative ">
@@ -190,10 +194,18 @@ export function LoginForm() {
                         {visible ? (<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAA9UlEQVR4nO2UPQ4BURSFv0I0hkItsRTDdixAiN5Yhh0IVkBlA7qpGBagUJKXnEhw3/OmmSh8yW3euefe9w9/fp02MAQ2wBG4KY4aGyqnNDVgDFyB+5e4Ktd5ougA+4jC97fYyxukC+SGeQn0gIYiBVZGXq4aJglwMEyjwIQmRv5BtT5YeGbuqANz4AwUQKYxx9rwuVovpJ597UnPDM2NOfoer6v5ZOdJSqSfDe0irenxbss0KAztJK0V0yD9sszM0GbSBjFb5DvklbS6mhTGIW9iDjl0TSf4mZa5pqGHttZtSRQDz8yDD62Sr6KSz66S7/pPdTwA4jXIWC41knQAAAAASUVORK5CYII="></img>) : (<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAABXElEQVR4nN2Vu0oDQRSGvyJewA2IYlAI5Al8A8EIYq1vIeQJtNHSZ7AQUlmbWIuYysLG9VKpkJDSQoIKgq6s/MgwzNlNhEX0wLAwc875Zs9t4D/KVJHOd4FbYKGom8dAom9F+2XgEHgAnoFXoAccAw1gZhRIxYCsA2/a99cA2AJKw0IWgfcRIQlwDlTznM8DN55h7EAmFMo60ApA7oCa5Tw1vDZuFzsQV7YDuukFoxBgP6B8auTElXbArukrLRk3X5XTbgZkxbBNw/gtJ4bSrM4fM8JVNmw7LqBjKEU672fkZNKorjMXUM/5zb2cxG94kA9g2c9DM+CkpbNxQfoKVzcHchAohq9w+D2QqBR9SZ1eGc14kTUwa2oWH9JWtURK/JpKOBSuMXKkqrZPRlxWnwSlpAE2GMLxE3D/EwgaxQ2N5p5G9YuSfARsAtOBKVzIozUHXAI7/NXnll+RT3SJxryK+e+1AAAAAElFTkSuQmCC"></img>)}</button>
 
                     {errors.password?.type === "required" && (
-                        <span className="absolute text-white text-sm mt-10">*Ingrese su contraseña</span>)}
+                        <span className="absolute text-white text-sm mt-10">
+                            <FormattedMessage
+                                id='login.error2'
+                                defaultMessage='*Ingrese su contraseña'
+                            /></span>)}
                 </div>
                 <div className="mb-5">
-                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">¿Has olvidado tu contraseña?</button> </Link>
+                    <Link to="/reset"><button type="button" className="text-white text-sm mt-2">
+                        <FormattedMessage
+                            id='login.olvidado'
+                            defaultMessage='¿Has olvidado tu contraseña?'
+                        /></button> </Link>
                 </div>
                 <div className="w-full">
                     <button
@@ -216,20 +228,20 @@ export function LoginForm() {
                         className="w-full flex items-center bg-white rounded p-2 mt-5 h-100 mb-5 space-x-4 active:scale-[.98] active:duration-75 hover:scale-[1.01] ease-in-out transition-all">
                         <img className="w-8" src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/800px-Google_%22G%22_Logo.svg.png" alt="" />
                         <span className="text-center">
-                        <FormattedMessage
-                            id='login.botongoogle'
-                            defaultMessage='Iniciar Sesión con Google'
-                        /></span>
+                            <FormattedMessage
+                                id='login.botongoogle'
+                                defaultMessage='Iniciar Sesión con Google'
+                            /></span>
                     </button>
                 </div>
                 <div>
                     <span className="text-white mr-2">
-                    <FormattedMessage
+                        <FormattedMessage
                             id='login.registro'
                             defaultMessage='¿No es un miembro?'
                         /></span>
                     <button type="button" className="text-orange-400 hover:text-orange-500" onClick={() => navigate('/register')}>
-                    <FormattedMessage
+                        <FormattedMessage
                             id='login.registrolink'
                             defaultMessage='Registrate'
                         /></button>

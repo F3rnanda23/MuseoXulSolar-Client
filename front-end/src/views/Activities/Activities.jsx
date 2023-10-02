@@ -2,11 +2,14 @@
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { getAllActivities, deteleActivities, filtrarActividades } from '../../redux/actions/actions';
+import { getAllActivities, deteleActivities, filtrarActividades, postAllActivitiesUser } from '../../redux/actions/actions';
 import Calendar from 'react-calendar';
 import  firma6Xul from '../../imagenes/destacados/firma6Xul.png';
 import  style from './activities.module.css';
 import { BsSun } from 'react-icons/bs';
+import Cookies from "universal-cookie";
+import toast, { Toaster } from 'react-hot-toast';
+import swal from "sweetalert"
 
 
 
@@ -22,6 +25,9 @@ const Activities = () => {
 
     const Value = ValuePiece | [ValuePiece, ValuePiece];
 
+    const cookies = new Cookies();
+    const idUser = cookies.cookies.id;
+
 
     useEffect(() => {
         dispatch(getAllActivities());
@@ -29,8 +35,39 @@ const Activities = () => {
     }, [dispatch]);
 
     const handleDelete = (activityId) => {
-    dispatch(deteleActivities(activityId));
+        swal({
+            title: "Estas seguro?",
+            text: "una vez eliminado, no podras recuperar los datos!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+    })
+    .then((willDelete) => {
+        if (willDelete) {
+        dispatch(deteleActivities(activityId));
+          swal("Listo, tu actividad ha sido eliminada!", {
+              icon: "success",
+          });
+        } else {
+          swal("No se elimino!");
+        }
+    });
     };
+
+    const handleReserve = async (idUser, activityId) => {
+        try {
+            // Intenta realizar la reserva
+             dispatch(await postAllActivitiesUser(idUser, activityId));
+            // Si la reserva es exitosa, muestra una notificación de éxito
+            toast.success("Reserva exitosa");
+        } catch (error) {
+            // Si hay un error, muestra una alerta de error
+            console.error("Error al realizar la reserva:", error);
+            toast.error("Error al realizar la reserva");
+        }
+    };
+    
+    
 
     const formatDate = (dateString) => {
         const date = new Date(dateString);
@@ -81,11 +118,10 @@ const Activities = () => {
                     <button onClick={handleRefresh} className=" flex justify-end  rounded  bg-orange-200  h-[35px] px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Mostrar todas la actividades</button>
             </div>
 
-            <div class="grid sm:grid-cols-1 xl:grid-cols-2 ">
+            <div className="grid sm:grid-cols-1 xl:grid-cols-2">
                
-                
 
-                <div class="grid  order-2 mt-[250px] mr-[20px] xl:order-1 xl:mt-[50px] ">
+                <div className="grid  order-2 mt-[250px] mr-[20px] xl:order-1 xl:mt-[50px] ">
 
                     <div className='relative   w-6/6  h-6/6 ' >
 
@@ -93,19 +129,20 @@ const Activities = () => {
 
                             {activities && activities.map(activity => (
                             
-                                <div key={activity.name} class="relative flex flex-col w-4/6 sm:flex-row sm:w-full sm:w-6/6 mt-5 ml-5 gap-2 rounded-lg shadow-2xl bg-transparent mb-30">
+                                <div key={activity.name} className="relative flex flex-col w-4/6 sm:flex-row sm:w-full sm:w-6/6 mt-5 ml-5 gap-2 rounded-lg shadow-2xl bg-transparent mb-30">
                                     <img src={activity.image} className=" w-2/3 mt-[20px] ml-[5px] sm:w-2/5 sm:h-4/5 rounded-full sm:ml-10 sm:mt-auto mb-auto object-cover transition-all duration-300 group-hover:opacity-90" />
                                     <div className="flex flex-col items-center justify-center gap-4 p-4 w-full sm:w-3/5 ml-0 sm:ml-10 mt-auto mb-auto">
                                         <h2 className="text-2xl font-semibold w-full xl:text-3xl">{activity.name}</h2>
                                         <h2 className='font-semibold w-full xl:text-2xl'>{formatDate(activity.date)}</h2>
                                         <h2 className='font-semibold w-full xl:text-2xl'>{activity.hora} hrs.</h2>
-                                        <div class="mr-[100px] sm:mr-[30px] sm:grid-cols-2  xl:mr-[30px]">
-                                            <div class=" grid mt-[20px]  ">
+                                        <div className="mr-[100px] sm:mr-[30px] sm:grid-cols-2  xl:mr-[30px]">
+                                            <div className=" grid mt-[20px]  ">
                                                 <button onClick={() => navigate(`/detail/${activity.id}`)} className="rounded mr-2 bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 py-2">Conocer más</button>
                                                 <button onClick={() => handleDelete(activity.id)} className="rounded mt-[5px] bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 2xl:px-5 py-2">Eliminar</button>
                                             </div>
                                             <div class="mt-[10px] sm:mr-[5px] ">
-                                                <button className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5 py-2">Reservar entrada</button>
+                                                <button onClick={() => handleReserve(idUser, activity.id)} 
+                                                className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 mt-[10px] mr-[10px] sm:mb-[5px] md:px-2 2xl:px-5 py-2">Reservar entrada</button>
                                                 <button className="rounded bg-orange-400 bg-opacity-50 px-3 py-1 text-gray-600 shadow-xl transition-all duration-300 hover:scale-105 md:px-2 py-1 2xl:px-5 py-2">Comprar entrada</button>
                                             </div>
                                         </div>
@@ -166,7 +203,10 @@ const Activities = () => {
                 
 
             </div>
-
+            <Toaster
+                position="top-center"
+                reverseOrder={false}
+            />
         </div>
 
     )

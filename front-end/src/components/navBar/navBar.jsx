@@ -4,12 +4,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../searchBar/searchBar';
 import allResults from '../../views/Home/allResults';
 import SearchResultsBanner from '../../searchResultsBanner/searchResultsBanner';
-
+import museoLetras from '../../imagenes/navbar/panKlub.png';
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "universal-cookie";
-import museoLogo from '../../imagenes/navbar/museo-logo.png';
+import museoLogo from '../../imagenes/navbar/logoMuseo.png';
 import glass from '../../imagenes/navbar/lupa.png'
-import style from './navBar.module.css';
 import { logOut } from '../../redux/actions/actions';
 import { auth } from '../forms/loginForm/config';
 import { signOut } from 'firebase/auth';
@@ -27,6 +26,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const [showResults, setShowResults] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
     const [español, setEspañol] = useState();
+    const [MenuHidden, setMenuHidden] = useState(true);
 
     const idioma = useContext(langContext);
 
@@ -83,11 +83,26 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         cookies.remove('name', { path: '/' });
         cookies.remove('email', { path: '/' });
         signOut(auth).then(() => {
-            navigate("/")
+        navigate("/")
         })
         navigate('/')
-        swal('Sesión Cerrada')
-        dispatch(logOut(false))
+        swal({
+            title: "Estas seguro?",
+            text: "Deberas iniciar sesion nuevamente!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        })
+            .then((willDelete) => {
+                if (willDelete) {
+                    dispatch(logOut(false))
+                    swal("Listo, sesion cerrada!", {
+                        icon: "success",
+                    });
+                } else {
+                    swal("No cerraste sesion!");
+                }
+            });
     }
 
     function handleLanguageToEnglish() {
@@ -98,57 +113,74 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     }
 
     function handleLanguageToSpanish() {
-        idioma.changeLanguage("es"); // Cambia al idioma español
+        idioma.changeLanguage("es");
         localStorage.setItem("idioma", "es");
-        setEspañol(true); // Actualiza el estado local
+        setEspañol(true);
         localStorage.setItem("español", "true");
     }
+
+    const toggleMenu = () => {
+        setMenuHidden(!MenuHidden);
+    };
 
     return (
 
         <div>
-            <nav className='bg-gray-300 flex'>
-                <div className={style.logoDelMuseo} onClick={handleLogoClick}>
+            <nav className='bg-gray-200 flex justify-between items-center md:justify-evenly flex-wrap relative'>
+                <div className='cursor-pointer w-[90px]  flex flex-shrink-0' onClick={handleLogoClick}>
                     <img src={museoLogo} alt="Logo del museo" />
                 </div>
+                <div className='z-20 sm:w-1/2  md:mt-9 md:absolute hidden sm:block '>
+                    <img src={museoLetras} className='' />
+                </div>
 
-                <ul className={style.containerSecciones}>
-                    <li className={style.secciones}>
-                        <Link to="/Visits">
+                <div className="block mr-2 md:hidden">
+                    <button onClick={toggleMenu}
+                        className="flex items-center px-3 py-2 border rounded text-orange-200 border-orange-300 hover:text-black hover:border-black">
+                        <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" /></svg>
+                    </button>
+                </div>
+
+                <div className={`${MenuHidden ? 'hidden' : 'flex flex-col items-center'} w-full  items-center flex-grow  md:items-start md:flex md:flex-row md:justify-evenly md:flex-wrap md:w-auto`}>
+                    <div className='text-orange-200 text-sm md:text-base font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105'>
+                        <Link to="/Visits" >
                             <FormattedMessage
                                 id='nav.visitas'
                                 defaultMessage='Visitas'
                             />
                         </Link>
-                    </li>
+                    </div>
 
-                    <li className={style.secciones}>
+                    <div className='text-orange-200 text-sm md:text-base  font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105'>
                         <Link to="/Activities">
                             <FormattedMessage
                                 id='nav.actividades'
                                 defaultMessage='Actividades'
                             />
                         </Link>
-                    </li>
+                    </div>
 
-                    <li className={style.secciones}>
+                    <div className='text-orange-200 text-sm md:text-base  font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105'>
                         <Link to="/Events">
                             <FormattedMessage
                                 id='nav.eventos'
                                 defaultMessage='Eventos'
                             />
                         </Link>
-                    </li>
+                    </div>
 
-                    <li className={`relative ${style.secciones}`}>
-                        <button className=" bg-gray-300 text-orange-200 hover:bg-gray-200 rounded text-lg"
+                    <div className={`relative`}>
+                        <button className=" text-orange-200 rounded text-sm md:text-base  font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105"
                             onClick={handleDropdownMenu}>
-                            Apoya al museo
+                            <FormattedMessage
+                                id='nav.apoya'
+                                defaultMessage='Apoyá al museo'
+                            />
                         </button>
                         <div className={`absolute  mt-2 p-2 rounded shadow-lg group-hover:block z-50 ${!showMenu ? "hidden" : "bg-white"}`}
                         >
                             <ul className='space-y-2'>
-                                <li className='hover:bg-gray-200 px-1'
+                                <li className='hover:bg-gray-200 px-1 text-orange-200 text-sm md:text-base rounded font-bold '
                                     onClick={handleDropdownMenu}>
                                     <Link to="/Donations">
                                         <FormattedMessage
@@ -157,7 +189,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                         />
                                     </Link>
                                 </li>
-                                <li className='hover:bg-gray-200'
+                                <li className='hover:bg-gray-200 text-orange-200 text-sm md:text-base  font-bold rounded px-1'
                                     onClick={handleDropdownMenu}>
                                     <Link to="/subscription">
                                         <FormattedMessage
@@ -166,27 +198,23 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                         />
                                     </Link>
                                 </li>
-                                <li className='hover:bg-gray-200'
-                                    onClick={handleDropdownMenu}><Link to="/sponsorship">Benefactores</Link></li>
+                                <li className='hover:bg-gray-200 text-orange-200 text-sm md:text-base  font-bold rounded px-1'
+                                    onClick={handleDropdownMenu}><Link to="/sponsorship">
+                                        <FormattedMessage
+                                            id='nav.benefactores'
+                                            defaultMessage='Benefactores'
+                                        /></Link></li>
                             </ul>
                         </div>
-                    </li>
+                    </div>
 
-                    <li className={style.secciones}>
+                    <div className='text-orange-200 text-sm md:text-base  font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105'>
                         <Link to="/xulsolar">
                             Xul Solar
                         </Link>
-                    </li>
-                    {
-                        active ?
-                            <li className={style.secciones}>
-                                <Link to="/miPerfil">Mi perfil</Link>
-                            </li> : <li></li>
-                    }
-                </ul>
+                    </div>
 
-                <div className='flex ml-auto mr-4'>
-                    <button onClick={handleSearchClick} className='flex font-bold text-lg mt-auto mb-5 text-orange-200 mr-4'>
+                    <button onClick={handleSearchClick} className='flex font-bold text-sm md:text-base  text-orange-200 hover:transition duration-150 ease-in-out hover:scale-105 '>
                         <FormattedMessage
                             id='nav.buscar'
                             defaultMessage='Buscar'
@@ -195,23 +223,31 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </button>
 
                     {español ? (<button onClick={() => {
-                        setEspañol(false)
-                        idioma.changeLanguage('en')
+                        handleLanguageToEnglish()
                     }}
-                        className='text-orange-200 text-lg font-bold mt-auto mb-5 mr-4'
+                        className='flex text-orange-200 text-sm md:text-base  font-bold hover:transition duration-150 ease-in-out hover:scale-105'
                     >EN</button>) :
                         (<button onClick={() => {
-                            setEspañol(true)
-                            idioma.changeLanguage('es')
+                            handleLanguageToSpanish()
                         }}
-                            className='text-orange-200 text-lg font-semibold mt-auto mb-5 mr-4'>ESP</button>)}
-                    <div className='flex flex-col mt-1 md:mt-3 lg:mt-5 mr-2 mb-2'>
-                        <button className='mb-2 font-bold text-lg text-orange-200'>Perfil</button>
+                            className='flex text-orange-200 text-sm md:text-base font-bold hover:transition duration-150 ease-in-out hover:scale-105'>ESP</button>)}
 
+                    {
+                        active ?
+                            <div className='text-orange-200 font-bold hover:transition duration-150 ease-in-out hover:scale-105'>
+                                <Link to="/miPerfil">
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </Link>
+                            </div> : <div></div>
+                    }
+
+                    <div className='mt-1 md:mt-5'>
                         {active ? (<button
                             onClick={signOff}
                             type="button"
-                            className=" ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            className="inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11  text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:border hover:border-orange-200 hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                             <FormattedMessage
                                 id='nav.cerrarsesion'
                                 defaultMessage='Cerrar Sesión'
@@ -220,22 +256,19 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         </button>) : (<button
                             onClick={handleClickLogIn}
                             type="button"
-                            className="mt-4 md:mt-7 lg:mt-10  mr-2 ainline-block w-8 md:w-36 lg:w-48 h-7 md:h-8 lg:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 px-6 md:px-1 lg:px-8 pb-2 pt-1.5 md:pt-2 lg:pt-2.5 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:bg-gray-300 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                            className=" inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11 text-gray-200 bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border hover:border-orange-200 hover:scale-105  hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
                             <FormattedMessage
                                 id='nav.iniciarsesion'
                                 defaultMessage='Iniciar Sesión'
                             />
                         </button>)}
                     </div>
-
                 </div>
-
             </nav>
 
             <div>
                 {searchActive && <SearchBar setSearch={setSearch} search={search} onSearch={handleSearch} setShowResults={setShowResults} />}
                 {showResults && <SearchResultsBanner searchResults={searchResults} setShowResults={setShowResults} />}
-
             </div>
 
         </div>

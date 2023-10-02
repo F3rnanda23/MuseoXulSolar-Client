@@ -63,7 +63,7 @@ function PutToken() {
                     <br />
                     <label htmlFor="">Contraseña:</label>
                     <br />
-                    <div>
+                    <div className={style.inputContainer}>
                         <input
                             className={style.input}
                             type={visible ? "text" : "password"}
@@ -80,7 +80,7 @@ function PutToken() {
                     <br />
                     <br />
                     <div className={style.button}>
-                        <button type='submit'>Enviar</button>
+                        <button type='submit' className={style.boton}>Enviar</button>
                     </div>
                 </form>
             </div>

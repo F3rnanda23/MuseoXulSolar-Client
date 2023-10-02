@@ -17,6 +17,8 @@ function PerfilDeUsuario() {
         Actividades: []
     });
 
+    
+
     const cookies = new Cookies();
     console.log(cookies);
     console.log(cookies.cookies.id);
@@ -84,18 +86,11 @@ function PerfilDeUsuario() {
                 <br />
                 <h2>Tus actividades:</h2>
                 <br />
-                <ul>
-                    {usuario.Actividades?.map((s, index) => (
-                        <li key={index}>
-                            <ul>
-                                <li>Nombre: {s.name}</li>
-                                <li>Fecha: {s.date}</li>
-                                <li>Descripcion: {s.description}</li>
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
+                    <Link to="/perfilActividades">
+                        <button className={style.botonActividades}>Ver mis actividades</button>
+                    </Link>
                 <br />
+               
                 <div className={style.button}>
                     <Link to="/modificarPerfil">
                         <button>Modifica tu perfil</button>

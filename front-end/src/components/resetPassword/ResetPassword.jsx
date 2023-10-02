@@ -53,7 +53,7 @@ function ResetPassword() {
                     <br />
                     <br />
                     <div className={style.button}>
-                        <button type='submit'>Enviar</button>
+                        <button type='submit' className={style.boton}>Enviar</button>
                     </div>
                 </form>
             </div>

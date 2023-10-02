@@ -1,0 +1,5 @@
+.footer-container {
+    height: auto; 
+    max-height: 80vh;  
+    overflow-y: auto;  
+  }

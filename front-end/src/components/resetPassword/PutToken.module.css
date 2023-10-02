@@ -41,15 +41,173 @@
     cursor: pointer;
 }
 
-.text{
+.boton{
+    width: 100%;
+    height: 100%;
+}
+
+.text {
     font-size: 30px;
 }
 
 .ojo {
     position: absolute;
-    background: none;
-    border: none;
-    cursor: pointer;
-    left: 1020px;
-    bottom: 490px;
+    /* Hace que el botón sea absoluto dentro del contenedor */
+    right: 0;
+    /* Ajusta la posición desde el borde derecho del contenedor */
+    top: 50%;
+    /* Alinea verticalmente en el centro del contenedor */
+    transform: translateY(-50%);
+}
+
+.inputContainer {
+    position: relative;
+    /* Hace que el contenedor sea relativo */
+}
+
+@media (max-width: 768px) {
+    .container {
+        height: 120vh;
+        width: 100%;
+        /* Ajustar la altura automáticamente */
+    }
+
+    .form {
+        width: 90%;
+        /* Hacer el formulario más ancho en pantallas pequeñas */
+    }
+
+    .input {
+        width: 90%;
+        /* Hacer los campos de entrada ocupar el 90% del ancho */
+    }
+
+    .button {
+        width: 90%;
+        /* Hacer el botón ocupar el 90% del ancho */
+    }
+
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .text {
+        font-size: 20px;
+        /* Reducir el tamaño de fuente para dispositivos móviles */
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+/* Estilos para dispositivos entre 340px y 740px de ancho */
+@media (min-width: 341px) and (max-width: 740px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+@media (min-width: 390px) and (max-width: 844px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+@media (min-width: 414px) and (max-width: 896px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+@media (min-width: 820px) and (max-width: 1180px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+@media (min-width: 280px) and (max-width: 653px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
+}
+
+@media (min-width: 412px) and (max-width: 914px) {
+    .ojo {
+        position: absolute;
+        /* Hace que el botón sea absoluto dentro del contenedor */
+        right: 9px;
+        /* Ajusta la posición desde el borde derecho del contenedor */
+        top: 50%;
+    }
+
+    .inputContainer {
+        position: relative;
+        /* Hace que el contenedor sea relativo */
+    }
 }
