@@ -82,11 +82,6 @@ export function LoginForm() {
 
     const googleHandler = async () => {
         try {
-            const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
-            console.log(block.data);
-            if (block.status === 201) {
-                return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
-            }
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
             const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -108,7 +103,6 @@ export function LoginForm() {
 
                 }),
             });
-
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
                 const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
@@ -122,6 +116,11 @@ export function LoginForm() {
                         password: data.uid,
                     }),
                 });
+                const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
+                console.log(block.data);
+                if (block.status === 201) {
+                    return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+                }
                 if (loginResponse.ok) {
                     // Inicio de sesión exitoso
                     const serverResponse = await loginResponse.json();
@@ -136,8 +135,9 @@ export function LoginForm() {
                     setValue(data.email);
                     localStorage.setItem("email", data.email);
                     setValue(data.id);
-
-
+                    if (serverResponse.responseWithUserInfo === null) {
+                        return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+                    }
                     dispatch(logIn(true));
                     // const { id, name, email } = serverResponse.responseWithUserInfo;
                     // dispatch(guardarUserInfo({ id, name, email }))
