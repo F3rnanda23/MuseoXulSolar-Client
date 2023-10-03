@@ -19,7 +19,7 @@ function ResetPassword() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.put(`https://server-xul-solar.vercel.app/password/restore/${email.email}`);
+            const response = await axios.put(`https://server-xul-solar-ag97.vercel.app/password/restore/${email.email}`);
             setEmail({
                 email: ""
             });
