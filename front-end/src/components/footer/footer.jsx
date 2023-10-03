@@ -90,8 +90,8 @@ const Footer = () => {
               <a href="/Biography" className="block hover:font-semibold">
                 <FormattedMessage id='footer.biografia' defaultMessage='Biografía' /> </a>
 
-              <a href="/Store" className="block hover:font-semibold">
-                <FormattedMessage id='footer.tienda' defaultMessage='Tienda' /> </a>
+              <a href="/fundacion" className="block hover:font-semibold">
+                Fundación Pan Klub</a>
 
               <a href="/Collection" className="block hover:font-semibold">
                 <FormattedMessage id='footer.coleccion' defaultMessage='Colección' /></a>

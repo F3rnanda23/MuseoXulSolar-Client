@@ -18,6 +18,7 @@ import swal from "sweetalert"
 const Activities = () => {
 
     const activities = useSelector(state => state.activities);
+    const active = useSelector(state => state.active);
     const dispatch = useDispatch();
     const navigate = useNavigate();
     const [value, onChange] = useState(new Date());
@@ -56,16 +57,22 @@ const Activities = () => {
     };
 
     const handleReserve = async (idUser, activityId) => {
-        try {
-            // Intenta realizar la reserva
-             dispatch(await postAllActivitiesUser(idUser, activityId));
-            // Si la reserva es exitosa, muestra una notificación de éxito
-            toast.success("Reserva exitosa");
-        } catch (error) {
-            // Si hay un error, muestra una alerta de error
-            console.error("Error al realizar la reserva:", error);
-            toast.error("Error al realizar la reserva");
+        if (!active) {
+            swal("error","Para Reservar debes Iniciar sesión","error");
+            navigate('/login')
+        }else{
+            try {
+                // Intenta realizar la reserva
+                dispatch(await postAllActivitiesUser(idUser, activityId));
+                // Si la reserva es exitosa, muestra una notificación de éxito
+                toast.success("Reserva exitosa");
+            } catch (error) {
+                // Si hay un error, muestra una alerta de error
+                console.error("Error al realizar la reserva:", error);
+                toast.error("Error al realizar la reserva");
+            }
         }
+
     };
     
     
