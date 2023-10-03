@@ -6,9 +6,10 @@
     background-color: rgba(253, 124, 4, 0.623);
     height: 50px;
     border-radius: 30px;
-    color: rgb(247, 244, 244);
+    color: rgb(255, 255, 255);
     margin-top: 10px;
     margin-left: 0px;
+   
 }
 .react-calendar .react-calendar__navigation__label {
     background-color: rgba(223, 150, 14, 0.144);
@@ -23,6 +24,7 @@
     margin-right: 20px;
     color: rgb(218, 108, 18);
     border-radius: 10px;
+  
   }
   .react-calendar .react-calendar__navigation__label:hover{
     background-color: rgba(226, 91, 13, 0.144);
@@ -32,8 +34,6 @@
 .react-calendar__month-view__weekdays__weekday{
     font-size: 18px;
     padding-left:10px;
-    /* text-decoration: none !important;              no esta tomando  este estilo*/
-    /* border-bottom-style: none !important; */
     color: rgb(7, 7, 7);
 }
 
@@ -42,11 +42,10 @@
 .react-calendar__navigation__prev-button {
     color: rgb(8, 8, 8);
     font-size: 25px;
-    margin-left: 10px;
+    margin-left: 5px;
     padding: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-radius: 10px;
     transition: color 0.3s;
   }
 
@@ -57,11 +56,10 @@
   .react-calendar__navigation__next-button {
     color: rgb(8, 8, 8);
     font-size: 25px;
-    margin-right: 10px;
+    margin-right: 0px;
     padding: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-radius: 10px;
     transition: color 0.3s;
   }
   .react-calendar__navigation__next-button:hover {
@@ -70,10 +68,9 @@
 
   .react-calendar__navigation__next2-button{
     font-size: 25px;
-    padding: 5px;
+    padding: 4px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-radius: 10px;
     transition: color 0.3s;
   }
   .react-calendar__navigation__next2-button:hover{
@@ -82,10 +79,9 @@
 
   .react-calendar__navigation__prev2-button{
     font-size: 25px;
-    padding: 5px;
+    padding: 4px;
     padding-top: 0px;
     padding-bottom: 0px;
-    border-radius: 10px;
     transition: color 0.3s;
   }
   .react-calendar__navigation__prev2-button:hover{

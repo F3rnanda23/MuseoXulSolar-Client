@@ -1,16 +1,18 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 
 import { Button } from "@tremor/react";
 
-import { getAllUsers, filterUserByEmail } from '../../redux/actions/actions'
+import { getAllUsers, filterUserByEmail, clearUserDetail } from '../../redux/actions/actions'
 
 import UserCard from '../../components/userCard/userCard';
 import UserDetail from '../../components/userCard/userDetail';
 
 import { TextInput } from "@tremor/react";
 import { MagnifyingGlassIcon } from "@heroicons/react/20/solid";
+import backgroundImage from '../../imagenes/background/bg1.png'
+
 
 
 
@@ -30,6 +32,8 @@ const Users = () => {
 
     useEffect(() => {
         dispatch(getAllUsers())
+
+        return () => { dispatch(clearUserDetail())};
     }, [dispatch])
 
   useEffect(() => {
@@ -63,11 +67,19 @@ const Users = () => {
         setIsDropdownOpen(true);
     };
 
+    const backgroundStyle = {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      };
+    
+
     return (
 
-        <div>
+        <div style={backgroundStyle}>
+    
 
-            <div className="flex flex-col md:flex-row justify-center items-center">
+            <div className="flex flex-col md:flex-row justify-center items-center" >
                 <div className="flex flex-col items-center mt-5 md:w-1/3 w-3/4">
                     <TextInput
                         icon={MagnifyingGlassIcon}

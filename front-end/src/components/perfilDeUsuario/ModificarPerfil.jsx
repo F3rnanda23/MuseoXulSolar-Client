@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import style from "./ModificarPerfil.module.css"
 import { Image, Transformation } from 'cloudinary-react';
 import swal from 'sweetalert';
+import { Link } from 'react-router-dom';
 
 function ModificarPerfil() {
   const navigate = useNavigate();
@@ -64,28 +65,35 @@ function ModificarPerfil() {
   };
 
   return (
-    <div className={style.container}>
-      <div className={style.form}>
-        <form action="" onSubmit={handleSubmit}>
-          <label htmlFor="">Nombre</label>
-          <br />
-          <input className={style.input} type="text" name='name' value={usuario.name} onChange={handleChange} placeholder='Coloca tu nombre...' />
-          <br />
-          <label htmlFor="" >Imagen</label>
-          <br />
-          <div className={style.buttonCloudinary}>
-            <button type="button" onClick={openCloudinaryWidget} className="" value={usuario.image} onChange={handleChange}>Subir foto</button>
-          </div>
-          <br />
-          <label htmlFor="">Telefono</label>
-          <br />
-          <input className={style.input} type="text" name='phone' value={usuario.phone} onChange={handleChange} placeholder='Coloca tu numero celular...' />
-          <br />
-          <br />
-          <div className={style.button}>
-            <button type='submit'>Actualizar</button>
-          </div>
-        </form>
+    <div className={style.container2}>
+      <div className={style.back}>
+        <div>
+          <Link to="/miPerfil"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKNJREFUSEvllMENgCAMRR+b6CY6ipPpJq7iKKaJmoYgAi0ne+Ei//nbTwOdK3TW5z+AAZiArbalJS0S8fUCLLWQL4AWP4DR04FZXH7mzYGL+BvATTwFcBWPAVq8dpbx90/r9QwEsANyWisJEFENkVjOgJzNlUqRKyQX07tdJie5l+zipGRVmJx8AeLBuy+7Oz1d13VzRHPLziSqL5fMwATrDjgBmishGepbbBgAAAAASUVORK5CYII=" alt="" /></Link>
+        </div>
+      </div>
+      <div className={style.container}>
+        <div className={style.form}>
+          <form action="" onSubmit={handleSubmit}>
+            <label htmlFor="">Nombre</label>
+            <br />
+            <input className={style.input} type="text" name='name' value={usuario.name} onChange={handleChange} placeholder='Coloca tu nombre...' />
+            <br />
+            <label htmlFor="" >Imagen</label>
+            <br />
+            <div className={style.buttonCloudinary}>
+              <button type="button" onClick={openCloudinaryWidget} className="" value={usuario.image} onChange={handleChange}>Subir foto</button>
+            </div>
+            <br />
+            <label htmlFor="">Telefono</label>
+            <br />
+            <input className={style.input} type="text" name='phone' value={usuario.phone} onChange={handleChange} placeholder='Coloca tu numero celular...' />
+            <br />
+            <br />
+            <div className={style.button}>
+              <button type='submit'>Actualizar</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
   )
