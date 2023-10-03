@@ -84,6 +84,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
         navigate('/Admin')
     }
 
+
     function signOff() {
         cookies.remove('id', { path: '/' });
         cookies.remove('name', { path: '/' });
@@ -216,7 +217,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </div>
 
                     <div className='text-orange-200 text-sm md:text-base  font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105'>
-                        <Link to="/xulsolar">
+                        <Link to="/Biography">
                             Xul Solar
                         </Link>
                     </div>
