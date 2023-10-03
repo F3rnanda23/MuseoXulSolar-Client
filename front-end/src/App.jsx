@@ -50,7 +50,7 @@ function App() {
 
   const cookies = new Cookies();
   const adminTrue = cookies.get('admin')
-  console.log('admin app', adminTrue);
+  
 
 
 

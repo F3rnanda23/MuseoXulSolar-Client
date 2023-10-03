@@ -17,7 +17,7 @@ function PerfilDeUsuario() {
         Actividades: []
     });
 
-    
+
 
     const cookies = new Cookies();
     console.log(cookies);
@@ -41,62 +41,84 @@ function PerfilDeUsuario() {
         })
     };
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+
+    const showSubs = (subsTipo) => {
+        let nombreSuscripcion = '';
+    
+        if (subsTipo === '1') {
+            nombreSuscripcion = 'Amigos Xul Solar ($30/año)';
+        } else if (subsTipo === '2') {
+            nombreSuscripcion = 'Amigos Xul Solar Plus ($50/año)';
+        } else {
+            nombreSuscripcion = 'Tipo de suscripción no válido';
+        }
+    
+        return nombreSuscripcion;
+    };
 
 
     return (
-        <div className={style.container}>
-            <div className={style.card}>
-                <br />
-                <div className={style.h1}>
-                    <h1>Tu perfil</h1>
-                </div>
-                <br />
-                <img src={usuario.image} alt="imagen del usuario" className={style.imagen} />
-                <br />
-                <p>Nombre: {usuario.name}</p>
-                <br />
-                <p>Teléfono: {usuario.phone}</p>
-                <br />
-                <p>Fecha de nacimiento: {usuario.birthday}</p>
-                <br />
-                <h2>Suscripciones:</h2>
-                <br />
-                <ul>
-                    {usuario.Suscripciones?.map((s, index) => (
-                        <li key={index}>
-                            <ul>
-                                <li>Tu membresía: {s.tipo}</li>
-                                <li>Desde: {s.date}</li>
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
-                <br />
-                <h2>Tus comentarios:</h2>
-                <br />
-                <ul>
-                    {usuario.Comentarios?.map((s, index) => (
-                        <li key={index}>
-                            <ul>
-                                <li>Descripcion: {s.description}</li>
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
-                <br />
-                <h2>Tus actividades:</h2>
-                <br />
+        <div className={style.container2}>
+            
+            <div className={style.container}>
+                <div className={style.card}>
+                    <br />
+                    <div className={style.h1}>
+                        <h1>Tu perfil</h1>
+                    </div>
+                    <br />
+                    <img src={usuario.image} alt="imagen del usuario" className={style.imagen} />
+                    <br />
+                    <p>Nombre: {usuario.name}</p>
+                    <br />
+                    <p>Teléfono: {usuario.phone}</p>
+                    <br />
+                    <p>Fecha de nacimiento: {usuario.birthday}</p>
+                    <br />
+                    <h2>Suscripciones:</h2>
+                    <br />
+                    <ul>
+                        {usuario.Suscripciones?.map((s, index) => (
+                            <li key={index}>
+                                <ul>
+                                    <li>Tu membresía: {showSubs(s.tipo)}</li>
+                                   
+                                    <li>Desde: {formatDate(s.date)}</li>
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                    <br />
+                    <h2>Tus comentarios:</h2>
+                    <br />
+                    <ul>
+                        {usuario.Comentarios?.map((s, index) => (
+                            <li key={index}>
+                                <ul>
+                                    <li>Descripcion: {s.description}</li>
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                    <br />
+                    <h2>Tus actividades:</h2>
+                    <br />
                     <Link to="/perfilActividades">
                         <button className={style.botonActividades}>Ver mis actividades</button>
                     </Link>
-                <br />
-               
-                <div className={style.button}>
-                    <Link to="/modificarPerfil">
-                        <button>Modifica tu perfil</button>
-                    </Link>
+                    <br />
+
+                    <div className={style.button}>
+                        <Link to="/modificarPerfil">
+                            <button>Modifica tu perfil</button>
+                        </Link>
+                    </div>
+                    <br />
                 </div>
-                <br />
             </div>
         </div>
     )

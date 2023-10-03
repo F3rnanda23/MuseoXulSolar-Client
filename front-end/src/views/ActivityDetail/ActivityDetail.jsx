@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { getActivityDetail } from "../../redux/actions/actions";
+import { getActivityDetail, clearActivityDetail } from "../../redux/actions/actions";
+
 
 const ActivityDetail = () => {
 
@@ -10,11 +11,13 @@ const ActivityDetail = () => {
     const navigate = useNavigate();
     const detail = useSelector((state) => state.activityDetail)
     const dispatch = useDispatch();
-    console.log('Aca es', detail);
+
 
     useEffect(() => {
         dispatch(getActivityDetail(id))
-        // return () => { dispatch(clearDetail())};
+
+        return () => { dispatch(clearActivityDetail()) };
+
     }, [id, dispatch]);
 
 
@@ -41,16 +44,35 @@ const ActivityDetail = () => {
         navigate(-1)
     }
 
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth <= 640);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth <= 640);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Limpieza del event listener al desmontar el componente
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
     return (
+        
         <div>
 
-            <main className="grid place-items-center h-screen bg-gray-100">
-                <section className="flex flex-col md:flex-row gap-11 py-10 px-5 bg-white rounded-md shadow-lg w-3/4 md:max-w-2xl">
-                    <div className="text-orange-200 flex flex-col justify-between bg-orange-100">
-                        <img src={detail.image} alt="" />
-
+            <main className="grid place-items-center min-h-screen bg-gray-100">
+                <section className={`flex flex-col md:flex-row gap-11 py-10 px-5 bg-white rounded-md shadow-lg ${isSmallScreen ? 'w-full' : 'w-3/4'} ${isSmallScreen ? 'h-auto' : 'h-3/4 md:max-h-2/4'}`}>
+                    <div className={`text-orange-200 ${isSmallScreen ? 'flex flex-col' : 'flex justify-between'} bg-orange-100 min-h-4/5`}>
+                        <img
+                            className='max-h-full max-w-3/4 object-cover'
+                            src={detail.image}
+                            alt="imagen"
+                        />
                     </div>
-                    <div className="text-orange-200">
+                    <div className="text-orange-200 overflow-y-auto md:ml-auto md:mr-8 scrollbar-hide">
                         <small className="uppercase">Museo Xul Solar</small>
                         <h3 className="uppercase text-black text-2xl font-medium">{detail.name}</h3>
                         <h3 className="text-2xl font-semibold mb-7">{formatDate(detail.date)}</h3>
@@ -66,6 +88,7 @@ const ActivityDetail = () => {
             </main>
 
         </div>
+
     );
 }
 

@@ -19,12 +19,10 @@ export const GET_USER_DETAIL = 'GET_USER_DETAIL';
 export const CLEAR_USER_DETAIL = 'CLEAR_USER_DETAIL';
 export const BAN_USER = 'BAN_USER';
 export const RESTORE_USER = 'RESTORE_USER';
-export const FRESET_BANNED = 'FRESET_BANNED'
 export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_ADMIN = 'GET_ALL_ACTIVITIES_ADMIN';
-
-
+export const CLEAR_ACTIVITY_DETAIL = 'CLEAR_ACTIVITY_DETAIL';
 
 
 
@@ -95,8 +93,8 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  // const endpoint = "https://server-xul-solar.vercel.app/comentarios/crear"
-  const endpoint = 'http://localhost:3001/comentarios/crear'
+  const endpoint = "https://server-xul-solar.vercel.app/comentarios/crear"
+  // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
     try {
@@ -114,7 +112,7 @@ export const createReview = (comment) => {
 
 export const getAllComments = () => {
   const endpoint = "https://server-xul-solar.vercel.app/comentarios"
-  // const endpoint = `http://localhost:3001/comentarios`
+  
   return async function (dispatch) {
     try {
       const { data } = await axios(endpoint)
@@ -130,7 +128,6 @@ export const getAllComments = () => {
 
 export const sendSubsInfo = (subscriptionInfo) => {
 
-  // const endpoint = 'https://server-xul-solar.vercel.app/suscripcion'
   const endpoint = 'https://server-xul-solar.vercel.app/suscripcion/crear'
 
   return async function (dispatch) {
@@ -161,7 +158,7 @@ export function resetComments() {
 
 export function getAllUsers() {
   const endpoint = 'https://server-xul-solar.vercel.app/usuario';
-  // const endpoint =  'http://localhost:3001/usuario'
+  
   return async function (dispatch) {
     try {
       const { data } = await axios(endpoint)
@@ -183,8 +180,7 @@ export function filterUserByEmail(email) {
 }
 
 export function getUserDetail(id) {
-  // const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
-  const endpoint = `http://localhost:3001/usuario/id/${id}`
+  const endpoint = `https://server-xul-solar.vercel.app/usuario/id/${id}`
   
   return async function (dispatch) {
     try {
@@ -200,16 +196,21 @@ export function getUserDetail(id) {
   }
 }
 
+export function clearUserDetail() {
+  return {
+      type: CLEAR_USER_DETAIL,
+  }
+}
+
 export function banUser(id, email) {
 
-  const endpoint = `http://localhost:3001/usuario/${id}`;
+  const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
 
   return async function (dispatch) {
     try {
-      // Realiza la solicitud DELETE utilizando axios
+
       await axios.delete(endpoint);
 
-      // Si la solicitud se realiza correctamente, despacha la acción 'BAN_USER'
       return dispatch({
         type: 'BAN_USER',
         payload: { id, email }
@@ -223,9 +224,8 @@ export function banUser(id, email) {
 
 export function restoreUser(id) {
   console.log('actions', id);
-  // const endpoint = `https://server-xul-solar.vercel.app/restaurar/${id}`
-  const endpoint = `http://localhost:3001/usuario/restaurar/${id}`
-  
+  const endpoint = `https://server-xul-solar.vercel.app/usuario/restaurar/${id}`
+ 
   return async function (dispatch) {
     try {
     await axios.put(endpoint);
@@ -241,17 +241,12 @@ export function restoreUser(id) {
   }
 } 
 
-export function resetBanned() {
-  return {
-    type: FRESET_BANNED,
-  }
-}
 
 // traer actividades al perfil del usuario
 
 export const getAllActivitiesUser = (id) => {
   return async function (dispatch) {
-    const response = await axios(`http://localhost:3001/usuario/id/${id}`)
+    const response = await axios(`https://server-xul-solar.vercel.app/usuario/id/${id}`)
     
     return dispatch({ type: GET_ALL_ACTIVITIES_USER, payload: response.data.Actividades })
   }
@@ -261,7 +256,7 @@ export const getAllActivitiesUser = (id) => {
 //post de reserva actividades
 export const postAllActivitiesUser = (usuarioId,actividadId ) => {
   return async function (dispatch) {
-    const response = await axios.post( 'http://localhost:3001/actividades/reservar',{usuarioId, actividadId})
+    const response = await axios.post( 'https://server-xul-solar.vercel.app/actividades/reservar',{usuarioId, actividadId})
     return dispatch()
   }
 };
@@ -270,10 +265,16 @@ export const postAllActivitiesUser = (usuarioId,actividadId ) => {
 //get para reservas administrador
 export const getAllActivitiesAdmin = () => {
   return async function (dispatch) {
-    const response = await axios( 'http://localhost:3001/actividades/usuario')
+    const response = await axios( 'https://server-xul-solar.vercel.app/actividades/usuario')
     return  dispatch({ type: GET_ALL_ACTIVITIES_ADMIN, payload: response.data })
   }
 };
+
+export function clearActivityDetail() {
+  return {
+      type: CLEAR_ACTIVITY_DETAIL,
+  }
+}
 
 
 
