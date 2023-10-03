@@ -128,6 +128,7 @@ export function LoginForm() {
                     cookies.set('id', serverResponse.responseWithUserInfo.id, { path: '/' });
                     cookies.set('name', serverResponse.responseWithUserInfo.name, { path: '/' });
                     cookies.set('email', serverResponse.responseWithUserInfo.email, { path: '/' });
+                    
 
                     localStorage.setItem("googleAccessToken", token);
 

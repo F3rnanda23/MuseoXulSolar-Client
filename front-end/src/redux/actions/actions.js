@@ -28,14 +28,14 @@ export const CLEAR_ACTIVITY_DETAIL = 'CLEAR_ACTIVITY_DETAIL';
 
 export const getAllActivities = () => {
   return async function (dispatch) {
-    const response = await axios('http://localhost:3001/actividades')
+    const response = await axios('https://server-xul-solar.vercel.app/actividades')
     return dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data })
   }
 };
 
 export const createActivities = (activitiesData) => {
   return async function (dispatch) {
-    const response = await axios.post('http://localhost:3001/actividades/create', activitiesData)
+    const response = await axios.post('https://server-xul-solar.vercel.app/actividades/create', activitiesData)
     return dispatch({ type: CREATE_ACTIVITY, payload: response.data })
   }
 };
@@ -43,7 +43,7 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`http://localhost:3001/actividades/delete/${actividadesId}`)
+    const response = await axios.delete(`https://server-xul-solar.vercel.app/actividades/delete/${actividadesId}`)
     return dispatch(getAllActivities());
   }
 };
@@ -51,7 +51,7 @@ export const deteleActivities = (actividadesId) => {
 export const deteleActivitiesUser = (usuarioId, actividadId) => {
   return async function (dispatch) {
     console.log(actividadId, usuarioId,'aqui delete')
-    const response = await axios.delete(`http://localhost:3001/actividades/eliminarReserva/${usuarioId}/${actividadId}`)
+    const response = await axios.delete(`https://server-xul-solar.vercel.app/actividades/eliminarReserva/${usuarioId}/${actividadId}`)
     return dispatch(getAllActivitiesUser(usuarioId));
   }
 };
@@ -59,7 +59,7 @@ export const deteleActivitiesUser = (usuarioId, actividadId) => {
 export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
-      const response = await axios(`http://localhost:3001/actividades/${actividadesId}`)
+      const response = await axios(`https://server-xul-solar.vercel.app/actividades/${actividadesId}`)
       return dispatch({
         type: GET_ACTIVITY_DETAIL,
         payload: response.data

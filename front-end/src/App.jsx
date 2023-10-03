@@ -4,7 +4,7 @@ import { Cloudinary } from '@cloudinary/url-gen';
 import Home from './views/Home/Home';
 import Visits from './views/Visits/Visits';
 import Biography from './views/Biography/Biography';
-import Store from './views/Store/Store';
+import Fundacion from './views/Fundacion/Fundacion';
 import Museum from './views/Museum/Museum';
 import Collection from './views/Collection/Collection';
 import { Login } from './views/Login/Login';
@@ -65,7 +65,7 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/visits" element={<Visits />} />
         <Route path="/Biography" element={<Biography />} />
-        <Route path="/Store" element={<Store />} />
+        <Route path="/fundacion" element={<Fundacion />} />
         <Route path="/Museum" element={<Museum />} />
         <Route path="/Collection" element={<Collection />} />
         <Route path="/Exhibitions" element={<Exhibitions />} />
