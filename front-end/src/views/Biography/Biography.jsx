@@ -7,14 +7,10 @@ const Biography = () => {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <div className=" ">
-      <main className="min-h-screen" style={backgroundStyle}>
-        <div className="flex flex-col items-center">
-          <div className="flex justify-center items-center">
-            <h1 className="rounded  text-2xl font-bold mb-4 mt-10 ">
-              Biografía
-            </h1>
-          </div>
+    <div className="flex justify-center items-center  min-h-screen " style={backgroundStyle}>
+      <main >
+        <div className="bg-gray-100 w-[700px] rounded-xl flex flex-col items-center">
+          <h1 className="rounded  text-2xl font-bold mb-4 ">Biografía</h1>
           <div className="flex justify-center">
             <img
               src="https://www.cultura.gob.ar/media/uploads/xulmalba.jpg"
@@ -24,8 +20,8 @@ const Biography = () => {
           <br />
           <div className="bg-gray- 1flex flex-col text-center">
             <br></br>
-            <p className="text-justify w-[700px]">
-              Xul Solar (Oscar Agustín Alejandro Schulz Solari, 1887-1963), es
+            <p className="text-justify w-[500px]">
+              Xul Solar (Oscar Agustín Alejandro Sch ulz Solari, 1887-1963), es
               uno de los representantes más singulares de la vanguardia en
               América Latina. En 1912 partió rumbo a Europa, donde permaneció
               hasta 1924, residiendo en Italia y en Alemania y realizando
@@ -37,7 +33,7 @@ const Biography = () => {
               Sábados y Destiempo.
             </p>
             <br />
-            <p className="text-justify w-[700px]">
+            <p className="text-justify w-[500px]">
               De una vasta cultura, sus intereses lo llevaron al estudio de la
               astrología, la Cábala, el I Ching, la filosofía, las religiones y
               creencias del Antiguo Oriente, de la India y del mundo
@@ -45,7 +41,7 @@ const Biography = () => {
               ramas del saber.
             </p>
             <br />
-            <p className="text-justify w-[700px]">
+            <p className="text-justify w-[500px]">
               Se ocupó también de la creación de dos lenguajes artificiales -el
               neocriollo y la panlengua- y del panajedrez; propuso la
               modificación de la notación musical y del teclado de piano e ideó
