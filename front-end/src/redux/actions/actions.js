@@ -93,16 +93,18 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
+  // console.log('commment', comment);
   const endpoint = "https://server-xul-solar.vercel.app/comentarios/crear"
+  
   // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
     try {
       const { data } = await axios.post(endpoint, comment)
+      console.log('action data',data);
       return dispatch({
         type: CREATE_REVIEW,
         payload: data,
-
       })
     } catch (error) {
       throw new Error('Algo salió mal: ', error.message)
