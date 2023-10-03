@@ -116,6 +116,11 @@ export function LoginForm() {
                         password: data.uid,
                     }),
                 });
+                const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
+                console.log(block.data);
+                if (block.status === 201) {
+                    return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+                }
                 if (loginResponse.ok) {
                     // Inicio de sesión exitoso
                     const serverResponse = await loginResponse.json();
@@ -130,12 +135,6 @@ export function LoginForm() {
                     setValue(data.email);
                     localStorage.setItem("email", data.email);
                     setValue(data.id);
-
-                    const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
-                    console.log(block.data);
-                    if (block.status === 201) {
-                        return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
-                    }
                     if (serverResponse.responseWithUserInfo === null) {
                         return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
                     }
