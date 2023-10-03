@@ -28,14 +28,14 @@ export const CLEAR_ACTIVITY_DETAIL = 'CLEAR_ACTIVITY_DETAIL';
 
 export const getAllActivities = () => {
   return async function (dispatch) {
-    const response = await axios('https://server-xul-solar.vercel.app/actividades')
+    const response = await axios('https://server-xul-solar-ag97.vercel.app/actividades')
     return dispatch({ type: GET_ALL_ACTIVITIES, payload: response.data })
   }
 };
 
 export const createActivities = (activitiesData) => {
   return async function (dispatch) {
-    const response = await axios.post('https://server-xul-solar.vercel.app/actividades/create', activitiesData)
+    const response = await axios.post('https://server-xul-solar-ag97.vercel.app/actividades/create', activitiesData)
     return dispatch({ type: CREATE_ACTIVITY, payload: response.data })
   }
 };
@@ -43,7 +43,7 @@ export const createActivities = (activitiesData) => {
 
 export const deteleActivities = (actividadesId) => {
   return async function (dispatch) {
-    const response = await axios.delete(`https://server-xul-solar.vercel.app/actividades/delete/${actividadesId}`)
+    const response = await axios.delete(`https://server-xul-solar-ag97.vercel.app/actividades/delete/${actividadesId}`)
     return dispatch(getAllActivities());
   }
 };
@@ -51,7 +51,7 @@ export const deteleActivities = (actividadesId) => {
 export const deteleActivitiesUser = (usuarioId, actividadId) => {
   return async function (dispatch) {
     console.log(actividadId, usuarioId,'aqui delete')
-    const response = await axios.delete(`https://server-xul-solar.vercel.app/actividades/eliminarReserva/${usuarioId}/${actividadId}`)
+    const response = await axios.delete(`https://server-xul-solar-ag97.vercel.app/actividades/eliminarReserva/${usuarioId}/${actividadId}`)
     return dispatch(getAllActivitiesUser(usuarioId));
   }
 };
@@ -59,7 +59,7 @@ export const deteleActivitiesUser = (usuarioId, actividadId) => {
 export const getActivityDetail = (actividadesId) => {
   return async function (dispatch) {
     try {
-      const response = await axios(`https://server-xul-solar.vercel.app/actividades/${actividadesId}`)
+      const response = await axios(`https://server-xul-solar-ag97.vercel.app/actividades/${actividadesId}`)
       return dispatch({
         type: GET_ACTIVITY_DETAIL,
         payload: response.data
@@ -93,7 +93,7 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  const endpoint = "https://server-xul-solar.vercel.app/comentarios/crear"
+  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios/crear"
   // const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
@@ -111,7 +111,7 @@ export const createReview = (comment) => {
 };
 
 export const getAllComments = () => {
-  const endpoint = "https://server-xul-solar.vercel.app/comentarios"
+  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios"
   
   return async function (dispatch) {
     try {
@@ -128,7 +128,7 @@ export const getAllComments = () => {
 
 export const sendSubsInfo = (subscriptionInfo) => {
 
-  const endpoint = 'https://server-xul-solar.vercel.app/suscripcion/crear'
+  const endpoint = 'https://server-xul-solar-ag97.vercel.app/suscripcion/crear'
 
   return async function (dispatch) {
     try {
@@ -157,7 +157,7 @@ export function resetComments() {
 }
 
 export function getAllUsers() {
-  const endpoint = 'https://server-xul-solar.vercel.app/usuario';
+  const endpoint = 'https://server-xul-solar-ag97.vercel.app/usuario';
   
   return async function (dispatch) {
     try {
@@ -180,7 +180,7 @@ export function filterUserByEmail(email) {
 }
 
 export function getUserDetail(id) {
-  const endpoint = `https://server-xul-solar.vercel.app/usuario/id/${id}`
+  const endpoint = `https://server-xul-solar-ag97.vercel.app/usuario/id/${id}`
   
   return async function (dispatch) {
     try {
@@ -204,7 +204,7 @@ export function clearUserDetail() {
 
 export function banUser(id, email) {
 
-  const endpoint = `https://server-xul-solar.vercel.app/usuario/${id}`
+  const endpoint = `https://server-xul-solar-ag97.vercel.app/usuario/${id}`
 
   return async function (dispatch) {
     try {
@@ -224,7 +224,7 @@ export function banUser(id, email) {
 
 export function restoreUser(id) {
   console.log('actions', id);
-  const endpoint = `https://server-xul-solar.vercel.app/usuario/restaurar/${id}`
+  const endpoint = `https://server-xul-solar-ag97.vercel.app/usuario/restaurar/${id}`
  
   return async function (dispatch) {
     try {
@@ -246,7 +246,7 @@ export function restoreUser(id) {
 
 export const getAllActivitiesUser = (id) => {
   return async function (dispatch) {
-    const response = await axios(`https://server-xul-solar.vercel.app/usuario/id/${id}`)
+    const response = await axios(`https://server-xul-solar-ag97.vercel.app/usuario/id/${id}`)
     
     return dispatch({ type: GET_ALL_ACTIVITIES_USER, payload: response.data.Actividades })
   }
@@ -256,7 +256,7 @@ export const getAllActivitiesUser = (id) => {
 //post de reserva actividades
 export const postAllActivitiesUser = (usuarioId,actividadId ) => {
   return async function (dispatch) {
-    const response = await axios.post( 'https://server-xul-solar.vercel.app/actividades/reservar',{usuarioId, actividadId})
+    const response = await axios.post( 'https://server-xul-solar-ag97.vercel.app/actividades/reservar',{usuarioId, actividadId})
     return dispatch()
   }
 };
@@ -265,7 +265,7 @@ export const postAllActivitiesUser = (usuarioId,actividadId ) => {
 //get para reservas administrador
 export const getAllActivitiesAdmin = () => {
   return async function (dispatch) {
-    const response = await axios( 'https://server-xul-solar.vercel.app/actividades/usuario')
+    const response = await axios( 'https://server-xul-solar-ag97.vercel.app/actividades/usuario')
     return  dispatch({ type: GET_ALL_ACTIVITIES_ADMIN, payload: response.data })
   }
 };
