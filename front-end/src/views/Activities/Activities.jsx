@@ -126,14 +126,14 @@ const Activities = () => {
                     <button onClick={handleRefresh} className=" flex h-[50px] sm:h-[40px] justify-end  rounded  bg-orange-200   px-3 py-1 text-white shadow-xl transition-all duration-300 hover:scale-105 hover:bg-gray-500 hover:text-white"> Todas la actividades</button>
             </div>
 
-            <div className="grid w-4/4 mb-[30px] sm:grid-cols-1 xl:grid-cols-2 ">
+            <div className="grid w-4/4 mb-[0px] sm:grid-cols-1 xl:grid-cols-2 ">
                
 
-                <div className="grid w-6/6  h-5/6 mr-[50px] md:w-5/6 order-2 mt-[250px] mr-[20px] mb-[20px] xl:order-1 xl:mt-[50px] ">
+                <div className="grid w-6/6  h-4/6 mr-[50px] md:w-5/6 order-2 mt-[250px] mr-[20px] mb-[20px] xl:order-1 xl:mt-[50px] ">
 
                     <div className='relative   w-6/6  h-6/6 ' >
 
-                        <div className=" grid grid-cols-1 gap-4  w-full h-full mb-[80px]">  
+                        <div className=" grid grid-cols-1 gap-2  w-full h-4/4 mb-[30px]">  
 
                             {activities && activities.map(activity => (
                             
@@ -167,9 +167,9 @@ const Activities = () => {
 
 
 
-                <div className="grid w-5/6  justify-end  sm:order-1   ">
+                <div className="grid w-3/3 h-full  ml-[50px] sm:order-1 ">
 
-                    <div className= " relative  w-4/4 h-[400px] bg-gray-200  ml-[30px] mr-[-40px] mt-[50px] rounded-lg sm:w-4/6  xl:justify-end ">
+                    <div className= " relative  w-4/4 h-[500px] bg-gray-200  ml-[-50px] mr-auto mt-[50px] rounded-lg sm:w-4/4  md:ml-auto  xl:w-3/6 ">
                         <h1 className="text-2xl font-bold  text-center font-sans text-gray-700 "><BsSun  className="" /> Calendario <BsSun  className="ml-auto "/></h1>
                         <div className=" bg-gray-300 mt-[10px]  border-2  p-4 rounded-lg shadow-2xl bg-cover  w-4/4 h-6/6 " >
                             
@@ -221,6 +221,7 @@ const Activities = () => {
 };
 
 export default Activities;
+
 
 
 
