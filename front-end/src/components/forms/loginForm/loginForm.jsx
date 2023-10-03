@@ -53,6 +53,7 @@ export function LoginForm() {
                     cookies.set('id', response.data.id, { path: '/' });
                     cookies.set('name', response.data.name, { path: '/' });
                     cookies.set('email', response.data.email, { path: '/' });
+                    cookies.set('admin', response.data.admin, { path: '/' });
                     dispatch(logIn(true));
 
                     swal("BIENVENIDO", response.data.name + ' inicio sesión exitosamente', "success");
