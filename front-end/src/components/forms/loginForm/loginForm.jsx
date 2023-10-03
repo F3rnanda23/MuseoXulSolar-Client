@@ -38,7 +38,6 @@ export function LoginForm() {
             const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
             const googleEmail = localStorage.getItem("googleEmail");
             const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
-            console.log(block.data);
             if (block.status === 201) {
                 return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
             }
@@ -47,16 +46,13 @@ export function LoginForm() {
                 swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
             } else {
                 // Procede con el inicio de sesión manual normal
-                
-                // const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
-                const endpoint = 'http://localhost:3001/usuario/login'
+                const endpoint = 'https://server-xul-solar.vercel.app/usuario/login';
                 const response = await axios.post(endpoint, data);
 
                 if (response.data.success) {
                     cookies.set('id', response.data.id, { path: '/' });
                     cookies.set('name', response.data.name, { path: '/' });
                     cookies.set('email', response.data.email, { path: '/' });
-                    cookies.set('admin', response.data.admin, { path: '/' });
                     dispatch(logIn(true));
 
                     swal("BIENVENIDO", response.data.name + ' inicio sesión exitosamente', "success");
@@ -86,11 +82,13 @@ export function LoginForm() {
 
     const googleHandler = async () => {
         try {
+            const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
+            console.log(block.data);
+            if (block.status === 201) {
+                return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+            }
             const result = await signInWithPopup(auth, provider);
             const data = result.user;
-            console.log('====================================');
-            console.log(data);
-            console.log('====================================');
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
 

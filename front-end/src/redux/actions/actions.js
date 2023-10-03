@@ -22,9 +22,7 @@ export const RESTORE_USER = 'RESTORE_USER';
 export const POST_ACTIVITIES_USER = 'POST_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_USER = 'GET_ALL_ACTIVITIES_USER';
 export const GET_ALL_ACTIVITIES_ADMIN = 'GET_ALL_ACTIVITIES_ADMIN';
-
-
-
+export const CLEAR_ACTIVITY_DETAIL = 'CLEAR_ACTIVITY_DETAIL';
 
 
 
@@ -271,6 +269,12 @@ export const getAllActivitiesAdmin = () => {
     return  dispatch({ type: GET_ALL_ACTIVITIES_ADMIN, payload: response.data })
   }
 };
+
+export function clearActivityDetail() {
+  return {
+      type: CLEAR_ACTIVITY_DETAIL,
+  }
+}
 
 
 
