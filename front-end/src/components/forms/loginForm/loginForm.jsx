@@ -89,11 +89,6 @@ export function LoginForm() {
 
             localStorage.setItem("googleLoggedIn", "true");
             localStorage.setItem("googleEmail", data.email);
-            const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
-            console.log(block.data);
-            if (block.status === 201) {
-                return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
-            }
             const createUserResponse = await fetch('https://server-xul-solar.vercel.app/usuario/crear', {
                 method: 'POST',
                 headers: {
@@ -108,7 +103,11 @@ export function LoginForm() {
 
                 }),
             });
-
+            const block = await axios.get(`https://server-xul-solar.vercel.app/usuario/email/${data.email}`);
+            console.log(block.data);
+            if (block.status === 201) {
+                return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+            }
             if (createUserResponse.ok || createUserResponse.status === 404) {
                 // Usuario creado exitosamente, ahora inicia sesión automáticamente
                 const loginResponse = await fetch('https://server-xul-solar.vercel.app/usuario/loginGoogle', {
