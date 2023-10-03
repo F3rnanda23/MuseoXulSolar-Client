@@ -12,7 +12,7 @@ export const Question = ({ question, answer }) => {
 
         <div className='border p-4 mb-5 rounded bg-gray-100'>
             <div className='flex justify-between'>
-                <h3 className='font-semibold text-sm sm:text-xl mb-2'>
+                <h3 className='text-orange-200 font-semibold text-sm sm:text-xl mb-2'>
                     {question}
                 </h3>
                 <button onClick={handleHidden}><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
