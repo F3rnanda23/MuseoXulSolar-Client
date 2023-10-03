@@ -13,7 +13,7 @@ function CreateExpo() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post("https://server-xul-solar.vercel.app/exposiciones/create", expo);
+            const response = await axios.post("https://server-xul-solar-ag97.vercel.app/exposiciones/create", expo);
             setExpo({
                 date: "",
                 name: "",

@@ -21,7 +21,7 @@ function ModificarPerfil() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.put(`https://server-xul-solar.vercel.app/usuario/editar/${id}`, usuario);
+      const response = await axios.put(`https://server-xul-solar-ag97.vercel.app/usuario/editar/${id}`, usuario);
       if (response.status === 200 || 204) {
         swal("success", 'Usuario actualizado', "success")
       }
