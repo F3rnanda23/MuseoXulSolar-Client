@@ -41,15 +41,29 @@ function PerfilDeUsuario() {
         })
     };
 
+    const formatDate = (dateString) => {
+        const date = new Date(dateString);
+        return date.toISOString().split('T')[0];
+    };
+
+    const showSubs = (subsTipo) => {
+        let nombreSuscripcion = '';
+    
+        if (subsTipo === '1') {
+            nombreSuscripcion = 'Amigos Xul Solar ($30/año)';
+        } else if (subsTipo === '2') {
+            nombreSuscripcion = 'Amigos Xul Solar Plus ($50/año)';
+        } else {
+            nombreSuscripcion = 'Tipo de suscripción no válido';
+        }
+    
+        return nombreSuscripcion;
+    };
 
 
     return (
         <div className={style.container2}>
-            <div className={style.back}>
-                <div>
-                    <Link to="/"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKNJREFUSEvllMENgCAMRR+b6CY6ipPpJq7iKKaJmoYgAi0ne+Ei//nbTwOdK3TW5z+AAZiArbalJS0S8fUCLLWQL4AWP4DR04FZXH7mzYGL+BvATTwFcBWPAVq8dpbx90/r9QwEsANyWisJEFENkVjOgJzNlUqRKyQX07tdJie5l+zipGRVmJx8AeLBuy+7Oz1d13VzRHPLziSqL5fMwATrDjgBmishGepbbBgAAAAASUVORK5CYII=" alt="" /></Link>
-                </div>
-            </div>
+            
             <div className={style.container}>
                 <div className={style.card}>
                     <br />
@@ -71,8 +85,9 @@ function PerfilDeUsuario() {
                         {usuario.Suscripciones?.map((s, index) => (
                             <li key={index}>
                                 <ul>
-                                    <li>Tu membresía: {s.tipo}</li>
-                                    <li>Desde: {s.date}</li>
+                                    <li>Tu membresía: {showSubs(s.tipo)}</li>
+                                   
+                                    <li>Desde: {formatDate(s.date)}</li>
                                 </ul>
                             </li>
                         ))}

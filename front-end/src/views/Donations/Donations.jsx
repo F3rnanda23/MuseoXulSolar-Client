@@ -148,24 +148,23 @@ const Donations = () => {
   const [userEmail, setUserEmail] = useState('');
 
 
-  const fetchUserEmail = () => {
-    if (auth.currentUser) {
-      const email = auth.currentUser.email;
-      setUserEmail(email);
-    }
-  };
-  console.log('1', userEmail);
+  // const fetchUserEmail = () => {
+  //   if (auth.currentUser) {
+  //     const email = auth.currentUser.email;
+  //     console.log(email)
+  //     setUserEmail(email);
+  //   }
+  // };
 
-  useEffect(() => {
-    initMercadoPago('TEST-e0166f16-2634-4d27-b335-dd9345dc638f');
-    fetchUserEmail()
-  }, []);
+  // useEffect(() => {
+  //   fetchUserEmail()
+  // }, []);
 
   const handlePaymentClick = async () => {
     const price = donationAmount;
 
     try {
-      const response = await axios.post('http://localhost:3001/pagar', {
+      const response = await axios.post('https://server-xul-solar.vercel.app/donations', {
         description: `Donativos - $${donationAmount}`,
         price: price,
         quantity: 1,
@@ -239,6 +238,8 @@ const Donations = () => {
                 value={donationAmount}
                 onChange={(e) => setDonationAmount(Number(e.target.value))}
               />
+              <label>Email</label>
+              <input className='mt-5 md:mt-8 lg:mt-10 bg-orange-100 border border-gray-500 p-2 rounded shadow-md'placeholder='ejemplo@email.com' type='email' onChange={(e) => setUserEmail(e.target.value)}/>
               <button className='mt-4 md:mt-6 lg:mt-8 rounded mr-2 bg-orange-200 px-3 py-1 text-xl text-gray-200 shadow-xl transition-all duration-300 hover:scale-105'
                 onClick={handlePaymentClick}>
                 <FormattedMessage
@@ -255,4 +256,3 @@ const Donations = () => {
 };
 
 export default Donations;
-

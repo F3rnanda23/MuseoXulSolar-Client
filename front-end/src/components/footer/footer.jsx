@@ -84,22 +84,22 @@ const Footer = () => {
             </div>
 
             <div className="hidden md:block">
-              <a href="/Museum" className="block">
+              <a href="/Museum" className="block hover:font-semibold">
                 <FormattedMessage id='footer.museo' defaultMessage='El Museo' /></a>
 
-              <a href="/Biography" className="block">
+              <a href="/Biography" className="block hover:font-semibold">
                 <FormattedMessage id='footer.biografia' defaultMessage='Biografía' /> </a>
 
-              <a href="/Store" className="block">
-                <FormattedMessage id='footer.tienda' defaultMessage='Tienda' /> </a>
+              <a href="/fundacion" className="block hover:font-semibold">
+                Fundación Pan Klub</a>
 
-              <a href="/Collection" className="block">
+              <a href="/Collection" className="block hover:font-semibold">
                 <FormattedMessage id='footer.coleccion' defaultMessage='Colección' /></a>
 
-              <a href='/Exhibitions' className="block">
+              <a href='/Exhibitions' className="block hover:font-semibold">
                 <FormattedMessage id='footer.exposiciones' defaultMessage='Exposiciones' /></a>
 
-              <a href="/Education" className="block">
+              <a href="/Education" className="block hover:font-semibold">
                 <FormattedMessage id='footer.educacion' defaultMessage='Educación' /></a>
 
             </div>
@@ -127,18 +127,18 @@ const Footer = () => {
                 <FormattedMessage id='footer.donaciones' defaultMessage='Donaciones' /></a>
 
             </div>
-            <div className="hidden md:block">
+            <div className="hidden md:block ">
 
-              <a href="/visits" className="block">
+              <a href="/visits" className="block hover:font-semibold">
                 <FormattedMessage id='footer.horarios' defaultMessage='Horarios y Visitas' /></a>
 
-              <a href="/Activities" className="block">
+              <a href="/Activities" className="block hover:font-semibold">
                 <FormattedMessage id='footer.actividades' defaultMessage='Actividades' /></a>
 
-              <a href="/Events" className="block">
+              <a href="/Events" className="block hover:font-semibold">
                 <FormattedMessage id='footer.eventos' defaultMessage='Eventos' /></a>
 
-              <a href="/Donations" className="block">
+              <a href="/Donations" className="block hover:font-semibold">
                 <FormattedMessage id='footer.donaciones' defaultMessage='Donaciones' /></a>
 
             </div>
@@ -177,7 +177,7 @@ const Footer = () => {
                 <h5>
                   <FormattedMessage id='footer.correo' defaultMessage='Correo' /></h5>
               </div>
-              <h5 className='mb-2 italic'>info@xulsolar.org.ar</h5>
+              <h5 className='mb-2 italic '>info@xulsolar.org.ar</h5>
 
               <div className="flex mt-2">
                 <img className="w-4 h-4 mr-2" aria-hidden="true" src={phoneIcon} alt="Phone Icon" />
@@ -248,11 +248,11 @@ const Footer = () => {
               /></h5>
 
             <div className={`block md:hidden ${showLinks5 ? 'block' : 'hidden'}`}>
-              <a href="/Faqs">FAQ</a>
+              <a href="/Faqs">FAQS</a>
             </div>
 
-            <div className='hidden md:block'>
-              <a href="/Faqs">FAQ</a>
+            <div className='hidden md:block hover:font-semibold'>
+              <a href="/Faqs">FAQS</a>
             </div>
 
             <h5 className="text-orange-200 font-bold mt-5 cursor-pointer"
@@ -276,7 +276,7 @@ const Footer = () => {
             <div className='hidden md:block'>
               <h5 className='mb-2 mr-5'>Laprida 1212, C1425EKF CABA, Argentina</h5>
               <p>
-                <a href="https://goo.gl/maps/PLd1b1vyyPnVHq5W9" target="_blank" rel="noopener noreferrer">
+                <a href="https://goo.gl/maps/PLd1b1vyyPnVHq5W9" target="_blank" rel="noopener noreferrer" className='hover:font-semibold'>
                   <FormattedMessage
                     id='footer.vermapa'
                     defaultMessage='Ver Mapa'

@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { useState } from 'react';
 import Cookies from 'universal-cookie';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import { sendSubsInfo } from '../../redux/actions/actions'
 import { FormattedMessage } from 'react-intl';
 import img_Bg from '../../imagenes/background/bg1.png'
 import { async } from '@firebase/util';
 import { func } from 'prop-types';
+import swal from 'sweetalert';
+import { useNavigate } from 'react-router';
 
 
 export const Subscription = () => {
@@ -15,10 +17,11 @@ export const Subscription = () => {
     const dispatch = useDispatch();
     const [initPoint, setInitPoint] = useState(false);
     const [price, setPrice] = useState('')
+    const navigate = useNavigate();
 
+    const active = useSelector(state => state.active)
 
     const currentDate = new Date();
-    console.log(currentDate);
 
     const cookies = new Cookies();
     const userId = cookies.get('id');
@@ -30,33 +33,34 @@ export const Subscription = () => {
     const createPreference = async (subscripcion, price) => {
 
         try {
-            const response = await axios.post('https://server-xul-solar.vercel.app/pagar', {
-                description: `Membresia anual de $${price}`,
-                price: price,
-                quantity: 1,
-                usuarioId: userId,
-                email: userEmail,
-                name: userName,
-                subscripcion: price,
-                date: currentDate,
-                tipo: subscripcion,
-
-            },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                    }
-                });
-                
-                    const { init_point } = response.data;
-                    window.alert("Lo dirigimos a Mercado Pago?")
-                    setInitPoint(init_point);
-                    window.location.href = init_point;
-                
-            
+            if (!active) {
+                swal("error","Para suscribirte debes Iniciar sesión","error");
+                navigate('/login')
+            } else {
+                const response = await axios.post('https://server-xul-solar.vercel.app/pagar', {
+                    description: `Membresia anual de $${price}`,
+                    price: price,
+                    quantity: 1,
+                    usuarioId: userId,
+                    email: userEmail,
+                    name: userName,
+                    subscripcion: price,
+                    date: currentDate,
+                    tipo: subscripcion,
+                },
+                    {
+                        headers: {
+                            "Content-Type": "application/json",
+                        }
+                    });
+                const { init_point } = response.data;
+                swal("Espera","Redirigiendo a mercado pago", "success")
+                setInitPoint(init_point);
+                window.location.href = init_point;
+            }
         } catch (error) {
-            window.alert("Usuario ya suscripto")
-            // throw new Error(error.message)
+            // window.alert("Usuario ya suscripto")
+            throw new Error(error.message)
         }
     }
 
@@ -73,6 +77,7 @@ export const Subscription = () => {
     const sendSubInfo = () => {
         dispatch(sendSubsInfo(subs))
     }
+
 
 
     return (
