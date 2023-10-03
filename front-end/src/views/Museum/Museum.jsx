@@ -1,6 +1,7 @@
 import elmuseo from "../../imagenes/destacados/elMuseo.jpg";
 
 import imagenbg from "../../imagenes/background/bg1.png";
+//aa
 const Museum = () => {
   const backgroundStyle = {
     backgroundImage: `url(${imagenbg})`,
