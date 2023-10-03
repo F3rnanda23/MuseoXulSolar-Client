@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getActivityDetail, clearActivityDetail } from "../../redux/actions/actions";
 
-// import 'tailwind-scrollbar-hide';
 
 const ActivityDetail = () => {
 
