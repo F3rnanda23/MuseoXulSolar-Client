@@ -92,6 +92,7 @@ export const Subscription = () => {
                 <p className='my-4'>
                     <FormattedMessage
                         id='membresia.texto'
+                        defaultMessage='Obtené una variedad de beneficios que permitirán acceder a una experiencia única dentro del Museo. Desde entradas gratuitas y visitas guiadas exclusivas, hasta descuentos en la tienda, actividades y talleres dentro del museo. Elegí la opción que más te guste a continuación:'
                     />
                 </p>
             </div>
