@@ -6,7 +6,7 @@ const Exhibitions = () => {
     useEffect(() => {
         allExhibitions();
     }, [])
-    console.log(expo);
+
     const allExhibitions = async () => {
         const { data } = await axios.get("http://localhost:3001/exposiciones/");
         setExpo(data);
