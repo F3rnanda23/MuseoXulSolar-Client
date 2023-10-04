@@ -163,7 +163,7 @@ const Destacados = () =>{
                                 </figure>
 
                                 <figure className=" shrink-0  w-3/5 h-[300px]   mr-[20px] transform rotate-[-4deg] shadow-2xl">
-                                    <a href="https://www.xulsolar.org.ar/biografia.html" className="relative group">
+                                    <a href="https://client-xul-solar.vercel.app/Biography" className="relative group">
                                         <img src={biografiaXul} alt="Descripción de la imagen" className=" relative w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
@@ -210,7 +210,7 @@ const Destacados = () =>{
                             <div className=" sm:flex grid-cols-1 sm:w-2/2  xl:w-2/5 xl:h-[500px] mt-[0px] ml-[20px] mr-[30px] xl:flex xl:flex-col xl:divide-y divide-gray justify-end shadow-2xl ">
                                 
                                 <figure className="  shrink-0 sm:w-2/4 md:w-3/6 h-[300px] xl:w-5/6 xl:h-[300px] mt-[0px] mr-[10px]  mb-[10px] transform rotate-[2deg] shadow-2xl">
-                                    <a href="https://www.xulsolar.org.ar/exposiciones.html" className="relative group">
+                                    <a href="https://client-xul-solar.vercel.app/Esposiciones" className="relative group">
                                         <img src={exposiciones} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
@@ -243,7 +243,7 @@ const Destacados = () =>{
                             <div className="w-3/3 h-1/5 sm:mt-[0px]  xl:w-3/5 xl:h-[370px] xl:mt-[-380px] ml-[70px] mr-[15px] flex flex-cols-2 justify-end shadow-2xl ">
                                 
                                 <figure className="shrink-0 w-4/5 h-[300px]  xl:w-3/5 xl:h-[350px] mt-[10px] mr-[8px] transform  rotate-[-5deg] shadow-2xl">
-                                    <a href="https://www.xulsolar.org.ar/educacion.html" className="relative group">
+                                    <a href="https://client-xul-solar.vercel.app/Education" className="relative group">
                                         <img src={educacion} alt="Descripción de la imagen"  className=" w-full h-full   object-cover transition-transform transform group-hover:scale-105" />
                                     <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100 ">
                                     <FormattedMessage
@@ -290,7 +290,7 @@ const Destacados = () =>{
                                 </figure>
 
                                 <figure className=" shrink-0  w-3/5 h-[300px]   mr-[10px] transform rotate-[4deg] shadow-2xl">
-                                    <a href="https://www.xulsolar.org.ar/museo.html" className="relative group">
+                                    <a href="https://client-xul-solar.vercel.app/Museum" className="relative group">
                                         <img src={elMuseo} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
@@ -314,7 +314,7 @@ const Destacados = () =>{
                             <div className="w-3/3 xl:w-4/6 h-[400px] mt-[-40px] ml-[30px] flex flex-cols-2 justify-end shadow-2xl ">
                                 
                                 <figure className="shrink-0  w-3/5 h-[390px] mt-[10px] ml-[40px] mr-[10px]  transform rotate-[-5deg] shadow-2xl">
-                                    <a href="https://www.xulsolar.org.ar/testimonios.html" className="relative group">
+                                    <a href="https://client-xul-solar.vercel.app/testimonios" className="relative group">
                                         <img src={testimonio} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage

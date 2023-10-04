@@ -1,0 +1,137 @@
+.container {
+    background-image: url('../../imagenes/actividades/firmasXulFondo.png');
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerUl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerUl li {
+    /* Quita los puntos decorativos */
+    list-style-type: none;
+}
+
+.containerUl li::before {
+    /* Utiliza un carácter Unicode como marcador */
+    content: "\2022"; /* Código Unicode para el punto */
+    margin-right: 0; /* Ajusta el espaciado entre el marcador y el contenido del li */
+}
+
+.containerDiv {
+    background-color: rgb(50, 50, 50);
+    color: rgb(144, 143, 143);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: bold;
+}
+.text2 {
+    font-size: 20px;
+    background-color: grey;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 14px;
+}
+
+
+@media (max-width: 768px) {
+    .text {
+        font-size: 24px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 16px;
+        height: 40px;
+        padding-top: 10px;
+    }
+}
+
+/* Estilos específicos para pantallas aún más pequeñas (ejemplo: pantallas muy pequeñas) */
+@media (max-width: 480px) {
+    .text {
+        font-size: 20px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .text {
+        font-size: 18px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 12px;
+        height: 20px;
+        padding-top: 6px;
+    }
+}
+
+@media (max-width: 667px) {
+    .container{
+        height: 250vh;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 653px) {
+    .container{
+        height: 350vh;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
