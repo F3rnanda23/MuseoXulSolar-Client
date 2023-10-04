@@ -68,6 +68,7 @@ const reducer = (state = initialState, action) => {
             }
 
         case CREATE_REVIEW:
+            console.log(action.payload);
 
             return {
                 ...state,

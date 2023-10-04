@@ -20,11 +20,6 @@ const CreateComment = () => {
 
     const currentDate = new Date();
 
-    const formatDate = (dateString) => {
-        const date = new Date(dateString);
-        return date.toISOString().split('T')[0];
-    };
-
 
     const handleRatingClick = (rating) => {
        
@@ -39,7 +34,7 @@ const CreateComment = () => {
 
       const [comment, setComment] = useState({
         description: '',
-        date: formatDate(currentDate),
+        date: currentDate,
         rating: '',
         UsuarioId: userId,
         email: userEmail,
@@ -47,11 +42,22 @@ const CreateComment = () => {
     });
 
 
-    const handleSubmit = () => {
-      
-        dispatch(createReview(comment))
-    }
+    // const handleSubmit = () => {
+    //   console.log(comment);
+    //     dispatch(createReview(comment))
 
+    // }
+
+    const handleSubmit = (event) => {
+
+      event.preventDefault()
+      console.log(comment);
+      
+      // Simular un retraso de 1 segundo antes de llamar a la acción
+      
+        dispatch(createReview(comment));
+    // Retraso de 1 segundo (1000 milisegundos)
+    };
 
     return (
         <div className="h-screen w-4/5 flex flex-col items-center">

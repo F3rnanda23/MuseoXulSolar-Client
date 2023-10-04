@@ -1,7 +1,8 @@
-const elMuseo= 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696210268/galeria/y3rmuduygzqat9ej47uj.jpg';
+const elMuseo =
+  "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696210268/galeria/y3rmuduygzqat9ej47uj.jpg";
 
 import imagenbg from "../../imagenes/background/bg1.png";
-//aa
+//aaasad
 const Museum = () => {
   const backgroundStyle = {
     backgroundImage: `url(${imagenbg})`,
@@ -11,13 +12,13 @@ const Museum = () => {
   return (
     <div>
       <div className="flex flex-col" style={backgroundStyle}>
-        <div className=" flex flex-col justify-center items-center">
+        <div className=" flex flex-col justify-center items-center mb-5">
           <div className="rounded-full bg-gray-200 w-[800px] mt-8">
             <h1 className="flex justify-center items-center">El Museo</h1>
           </div>
           <br />
           <div className="bg-gray-100 rounded-md">
-            <div className=" w-[800px] flex flex-row items-center">
+            <div className=" w-[800px] flex flex-row items-center ">
               <p className="text-justify text-right flex-grow mx-4">
                 La Fundación Pan Klub Museo Xul Solar es una institución
                 dedicada a preservar y difundir la obra del artista argentino
@@ -30,17 +31,12 @@ const Museum = () => {
               </p>
               <img
                 src={elMuseo}
-                className="w-60 h-60 ml-4 mt-4"
+                className="w-60 h-60 ml-4 mt-4 mr-4 ml-4"
                 alt="Imagen 1"
               ></img>
             </div>
             <br />
             <div className="w-[800px] flex flex-row items-center">
-              <img
-                src={elMuseo}
-                className="w-60 h-60 mr-4 mt-4"
-                alt="Imagen 2"
-              ></img>
               <p className="text-justify text-left flex-grow mx-4">
                 Se inauguró el 13 de abril de 1993 con las obras seleccionadas
                 por el mismo Xul Solar y que son además, las que componen la
@@ -63,19 +59,9 @@ const Museum = () => {
                 2003, otorgado por la Universidad de Palermo y que contó como
                 jurado al Arq. Oscar Tusquets Blanca.
               </p>
-              <img
-                src={elMuseo}
-                className="w-60 h-60 ml-4 mt-4"
-                alt="Imagen 3"
-              ></img>
             </div>
             <br />
             <div className=" w-[800px] flex flex-row items-center">
-              <img
-                src={elMuseo}
-                className="w-60 h-60 mr-4 mt-4"
-                alt="Imagen 4"
-              ></img>
               <p className="text-justify text-left flex-grow mx-4">
                 En la actualidad, la presidente de la Fundación Pan Klub, Elena
                 Montero Lacasa de Povarché, sigue fortaleciendo el proyecto con
