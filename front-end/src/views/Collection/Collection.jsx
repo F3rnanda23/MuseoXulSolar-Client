@@ -19,7 +19,7 @@ const Collection = () => {
     return (
         <div className="min-h-screen "
             style={{ backgroundImage: `url(${img_Bg})` }}>
-            <h2 className="text-center py-5 font-semibold text-2xl">
+            <h2 className="text-center bg-orange-100 py-5 font-semibold text-2xl">
                 <FormattedMessage
                     id='colleccion.titulo'
                     defaultMessage='Colección Permanente'
