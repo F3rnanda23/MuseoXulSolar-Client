@@ -93,8 +93,8 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios/crear"
-  // const endpoint = 'http://localhost:3001/comentarios/crear'
+  const endpoint = 'https://server-xul-solar-ag97.vercel.app/comments/create'
+  //const endpoint = 'http://localhost:3001/comments/create'
 
   return async function (dispatch) {
     try {
