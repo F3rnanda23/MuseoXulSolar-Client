@@ -1,7 +1,7 @@
-const Sponsorship= () => {
+const Sponsorship = () => {
     return(
         <div>
-    
+    uyiukoi
         </div>
     )
 };
