@@ -47,11 +47,20 @@ const CreateComment = () => {
     });
 
 
-    const handleSubmit = () => {
-      
-        dispatch(createReview(comment))
-    }
+    // const handleSubmit = () => {
+    //   console.log(comment);
+    //     dispatch(createReview(comment))
 
+    // }
+
+    const handleSubmit = () => {
+      console.log(comment);
+      
+      // Simular un retraso de 1 segundo antes de llamar a la acción
+      setTimeout(() => {
+        dispatch(createReview(comment));
+      }, 2000); // Retraso de 1 segundo (1000 milisegundos)
+    };
 
     return (
         <div className="h-screen w-4/5 flex flex-col items-center">

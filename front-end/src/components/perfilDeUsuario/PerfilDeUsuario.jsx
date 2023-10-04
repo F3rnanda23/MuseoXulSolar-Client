@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import Cookies from "universal-cookie";
 import axios from 'axios';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import style from "./PerfilDeUsuario.module.css"
 
 function PerfilDeUsuario() {
 
+    const navigate = useNavigate();
     const [usuario, setUsuario] = useState({
         name: "",
         image: "",
@@ -41,10 +42,22 @@ function PerfilDeUsuario() {
         })
     };
 
+    // const formatDate = (dateString) => {
+    //     const date = new Date(dateString);
+    //     return date.toISOString().split('T')[0];
+    // };
+
     const formatDate = (dateString) => {
+        if (!dateString) return 'No registra Fecha de Nacimiento';
+      
         const date = new Date(dateString);
+        if (isNaN(date.getTime())) {
+          return 'Fecha de Nacimiento Inválida';
+        }
+      
         return date.toISOString().split('T')[0];
-    };
+      };
+      
 
     const showSubs = (subsTipo) => {
         let nombreSuscripcion = '';
@@ -60,10 +73,14 @@ function PerfilDeUsuario() {
         return nombreSuscripcion;
     };
 
+    const handleCommit = () => {
+        navigate('/Comments')
+    }
+
 
     return (
         <div className={style.container2}>
-            
+           
             <div className={style.container}>
                 <div className={style.card}>
                     <br />
@@ -71,13 +88,15 @@ function PerfilDeUsuario() {
                         <h1>Tu perfil</h1>
                     </div>
                     <br />
+                    <button className={style.button} onClick={handleCommit}>Dejá tu comentario</button>
+                    <br />
                     <img src={usuario.image} alt="imagen del usuario" className={style.imagen} />
                     <br />
                     <p>Nombre: {usuario.name}</p>
                     <br />
                     <p>Teléfono: {usuario.phone}</p>
                     <br />
-                    <p>Fecha de nacimiento: {usuario.birthday}</p>
+                    <p>Fecha de nacimiento: {usuario.birthday !== null ? formatDate(usuario.birthday) : 'No registra Fecha de Nacimiento'} </p>
                     <br />
                     <h2>Suscripciones:</h2>
                     <br />

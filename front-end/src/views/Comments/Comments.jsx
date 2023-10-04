@@ -8,6 +8,7 @@ const Comments = () => {
 
     const payloadReducer = useSelector(state => state.Comments)
     console.log(payloadReducer);
+    
     const backgroundStyle = {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
