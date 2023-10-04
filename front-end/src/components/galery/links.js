@@ -52,9 +52,9 @@ const images = [
     year: 1962
   },
   {
-    img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746260/gl/274_mudq8j.jpg",
-    name: 'Yu Pardone...',
-    year: 1962
+    img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696396292/gl/10-09-Otros_troncos-t_zg0scf.jpg",
+    name: 'Otros Troncos',
+    year: 1919
   },
   {
     img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746259/gl/273_cdyts8.jpg",
@@ -66,11 +66,7 @@ const images = [
     name: 'Lu Diablo sabe piu viejo, ke por Diablo ',
     year: 1962
   },
-  {
-    img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746256/gl/271_wnhneu.jpg",
-    name: 'Mi pray per to min guardianjo',
-    year: 1962
-  },
+
   {
     img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746255/gl/270_ex7aqa.jpg",
     name: 'Hia tiu pre ver',
