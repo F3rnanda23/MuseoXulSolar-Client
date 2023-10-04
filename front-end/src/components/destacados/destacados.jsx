@@ -210,7 +210,7 @@ const Destacados = () =>{
                             <div className=" sm:flex grid-cols-1 sm:w-2/2  xl:w-2/5 xl:h-[500px] mt-[0px] ml-[20px] mr-[30px] xl:flex xl:flex-col xl:divide-y divide-gray justify-end shadow-2xl ">
                                 
                                 <figure className="  shrink-0 sm:w-2/4 md:w-3/6 h-[300px] xl:w-5/6 xl:h-[300px] mt-[0px] mr-[10px]  mb-[10px] transform rotate-[2deg] shadow-2xl">
-                                    <a href="https://www.xulsolar.org.ar/exposiciones.html" className="relative group">
+                                    <a href="https://client-xul-solar.vercel.app/Esposiciones" className="relative group">
                                         <img src={exposiciones} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage

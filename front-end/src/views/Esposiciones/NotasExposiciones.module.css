@@ -1,0 +1,173 @@
+.container {
+    /* background-image: url('../../imagenes/actividades/firmasXulFondo.png'); */
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.containerDiv {
+    background-color: rgb(50, 50, 50);
+    color: rgb(144, 143, 143);
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+}
+.containerTexto{
+    display: flex;
+    padding-left: 12px;
+}
+.containerAll{
+    background-image: url('../../imagenes/actividades/firmasXulFondo.png');
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.text {
+    font-size: 30px;
+    font-weight: bold;
+}
+.text2 {
+    font-size: 20px;
+    padding-left: 12px;
+}
+
+
+@media (max-width: 768px) {
+    .containerAll{
+        height: auto;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 16px;
+        height: 40px;
+        padding-top: 10px;
+    }
+}
+
+/* Estilos específicos para pantallas aún más pequeñas (ejemplo: pantallas muy pequeñas) */
+@media (max-width: 480px) {
+    .containerAll{
+        height: 350vh;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
+
+@media (max-width: 320px) {
+    .containerAll{
+        height: 350vh;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 12px;
+        height: 20px;
+        padding-top: 6px;
+    }
+}
+
+@media (max-width: 667px) {
+    .containerAll{
+        height: 500vh;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 653px) {
+    .containerAll{
+        height: 350vh;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 914px) {
+    .containerAll{
+        height: 450vh;
+    }
+    .text {
+        font-size: 20px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 14px;
+        height: 30px;
+        padding-top: 8px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .containerAll{
+        height: 2000px;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 16px;
+        height: 40px;
+        padding-top: 10px;
+    }
+}
+
+@media (max-width: 740px) {
+    .containerAll{
+        height: 600vh;
+    }
+    .containerDiv {
+        margin-bottom: 10px;
+    }
+
+    .text2 {
+        font-size: 16px;
+        height: 40px;
+        padding-top: 10px;
+    }
+}
+

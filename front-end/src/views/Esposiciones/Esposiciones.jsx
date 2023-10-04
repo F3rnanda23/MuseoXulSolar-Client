@@ -1,11 +1,13 @@
-import React from 'react'
+import React from 'react';
+import style from "./Esposiciones.module.css";
+import { Link } from 'react-router-dom';
 
 function Esposiciones() {
     const imgagen = "https://www.xulsolar.org.ar/img/expos/expo02.jpg"
     return (
-        <div>
-            <div>
-                <h1>Museo Xul Solar: 25 años de su inauguración</h1>
+        <div className={style.container}>
+            <div className={style.containerDiv}>
+                <h1 className={style.text}>Museo Xul Solar: 25 años de su inauguración</h1>
                 <br />
                 <p>
                     “Soy campeón del mundo de un panjuego que todavía nadie conoce: el panajedrez. Soy maestro de una escritura que nadie lee todavía. Soy creador de una nueva técnica musical, de una grafía musical que permitirá que el estudio del piano, por ejemplo, sea posible en la tercera parte del tiempo que hoy lleva estudiarlo. Soy creador de una lengua universal la panlingua sobre base numérica y astrológica, que tanto contribuiría a que los pueblos se conociesen mejor unos a otros. Soy creador del neocriollo, lengua que reclama el mundo de Latinoamérica. Soy el director de un teatro que todavía no funciona...”
@@ -29,6 +31,7 @@ function Esposiciones() {
                     Nuevo Guión de la Colección del Museo Xul Solar  Fundación Pan Klub
                     Texto Curatorial: Cecilia Rabossi
                 </p>
+                <Link to="/notasExposiciones" className={style.Link}><h4>Ver nota...</h4></Link>
             </div>
         </div>
     )
