@@ -28,7 +28,7 @@ const imagen11= 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1695606546/g
 const firmasXul4= 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696362028/galeria/firmasXul4_b9nkyy.png';
 import { FormattedMessage } from 'react-intl';
 
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 
@@ -36,6 +36,7 @@ import { useNavigate } from 'react-router-dom';
 const Destacados = () =>{
 
     const navigate = useNavigate();
+    
     return(
 
         <div className=" w-full s:h-[3500px]  xl:h-[1700px]  " >
@@ -74,7 +75,6 @@ const Destacados = () =>{
                                 </figure>
 
                                 <figure className=" shrink-0  w-3/5 h-[300px]   mr-[10px] transform rotate-[-4deg] shadow-2xl">
-                                    
                                     <a href="https://www.xulsolar.org.ar/bibliografia.html" className="relative group">
                                         <img src={bibliografiaXul} alt="Descripción de la imagen" className="  w-full h-full   object-cover transition-transform transform group-hover:scale-105   " />
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
@@ -83,7 +83,6 @@ const Destacados = () =>{
                                             defaultMessage='BIBLIOGRAFÍA'/>
                                             </p>
                                     </a>
-                                    
                                 </figure>
                             </div>
 
@@ -101,9 +100,8 @@ const Destacados = () =>{
                             <div className="  sm:mt-[0px] xl:w-3/4 h-[370px] mt-[-50px] ml-[40px] flex flex-cols-2 justify-end shadow-2xl  ">
                                 
                                 <figure className="shrink-0  w-4/6 h-[360px] mt-[10px] mr-[8px] rotate-[-5deg] shadow-2xl">
-                                   
-                                <div onClick={() => navigate('/Collection')}>
-                                    <a href="" className="relative group">
+                                    <Link to={'/Collection'}>
+                                    <a href='' className="relative group">
                                             <img src={coleccionPermanente} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
@@ -111,7 +109,8 @@ const Destacados = () =>{
                                             defaultMessage='COLECCIÓN PERMANENTE'/>
                                             </p>
                                     </a>
-                                    </div>
+                                    
+                                    </Link>
                                 </figure>
 
                                 <figure className=" shrink-0  w-2/6 h-[350px] mt-[-8px] transform rotate-[-5deg] bg-gray-300 shadow-2xl">
@@ -148,11 +147,10 @@ const Destacados = () =>{
                     <div className="  w-2/3  w-full xl:h-[600px]">
 
 
-                        <div className="sm:flex sm:grid-cols-1  xl:flex grid-cols-2 gap-0 ">
+                        <div className="sm:flex grid-cols-1  xl:flex grid-cols-2 gap-0 ">
                 
                             <div className="sm:w-1/2 sm:h-2/2  xl:w-2/5 h-[400px] mt-[0px] ml-[30px] mr-[30px] flex flex-col divide-y divide-gray justify-end shadow-2xl ">
                                 <figure className="shrink-0  w-5/5 h-[230px] mt-[0px] mr-[20px] mb-[10px] shadow-2xl">
-                                
                                     <a href="https://www.xulsolar.org.ar/catalogo.html" className="relative group">
                                         <img src={catalogoRazonado} alt="Descripción de la imagen"  className="w-full h-full  transform rotate-[2deg] object-cover transition-transform transform group-hover:scale-105" />
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
@@ -173,23 +171,22 @@ const Destacados = () =>{
                                 </figure>
 
                                 <figure className=" shrink-0  w-3/5 h-[300px]   mr-[20px] transform rotate-[-4deg] shadow-2xl">
-                                <div onClick={() => navigate('/Collection')}>
-                                    <a href="" className="relative group">
+                                <Link to={'/Biography'}>
+                                    <a href="https://client-xul-solar.vercel.app/Biography" className="relative group">
                                         <img src={biografiaXul} alt="Descripción de la imagen" className=" relative w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
                                             id='destac.biografiaxul'
                                             defaultMessage='BIOGRAFÍA XUL SOLAR'/></p>
                                     </a>
-                                    </div>
+                                 </Link>
                                 </figure>
-
                             </div>
 
                             
                         </div>
 
-                        <div className="sm:flex  sm:grid-cols-1  xl:flex grid-cols-2   mt-[-50px]">
+                        <div className="sm:flex  grid-cols-1  xl:flex grid-cols-2   mt-[-50px]">
 
                             <div className="w-1/4  h-[110px]   bg-gray-200 mt-[80px] ml-[50px] mr-[20px] shadow-2xl">
                                 <figure className="shrink-0  w-full h-full   ">
@@ -223,15 +220,15 @@ const Destacados = () =>{
                             <div className=" sm:flex grid-cols-1 sm:w-2/2  xl:w-2/5 xl:h-[500px] mt-[0px] ml-[20px] mr-[30px] xl:flex xl:flex-col xl:divide-y divide-gray justify-end shadow-2xl ">
                                 
                                 <figure className="  shrink-0 sm:w-2/4 md:w-3/6 h-[300px] xl:w-5/6 xl:h-[300px] mt-[0px] mr-[10px]  mb-[10px] transform rotate-[2deg] shadow-2xl">
-                                <div onClick={() => navigate('/esposiciones')}>
-                                    <a href="" className="relative group">
+                                <Link to={'/Esposiciones'}>
+                                    <a href="https://client-xul-solar.vercel.app/Esposiciones" className="relative group">
                                         <img src={exposiciones} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
                                             id='destac.exposiciones'
                                             defaultMessage='EXPOSICIONES'/></p>
                                     </a>
-                                    </div>
+                                    </Link>
                                 </figure>
 
                                 <figure className="shrink-0 sm:w-2/5 md:w-2/5 xl:w-5/6 xl:h-[150px] mt-[0px] ml-[2px]  bg-gray-300  transform rotate-[2deg] shadow-2xl">
@@ -258,15 +255,15 @@ const Destacados = () =>{
                             <div className="w-3/3 h-1/5 sm:mt-[0px]  xl:w-3/5 xl:h-[370px] xl:mt-[-380px] ml-[70px] mr-[15px] flex flex-cols-2 justify-end shadow-2xl ">
                                 
                                 <figure className="shrink-0 w-4/5 h-[300px]  xl:w-3/5 xl:h-[350px] mt-[10px] mr-[8px] transform  rotate-[-5deg] shadow-2xl">
-                                <div onClick={() => navigate('/Education')}>
-                                    <a href="" className="relative group">
+                                <Link to={'/Education'}>
+                                    <a href="https://client-xul-solar.vercel.app/Education" className="relative group">
                                         <img src={educacion} alt="Descripción de la imagen"  className=" w-full h-full   object-cover transition-transform transform group-hover:scale-105" />
                                     <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100 ">
                                     <FormattedMessage
                                             id='destac.educacion'
                                             defaultMessage='EDUCACIÓN'/></p>
                                     </a>
-                                    </div>
+                                    </Link>
                                 </figure>
 
                                 <figure className=" shrink-0  w-2/6 h-[350px] mt-[-8px]  rotate-[-5deg] bg-gray-200 shadow-2xl">
@@ -307,15 +304,16 @@ const Destacados = () =>{
                                 </figure>
 
                                 <figure className=" shrink-0  w-3/5 h-[300px]   mr-[10px] transform rotate-[4deg] shadow-2xl">
-                                <div onClick={() => navigate('/Museum')}>
-                                    <a href="" className="relative group">
+                                   <Link to={'/Museum'}>
+                                   
+                                    <a href="https://client-xul-solar.vercel.app/Museum" className="relative group">
                                         <img src={elMuseo} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
                                             id='destac.elmuseo'
                                             defaultMessage='EL MUSEO'/></p>
                                     </a>
-                                    </div>
+                                   </Link>
                                 </figure>
                             </div>
 
@@ -333,15 +331,16 @@ const Destacados = () =>{
                             <div className="w-3/3 xl:w-4/6 h-[400px] mt-[-40px] ml-[30px] flex flex-cols-2 justify-end shadow-2xl ">
                                 
                                 <figure className="shrink-0  w-3/5 h-[390px] mt-[10px] ml-[40px] mr-[10px]  transform rotate-[-5deg] shadow-2xl">
-                                <div onClick={() => navigate('/testimonios')}>
-                                    <a href="" className="relative group">
+                                   
+                                <Link to={'/Testimonios'}>
+                                    <a href="https://client-xul-solar.vercel.app/testimonios" className="relative group">
                                         <img src={testimonio} alt="Descripción de la imagen"   className="w-full h-full  object-cover transition-transform transform group-hover:scale-105"/>
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
                                         <FormattedMessage
                                             id='destac.testimonio'
                                             defaultMessage='TESTIMONIO'/></p>
                                     </a> 
-                                    </div>
+                                    </Link>
                                 </figure>
 
                                 <figure className=" shrink-0  w-2/6 h-[350px] mt-[-8px] mr-[35px] transform rotate-[-5deg] bg-gray-300 shadow-2xl">
