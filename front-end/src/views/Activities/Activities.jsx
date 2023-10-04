@@ -178,7 +178,7 @@ const Activities = () => {
                             </div>
                             ))
                         ) : (
-                            <p>{msjInfoActividades}</p>
+                            <p className="text-orange-500 text-xl font-bold ml-[30px] ">{msjInfoActividades}</p>
                         )}
 
                            

@@ -31,10 +31,10 @@ const reserveTable = ()=>{
  
     return(
         <Card className={style.containerTable}>
-            <Title  className='flex text-2xl font-bold text-gray-500  ml-[20px] md:justify-center md:items-center' >Reserva de actividades</Title>
+            <Title  className='flex text-2xl font-bold text-gray-500  ml-[20px] md:justify-center md:items-center md:text-2xl' >Reserva de actividades</Title>
            
             {activities.length === 0 ? (
-                <p>No hay actividades reservadas</p>
+                <p className="text-orange-500 text-xl font-bold ml-[30px] ">No hay actividades reservadas</p>
             ) : (
                 <Table>
                     <TableHead>
