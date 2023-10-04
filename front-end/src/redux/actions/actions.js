@@ -116,7 +116,7 @@ export const createReview = (comment) => {
 
 
 export const getAllComments = () => {
-  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios"
+  const endpoint = "https://server-xul-solar-ag97.vercel.app/comments"
   
   return async function (dispatch) {
     try {
