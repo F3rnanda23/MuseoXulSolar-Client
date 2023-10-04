@@ -29,7 +29,9 @@ import AdminDash from './views/AdminDash/AdminDash';
 import ModificarPerfil from './components/perfilDeUsuario/ModificarPerfil';
 import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario';
 import ErrorPage from './views/ErrorPage/ErrorPage';
-
+import Testimonios from './views/Testimonio/Testimonios';
+import Esposiciones from './views/Esposiciones/Esposiciones';
+import NotasExposiciones from './views/Esposiciones/NotasExposiciones';
 
 
 import './App.css'
@@ -86,6 +88,9 @@ function App() {
         <Route path="/Admin" element={adminTrue ? <AdminDash /> : <Home />} />
         <Route path="/modificarPerfil" element={<ModificarPerfil />} />
         <Route path="/perfilActividades" element={<ActividadesUsuario />} />
+        <Route path="/testimonios" element={<Testimonios />} />
+        <Route path="/esposiciones" element={<Esposiciones />} />
+        <Route path="/notasExposiciones" element={<NotasExposiciones />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

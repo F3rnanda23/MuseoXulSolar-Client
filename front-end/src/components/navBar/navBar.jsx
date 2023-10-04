@@ -138,7 +138,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                 <div className='cursor-pointer w-[90px]  flex flex-shrink-0' onClick={handleLogoClick}>
                     <img src={museoLogo} alt="Logo del museo" />
                 </div>
-                <div className='z-20 sm:w-1/2  md:mt-9 md:absolute hidden sm:block '>
+                <div className=' sm:w-1/2  md:mt-9 md:absolute hidden sm:block '>
                     <img src={museoLetras} className='' />
                 </div>
 

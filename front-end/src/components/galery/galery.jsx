@@ -41,10 +41,10 @@ const Gallery = () => {
           id="slider"
           className="w-full h-full overflow-x-scroll scroll whitespace-nowrap scroll-smooth scrollbar-hide"
         >
-          {images.map((image) => (
+          {images.map((image, index) => (
             <img
               className="w-auto sm:w-[220px] max-h-72 mt-6 inline-block p-2 cursor-pointer hover:scale-105 ease-in-out duration-300"
-              key={image.name}
+              key={index}
               src={image.img}
               alt={image.name}
               onClick={() => handleImageClick(image)}
