@@ -1,8 +1,20 @@
+import { useState } from 'react';
+
 import { FormattedMessage } from 'react-intl';
 import img_Bg from '../../imagenes/background/bg1.png'
 import images from '../../components/galery/links'
 
 const Collection = () => {
+
+    const [selectedImage, setSelectedImage] = useState(null);
+
+    function handleImageClick(image) {
+        setSelectedImage(image);
+      }
+    
+      function handleCloseClick() {
+        setSelectedImage(null);
+      }
 
     return (
         <div className="min-h-screen "
@@ -135,7 +147,24 @@ const Collection = () => {
                     </div>
                 </div>
             </div>
+            {selectedImage && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+          <div className="max-w-3xl p-4 bg-gray-500 rounded-lg shadow-lg">
+            <img
+              src={selectedImage.img}
+              alt={selectedImage.name}
+              className="w-full  max-h-[400px]"
 
+            />
+            <button
+              className="mt-4 p-2 bg-orange-200 text-gray-100 rounded hover:bg-gray-100 hover:text-orange-200"
+              onClick={handleCloseClick}
+            >
+              Cerrar
+            </button>
+          </div>
+        </div>
+      )}
         </div>
     )
 };
