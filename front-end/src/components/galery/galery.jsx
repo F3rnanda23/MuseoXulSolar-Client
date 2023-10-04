@@ -69,7 +69,7 @@ const Gallery = () => {
             <img
               src={selectedImage.img}
               alt={selectedImage.name}
-              className="w-full  max-h-[600px]"
+              className="w-full  max-h-[400px]"
 
             />
             <button

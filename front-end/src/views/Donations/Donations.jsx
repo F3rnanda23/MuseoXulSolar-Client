@@ -164,7 +164,7 @@ const Donations = () => {
     const price = donationAmount;
 
     try {
-      const response = await axios.post('https://server-xul-solar.vercel.app/donations', {
+      const response = await axios.post('https://server-xul-solar-ag97.vercel.app/donations', {
         description: `Donativos - $${donationAmount}`,
         price: price,
         quantity: 1,

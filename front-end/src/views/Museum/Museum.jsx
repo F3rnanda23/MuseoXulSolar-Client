@@ -1,4 +1,4 @@
-import elmuseo from "../../imagenes/destacados/elMuseo.jpg";
+const elMuseo= 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696210268/galeria/y3rmuduygzqat9ej47uj.jpg';
 
 import imagenbg from "../../imagenes/background/bg1.png";
 //aa
@@ -29,7 +29,7 @@ const Museum = () => {
                 había concebido el Pan Klub a fines de los años 1930.
               </p>
               <img
-                src={elmuseo}
+                src={elMuseo}
                 className="w-60 h-60 ml-4 mt-4"
                 alt="Imagen 1"
               ></img>
@@ -37,7 +37,7 @@ const Museum = () => {
             <br />
             <div className="w-[800px] flex flex-row items-center">
               <img
-                src={elmuseo}
+                src={elMuseo}
                 className="w-60 h-60 mr-4 mt-4"
                 alt="Imagen 2"
               ></img>
@@ -64,7 +64,7 @@ const Museum = () => {
                 jurado al Arq. Oscar Tusquets Blanca.
               </p>
               <img
-                src={elmuseo}
+                src={elMuseo}
                 className="w-60 h-60 ml-4 mt-4"
                 alt="Imagen 3"
               ></img>
@@ -72,7 +72,7 @@ const Museum = () => {
             <br />
             <div className=" w-[800px] flex flex-row items-center">
               <img
-                src={elmuseo}
+                src={elMuseo}
                 className="w-60 h-60 mr-4 mt-4"
                 alt="Imagen 4"
               ></img>

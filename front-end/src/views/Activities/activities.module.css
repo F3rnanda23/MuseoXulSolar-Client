@@ -1,20 +1,17 @@
 body, html {
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
 }
 
-.activitiesContainer {
+.activitiesContainer{
     background-image: url('../../imagenes//actividades//firmasXulFondo.png');
     background-attachment: fixed;
     background-size: cover;
     min-height: 100vh;
- 
+    margin: 0; 
+    padding: 0;
 }
-
-
-
-
 
 
 

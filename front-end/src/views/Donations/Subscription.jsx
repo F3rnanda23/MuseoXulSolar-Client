@@ -37,7 +37,7 @@ export const Subscription = () => {
                 swal("error","Para suscribirte debes Iniciar sesión","error");
                 navigate('/login')
             } else {
-                const response = await axios.post('https://server-xul-solar.vercel.app/pagar', {
+                const response = await axios.post('https://server-xul-solar-ag97.vercel.app/pagar', {
                     description: `Membresia anual de $${price}`,
                     price: price,
                     quantity: 1,
