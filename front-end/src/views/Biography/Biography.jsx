@@ -9,7 +9,7 @@ const Biography = () => {
   return (
     <div className="flex justify-center items-center  min-h-screen " style={backgroundStyle}>
       <main >
-        <div className="bg-gray-100 w-[700px] rounded-xl flex flex-col items-center">
+        <div className="bg-gray-100 w-[700px] rounded-xl mt-5 mb-5 flex flex-col items-center">
           <h1 className="rounded  text-2xl font-bold mb-4 ">Biografía</h1>
           <div className="flex justify-center">
             <img

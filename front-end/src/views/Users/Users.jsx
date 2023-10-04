@@ -70,7 +70,9 @@ const Users = () => {
     const backgroundStyle = {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        padding: 0,
+        height: '100vh',
       };
     
 
