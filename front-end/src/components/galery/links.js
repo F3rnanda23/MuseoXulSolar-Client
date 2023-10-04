@@ -8,7 +8,8 @@ const images = [
   },
   {
     img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694729205/gl/456_ryhgfy.jpg",
-    name: 'pic2',
+    name: 'Puerta del Este',
+    year: 1935
   },
   {
     img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694735248/gl/455_mfkuov.jpg",
@@ -207,7 +208,7 @@ const images = [
   },
   {
     img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746225/gl/189_itj4r4.jpg",
-    name: 'Zodíaco',
+    name: 'Zodíaco(2)',
     year: 1953
   },
   {

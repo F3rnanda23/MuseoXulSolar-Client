@@ -1,5 +1,6 @@
 import { FormattedMessage } from 'react-intl';
 import img_Bg from '../../imagenes/background/bg1.png'
+// import {images} from '../../components/galery/links'
 
 const Collection = () => {
 
@@ -16,7 +17,9 @@ const Collection = () => {
                 <div className="flex flex-col">
                     <h3>Obras de 1910 a 1919</h3>
                     <div className="grid grid-cols-3">
-
+                        {/* {images.map( obras =>{
+                            
+                        })} */}
                     </div>
                 </div>
                 <div className="flex flex-col">
