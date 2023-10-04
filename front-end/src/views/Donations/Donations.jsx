@@ -238,8 +238,11 @@ const Donations = () => {
                 value={donationAmount}
                 onChange={(e) => setDonationAmount(Number(e.target.value))}
               />
-              <label>Email</label>
-              <input className='mt-5 md:mt-8 lg:mt-10 bg-orange-100 border border-gray-500 p-2 rounded shadow-md'placeholder='ejemplo@email.com' type='email' onChange={(e) => setUserEmail(e.target.value)}/>
+              <div className='mt-6 flex flex-col'>
+              <label className='font-semibold'>Email a donde llegará tu comprobante</label>
+              <input className='mt-2 bg-orange-100 border border-gray-500 p-2 rounded shadow-md'placeholder='ejemplo@email.com' type='email' onChange={(e) => setUserEmail(e.target.value)}/>
+              </div>
+             
               <button className='mt-4 md:mt-6 lg:mt-8 rounded mr-2 bg-orange-200 px-3 py-1 text-xl text-gray-200 shadow-xl transition-all duration-300 hover:scale-105'
                 onClick={handlePaymentClick}>
                 <FormattedMessage
