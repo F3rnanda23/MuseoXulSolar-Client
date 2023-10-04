@@ -162,7 +162,7 @@ export function LoginForm() {
     }, [])
 
     return (
-        <div className="rounded p-8 py-2 bg-gray-600 ">
+        <div className="rounded p-8 py-2 bg-gray-600 max-h-[600px]">
             <h2 className="mt-5 text-center text-2xl font-semibold text-white">
                 <FormattedMessage
                     id='login.titulo'
