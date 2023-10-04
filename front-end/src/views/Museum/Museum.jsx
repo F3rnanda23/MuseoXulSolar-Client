@@ -2,7 +2,7 @@ const elMuseo =
   "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696210268/galeria/y3rmuduygzqat9ej47uj.jpg";
 
 import imagenbg from "../../imagenes/background/bg1.png";
-//aa
+//aaasad
 const Museum = () => {
   const backgroundStyle = {
     backgroundImage: `url(${imagenbg})`,
