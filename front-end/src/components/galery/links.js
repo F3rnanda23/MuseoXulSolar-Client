@@ -52,7 +52,7 @@ const images = [
     year: 1962
   },
   {
-    img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696396292/gl/10-09-Otros_troncos-t_zg0scf.jpg",
+    img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696396993/gl/y_bvzyvl.jpg",
     name: 'Otros Troncos',
     year: 1919
   },
