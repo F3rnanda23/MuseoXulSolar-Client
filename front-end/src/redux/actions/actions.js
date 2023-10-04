@@ -94,15 +94,13 @@ export const filtrarActividades = (activities) => {
 
 
 export const createReview = (comment) => {
-
-  // const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios/crear";
-  const endpoint = 'http://localhost:3001/comments/create'
+console.log(comment);
+  const endpoint = "https://server-xul-solar-ag97.vercel.app/comments/create";
 
   return async function (dispatch) {
     try {
     
       const { data } = await axios.post(endpoint, comment);
-      console.log('action data', data);
 
       return dispatch({
         type: CREATE_REVIEW,
@@ -116,7 +114,7 @@ export const createReview = (comment) => {
 
 
 export const getAllComments = () => {
-  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios"
+  const endpoint = "https://server-xul-solar-ag97.vercel.app/comments"
   
   return async function (dispatch) {
     try {
