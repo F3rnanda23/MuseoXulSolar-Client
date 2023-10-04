@@ -93,8 +93,8 @@ export const filtrarActividades = (activities) => {
 };
 
 export const createReview = (comment) => {
-  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios/crear"
-  // const endpoint = 'http://localhost:3001/comentarios/crear'
+  // const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios/crear"
+  const endpoint = 'http://localhost:3001/comentarios/crear'
 
   return async function (dispatch) {
     try {
@@ -111,7 +111,7 @@ export const createReview = (comment) => {
 };
 
 export const getAllComments = () => {
-  const endpoint = "https://server-xul-solar-ag97.vercel.app/comentarios"
+  const endpoint = "https://server-xul-solar-ag97.vercel.app/comments"
   
   return async function (dispatch) {
     try {
