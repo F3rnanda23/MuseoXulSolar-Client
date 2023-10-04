@@ -19,7 +19,7 @@ const Biography = () => {
           <div className="flex justify-center">
             <img
               src="https://www.cultura.gob.ar/media/uploads/xulmalba.jpg"
-              className="rounded-md w-60 h-60"
+              className="rounded-md w-2/4 h-4/4"
             ></img>
           </div>
           <br />
