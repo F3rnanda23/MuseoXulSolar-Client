@@ -142,7 +142,7 @@
     "fundacion.texto2": "Currently, the Pan Klub Foundation continues to strengthen the project of establishing and continuing the thinking of Xul Solar: wanting this world to be better to establish a society in harmony.",
     "arquitectura.titulo": "The Museum - Architecture",
     "arquitectura.texto1": "The museum was inaugurated on May 13, 1993, 30 years after the death of Xul Solar, with the works selected by him himself and which are, in addition, those that make up the permanent exhibition of the collection; along with objects, sculptures and documents that belong to his personal archive.",
-    "arquitectura.texto2": "This same space preserves his personal home with the library of approximately 3,500 volumes; and functions as a cultural center where various events and temporary exhibitions dedicated to disseminating his work are held.",
+    "arquitectura.texto2": " This same space preserves his personal home with the library of approximately 3,500 volumes; and functions as a cultural center where various events and temporary exhibitions dedicated to disseminating his work are held.",
     "arquitectura.texto3": "Likewise, the Foundation preserves the house that the artist bought in Tigre in 1954; which he called “Li-Tao”, a conjunction between the nickname of his partner, Lita, and the Chinese word Tao. There he designed the environments, manufactured the furniture, designed the exterior spaces, creating, around his house, a forest of Taxodium, Plum trees and Cassowaries.",
     "archivo.titulo": "Archive",
     "archivo.texto1": "The Pan Klub Foundation (FPK) - Xul Solar Museum was created in 1987 with the objective of preserving, studying and promoting knowledge of the work of the Argentine artist Alejandro Xul Solar (Oscar Agustín Alejandro Schulz Solari, 1887-1963).",
@@ -166,5 +166,7 @@
     "educacion.material": "Material For Initial Education",
     "educacion.tag": "Would you like to support the museum?",
     "educacion.tagtext": "The Archive requires effort and your contribution is very important to continue maintaining it.",
-    "educacion.tagdona": "Make a donation"
+    "educacion.tagdona": "Make a donation",
+    "colleccion.titulo": "The Collection"
+    
 } 
