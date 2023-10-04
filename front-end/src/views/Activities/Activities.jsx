@@ -140,10 +140,10 @@ const Activities = () => {
 
                         <div className=" grid grid-cols-1 gap-2  w-full h-4/4 mb-[30px]">
 
-                            {activities && activities.map(activity => (
-
-                                <div key={activity.name} className="relative flex flex-col w-4/6 sm:flex-row sm:w-full sm:w-6/6 mt-5 ml-5 gap-2 rounded-lg shadow-2xl bg-transparent mb-[30px]">
-                                    <img src={activity.image} className=" w-2/3 mt-[20px] ml-[5px] sm:w-2/5 sm:h-4/5 rounded-full sm:ml-10 sm:mt-auto mb-auto object-cover transition-all duration-300 group-hover:opacity-90" />
+                        {activities && activities.length > 0 ? (
+                            activities.map(activity => (
+                            <div key={activity.name} className="relative flex flex-col w-4/6 sm:flex-row sm:w-full sm:w-6/6 mt-5 ml-5 gap-2 rounded-lg shadow-2xl bg-transparent mb-[30px]">
+                               <img src={activity.image} className=" w-2/3 mt-[20px] ml-[5px] sm:w-2/5 sm:h-4/5 rounded-full sm:ml-10 sm:mt-auto mb-auto object-cover transition-all duration-300 group-hover:opacity-90" />
                                     <div className="flex flex-col items-center justify-center gap-4 p-4 w-full sm:w-3/5 ml-0 sm:ml-10 mt-auto mb-auto">
                                         <h2 className="text-2xl font-semibold w-full xl:text-3xl">{activity.name}</h2>
                                         <h2 className='font-semibold w-full xl:text-2xl'>{formatDate(activity.date)}</h2>
@@ -174,9 +174,13 @@ const Activities = () => {
                                         </div>
 
                                     </div>
-                                </div>
+                            </div>
+                            ))
+                        ) : (
+                            <p>No hay actividades registradas</p>
+                        )}
 
-                            ))}
+                           
                         </div>
 
                     </div>
