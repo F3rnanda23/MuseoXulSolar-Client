@@ -24,6 +24,7 @@ const Activities = () => {
     const navigate = useNavigate();
     const [value, onChange] = useState(new Date());
     const ValuePiece = Date | null;
+    const [msjInfoActividades, setMsjInfoActividadesonChange] = useState("No hay actividades registradas");
 
     const Value = ValuePiece | [ValuePiece, ValuePiece];
 
@@ -108,7 +109,7 @@ const Activities = () => {
             return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
 
         });
-
+        setMsjInfoActividadesonChange("No hay actividades registradas para este día " + diaFecha2 + "/" + mesFecha2 + "/" + añoFecha2);
         dispatch(filtrarActividades(activitiesFilter));
 
     };
@@ -177,7 +178,7 @@ const Activities = () => {
                             </div>
                             ))
                         ) : (
-                            <p>No hay actividades registradas</p>
+                            <p>{msjInfoActividades}</p>
                         )}
 
                            
