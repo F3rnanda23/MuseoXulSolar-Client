@@ -31,7 +31,7 @@ import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario'
 import ErrorPage from './views/ErrorPage/ErrorPage';
 import Testimonios from './views/Testimonio/Testimonios';
 import Esposiciones from './views/Esposiciones/Esposiciones';
-import NotasExposiciones from './views/Esposiciones/notasExposiciones';
+import NotasExposiciones from './views/Esposiciones/NotasExposiciones';
 
 
 import './App.css'
