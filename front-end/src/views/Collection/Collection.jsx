@@ -10,16 +10,16 @@ const Collection = () => {
 
     function handleImageClick(image) {
         setSelectedImage(image);
-      }
-    
-      function handleCloseClick() {
+    }
+
+    function handleCloseClick() {
         setSelectedImage(null);
-      }
+    }
 
     return (
         <div className="min-h-screen "
             style={{ backgroundImage: `url(${img_Bg})` }}>
-            <h2 className="text-center bg-orange-100 py-5 font-semibold text-2xl">
+            <h2 className="text-center py-6 font-semibold text-3xl">
                 <FormattedMessage
                     id='colleccion.titulo'
                     defaultMessage='Colección Permanente'
@@ -140,7 +140,7 @@ const Collection = () => {
                                         alt={image.name}
                                         onClick={() => handleImageClick(image)}
                                     />
-                                    <p>{image.name} - {image.year}</p>
+                                    <p className='text-lg font-semibold'>{image.name} - {image.year}</p>
 
                                 </div>
                             ))}
@@ -148,23 +148,23 @@ const Collection = () => {
                 </div>
             </div>
             {selectedImage && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
-          <div className="max-w-3xl p-4 bg-gray-500 rounded-lg shadow-lg">
-            <img
-              src={selectedImage.img}
-              alt={selectedImage.name}
-              className="w-full  max-h-[400px]"
+                <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-75">
+                    <div className="max-w-3xl p-4 bg-gray-500 rounded-lg shadow-lg">
+                        <img
+                            src={selectedImage.img}
+                            alt={selectedImage.name}
+                            className="w-full  max-h-[400px]"
 
-            />
-            <button
-              className="mt-4 p-2 bg-orange-200 text-gray-100 rounded hover:bg-gray-100 hover:text-orange-200"
-              onClick={handleCloseClick}
-            >
-              Cerrar
-            </button>
-          </div>
-        </div>
-      )}
+                        />
+                        <button
+                            className="mt-4 p-2 bg-orange-200 text-gray-100 rounded hover:bg-gray-100 hover:text-orange-200"
+                            onClick={handleCloseClick}
+                        >
+                            Cerrar
+                        </button>
+                    </div>
+                </div>
+            )}
         </div>
     )
 };
