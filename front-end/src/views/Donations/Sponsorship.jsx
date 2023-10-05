@@ -90,7 +90,9 @@ const Sponsorship = () => {
                     <label className={styles.formLabel}>Nombre</label><br />
                     <input onChange={handleChange} placeHolder="introduce tu nombre" name="name" value={patro.name} className={styles.input}></input><br />
                     <label className={styles.formLabel}>Imagen</label><br />
-                    <button type="button" onClick={openCloudinaryWidget} value={patro.image} onChange={handleChange}>Subir foto</button><br />
+                    <div className={styles.buttonCloudinary}>
+                        <button type="button" onClick={openCloudinaryWidget} value={patro.image} onChange={handleChange}>Subir foto</button><br />
+                    </div>
                     {/* <input onChange={handleChange} placeHolder="introduce" name="image" value={patro.image} className={styles.input}></input><br /> */}
                     <label className={styles.formLabel}>Telefono</label><br />
                     <input onChange={handleChange} placeHolder="introduce tu telefono" name="phone" value={patro.phone} className={styles.input}></input><br />
