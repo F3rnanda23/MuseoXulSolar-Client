@@ -89,7 +89,7 @@ export const Subscription = () => {
                         id='membresia.titulo'
                         defaultMessage='Hacete miembro del Pan Klub'
                     /></h2>
-                <p className='my-4'>
+                <p className='my-4 text-xl'>
                     <FormattedMessage
                         id='membresia.texto'
                         defaultMessage='Obtené una variedad de beneficios que permitirán acceder a una experiencia única dentro del Museo. Desde entradas gratuitas y visitas guiadas exclusivas, hasta descuentos en la tienda, actividades y talleres dentro del museo. Elegí la opción que más te guste a continuación:'
@@ -101,7 +101,7 @@ export const Subscription = () => {
                     <div className="rounded shadow-2xl my-3 bg-gray-300 hover:scale">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
-                                <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746264/gl/278_ftvkgw.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696473639/1019-455-IMG_1400-_1__1_livm2n.png" alt="" />
                             </div>
                             <h5 className='text-xl md:text-2xl font-medium mt-3'>
                                 <FormattedMessage
@@ -151,7 +151,7 @@ export const Subscription = () => {
                     <div className="rounded my-3 shadow-2xl bg-gray-300">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
-                                <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746264/gl/278_ftvkgw.jpg" alt="" />
+                                <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696473639/1019-455-IMG_1400-_1__1_livm2n.png" alt="" />
                             </div>
                             <h5 className='text-xl md:text-2xl font-medium mt-3'>
                                 <FormattedMessage

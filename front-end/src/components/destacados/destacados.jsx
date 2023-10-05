@@ -75,6 +75,7 @@ const Destacados = () =>{
                                 </figure>
 
                                 <figure className=" shrink-0  w-3/5 h-[300px]   mr-[10px] transform rotate-[-4deg] shadow-2xl">
+                                  <Link to={'/Bibliografia'}>
                                     <a href="https://www.xulsolar.org.ar/bibliografia.html" className="relative group">
                                         <img src={bibliografiaXul} alt="Descripción de la imagen" className="  w-full h-full   object-cover transition-transform transform group-hover:scale-105   " />
                                         <p className="absolute bottom-0 w-full px-2 py-1 text-white bg-black bg-opacity-75 transition-opacity opacity-100 xl:opacity-0 group-hover:opacity-100">
@@ -83,6 +84,7 @@ const Destacados = () =>{
                                             defaultMessage='BIBLIOGRAFÍA'/>
                                             </p>
                                     </a>
+                                </Link>
                                 </figure>
                             </div>
 

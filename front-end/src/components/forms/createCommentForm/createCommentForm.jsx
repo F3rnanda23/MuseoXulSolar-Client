@@ -48,10 +48,9 @@ const CreateComment = () => {
 
     // }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = () => {
 
-      event.preventDefault()
-      console.log(comment);
+    
       
       // Simular un retraso de 1 segundo antes de llamar a la acción
       
