@@ -30,7 +30,7 @@ const Education = () => {
 
 
   return (
-    <div className="flex flex-col min-h-screen" style={backgroundStyle}>
+    <div className="flex flex-col min-h-screen" >
       <div className='flex flex-col items-center'>
 
         <h1 className='font-bold text-2xl mt-10 mb-4'>

@@ -12,7 +12,7 @@ const Museum = () => {
   };
   return (
     <div>
-      <div className="flex flex-col" style={backgroundStyle}>
+      <div className="flex flex-col" >
         <div className=" flex flex-col justify-center items-center mb-5">
           <div className="rounded-full bg-gray-200 w-[800px] mt-8">
             <h1 className="flex justify-center items-center text-2xl font-semibold">

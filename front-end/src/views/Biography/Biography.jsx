@@ -8,7 +8,7 @@ const Biography = () => {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <div className="flex justify-center items-center  min-h-screen " style={backgroundStyle}>
+    <div className="flex justify-center items-center  min-h-screen " >
       <main >
         <div className="bg-gray-100 w-[700px] rounded-xl mt-5 mb-5 flex flex-col items-center">
           <h1 className="rounded  text-2xl font-bold mb-4 ">

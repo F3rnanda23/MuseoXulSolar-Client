@@ -14,7 +14,7 @@ const Events = () => {
   return (
     <div className="bg-gray-100 ">
       <main
-        style={backgroundStyle}
+  
         className="flex flex-col justify-start items-center min-h-screen "
       >
         <div className=" ">

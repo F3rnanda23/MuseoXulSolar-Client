@@ -17,7 +17,7 @@ const Comments = () => {
 
     return (
 
-        <div className="w-screen h-screen flex flex-col justify-center items-center" style={backgroundStyle}>
+        <div className="w-screen h-screen flex flex-col justify-center items-center" >
             <CreateComment />
         </div>
     );

@@ -119,7 +119,7 @@ const Activities = () => {
 
     return (
 
-        <div className={style.activitiesContainer}>
+        <div >
 
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 

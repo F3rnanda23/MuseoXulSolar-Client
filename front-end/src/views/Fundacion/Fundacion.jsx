@@ -10,7 +10,7 @@ const Fundacion = () => {
 
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="min-h-screen flex flex-col items-center" style={backgroundStyle}>
+      <div className="min-h-screen flex flex-col items-center">
         <h1 className="text-center rounded-full text-2xl font-bold mb-4 mt-5 bg-gray-300 w-[850px]">
           <FormattedMessage
             id='fundacion.titulo'

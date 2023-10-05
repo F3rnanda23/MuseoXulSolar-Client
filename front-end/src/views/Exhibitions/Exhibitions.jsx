@@ -14,7 +14,7 @@ const Exhibitions = () => {
 
 
     return (
-        <div className={style.container}>
+        <div >
             <div className={style.containerDiv}>
                 <h1 className={style.text}>EXPOSICIONES</h1>
                 <p>Las exposiciones están organizadas en forma cronológica</p>

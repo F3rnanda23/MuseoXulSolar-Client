@@ -82,7 +82,7 @@ export const Subscription = () => {
 
     return (
         <div className="bg-gray-200 min-h-screen w-full bg-cover"
-            style={{ backgroundImage: `url(${img_Bg})` }}>
+            >
             <div className='container  max-w-screen-md mx-auto'>
                 <h2 className="text-center text-3xl pt-5">
                     <FormattedMessage

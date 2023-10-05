@@ -17,8 +17,7 @@ const Collection = () => {
       }
 
     return (
-        <div className="min-h-screen "
-            style={{ backgroundImage: `url(${img_Bg})` }}>
+        <div className="min-h-screen ">
             <h2 className="text-center bg-orange-100 py-5 font-semibold text-2xl">
                 <FormattedMessage
                     id='colleccion.titulo'

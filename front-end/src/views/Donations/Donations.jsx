@@ -194,7 +194,7 @@ const Donations = () => {
 
 
   return (
-    <div className='bg-gray-200 min-h-screen' style={backgroundStyle}>
+    <div className='bg-gray-200 min-h-screen'>
 
       <main className="flex flex-row justify-center items-center h-full">
         

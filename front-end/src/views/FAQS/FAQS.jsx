@@ -7,7 +7,7 @@ const Faqs = () => {
 
     return (
         <div className='min-h-screen w-full bg-cover'
-            style={{ backgroundImage: `url(${img_Bg})` }}>
+           >
             <h2 className='py-6 text-center text-2xl font-semibold'>
                 <FormattedMessage
                     id='faq.titulo'

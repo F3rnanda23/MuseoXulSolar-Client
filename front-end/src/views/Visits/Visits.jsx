@@ -8,7 +8,7 @@ const Visits = () => {
     backgroundRepeat: "no-repeat",
   };
   return (
-    <div style={backgroundStyle} className=" w-screen grid grid-cols-1  place-items-center ">
+    <div className=" w-screen grid grid-cols-1  place-items-center ">
       <div>
         <h1 className=" rounded  text-2xl font-bold mb-4 pt-10 text-center">
           <FormattedMessage
