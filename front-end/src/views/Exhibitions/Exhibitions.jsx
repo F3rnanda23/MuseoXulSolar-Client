@@ -1,15 +1,38 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Cookies from "universal-cookie";
+
 import style from "./Exhibitions.module.css"
+
+
 const Exhibitions = () => {
+
+    const cookies = new Cookies();
+    const adminTrue = cookies.get('admin');
+    
+
     const [expo, setExpo] = useState([]);
     useEffect(() => {
         allExhibitions();
     }, [])
-    console.log(expo);
+  
+
     const allExhibitions = async () => {
-        const { data } = await axios.get("http://localhost:3001/exposiciones/");
+        const { data } = await axios.get("https://server-xul-solar-ag97.vercel.app/exposiciones/");
         setExpo(data);
+    }
+
+    const handleDelete = (id) => {
+
+        const endpoint = `https://server-xul-solar-ag97.vercel.app/exposiciones/${id}`
+        return async function () {
+            try {
+                await axios.delete(endpoint)
+                setExpo(prevExposiciones => prevExposiciones.filter(expo => expo.id !== id));
+            } catch (error) {
+                throw new Error('Algo salió mal ' + error)
+            }
+        }
     }
 
 
@@ -1073,12 +1096,17 @@ const Exhibitions = () => {
                     <br />
                     {
                         expo?.map((e, index) => (
-                            <li key={index}>
+                            <div key={index} className="flex flex-row items-start">
+                                <li>
                                     {e.name}:{" "}
                                     {e.description}
                                     <br />
                                     <br />
-                            </li>
+                                </li>
+                                {adminTrue && <button 
+                                onClick={() => handleDelete(e.id)()}
+                                className="mr-auto ml-4 rounded  bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105 w-[90px]">Eliminar</button>}
+                            </div>
                         ))
                     }
                 </ul>
