@@ -71,14 +71,13 @@ const Users = () => {
         backgroundImage: `url(${backgroundImage})`,
         backgroundSize: 'cover',
         backgroundRepeat: 'no-repeat',
-        padding: 0,
-        height: '100vh',
+       
       };
     
 
     return (
 
-        <div style={backgroundStyle}>
+        <div style={backgroundStyle} className="bg-screen">
     
 
             <div className="flex flex-col md:flex-row justify-center items-center" >

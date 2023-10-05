@@ -66,7 +66,6 @@ const images = [
     name: 'Lu Diablo sabe piu viejo, ke por Diablo ',
     year: 1962
   },
-
   {
     img: "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1694746255/gl/270_ex7aqa.jpg",
     name: 'Hia tiu pre ver',

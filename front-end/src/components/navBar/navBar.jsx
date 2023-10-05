@@ -4,10 +4,10 @@ import { Link, useNavigate } from 'react-router-dom';
 import SearchBar from '../searchBar/searchBar';
 import allResults from '../../views/Home/allResults';
 import SearchResultsBanner from '../../searchResultsBanner/searchResultsBanner';
-import museoLetras from '../../imagenes/navbar/panKlub.png';
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "universal-cookie";
 import museoLogo from '../../imagenes/navbar/logoMuseo.png';
+import museoLetra from '../../imagenes/navbar/museo-letras.png';
 import glass from '../../imagenes/navbar/lupa.png'
 import { logOut } from '../../redux/actions/actions';
 import { auth } from '../forms/loginForm/config';
@@ -135,11 +135,9 @@ const NavBar = ({ searchActive, setSearchActive }) => {
 
         <div>
             <nav className='bg-gray-200 flex justify-between items-center md:justify-evenly flex-wrap relative'>
-                <div className='cursor-pointer w-[90px]  flex flex-shrink-0' onClick={handleLogoClick}>
-                    <img src={museoLogo} alt="Logo del museo" />
-                </div>
-                <div className=' sm:w-1/2  md:mt-9 md:absolute hidden sm:block '>
-                    <img src={museoLetras} className='' />
+                <div className='cursor-pointer  flex flex-shrink-0' onClick={handleLogoClick}>
+                    <img src={museoLogo} className='w-[75px] sm:w-[90px]' alt="Logo del museo" />
+                    <img src={museoLetra} className='w-[260px] hidden sm:block' alt="Logo del museo" />
                 </div>
 
                 <div className="block mr-2 md:hidden">
@@ -149,7 +147,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                     </button>
                 </div>
 
-                <div className={`${MenuHidden ? 'hidden' : 'flex flex-col items-center'} w-full  items-center flex-grow  md:items-start md:flex md:flex-row md:justify-evenly md:flex-wrap md:w-auto`}>
+                <div className={`${MenuHidden ? 'hidden' : 'flex flex-col items-center'} w-full  items-center flex-grow   md:flex md:flex-row md:justify-evenly md:flex-wrap md:w-auto`}>
                     <div className='text-orange-200 text-sm md:text-base font-bold inline-block hover:transition duration-150 ease-in-out hover:scale-105'>
                         <Link to="/Visits" >
                             <FormattedMessage
@@ -207,7 +205,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                                     </Link>
                                 </li>
                                 <li className='hover:bg-gray-200 text-orange-200 text-sm md:text-base  font-bold rounded px-1'
-                                    onClick={handleDropdownMenu}><Link to="/sponsorship">
+                                    onClick={handleDropdownMenu}><Link to="/benefactores">
                                         <FormattedMessage
                                             id='nav.benefactores'
                                             defaultMessage='Benefactores'
@@ -222,58 +220,59 @@ const NavBar = ({ searchActive, setSearchActive }) => {
                         </Link>
                     </div>
 
-                    <button onClick={handleSearchClick} className='flex font-bold text-sm md:text-base  text-orange-200 hover:transition duration-150 ease-in-out hover:scale-105 '>
-                        <FormattedMessage
-                            id='nav.buscar'
-                            defaultMessage='Buscar'
-                        />
-                        <img className='w-5 h-5' src={glass} alt="search" />
-                    </button>
 
-                    {español ? (<button onClick={() => {
-                        handleLanguageToEnglish()
-                    }}
-                        className='flex text-orange-200 text-sm md:text-base  font-bold hover:transition duration-150 ease-in-out hover:scale-105'
-                    >EN</button>) :
-                        (<button onClick={() => {
-                            handleLanguageToSpanish()
-                        }}
-                            className='flex text-orange-200 text-sm md:text-base font-bold hover:transition duration-150 ease-in-out hover:scale-105'>ESP</button>)}
-
-                    {
-                        active ?
-                            <div className='text-orange-200 font-bold hover:transition duration-150 ease-in-out hover:scale-105'>
-                                <Link to="/miPerfil">
-                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
-                                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    </svg>
-                                </Link>
-                            </div> : <div></div>
-                    }
                     {admin ? (<button onClick={handleAdmin} className='flex font-bold text-sm md:text-base  text-orange-200 hover:transition duration-150 ease-in-out hover:scale-105 '>
                         Admin
                     </button>) : null}
 
+                    <div className='flex flex-col justify-between mb-2'>
 
-                    <div className='mt-1 md:mt-5'>
-                        {active ? (<button
-                            onClick={signOff}
-                            type="button"
-                            className="inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11  text-white bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:border hover:border-orange-200 hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                            <FormattedMessage
-                                id='nav.cerrarsesion'
-                                defaultMessage='Cerrar Sesión'
-                            />
+                        <div className='flex justify-evenly'>
+                            <button onClick={handleSearchClick} className='flex font-bold text-sm md:text-base  text-orange-200 hover:transition duration-150 ease-in-out hover:scale-105 '>
+                                <img className='w-5 h-5' src={glass} alt="search" />
+                            </button>
 
-                        </button>) : (<button
-                            onClick={handleClickLogIn}
-                            type="button"
-                            className=" inline-block w-24 mb-2 md:mb-0 md:w-32 lg:w-36 h-7 md:h-11 text-white bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border hover:border-orange-200 hover:scale-105  hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
-                            <FormattedMessage
-                                id='nav.iniciarsesion'
-                                defaultMessage='Iniciar Sesión'
-                            />
-                        </button>)}
+                            {español ? (<button onClick={() => {
+                                handleLanguageToEnglish()
+                            }}
+                                className='text-orange-200 text-sm md:text-base  font-bold hover:transition duration-150 ease-in-out hover:scale-105'
+                            >EN</button>) :
+                                (<button onClick={() => {
+                                    handleLanguageToSpanish()
+                                }}
+                                    className='text-orange-200 text-sm md:text-base font-bold hover:transition duration-150 ease-in-out hover:scale-105'>ESP</button>)}
+
+                            {
+                                active ?
+                                    <div className='text-orange-200 font-bold hover:transition duration-150 ease-in-out hover:scale-105'>
+                                        <Link to="/miPerfil">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
+                                                <path strokeLinecap="round" strokeLinejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            </svg>
+                                        </Link>
+                                    </div> : <div></div>
+                            }
+                        </div>
+                        <div className='my-1 '>
+                            {active ? (<button
+                                onClick={signOff}
+                                type="button"
+                                className="inline-block w-24 mb-2 md:mb-0 md:w-32  h-7 md:h-11  text-white bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:scale-105 hover:border hover:border-orange-200 hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                                <FormattedMessage
+                                    id='nav.cerrarsesion'
+                                    defaultMessage='Cerrar Sesión'
+                                />
+
+                            </button>) : (<button
+                                onClick={handleClickLogIn}
+                                type="button"
+                                className=" inline-block w-24 mb-2 md:mb-0 md:w-32  h-7 md:h-11 text-white bg-orange-200 bg-opacity-80 rounded bg-primary-100 text-xs md:text-xs lg:text-sm font-bold uppercase leading-normal text-primary-700 transition duration-150 ease-in-out hover:border hover:border-orange-200 hover:scale-105  hover:bg-gray-200 hover:text-orange-200 hover:bg-primary-accent-100 focus:bg-primary-accent-100 focus:outline-none focus:ring-0 active:bg-primary-accent-200">
+                                <FormattedMessage
+                                    id='nav.iniciarsesion'
+                                    defaultMessage='Iniciar Sesión'
+                                />
+                            </button>)}
+                        </div>
                     </div>
                 </div>
             </nav>
