@@ -14,20 +14,20 @@ const Bibliografia = () =>{
         <div style={backgroundStyle}>
             <div className="grid min-h-screen " >
                 
-                <div class="h-[400px]" >
+                <div class=" h-[200px] md:h-[250px]" >
                     <div className="grid-gray-600 font-bold text-3xl mt-[50px] flex  justify-center items-start">
                         <h1 className="flex ">Bibliografía</h1>
                     </div>
                     <div>
-                        <p className="text-black-200 font-bold text-xl ml-[150px] mt-[100px]">Bibliografía específica</p>
+                        <p className="text-black-200 font-bold mt-[50px] text-xl md:ml-[150px] md:mt-[100px]">Bibliografía específica</p>
                     </div>
                 </div>
 
-                <div className="grid bg-gray-200  w-5/6 h-6/6 mr-auto ml-auto mt-[-150px] mb-[50px]">
-                    <div className="ml-[20px]">
-                        <p className="text-black-200 font-bold text-lg">a. Libros, tesis de doctorado y monografías</p>
+                <div className="grid bg-gray-200  w-4/6 mr-auto ml-auto  md:w-5/6   md:mb-[50px]">
+                    <div className="ml-[20px] ">
+                        <p className="text-black-200 font-bold text-lg  w-4/6 mr-auto   md:w-5/6 ">a. Libros, tesis de doctorado y monografías</p>
                         <br />
-                        <div className="ml-[20px]">
+                        <div className="ml-[20px]  w-4/6 mr-auto   md:w-5/6">
                             <li>ABÓS, Álvaro. Xul Solar. Pintor del misterio . Buenos Aires. Editorial Sudamericana.2004.</li>
                             <li>BARNITZ, Jacqueline. The “Martinfierristas” and Argentine Art of The Twenties . City University of New York. Ph.D., 1986. (University Microfilms International).</li>
                             <li>BENDINGER, Ma. Cecilia G. Xul Solar. Grafías plastiútiles . Buenos Aires. Editor Elena Montero Lacasa de Povarché. 2004</li>
@@ -48,7 +48,7 @@ const Bibliografia = () =>{
                         </div>
                     </div>
 
-                    <div className="ml-[20px] mt-[30px]">
+                    <div className="w-4/6  mr-auto   md:w-5/6  ml-[20px] mt-[30px] ">
                         <p className="text-black-200 font-bold text-lg">b. Artículos en publicaciones especializadas</p>
                         <br />
                         <div className="ml-[20px]">
@@ -89,17 +89,18 @@ const Bibliografia = () =>{
                             <li>PELLEGRINI, Aldo. “Todos los cielos de Xul Solar. Informe sobre un lingüista, astrólogo, inventor y, por sobre todo, pintor único”. La Opinión Cultural . Buenos Aires, domingo 15 de junio de 1975, p. 1-2.</li>
                             <li>PERAZZO, Nelly. “La imaginación desenfrenada de Xul Solar”. Art Nexus . Colombia, abril - junio de 1993, p. 96-100.</li>
                             <li>RIVERA, Jorge B. “«Los juegos de un tímido»: Borges en el suplemento de Crítica, sus escritos, textos de Xul Solar y Ulises Petit de Murat”. Crisis . Buenos Aires, n. 38, mayo-junio 1976, p. 20-27.</li>
-                            <li>ROLLA, Elsa. “Xul Solar un artista que trascendió su época”. Internet: http://www.home. abracenet.com.ar/abraxas/xul1.html.</li>
+                            <li>ROLLA, Elsa. “Xul Solar un artista que trascendió su época”.</li>
                             <li>RUBIONE, Alfredo. “Xul Solar utopía y vanguardia”. Punto de vista. Revista de cultura. Buenos Aires, a. 10, n. 29, abril-junio 1987, p. 37-39.</li>
                             <li>SABSAY-HERRERA, Fabiana. “Personne ne lit mes tableaux: Xul Solar ou la recherche d'une écriture picturale”. En: Montserrat Prudon (dir.). Peinture et écriture 3: frontières éclatées. Paris. La Différence / Éditions UNESCO, 2000, p. 35-46.</li>
                             <li>SARABIA, Rosa. “La disolución de los lenguajes artísticos en Xul Solar y Macedonio Fernández”. En: CELCIRP Séptimo Congreso Internacional, Los múltiples desafíos de la modernidad en el Río de la Plata . Göteborg. Serie Río de la Plata Nº 23-24, 20 – 22 de junio del 2000, p. 193-201.</li>
                             <li>SARLO, Beatriz. “Fantastic Invention and Cultural Nationality. The Case of Xul Solar”. En: David Elliott (edit.). Argentina 1920-1994 . Oxford. The Museum of Modern Art, 1994, p. 34-39.</li>
-                            <li>VERDUGO, Isela M. “Borges y Xul Solar: mundos imaginarios”. Expression journal : http//www.2cyberwhelm.org/diversity/express/htm/Borges.htm.</li>
+                            <li>VERDUGO, Isela M. “Borges y Xul Solar: mundos imaginarios”.</li> 
+                            
                             
                         </div>
                     </div>
 
-                    <div className="ml-[20px] mt-[30px]">
+                    <div className="w-4/6  mr-auto   md:w-5/6 ml-[20px] mt-[30px]">
                         <p className="text-black-200 font-bold text-lg">c. Catálogos</p>
                         <br />
                         <div className="ml-[20px]">
@@ -152,7 +153,7 @@ const Bibliografia = () =>{
 
 
 
-                    <div className="ml-[20px] mt-[30px]">
+                    <div className="w-4/6  mr-auto   md:w-5/6 ml-[20px] mt-[30px]">
                         <p className="text-black-200 font-bold text-lg">d. Artículos y notas en publicaciones periodísticas: 1920 – 1978 (por orden cronológico)</p>
                         <br />
                         <div className="ml-[20px]">
@@ -268,7 +269,7 @@ const Bibliografia = () =>{
 
 
 
-                    <div className="ml-[20px] mt-[30px]">
+                    <div className="w-4/6  mr-auto   md:w-5/6 ml-[20px] mt-[30px]">
                         <p className="text-black-200 font-bold text-lg">e. Testimonios</p>
                         <br />
                         <div className="ml-[20px]">
@@ -291,7 +292,7 @@ const Bibliografia = () =>{
                     </div>
 
 
-                    <div className="ml-[20px] mt-[30px]">
+                    <div className=" w-4/6  mr-auto   md:w-5/6 ml-[20px] mt-[30px]">
                         <p className="text-black-200 font-bold text-lg">f. Videos</p>
                         <br />
                         <div className="ml-[20px]">
@@ -307,7 +308,7 @@ const Bibliografia = () =>{
                     </div>
 
 
-                    <div className="ml-[20px] mt-[30px]">
+                    <div className=" w-4/6  mr-auto   md:w-5/6 ml-[20px] mt-[30px]">
                         <p className="text-black-200 font-bold text-lg">g. CD ROM</p>
                         <br />
                         <div className="ml-[20px]">
