@@ -56,6 +56,30 @@ const Sponsorship = () => {
         setCard(updatedCard);
     }
 
+    const openCloudinaryWidget = () => {
+        // Abre el widget de Cloudinary al hacer clic en el botón
+        cloudinary.openUploadWidget(
+            {
+                cloudName: 'dtsmy1ksn',
+                uploadPreset: 'primero',
+                sources: ['local', 'url', 'camera', 'facebook', 'dropbox', 'instagram'],
+                multiple: false,
+                cropping: 'server',
+                croppingAspectRatio: 1,
+                folder: 'uploads', // Carpeta de destino en Cloudinary
+            },
+            (error, result) => {
+                if (!error && result && result.event === 'success') {
+                    // La imagen se ha subido con éxito, puedes manejarla aquí
+                    setPatro({
+                        ...patro,
+                        image: result.info.secure_url // Actualiza la URL de la imagen en el estado
+                    });
+                }
+            }
+        );
+    };
+
 
 
     return (
@@ -66,7 +90,8 @@ const Sponsorship = () => {
                     <label className={styles.formLabel}>Nombre</label><br />
                     <input onChange={handleChange} placeHolder="introduce tu nombre" name="name" value={patro.name} className={styles.input}></input><br />
                     <label className={styles.formLabel}>Imagen</label><br />
-                    <input onChange={handleChange} placeHolder="introduce" name="image" value={patro.image} className={styles.input}></input><br />
+                    <button type="button" onClick={openCloudinaryWidget} value={patro.image} onChange={handleChange}>Subir foto</button><br />
+                    {/* <input onChange={handleChange} placeHolder="introduce" name="image" value={patro.image} className={styles.input}></input><br /> */}
                     <label className={styles.formLabel}>Telefono</label><br />
                     <input onChange={handleChange} placeHolder="introduce tu telefono" name="phone" value={patro.phone} className={styles.input}></input><br />
                     <label className={styles.formLabel}>Email</label><br />
