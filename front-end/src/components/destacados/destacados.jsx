@@ -28,14 +28,14 @@ const imagen11 = 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1695606546/
 const firmasXul4 = 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696362028/galeria/firmasXul4_b9nkyy.png';
 import { FormattedMessage } from 'react-intl';
 
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 
 
 const Destacados = () => {
 
-    const navigate = useNavigate();
+  
 
     return (
 

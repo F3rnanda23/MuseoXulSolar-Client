@@ -1,14 +1,11 @@
-import imagenbg from "../../imagenes/background/bg1.png";
+
 import { FormattedMessage } from 'react-intl';
+import ubicacion from '../../imagenes/visitas/ubicacion.png'
 
 const Visits = () => {
-  const backgroundStyle = {
-    backgroundImage: `url(${imagenbg})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
+ 
   return (
-    <div style={backgroundStyle} className=" w-screen grid grid-cols-1  place-items-center ">
+    <div  className=" w-screen grid grid-cols-1  place-items-center ">
       <div>
         <h1 className=" rounded  text-2xl font-bold mb-4 pt-10 text-center">
           <FormattedMessage
@@ -17,7 +14,25 @@ const Visits = () => {
           /></h1>
       </div>
       <div className="bg-gray-100 rounded-lg p-10 w-[800px]">
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+      <a
+          href="https://goo.gl/maps/PLd1b1vyyPnVHq5W9"
+          target="_blank"
+          rel="noopener noreferrer"
+          className=" flex justify-center items-center"
+        >
+          <img src={ubicacion} className="w-4/5  shadow-xl"></img>
+        </a>
+        <br></br>
+        <p>
+          Fundación Pan Klub Laprida 1212, Recoleta, CABA C1425EKF Teléfono:
+          (011) 4824-3302/4821-5378
+        </p>
+
+        <br />
+        <br />
+
+
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
           <FormattedMessage
             id='visitas.horarios'
             defaultMessage='Horarios del Museo'
@@ -41,7 +56,7 @@ const Visits = () => {
           />
         </p>
         <br></br>
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
           <FormattedMessage
             id='visitas.entradas'
             defaultMessage='Entradas'
@@ -63,7 +78,7 @@ const Visits = () => {
           />
         </p>
         <br></br>
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
           <FormattedMessage
             id='visitas.guiadas'
             defaultMessage='Visitas guiadas colección permanente'
@@ -76,7 +91,7 @@ const Visits = () => {
             defaultMessage='Miércoles y Sábados 16:00 hs'
           /></p>
         <br></br>
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
         <FormattedMessage
             id='visitas.grupos'
             defaultMessage='Grupos'
@@ -100,7 +115,7 @@ const Visits = () => {
             rel="noopener noreferrer">👉🏫</a>
         </p>
         <br></br>
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
         <FormattedMessage
             id='visitas.tienda'
             defaultMessage='Tienda'
@@ -115,7 +130,7 @@ const Visits = () => {
           />
         </p>
         <br></br>
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
         <FormattedMessage
             id='visitas.informacion'
             defaultMessage='Informacion Util'
@@ -140,26 +155,14 @@ const Visits = () => {
           <br></br>
         </p>
         <br></br>
-        <h2 className="bg-gray-300 rounded-full text-center text-lg font-semibold py-2">
+        <h2 className="underline rounded-full text-center text-lg font-semibold py-2">
         <FormattedMessage
             id='visitas.esperamos'
             defaultMessage='¡Te esperamos!'
           />
         </h2>
         <br></br>
-        <a
-          href="https://goo.gl/maps/PLd1b1vyyPnVHq5W9"
-          target="_blank"
-          rel="noopener noreferrer"
-          className=" flex justify-center items-center"
-        >
-          <img src="https://tiles3.usig.buenosaires.gob.ar/tilecache/mapabsas_informacion_basica?LAYERS=mapabsas_informacion_basica&FORMAT=image%2Fpng&TRANSPARENT=TRUE&SERVICE=WMS&VERSION=1.1.1&REQUEST=GetMap&STYLES=&SRS=EPSG%3A221951&BBOX=104260,104010,106180,105930&WIDTH=256&HEIGHT=256"></img>
-        </a>
-        <br></br>
-        <p>
-          Fundación Pan Klub Laprida 1212, Recoleta, CABA C1425EKF Teléfono:
-          (011) 4824-3302/4821-5378
-        </p>
+       
       </div>
     </div>
   );
