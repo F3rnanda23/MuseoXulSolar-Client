@@ -1,7 +1,5 @@
-import instaLogo from "../../imagenes/footer/instagram.png";
-import FaceLogo from "../../imagenes/footer/facebook.png";
+
 import phoneIcon from "../../imagenes/footer/llamada-telefonica.png";
-import twitterLogo from "../../imagenes/footer/twitter.png";
 import envelopeIcon from "../../imagenes/footer/sobre.png";
 import imagenbg from "../../imagenes/background/bg1.png";
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
@@ -53,8 +51,8 @@ const Events = () => {
               defaultMessage='Eventos' />
           </h1>
         </div>
-        <div className="w-3/5 flex flex-col items-center h-full bg-gray-200 p-6 rounded-lg shadow-lg">
-          <p className="mt-4 text-lg text-gray-700">
+        <div className="sm:w-full md:w-3/5 mx-5 flex flex-col items-center h-full bg-white p-6 rounded-lg shadow-lg">
+          <p className="mt-4 text-lg text-gray-700 text-justify">
             <FormattedMessage
               id="eventos.texto"
               defaultMessage='El museo ofrece sus instalaciones para distintas actividades: presentación de libros, música, ciclos de conferencias, cursos, entrega de premios, actos culturales y empresariales.'

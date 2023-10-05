@@ -26,7 +26,7 @@ const NavBar = ({ searchActive, setSearchActive }) => {
     const [searchResults, setSearchResults] = useState([]);
     const [showResults, setShowResults] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
-    const [español, setEspañol] = useState();
+    const [español, setEspañol] = useState(true);
     const [MenuHidden, setMenuHidden] = useState(true);
 
     const idioma = useContext(langContext);
