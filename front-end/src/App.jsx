@@ -31,7 +31,8 @@ import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario'
 import ErrorPage from './views/ErrorPage/ErrorPage';
 import Testimonios from './views/Testimonio/Testimonios';
 import Esposiciones from './views/Esposiciones/Esposiciones';
-import NotasExposiciones from './views/Esposiciones/NotasExposiciones';
+import Bibliografia from './views/Bibliografia/Bibliografia';
+import NotasExposiciones from './views/Esposiciones/notasExposiciones';
 
 
 import './App.css'
@@ -90,6 +91,7 @@ function App() {
         <Route path="/perfilActividades" element={<ActividadesUsuario />} />
         <Route path="/testimonios" element={<Testimonios />} />
         <Route path="/esposiciones" element={<Esposiciones />} />
+        <Route path="/Bibliografia" element={<Bibliografia />} />
         <Route path="/notasExposiciones" element={<NotasExposiciones />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>

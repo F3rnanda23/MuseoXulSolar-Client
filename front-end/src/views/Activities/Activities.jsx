@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { getAllActivities, deteleActivities, filtrarActividades, postAllActivitiesUser } from '../../redux/actions/actions';
 import Calendar from 'react-calendar';
 const firma6Xul = 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696361321/galeria/firma6Xul_mmiu6y.png';
-import style from './activities.module.css';
 import { BsSun } from 'react-icons/bs';
 import Cookies from "universal-cookie";
 import toast, { Toaster } from 'react-hot-toast';
 import swal from "sweetalert"
 import { FormattedMessage } from 'react-intl';
+import backgroundImage from '../../imagenes/background/bg1.png'
 
 
 
@@ -24,6 +24,7 @@ const Activities = () => {
     const navigate = useNavigate();
     const [value, onChange] = useState(new Date());
     const ValuePiece = Date | null;
+    const [msjInfoActividades, setMsjInfoActividadesonChange] = useState("No hay actividades registradas");
 
     const Value = ValuePiece | [ValuePiece, ValuePiece];
 
@@ -108,7 +109,7 @@ const Activities = () => {
             return añoFecha1 === añoFecha2 && mesFecha1 === mesFecha2 && diaFecha1 === diaFecha2;
 
         });
-
+        setMsjInfoActividadesonChange("No hay actividades registradas para este día " + diaFecha2 + "/" + mesFecha2 + "/" + añoFecha2);
         dispatch(filtrarActividades(activitiesFilter));
 
     };
@@ -117,9 +118,15 @@ const Activities = () => {
         window.location.reload();
     };
 
+    const backgroundStyle = {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      };
+
     return (
 
-        <div className={style.activitiesContainer}>
+        <div className="flex flex-col min-h-screen" style={backgroundStyle}>
 
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 
@@ -136,14 +143,14 @@ const Activities = () => {
 
                 <div className="grid w-6/6  h-4/6 mr-[50px] md:w-5/6 order-2 mt-[250px] mr-[20px] mb-[20px] xl:order-1 xl:mt-[50px] ">
 
-                    <div className='relative   w-6/6  h-6/6 ' >
+                    <div className='relative   w-6/6  h-6/6   min-h-screen' >
 
                         <div className=" grid grid-cols-1 gap-2  w-full h-4/4 mb-[30px]">
 
-                            {activities && activities.map(activity => (
-
-                                <div key={activity.name} className="relative flex flex-col w-4/6 sm:flex-row sm:w-full sm:w-6/6 mt-5 ml-5 gap-2 rounded-lg shadow-2xl bg-transparent mb-[30px]">
-                                    <img src={activity.image} className=" w-2/3 mt-[20px] ml-[5px] sm:w-2/5 sm:h-4/5 rounded-full sm:ml-10 sm:mt-auto mb-auto object-cover transition-all duration-300 group-hover:opacity-90" />
+                        {activities && activities.length > 0 ? (
+                            activities.map(activity => (
+                            <div key={activity.name} className="relative flex flex-col w-4/6 sm:flex-row sm:w-full sm:w-6/6 mt-5 ml-5 gap-2 rounded-lg shadow-2xl bg-transparent mb-[30px]">
+                               <img src={activity.image} className=" w-2/3 mt-[20px] ml-[5px] sm:w-2/5 sm:h-4/5 rounded-full sm:ml-10 sm:mt-auto mb-auto object-cover transition-all duration-300 group-hover:opacity-90" />
                                     <div className="flex flex-col items-center justify-center gap-4 p-4 w-full sm:w-3/5 ml-0 sm:ml-10 mt-auto mb-auto">
                                         <h2 className="text-2xl font-semibold w-full xl:text-3xl">{activity.name}</h2>
                                         <h2 className='font-semibold w-full xl:text-2xl'>{formatDate(activity.date)}</h2>
@@ -174,9 +181,13 @@ const Activities = () => {
                                         </div>
 
                                     </div>
-                                </div>
+                            </div>
+                            ))
+                        ) : (
+                            <p className="text-orange-500 text-xl font-bold ml-[30px]">{msjInfoActividades}</p>
+                        )}
 
-                            ))}
+                           
                         </div>
 
                     </div>
