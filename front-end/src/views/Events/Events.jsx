@@ -38,41 +38,23 @@ const Events = () => {
             />
             <br></br>
             <br></br>
-            <h1 className="bg-gray-300  rounded flex justify-center items-center text-2xl font-bold mb-4">
+            <h2 className="bg-gray-300  rounded flex justify-center items-center text-2xl font-bold mb-4">
               <FormattedMessage
                 id="eventos.info"
               />
-            </h1>
-            <div className="flex justify-evenly">
-              <a
-                href="https://www.facebook.com/MuseoXulSolar"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img className="w-12 h-12" src={FaceLogo}></img>
-              </a>
-              <a href="" className="flex flex-col items-center">
+            </h2>
+            <div className="flex justify-evenly mt-2">
+              <div href="" className="flex flex-col items-center">
                 <img className="w-12 h-12 flex justify-center items-center" src={phoneIcon}></img>
-                <span className="">(011) 4824-3302/4821-5378</span>
-              </a>
-              <a
-                href="https://www.instagram.com/museo.xul.solar/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img className="w-12 h-12" src={instaLogo}></img>
-              </a>
-              <a className="flex flex-col items-center">
+                <span><FormattedMessage
+                  id="eventos.telefono"
+                  defaultMessage='Teléfono: (011) 4824-3302/4821-5378' />
+                </span>
+              </div>
+              <div className="flex flex-col items-center">
                 <img className="w-12 h-12 flex justify-center items-center" src={envelopeIcon}></img>
-                <span className="">coordinacionpanklub@xulsolar.org.ar</span>
-              </a>
-              <a
-                href="https://twitter.com/xul_solar"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <img className="w-12 h-12" src={twitterLogo}></img>
-              </a>
+                <span className="">Mail: coordinacionpanklub@xulsolar.org.ar</span>
+              </div>
             </div>
           </p>
         </div>
