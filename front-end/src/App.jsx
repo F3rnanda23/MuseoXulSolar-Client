@@ -31,8 +31,8 @@ import ActividadesUsuario from './components/perfilDeUsuario/ActividadesUsuario'
 import ErrorPage from './views/ErrorPage/ErrorPage';
 import Testimonios from './views/Testimonio/Testimonios';
 import Esposiciones from './views/Esposiciones/Esposiciones';
-import Bibliografia from './views/Bibliografia/Bibliografia';
-import NotasExposiciones from './views/Esposiciones/notasExposiciones';
+import Bibliografia from './views/bibliografia/Bibliografia';
+import NotasExposiciones from './views/Esposiciones/NotasExposiciones';
 
 import { Catalog } from './views/Catalog/Catalog';
 import './App.css'
