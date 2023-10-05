@@ -37,10 +37,11 @@ export function LoginForm() {
             // Verificar si el usuario ya ha iniciado sesión con Google
             const isGoogleLoggedIn = localStorage.getItem("googleLoggedIn");
             const googleEmail = localStorage.getItem("googleEmail");
-            const block = await axios.get(`https://server-xul-solar-ag97.vercel.app/usuario/email/${data.email}`);
-            if (block.status === 201) {
-                return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
+            const result = await axios.get(`https://server-xul-solar-ag97.vercel.app/usuario/buscar/${data.email}`);
+            if (!result.data.length) {
+                return swal("error", "Esta cuenta no existe en la base de datos o ha sido bloqueada, revise su casilla de correo", "error");
             }
+
             if (isGoogleLoggedIn === "true" && data.email === googleEmail) {
                 // El usuario ya ha iniciado sesión con Google, mostrar un mensaje de error
                 swal("error", "Este correo electrónico ya se ha utilizado para iniciar sesión con Google.", "error");
@@ -118,7 +119,7 @@ export function LoginForm() {
                     }),
                 });
                 const block = await axios.get(`https://server-xul-solar-ag97.vercel.app/usuario/email/${data.email}`);
-    
+
                 if (block.status === 201) {
                     return swal("error", 'El usuario ha sido bloqueado, comunicate con el administrador', "error");
                 }
@@ -128,7 +129,7 @@ export function LoginForm() {
                     cookies.set('id', serverResponse.responseWithUserInfo.id, { path: '/' });
                     cookies.set('name', serverResponse.responseWithUserInfo.name, { path: '/' });
                     cookies.set('email', serverResponse.responseWithUserInfo.email, { path: '/' });
-                    
+
 
                     localStorage.setItem("googleAccessToken", token);
 
