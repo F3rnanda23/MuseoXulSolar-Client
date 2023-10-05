@@ -1,7 +1,7 @@
 import { Tab, TabGroup, TabList } from '@tremor/react'
 import {
   UserGroupIcon, CalendarDaysIcon, ChatBubbleLeftRightIcon, PencilIcon, BookOpenIcon,
-  BanknotesIcon, CurrencyDollarIcon, NoSymbolIcon
+  BanknotesIcon, CurrencyDollarIcon, NoSymbolIcon, PhotoIcon
 } from "@heroicons/react/20/solid";
 import React, { useState } from 'react';
 
@@ -23,12 +23,12 @@ const TabListBase = () => {
     <div>
 
       <TabGroup>
-        <TabList className="flex flex-col sm:flex-row justify-center font-semibold bg-orange-400 rounded-md">
+        <TabList className="flex flex-col sm:flex-row md:flex-row justify-center font-semibold bg-orange-400 rounded-md">
           <Tab
             value={1}
             icon={CalendarDaysIcon}
             onClick={() => setSelectedTab(1)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
             Actividades
           </Tab>
@@ -36,15 +36,15 @@ const TabListBase = () => {
             value={2}
             icon={PencilIcon}
             onClick={() => setSelectedTab(2)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
-            Crear Actividades
+            Crear Actividad
           </Tab>
           <Tab
             value={3}
             icon={BookOpenIcon}
             onClick={() => setSelectedTab(3)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
             Reservas
           </Tab>
@@ -52,15 +52,15 @@ const TabListBase = () => {
             value={4}
             icon={ChatBubbleLeftRightIcon}
             onClick={() => setSelectedTab(4)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
-            Ver Comentarios
+            Comentarios
           </Tab>
           <Tab
             value={5}
             icon={UserGroupIcon}
             onClick={() => setSelectedTab(5)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
             Usuarios
           </Tab>
@@ -68,15 +68,15 @@ const TabListBase = () => {
             value={6}
             icon={NoSymbolIcon}
             onClick={() => setSelectedTab(6)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
             Usuarios Bloquados
           </Tab>
           <Tab
             value={7}
-            icon={ChatBubbleLeftRightIcon}
+            icon={PhotoIcon}
             onClick={() => setSelectedTab(7)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
             Exposiciones
           </Tab>
@@ -84,16 +84,16 @@ const TabListBase = () => {
             value={8}
             icon={CurrencyDollarIcon}
             onClick={() => setSelectedTab(8)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
-            Ver Donaciones
+           Donaciones
           </Tab>
 
           <Tab
             value={9}
             icon={BanknotesIcon}
             onClick={() => setSelectedTab(9)}
-            className="mb-2 sm:mb-0"
+            className={`mb-2 sm:mb-0 ${window.innerWidth >= 768 ? 'md:inline lg:inline' : 'text-xs'}`}
           >
             Benefactores
           </Tab>
