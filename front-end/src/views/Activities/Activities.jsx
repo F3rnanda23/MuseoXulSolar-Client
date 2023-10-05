@@ -141,9 +141,9 @@ const Activities = () => {
             <div className="grid w-4/4 mb-[0px] sm:grid-cols-1 xl:grid-cols-2 ">
 
 
-                <div className="grid w-6/6  h-4/6 mr-[50px] md:w-5/6 order-2 mt-[250px] mr-[20px] mb-[20px] xl:order-1 xl:mt-[50px] ">
+                <div className="grid w-6/6  h-6/6 mr-[50px] md:w-5/6 order-2 mt-[250px] mr-[20px] mb-[20px] xl:order-1 xl:mt-[50px] ">
 
-                    <div className='relative   w-6/6  h-6/6   min-h-screen' >
+                    <div className='relative   xl:w-6/6  xl:h-6/6   min-h-screen' >
 
                         <div className=" grid grid-cols-1 gap-2  w-full h-4/4 mb-[30px]">
 
@@ -200,7 +200,7 @@ const Activities = () => {
 
                     <div className=" relative  w-4/4 h-[500px] bg-gray-200  ml-[-50px] mr-auto mt-[50px] rounded-lg sm:w-4/4  md:ml-auto  xl:w-3/6 ">
                         <h1 className="text-2xl font-bold  text-center font-sans text-gray-700 "><BsSun className="" /> Calendario <BsSun className="ml-auto " /></h1>
-                        <div className=" bg-gray-300 mt-[10px]  border-2  p-4 rounded-lg shadow-2xl bg-cover  w-4/4 h-6/6 " >
+                        <div className=" bg-gray-300 mt-[10px]  border-2  p-4 rounded-lg shadow-2xl bg-cover   p-0 xl:w-4/4 xl:h-6/6 " >
 
                             <Calendar
                                 onChange={onChange}

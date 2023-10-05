@@ -14,7 +14,7 @@
 .react-calendar .react-calendar__navigation__label {
     background-color: rgba(223, 150, 14, 0.144);
     font-size:larger;
-    padding: 2px;
+    padding: 3px;
     padding-left: 0px;
     padding-right: 0px;
     justify-content: center;
@@ -45,7 +45,7 @@
 .react-calendar__navigation__prev-button {
     color: rgb(8, 8, 8);
     font-size: 25px;
-    margin-left: 5px;
+    margin-left: 1px;
     padding: 5px;
     padding-top: 0px;
     padding-bottom: 0px;
