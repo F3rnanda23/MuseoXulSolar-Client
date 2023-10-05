@@ -35,10 +35,7 @@ const Bibliografia = () => {
                 <div className="grid bg-gray-200  w-5/6 h-6/6 mr-auto ml-auto mt-[-150px] mb-[50px]">
                     <div className="ml-[20px]">
                         <p className="text-black-200 font-bold text-lg">
-                            <FormattedMessage
-                                id='bibliografia.libros'
-                                defaultMessage='a. Libros, tesis de doctorado y monografías'
-                            /></p>
+                            a. Libros, tesis de doctorado y monografías</p>
                         <br />
                         <div className="ml-[20px]">
                             <li>ABÓS, Álvaro. Xul Solar. Pintor del misterio . Buenos Aires. Editorial Sudamericana.2004.</li>
