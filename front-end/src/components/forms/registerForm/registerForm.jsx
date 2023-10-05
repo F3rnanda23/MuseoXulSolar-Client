@@ -23,15 +23,20 @@ export function RegisterForm() {
 
     const onSubmit = async (data) => {
         try {
-            const endpoint = 'https://server-xul-solar-ag97.vercel.app/usuario/crear'
-            const response = await axios.post(endpoint, data)
-            if (response.data) swal("exito", 'Usuario Creado', "success")
-            navigate('/login')
+            const result = await axios.get(`https://server-xul-solar-ag97.vercel.app/usuario/buscar/${data.email}`);
+            if (result.data.length) {
+                swal("Oops", "Ya existe un usuario registrado con ese email", "error");
+            } else if (!result.data.length) {
+                const endpoint = 'https://server-xul-solar-ag97.vercel.app/usuario/crear'
+                const response = await axios.post(endpoint, data);
+                swal("Éxito", 'Usuario Creado', "success");
+            }
         } catch (error) {
-            swal("Oops", error.response.data, "error")
+            swal("Oops", error.response.data, "error");
         }
-
     }
+
+
 
     return (
         <div className="rounded p-4 sm:p-8 pt-4 bg-gray-700 max-h-[700px] ">
