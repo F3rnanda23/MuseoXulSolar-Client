@@ -60,13 +60,13 @@ const Donations = () => {
               id='donaciones.titulo'
               defaultMessage='Hacé tu donación a la Fundación Pan Klub'
             /></h2>
-          <p className='w-2/3 mb-5 md:mb-8 lg:mb-10 text-lg'>
+          <p className='w-2/3 mb-5 md:mb-8 lg:mb-10 text-lg text-justify'>
             <FormattedMessage
               id='donaciones.texto'
               defaultMessage='Tu apoyo nos ayudará a mantener la programación del museo, así como sustentar el archivo de la Fundación. Tu contribución es muy importante para nuestro futuro y estamos muy agradecidos por ella. Muchas gracias'
             />
           </p>
-          <section className="flex flex-col justify-center items-center md:flex-row gap-5 py-10 px-5 bg-white rounded-md shadow-lg h-1/2 md:h-1/2 lg:h-1/2 w-3/4 md:max-w-2xl">
+          <section className="flex flex-col justify-center items-center md:flex-row gap-5 py-10 px-5 mb-5 bg-white rounded-md shadow-lg h-1/2 md:h-1/2 lg:h-1/2 sm:w-full md:max-w-2xl">
 
             <div className='h-full flex flex-col items-center'>
 
@@ -75,7 +75,7 @@ const Donations = () => {
                   id='donaciones.aportes'
                   defaultMessage='Elegí uno de los aportes sugeridos o ingresá tu aporte deseado abajo.'
                 /></h2>
-              <div className='grid grid-cols-5 gap-2 place-items-center mt-5'>
+              <div className='grid grid-cols-2 md:grid-cols-5 gap-2 place-items-center mt-5'>
                 <button className='rounded  bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105 w-[60px]'
                   onClick={() => setDonationAmount(5)}>$5</button>
                 <button className='rounded bg-orange-200 px-3 py-1 text-gray-200 shadow-xl transition-all duration-300 hover:scale-105 w-[60px]'
