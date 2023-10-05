@@ -207,7 +207,8 @@ const Donations = () => {
             /></h2>
           <p className='w-2/3 mb-5 md:mb-8 lg:mb-10 text-lg'>
             <FormattedMessage
-              id='membresia.texto'
+              id='donaciones.texto'
+              defaultMessage='Tu apoyo nos ayudará a mantener la programación del museo, así como sustentar el archivo de la Fundación. Tu contribución es muy importante para nuestro futuro y estamos muy agradecidos por ella. Muchas gracias'
             />
           </p>
           <section className="flex flex-col justify-center items-center md:flex-row gap-5 py-10 px-5 bg-white rounded-md shadow-lg h-1/2 md:h-1/2 lg:h-1/2 w-3/4 md:max-w-2xl">

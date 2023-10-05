@@ -30,6 +30,8 @@ const Events = () => {
               id="eventos.texto"
               defaultMessage='El museo ofrece sus instalaciones para distintas actividades: presentación de libros, música, ciclos de conferencias, cursos, entrega de premios, actos culturales y empresariales.'
             />
+            <br></br>
+            <br></br>
             <FormattedMessage
               id="eventos.texto2"
               defaultMessage='Un lugar ideal para organizar eventos. Su salón principal de 140 m2 aproximadamente permite la realización de una reunión en un contexto privilegiado, donde conviven la excelente colección de obras del Museo y el entorno especial de la arquitectura.'
@@ -37,9 +39,9 @@ const Events = () => {
             <br></br>
             <br></br>
             <h1 className="bg-gray-300  rounded flex justify-center items-center text-2xl font-bold mb-4">
-            <FormattedMessage
-              id="eventos.info"
-            />
+              <FormattedMessage
+                id="eventos.info"
+              />
             </h1>
             <div className="flex justify-evenly">
               <a
