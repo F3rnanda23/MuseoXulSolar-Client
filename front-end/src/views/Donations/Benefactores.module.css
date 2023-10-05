@@ -1,0 +1,107 @@
+/* .container {
+    background-color: rgb(156 163 175);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+
+.text {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+}
+
+.mensaje {
+    width: 100%;
+    height: 100vh;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+.card {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(7, 7, 7, 0.634);
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 10%;
+    transition: transform 0.3s;
+    overflow: hidden;
+}
+
+
+.containerCard {
+    color: white;
+    font-style: oblique;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-gap: 10px;
+    justify-content: space-around;
+    justify-items: center;
+    margin: 4%;
+} */
+
+/* Estilo para el contenedor principal */
+.container {
+    background-color: rgb(156, 163, 175);
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  /* Estilo para el encabezado "BENEFACTORES" */
+  .text {
+    font-size: 30px;
+    font-weight: bold;
+    color: black;
+    margin: 20px 0; /* Espacio en la parte superior e inferior */
+  }
+  
+  /* Estilo para el mensaje de "Todavía no hay benefactores" */
+  .mensaje {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px 0; /* Espacio en la parte superior e inferior */
+  }
+  
+  /* Estilo para cada tarjeta "card" */
+  .card {
+    margin: 10px;
+    padding: 10px;
+    background-color: rgba(7, 7, 7, 0.634);
+    border: 1px solid #ccc;
+    text-align: center;
+    border-radius: 10px;
+    transition: transform 0.3s;
+    overflow: hidden;
+    max-width: 1000px; /* Anchura máxima de las tarjetas */
+  }
+  
+  /* Estilo para el contenedor de las tarjetas "containerCard" */
+  .containerCard {
+    color: white;
+    font-style: oblique;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Diseño de cuadrícula adaptable */
+    grid-gap: 10px;
+    justify-content: space-around;
+    justify-items: center;
+    margin: 4%;
+  }
+  
