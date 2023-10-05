@@ -5,12 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { getAllActivities, deteleActivities, filtrarActividades, postAllActivitiesUser } from '../../redux/actions/actions';
 import Calendar from 'react-calendar';
 const firma6Xul = 'https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696361321/galeria/firma6Xul_mmiu6y.png';
-import style from './activities.module.css';
 import { BsSun } from 'react-icons/bs';
 import Cookies from "universal-cookie";
 import toast, { Toaster } from 'react-hot-toast';
 import swal from "sweetalert"
 import { FormattedMessage } from 'react-intl';
+import backgroundImage from '../../imagenes/background/bg1.png'
 
 
 
@@ -118,9 +118,15 @@ const Activities = () => {
         window.location.reload();
     };
 
+    const backgroundStyle = {
+        backgroundImage: `url(${backgroundImage})`,
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat'
+      };
+
     return (
 
-        <div className={style.activitiesContainer}>
+        <div className="flex flex-col min-h-screen" style={backgroundStyle}>
 
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 
@@ -137,7 +143,7 @@ const Activities = () => {
 
                 <div className="grid w-6/6  h-4/6 mr-[50px] md:w-5/6 order-2 mt-[250px] mr-[20px] mb-[20px] xl:order-1 xl:mt-[50px] ">
 
-                    <div className='relative   w-6/6  h-6/6 ' >
+                    <div className='relative   w-6/6  h-6/6   min-h-screen' >
 
                         <div className=" grid grid-cols-1 gap-2  w-full h-4/4 mb-[30px]">
 
@@ -178,7 +184,7 @@ const Activities = () => {
                             </div>
                             ))
                         ) : (
-                            <p className="text-orange-500 text-xl font-bold ml-[30px] ">{msjInfoActividades}</p>
+                            <p className="text-orange-500 text-xl font-bold ml-[30px]">{msjInfoActividades}</p>
                         )}
 
                            
