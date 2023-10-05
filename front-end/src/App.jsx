@@ -32,6 +32,7 @@ import ErrorPage from './views/ErrorPage/ErrorPage';
 import Testimonios from './views/Testimonio/Testimonios';
 import Esposiciones from './views/Esposiciones/Esposiciones';
 import NotasExposiciones from './views/Esposiciones/NotasExposiciones';
+import Benefactores from './views/Donations/Benefactores';
 
 
 import './App.css'
@@ -91,6 +92,7 @@ function App() {
         <Route path="/testimonios" element={<Testimonios />} />
         <Route path="/esposiciones" element={<Esposiciones />} />
         <Route path="/notasExposiciones" element={<NotasExposiciones />} />
+        <Route path="/benefactores" element={<Benefactores />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>
