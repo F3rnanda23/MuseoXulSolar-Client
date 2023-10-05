@@ -295,6 +295,7 @@ const Footer = () => {
           <p className="hidden md:block text-center mr-5 text-xs px-10">
             <FormattedMessage
               id='footer.derechos'
+              defaultMessage='Fundación Pan Klub - Museo Xul Solar Como única titular de los derechos de propiedad intelectual (Ley 11.723) sobre toda la obra de Alejandro Xul Solar (Oscar Agustín Alejandro Schulz Solari), advierte que es la única que puede autorizar su reproducción por cualquier medio o soporte y otorgar certificados de autenticidad sobre la misma. Para informes, dirigirse a: Laprida 1212, CABA (011) 4824-3302/4821-5378'
             /></p>
         </div>
 
