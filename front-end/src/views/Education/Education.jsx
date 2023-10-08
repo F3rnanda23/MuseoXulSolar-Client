@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FormattedMessage } from 'react-intl';
-import backgroundImage from '../../imagenes/background/bg1.png'
 
 
 const Education = () => {
@@ -21,16 +20,10 @@ const Education = () => {
     return () => clearTimeout(timeout);
   }, [])
 
-  const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
-  };
-
 
 
   return (
-    <div className="flex flex-col min-h-screen" style={backgroundStyle}>
+    <div className="flex flex-col min-h-screen">
       <div className='flex flex-col items-center'>
 
         <h1 className='font-bold text-2xl mt-10 mb-4'>

@@ -1,13 +1,11 @@
 import { FormattedMessage } from 'react-intl';
-import img_Bg from '../../imagenes/background/bg1.png'
 import { Question } from './Question';
 
 
 const Faqs = () => {
 
     return (
-        <div className='min-h-screen w-full bg-cover'
-            style={{ backgroundImage: `url(${img_Bg})` }}>
+        <div className='min-h-screen w-full bg-cover'>
             <h2 className='py-6 text-center text-2xl font-semibold'>
                 <FormattedMessage
                     id='faq.titulo'

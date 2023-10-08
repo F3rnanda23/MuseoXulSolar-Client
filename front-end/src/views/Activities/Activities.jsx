@@ -10,8 +10,6 @@ import Cookies from "universal-cookie";
 import toast, { Toaster } from 'react-hot-toast';
 import swal from "sweetalert"
 import { FormattedMessage } from 'react-intl';
-import backgroundImage from '../../imagenes/background/bg1.png'
-
 
 
 
@@ -118,15 +116,10 @@ const Activities = () => {
         window.location.reload();
     };
 
-    const backgroundStyle = {
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat'
-      };
 
     return (
 
-        <div className="flex flex-col min-h-screen" style={backgroundStyle}>
+        <div className="flex flex-col min-h-screen">
 
             <h1 className='font-bold text-2xl flex justify-center pt-4 mb-4'>{currentMonthName + ' en el Museo Xul Solar'}</h1>
 
