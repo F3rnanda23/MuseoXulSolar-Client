@@ -1,7 +1,6 @@
 
 import phoneIcon from "../../imagenes/footer/llamada-telefonica.png";
 import envelopeIcon from "../../imagenes/footer/sobre.png";
-import imagenbg from "../../imagenes/background/bg1.png";
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { FormattedMessage } from 'react-intl';
 import { useState } from 'react';
@@ -31,17 +30,10 @@ const Events = () => {
     setSelectedImage(null);
   }
 
-  const backgroundStyle = {
-    backgroundImage: `url(${imagenbg})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
-
 
   return (
     <div className="bg-gray-100 ">
       <main
-        style={backgroundStyle}
         className="flex flex-col justify-start items-center min-h-screen "
       >
         <div className=" ">

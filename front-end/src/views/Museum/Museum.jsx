@@ -1,18 +1,14 @@
 const elMuseo =
   "https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696210268/galeria/y3rmuduygzqat9ej47uj.jpg";
 
-import imagenbg from "../../imagenes/background/bg1.png";
+
 import { FormattedMessage } from 'react-intl';
 //aaasad
 const Museum = () => {
-  const backgroundStyle = {
-    backgroundImage: `url(${imagenbg})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
+  
   return (
     <div>
-      <div className="flex flex-col" style={backgroundStyle}>
+      <div className="flex flex-col" >
         <div className=" flex flex-col justify-center items-center mb-5">
           <div className="rounded-full bg-gray-200 w-[800px] mt-8">
             <h1 className="flex justify-center items-center text-2xl font-semibold">

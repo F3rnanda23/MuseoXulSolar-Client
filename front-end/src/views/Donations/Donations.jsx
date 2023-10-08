@@ -5,7 +5,6 @@ import { initMercadoPago } from '@mercadopago/sdk-react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-import backgroundImage from '../../imagenes/background/bg1.png'
 import { auth } from '../../components/forms/loginForm/config';
 
 const Donations = () => {
@@ -40,16 +39,10 @@ const Donations = () => {
     }
   };
 
-  const backgroundStyle = {
-    backgroundImage: `url(${backgroundImage})`,
-    backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat'
-  };
-
 
 
   return (
-    <div className='bg-gray-200 min-h-screen' style={backgroundStyle}>
+    <div className='bg-gray-200 min-h-screen'>
 
       <main className="flex flex-row justify-center items-center h-full">
         

@@ -23,7 +23,7 @@
     padding-left: 12px;
 }
 .containerAll{
-    background-image: url('../../imagenes/actividades/firmasXulFondo.png');
+    
     height: 200vh;
     display: flex;
     flex-direction: column;

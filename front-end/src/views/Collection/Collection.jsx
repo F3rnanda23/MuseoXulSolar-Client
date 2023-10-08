@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 import { FormattedMessage } from 'react-intl';
-import img_Bg from '../../imagenes/background/bg1.png'
 import images from '../../components/galery/links'
 
 const Collection = () => {
@@ -17,8 +16,7 @@ const Collection = () => {
     }
 
     return (
-        <div className="min-h-screen "
-            style={{ backgroundImage: `url(${img_Bg})` }}>
+        <div className="min-h-screen ">
             <h2 className="text-center py-6 font-semibold text-3xl">
                 <FormattedMessage
                     id='colleccion.titulo'

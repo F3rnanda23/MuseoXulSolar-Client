@@ -5,7 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { sendSubsInfo } from '../../redux/actions/actions'
 import { FormattedMessage } from 'react-intl';
-import img_Bg from '../../imagenes/background/bg1.png'
 import { async } from '@firebase/util';
 import { func } from 'prop-types';
 import swal from 'sweetalert';
@@ -81,8 +80,7 @@ export const Subscription = () => {
 
 
     return (
-        <div className="bg-gray-200 min-h-screen w-full bg-cover"
-            style={{ backgroundImage: `url(${img_Bg})` }}>
+        <div className="bg-gray-200 min-h-screen w-full bg-cover">
             <div className='container  max-w-screen-md mx-auto'>
                 <h2 className="text-center text-3xl pt-5">
                     <FormattedMessage
@@ -98,7 +96,7 @@ export const Subscription = () => {
             </div>
             <div className=" flex items-center justify-center min-h-full mx-auto container">
                 <div className="max-w-xs sm:max-w-sm grid grid-cols-1 gap-7 md:grid-cols-2 md:max-w-2xl  ">
-                    <div className="rounded shadow-2xl my-3 bg-gray-300 hover:scale">
+                    <div className="rounded shadow-2xl my-3 bg-gray-400 hover:scale">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
                                 <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696473639/1019-455-IMG_1400-_1__1_livm2n.png" alt="" />
@@ -148,7 +146,7 @@ export const Subscription = () => {
                                 /></button>
                         </div>
                     </div>
-                    <div className="rounded my-3 shadow-2xl bg-gray-300">
+                    <div className="rounded my-3 shadow-2xl bg-gray-400">
                         <div className="p-5 flex flex-col">
                             <div className="rounded overflow-hidden">
                                 <img src="https://res.cloudinary.com/dtsmy1ksn/image/upload/v1696473639/1019-455-IMG_1400-_1__1_livm2n.png" alt="" />

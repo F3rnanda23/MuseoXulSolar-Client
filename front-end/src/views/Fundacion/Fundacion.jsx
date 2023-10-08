@@ -1,16 +1,11 @@
-import imagenbg from "../../imagenes/background/bg1.png";
+
 import { FormattedMessage } from 'react-intl';
 
 const Fundacion = () => {
-  const backgroundStyle = {
-    backgroundImage: `url(${imagenbg})`,
-    backgroundSize: "cover",
-    backgroundRepeat: "no-repeat",
-  };
-
+  
   return (
     <div className="min-h-screen bg-gray-100">
-      <div className="min-h-screen flex flex-col items-center" style={backgroundStyle}>
+      <div className="min-h-screen flex flex-col items-center">
         <h1 className="text-center rounded-full text-2xl font-bold mb-4 mt-5 bg-gray-300 w-[850px]">
           <FormattedMessage
             id='fundacion.titulo'
